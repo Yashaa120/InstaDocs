@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="rf" x1="32" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="20%" stop-color="#ef4444"/>
+      <stop offset="70%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="wl" x1="12" y1="28" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="50%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </linearGradient>
+    <linearGradient id="dr" x1="20" y1="36" x2="30" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <linearGradient id="gl" x1="36" y1="34" x2="48" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Chimney -->
+  <rect x="16" y="14" width="7" height="14" rx="1.5" fill="#ea580c"/>
+  <rect x="15" y="12" width="9" height="3" rx="1" fill="#9a3412"/>
+  <!-- House Wall -->
+  <rect x="12" y="28" width="40" height="28" rx="3" fill="url(#wl)"/>
+  <!-- Door -->
+  <path d="M20 56V40C20 37.8 21.8 36 24 36H28C30.2 36 32 37.8 32 40V56H20Z" fill="url(#dr)"/>
+  <circle cx="29.5" cy="47" r="1.2" fill="#fde047"/>
+  <!-- Window -->
+  <rect x="36" y="34" width="13" height="13" rx="2.5" fill="#ffffff"/>
+  <rect x="37.5" y="35.5" width="10" height="10" rx="1.5" fill="url(#gl)"/>
+  <!-- Iconic Roof 🏠 -->
+  <path d="M6 31L32 7L58 31C58.8 31.7 58.3 33 57.2 33H6.8C5.7 33 5.2 31.7 6 31Z" fill="url(#rf)"/>
+  <circle cx="32" cy="22" r="2.8" fill="#fef08a"/>
+</svg>

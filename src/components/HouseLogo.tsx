@@ -11,173 +11,103 @@ export const HouseLogo: React.FC<HouseLogoProps> = ({ className = 'w-9 h-9', siz
   return (
     <div className={`inline-flex items-center justify-center shrink-0 select-none ${className}`} style={style}>
       <svg
-        viewBox="0 0 120 120"
+        viewBox="0 0 64 64"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-sm"
+        className="w-full h-full drop-shadow-xs"
       >
         <defs>
-          {/* Ground Soft Ambient Shadow */}
-          <radialGradient id="baseShadow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#0f172a" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#0f172a" stopOpacity="0" />
-          </radialGradient>
-
-          {/* Manicured Lawn Grass Gradient */}
-          <linearGradient id="lawnGrad" x1="16" y1="92" x2="104" y2="108" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#4ade80" />
-            <stop offset="50%" stopColor="#22c55e" />
-            <stop offset="100%" stopColor="#15803d" />
+          {/* Roof Gradient - Vibrant Red/Orange terracotta like 🏠 */}
+          <linearGradient id="roofEmojiGrad" x1="32" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#f87171" />
+            <stop offset="20%" stopColor="#ef4444" />
+            <stop offset="70%" stopColor="#dc2626" />
+            <stop offset="100%" stopColor="#b91c1c" />
           </linearGradient>
 
-          {/* Front Wall (Warm Light Sandstone) */}
-          <linearGradient id="frontWallGrad" x1="28" y1="52" x2="92" y2="98" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#ffedd5" />
-            <stop offset="40%" stopColor="#fed7aa" />
-            <stop offset="100%" stopColor="#fba759" />
+          {/* Roof Overhang Trim */}
+          <linearGradient id="roofTrimGrad" x1="4" y1="32" x2="60" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#ef4444" />
+            <stop offset="50%" stopColor="#dc2626" />
+            <stop offset="100%" stopColor="#991b1b" />
           </linearGradient>
 
-          {/* Left / Shadow Side Wall */}
-          <linearGradient id="leftWallGrad" x1="22" y1="54" x2="38" y2="96" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#fdba74" />
-            <stop offset="100%" stopColor="#ea580c" />
+          {/* House Front Wall - Warm Cream/Amber */}
+          <linearGradient id="wallEmojiGrad" x1="12" y1="28" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#fef3c7" />
+            <stop offset="50%" stopColor="#fde68a" />
+            <stop offset="100%" stopColor="#fcd34d" />
           </linearGradient>
 
-          {/* Roof Main Slope (Vibrant Terracotta / Coral Red 3D Glow) */}
-          <linearGradient id="roofMain" x1="60" y1="16" x2="60" y2="60" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#ff6b6b" />
-            <stop offset="30%" stopColor="#f97316" />
-            <stop offset="75%" stopColor="#ea580c" />
+          {/* Left Wall Shadow */}
+          <linearGradient id="wallShadow" x1="10" y1="28" x2="22" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#fbbf24" />
+            <stop offset="100%" stopColor="#f59e0b" />
+          </linearGradient>
+
+          {/* Chimney */}
+          <linearGradient id="chimneyGrad" x1="16" y1="12" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#fb923c" />
             <stop offset="100%" stopColor="#c2410c" />
           </linearGradient>
 
-          {/* Roof Overhang Eaves Gradient */}
-          <linearGradient id="roofEaves" x1="14" y1="54" x2="106" y2="54" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#dc2626" />
-            <stop offset="50%" stopColor="#ea580c" />
-            <stop offset="100%" stopColor="#9a3412" />
-          </linearGradient>
-
-          {/* Chimney 3D */}
-          <linearGradient id="chimneyFront" x1="32" y1="22" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#fdba74" />
-            <stop offset="100%" stopColor="#c2410c" />
-          </linearGradient>
-
-          {/* Window Glass 3D Glowing Azure */}
-          <linearGradient id="windowGlass" x1="68" y1="60" x2="88" y2="80" gradientUnits="userSpaceOnUse">
+          {/* Window Glass - Cyan/Blue */}
+          <linearGradient id="windowGlassGrad" x1="36" y1="34" x2="48" y2="46" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#e0f2fe" />
-            <stop offset="30%" stopColor="#38bdf8" />
+            <stop offset="50%" stopColor="#38bdf8" />
             <stop offset="100%" stopColor="#0284c7" />
           </linearGradient>
 
-          {/* Door Rich Mahogany / Walnut Wood */}
-          <linearGradient id="doorGrad" x1="42" y1="62" x2="58" y2="98" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#854d0e" />
-            <stop offset="50%" stopColor="#713f12" />
-            <stop offset="100%" stopColor="#451a03" />
-          </linearGradient>
-
-          {/* Golden Knob Glow */}
-          <linearGradient id="brassKnob" x1="53" y1="78" x2="57" y2="82" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#fef08a" />
-            <stop offset="100%" stopColor="#eab308" />
-          </linearGradient>
-
-          {/* Stone Pathway */}
-          <linearGradient id="pathGrad" x1="42" y1="96" x2="58" y2="106" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#e2e8f0" />
-            <stop offset="100%" stopColor="#94a3b8" />
+          {/* Door - Rich Warm Wood */}
+          <linearGradient id="doorWoodGrad" x1="20" y1="36" x2="30" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#9a3412" />
+            <stop offset="50%" stopColor="#7c2d12" />
+            <stop offset="100%" stopColor="#431407" />
           </linearGradient>
         </defs>
 
-        {/* Ambient Ground Shadow */}
-        <ellipse cx="60" cy="103" rx="46" ry="7" fill="url(#baseShadow)" />
+        {/* Soft Base Ground Shadow */}
+        <ellipse cx="32" cy="58" rx="24" ry="3.5" fill="#0f172a" fillOpacity="0.12" />
 
-        {/* Manicured Grass Base */}
-        <rect x="16" y="94" width="88" height="9" rx="4.5" fill="url(#lawnGrad)" />
-        {/* Grass highlight rim */}
-        <path d="M19 95H101" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
+        {/* Chimney */}
+        <rect x="16" y="14" width="7" height="14" rx="1.5" fill="url(#chimneyGrad)" />
+        <rect x="15" y="12" width="9" height="3" rx="1" fill="#9a3412" />
 
-        {/* Front Stone Walkway */}
-        <path d="M44 94L42 103H58L56 94H44Z" fill="url(#pathGrad)" />
-        <ellipse cx="46" cy="98" rx="2" ry="1" fill="#cbd5e1" />
-        <ellipse cx="54" cy="100" rx="2.5" ry="1" fill="#cbd5e1" />
+        {/* House Main Body Wall */}
+        <rect x="12" y="28" width="40" height="28" rx="3" fill="url(#wallEmojiGrad)" />
 
-        {/* Chimney Body */}
-        <rect x="34" y="24" width="13" height="24" rx="2" fill="url(#chimneyFront)" />
-        {/* Chimney Cap */}
-        <rect x="32" y="21" width="17" height="4.5" rx="2" fill="#9a3412" />
-        <rect x="33.5" y="22" width="14" height="1.5" rx="0.75" fill="#fed7aa" opacity="0.6" />
-
-        {/* Main Wall Structure */}
-        <rect x="27" y="52" width="66" height="43" rx="4" fill="url(#frontWallGrad)" />
-
-        {/* Subtle Architectural Horizontal Siding Grooves */}
-        <line x1="29" y1="62" x2="91" y2="62" stroke="#ea580c" strokeWidth="0.8" opacity="0.25" />
-        <line x1="29" y1="72" x2="91" y2="72" stroke="#ea580c" strokeWidth="0.8" opacity="0.25" />
-        <line x1="29" y1="82" x2="91" y2="82" stroke="#ea580c" strokeWidth="0.8" opacity="0.25" />
-
-        {/* Modern Arched Front Door */}
+        {/* Front Door */}
         <path
-          d="M40 94V68C40 63.5817 43.5817 60 48 60H52C56.4183 60 60 63.5817 60 68V94H40Z"
-          fill="url(#doorGrad)"
+          d="M20 56V40C20 37.7909 21.7909 36 24 36H28C30.2091 36 32 37.7909 32 40V56H20Z"
+          fill="url(#doorWoodGrad)"
         />
-        {/* Door Frame Inner Trim */}
+        {/* Door Knob */}
+        <circle cx="29.5" cy="47" r="1.2" fill="#fde047" />
+
+        {/* Window with White Frame */}
+        <rect x="36" y="34" width="13" height="13" rx="2.5" fill="#ffffff" />
+        <rect x="37.5" y="35.5" width="10" height="10" rx="1.5" fill="url(#windowGlassGrad)" />
+        {/* Window Panes Grid */}
+        <line x1="37.5" y1="40.5" x2="47.5" y2="40.5" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" />
+        <line x1="42.5" y1="35.5" x2="42.5" y2="45.5" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" />
+
+        {/* Iconic Triangular Roof (🏠) */}
         <path
-          d="M42 94V69C42 65.6863 44.6863 63 48 63H52C55.3137 63 58 65.6863 58 69V94"
-          stroke="#9a3412"
-          strokeWidth="1.2"
-          opacity="0.6"
+          d="M6 31L32 7L58 31C58.8 31.7 58.3 33 57.2 33H6.8C5.7 33 5.2 31.7 6 31Z"
+          fill="url(#roofEmojiGrad)"
         />
-        {/* Polished Brass Doorknob */}
-        <circle cx="55.5" cy="78" r="2" fill="url(#brassKnob)" />
-        <circle cx="55.5" cy="78" r="0.75" fill="#fef9c3" />
-
-        {/* Modern Picture Window with Frame & 3D Glass */}
-        <rect x="67" y="62" width="19" height="19" rx="3.5" fill="#ffffff" />
-        <rect x="68.5" y="63.5" width="16" height="16" rx="2.5" fill="url(#windowGlass)" />
-        {/* Window Cross Mullions */}
-        <line x1="68.5" y1="71.5" x2="84.5" y2="71.5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.85" />
-        <line x1="76.5" y1="63.5" x2="76.5" y2="79.5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.85" />
-        {/* Window Sun Specular Reflection Glare */}
-        <path d="M69.5 64.5L80.5 75.5" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" opacity="0.6" />
-        <path d="M74.5 64.5L83.5 73.5" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-
-        {/* Mini Attic Window / Vent */}
-        <circle cx="60" cy="42" r="4.5" fill="#fed7aa" stroke="#9a3412" strokeWidth="1" />
-        <line x1="60" y1="38" x2="60" y2="46" stroke="#9a3412" strokeWidth="0.8" />
-        <line x1="56" y1="42" x2="64" y2="42" stroke="#9a3412" strokeWidth="0.8" />
-
-        {/* 3D Terracotta Roof */}
+        {/* Roof Eaves Trim Bottom Line */}
         <path
-          d="M17 56L60 17L103 56C103.9 56.9 103.2 58.5 101.9 58.5H18.1C16.8 58.5 16.1 56.9 17 56Z"
-          fill="url(#roofMain)"
-        />
-
-        {/* Roof Lower Overhang Eaves Trim */}
-        <path
-          d="M16 57L60 18L104 57C104.8 57.7 104.2 59 103.1 59H16.9C15.8 59 15.2 57.7 16 57Z"
-          fill="url(#roofEaves)"
-          opacity="0.9"
-        />
-
-        {/* Glossy Roof Ridge Highlight */}
-        <path
-          d="M20 55L60 19L100 55"
-          stroke="#ffedd5"
+          d="M5 32L32 8L59 32"
+          stroke="url(#roofTrimGrad)"
           strokeWidth="2"
           strokeLinecap="round"
-          opacity="0.85"
+          strokeLinejoin="round"
         />
-        {/* Soft Secondary Ridge Accent */}
-        <path
-          d="M26 53L60 23L94 53"
-          stroke="#fef08a"
-          strokeWidth="1"
-          strokeLinecap="round"
-          opacity="0.35"
-        />
+
+        {/* Little Attic Vent Circle */}
+        <circle cx="32" cy="22" r="2.8" fill="#fef08a" opacity="0.9" />
+        <circle cx="32" cy="22" r="2.8" stroke="#b91c1c" strokeWidth="0.8" />
       </svg>
     </div>
   );

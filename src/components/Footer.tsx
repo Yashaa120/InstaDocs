@@ -26,9 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center space-x-2.5 text-white">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center p-0.5">
-                <HouseLogo className="w-6 h-6" />
-              </div>
+              <HouseLogo className="w-8 h-8 rounded-xl shadow-xs" />
               <span className="text-lg font-bold tracking-tight">
                 RentReceipt
               </span>

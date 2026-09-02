@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Free online Rent Receipt Generator for HRA exemption and tax claims in India. Generate, preview, and download authentic monthly or annual rent receipts as PDF with revenue stamp instantly.",
+  "description": "Free online Rent Receipt & Salary Slip Generator for HRA tax exemption under Section 10(13A) and Income Tax filing (ITR Login / ClearTax / Tax2Win). Download authentic monthly salary slips, payslip formats, and rent receipts with revenue stamps instantly.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

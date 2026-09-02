@@ -203,6 +203,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
       </section>
 
+      {/* Tax & Payroll SEO Knowledge Section (50-150 Words with Trending Keywords) */}
+      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-2xs" aria-label="Tax and Payroll Compliance Overview">
+        <div className="max-w-4xl mx-auto space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-600 inline-block" />
+            <span>Income Tax, HRA Proofs &amp; Payroll Documentation Guide</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+            Need an authentic <strong>salary slip format</strong> or verified <strong>salary slip generator</strong> for your <strong>income tax</strong> declaration before the <strong>ITR filing last date</strong>? Whether you manage employee payroll records on <strong>Salary Box</strong> / <strong>Salarybox</strong>, claim <strong>HRA tax exemption</strong> under <strong>Section 10(13A)</strong>, or prepare tax returns on <strong>ClearTax</strong>, <strong>Tax2Win</strong>, or the official <strong>Income Tax login (ITR login)</strong> portal, submitting accurate <strong>salary slips</strong> and signed rent receipts with valid landlord PAN is essential.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+            Our platform provides instant, free document generators for compliant <strong>salary slip formats</strong>, batch rent receipts with revenue stamp formatting, and legal self-declarations for official verification, bank loans, and welfare portals like <strong>Annapurna Bhandar portal</strong> (for <strong>Annapurna Bhandar status check</strong> documentation). All documents are generated locally in your browser with zero server storage.
+          </p>
+        </div>
+      </section>
+
       {/* Pre-Footer Ad Slot */}
       <div className="mb-4">
         <AdSlot type="pre-footer" />
