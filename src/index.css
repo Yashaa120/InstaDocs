@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --white: #ffffff;
+  --receipt-bg: #fffdf5;
+}
+
+@layer base {
+  html,
+  body {
+    direction: ltr !important;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+/* Clean Minimalism Receipt Styling with strict hex/rgb colors for html2canvas compatibility */
+.receipt-print-card {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #0f172a;
+  translate: no;
+}
+
+/* Google Translate styling: Keep select element in DOM off-screen so translations trigger reliably */
+#google_translate_element {
+  position: fixed !important;
+  top: -1000px !important;
+  left: -1000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0.001 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  z-index: -9999 !important;
+}
+
+/* Hide top banner and restore original frame */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.goog-te-banner {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* Hide hover tooltips and text highlighting from Google Translate */
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight {
+  display: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Prevent translation on critical elements like numbers, codes, signature canvases */
+.notranslate {
+  translate: no;
+}
+
+.revenue-stamp-box {
+  width: 84px;
+  height: 104px;
+  border: 1.5px dashed #94a3b8 !important;
+  background-color: #fafaf9 !important;
+}
+
+/* Specific Print Styles for Official Receipt Printing */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header,
+  footer,
+  aside,
+  #ad-slot-banner,
+  #ad-slot-sidebar,
+  #ad-slot-pre-footer,
+  #receipt-form-container,
+  #trust-section,
+  #home-content-container,
+  #whatsapp-share-header,
+  #preview-mode-toggle,
+  #prev-receipt-btn,
+  #next-receipt-btn {
+    display: none !important;
+  }
+
+  .receipt-print-card {
+    background-color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    page-break-after: always;
+    break-after: page;
+    box-shadow: none !important;
+    margin-bottom: 2rem !important;
+  }
+}
