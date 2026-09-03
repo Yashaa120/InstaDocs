@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, CheckCircle2, Clock, Shield } from 'lucide-react';
 import { ActivePage } from '../types';
+import { AdSlot } from '../components/AdSlot';
 
 interface ContactPageProps {
   setActivePage: (page: ActivePage) => void;
@@ -99,6 +100,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
                 </span>
               </div>
             </div>
+          </div>
+
+          {/* Left Column Ad Slot */}
+          <div className="pt-1">
+            <AdSlot type="sidebar" />
           </div>
         </div>
 
@@ -202,6 +208,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
             </form>
           )}
         </div>
+      </div>
+
+      {/* Bottom Ad Slot */}
+      <div className="pt-8">
+        <AdSlot type="pre-footer" />
       </div>
     </div>
   );

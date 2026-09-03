@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Lock, EyeOff, Server, Cookie, ExternalLink } from 'lucide-react';
 import { ActivePage } from '../types';
+import { AdSlot } from '../components/AdSlot';
 
 interface PrivacyPolicyPageProps {
   setActivePage: (page: ActivePage) => void;
@@ -98,6 +99,11 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
             </a>
           </p>
 
+          {/* Ad Slot */}
+          <div className="my-6">
+            <AdSlot type="banner" />
+          </div>
+
           <h2 className="text-xl font-bold text-slate-900">
             4. Third-Party Privacy Policies
           </h2>
@@ -121,6 +127,11 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
           <p>
             By using our website, you hereby consent to our Privacy Policy and agree to its terms. We may update our Privacy Policy periodically. We advise you to review this page periodically for any changes.
           </p>
+        </div>
+
+        {/* Bottom Ad Slot */}
+        <div className="pt-4">
+          <AdSlot type="pre-footer" />
         </div>
       </div>
     </div>

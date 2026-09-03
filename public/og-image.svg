@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Accent Blue/Indigo Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Roof Gradient -->
+    <linearGradient id="rfGrad" x1="32" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="20%" stop-color="#ef4444"/>
+      <stop offset="70%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Subtle Ambient Glow Circles -->
+  <circle cx="150" cy="120" r="280" fill="#2563eb" opacity="0.18" filter="blur(80px)" />
+  <circle cx="1050" cy="480" r="320" fill="#4f46e5" opacity="0.15" filter="blur(90px)" />
+
+  <!-- Inner Border Frame -->
+  <rect x="30" y="30" width="1140" height="570" rx="24" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5" />
+
+  <!-- Brand Logo & Name Header -->
+  <g transform="translate(90, 80)">
+    <!-- House Icon 🏠 -->
+    <rect width="64" height="64" rx="16" fill="url(#accentGrad)" />
+    <g transform="translate(8, 8) scale(0.75)">
+      <rect x="12" y="28" width="40" height="28" rx="3" fill="#fde68a" />
+      <path d="M20 56V40C20 37.8 21.8 36 24 36H28C30.2 36 32 37.8 32 40V56H20Z" fill="#9a3412" />
+      <circle cx="29.5" cy="47" r="1.2" fill="#fde047" />
+      <rect x="36" y="34" width="13" height="13" rx="2.5" fill="#ffffff" />
+      <rect x="37.5" y="35.5" width="10" height="10" rx="1.5" fill="#38bdf8" />
+      <path d="M6 31L32 7L58 31C58.8 31.7 58.3 33 57.2 33H6.8C5.7 33 5.2 31.7 6 31Z" fill="url(#rfGrad)" />
+      <circle cx="32" cy="22" r="2.8" fill="#fef08a" />
+    </g>
+
+    <!-- Brand Text -->
+    <text x="80" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" fill="#ffffff" letter-spacing="-0.5">RentReceipt<tspan fill="#60a5fa">.app</tspan></text>
+    <rect x="315" y="16" width="150" height="32" rx="16" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <text x="390" y="37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#93c5fd" text-anchor="middle">100% FREE &amp; SECURE</text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="90" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="800" fill="#ffffff" letter-spacing="-1">
+    Rent Receipt &amp; Salary Slip Generator
+  </text>
+  <text x="90" y="275" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="600" fill="#94a3b8">
+    Free HRA Tax Exemption Proofs • Section 10(13A) • Instant PDF
+  </text>
+
+  <!-- Feature Cards / Badges Grid -->
+  <g transform="translate(90, 340)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="310" height="120" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="30" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff">🏠 Rent Receipts</text>
+    <text x="30" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Single &amp; Multi-Month Batches</text>
+    <text x="30" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#38bdf8">Revenue Stamp &amp; QR Verify</text>
+
+    <!-- Card 2 -->
+    <rect x="340" y="0" width="310" height="120" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="370" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff">💼 Salary Slips</text>
+    <text x="370" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Earnings, Deductions &amp; Net</text>
+    <text x="370" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#38bdf8">Authentic Company Formats</text>
+
+    <!-- Card 3 -->
+    <rect x="680" y="0" width="340" height="120" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="710" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff">📜 Self-Declarations</text>
+    <text x="710" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Affidavits &amp; Address Proofs</text>
+    <text x="710" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#38bdf8">Bank, Welfare &amp; HR Ready</text>
+  </g>
+
+  <!-- Footer Guarantee Bar -->
+  <g transform="translate(90, 520)">
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600" fill="#10b981">
+      ✓ 100% Client-Side In Browser
+    </text>
+    <text x="260" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600" fill="#10b981">
+      ✓ Zero Data Stored On Servers
+    </text>
+    <text x="560" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600" fill="#10b981">
+      ✓ No Login Required
+    </text>
+    <text x="820" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600" fill="#38bdf8">
+      🌐 Available in 11 Languages
+    </text>
+  </g>
+</svg>

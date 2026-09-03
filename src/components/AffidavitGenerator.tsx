@@ -778,6 +778,11 @@ export const AffidavitGenerator: React.FC<AffidavitGeneratorProps> = ({ onNaviga
                   100% Free &amp; Client-Side
                 </span>
               </div>
+
+              {/* High-CTR Sponsored Ad Slot */}
+              <div className="pt-2">
+                <AdSlot type="high-ctr" />
+              </div>
             </div>
           </div>
         </div>

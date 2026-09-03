@@ -11,6 +11,7 @@ import {
   CreditCard,
   ArrowLeft,
 } from 'lucide-react';
+import { AdSlot } from '../components/AdSlot';
 
 interface ValidationPageProps {
   verifiedData: DecodedReceiptVerification | null;
@@ -230,7 +231,7 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
           {/* Action Bar */}
           <div className="bg-slate-900 p-5 border-t border-slate-700 flex flex-wrap items-center justify-between gap-3">
             <div className="text-xs text-slate-400 font-mono">
-              Rule 2A Income Tax Rules 1962 &bull; Sec 10(13A) IT Act 1961
+              HRA Exemption Documentation Record
             </div>
 
             <div className="flex items-center gap-3">
@@ -264,6 +265,11 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
               </button>
             </div>
           </div>
+        </div>
+
+        {/* High-Visibility Ad Banner for Verification Viewers */}
+        <div className="pt-4">
+          <AdSlot type="banner" />
         </div>
       </div>
     </div>

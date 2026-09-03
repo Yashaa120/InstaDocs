@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, FileText, CheckCircle2, ShieldAlert, Calculator, BookOpen } from 'lucide-react';
+import { AdSlot } from './AdSlot';
 
 export const HomeContentSections: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -64,7 +65,7 @@ export const HomeContentSections: React.FC = () => {
 
         <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4 text-base">
           <p>
-            A <strong>Rent Receipt</strong> is an official legal voucher and documentary acknowledgment issued by a landlord (property owner) to a tenant confirming that rent for a specific residential property has been received for a defined period. In India, rent receipts serve as primary documentary evidence under <strong>Section 10(13A) of the Income Tax Act, 1961</strong>, allowing salaried employees to claim <strong>House Rent Allowance (HRA) tax exemption</strong> and reduce their annual taxable income.
+            A <strong>Rent Receipt</strong> is an official legal document and documentary acknowledgment issued by a landlord (property owner) to a tenant confirming that rent for a specific residential property has been received for a defined period. In India, rent receipts serve as primary documentary evidence under <strong>Section 10(13A) of the Income Tax Act, 1961</strong>, allowing salaried employees to claim <strong>House Rent Allowance (HRA) tax exemption</strong> and reduce their annual taxable income.
           </p>
           <p>
             When employers calculate Tax Deducted at Source (TDS) on salaries during the year-end tax declaration window (typically December to February), employees are required to submit valid proof of rent paid. A standard rent receipt includes the tenant’s full name, landlord’s name and signature, monthly rental figure in both numerical digits and words, the exact residential address, the rent cycle (e.g., April 2025), the payment transaction mode, and where applicable, the landlord’s Permanent Account Number (PAN) and a ₹1 revenue stamp.
@@ -208,33 +209,40 @@ export const HomeContentSections: React.FC = () => {
           {faqs.map((faq, index) => {
             const isOpen = openFaqIndex === index;
             return (
-              <div
-                key={faq.question}
-                id={`faq-item-${index}`}
-                className="border border-slate-200 rounded-xl overflow-hidden transition-colors"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 bg-slate-50/50 hover:bg-slate-100/70 transition-colors"
-                  aria-expanded={isOpen}
+              <React.Fragment key={faq.question}>
+                <div
+                  id={`faq-item-${index}`}
+                  className="border border-slate-200 rounded-xl overflow-hidden transition-colors"
                 >
-                  <span className="text-sm sm:text-base font-semibold text-slate-900">
-                    {faq.question}
-                  </span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-blue-600 shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
-                  )}
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 bg-slate-50/50 hover:bg-slate-100/70 transition-colors"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-sm sm:text-base font-semibold text-slate-900">
+                      {faq.question}
+                    </span>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-blue-600 shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
+                    )}
+                  </button>
 
-                {isOpen && (
-                  <div className="px-5 py-4 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
-                    {faq.answer}
+                  {isOpen && (
+                    <div className="px-5 py-4 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+
+                {index === 3 && (
+                  <div className="py-2">
+                    <AdSlot type="banner" hideOnMobile={true} />
                   </div>
                 )}
-              </div>
+              </React.Fragment>
             );
           })}
         </div>

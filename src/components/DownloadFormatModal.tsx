@@ -13,6 +13,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { downloadDocument, ExportFormat } from '../utils/pdfGenerator';
+import { AdSlot } from './AdSlot';
 
 interface DownloadFormatModalProps {
   isOpen: boolean;
@@ -268,8 +269,13 @@ export const DownloadFormatModal: React.FC<DownloadFormatModalProps> = ({
             </div>
           )}
 
+          {/* Sponsored Ad Area (High Intent & High Dwell-Time Slot) */}
+          <div className="pt-1">
+            <AdSlot type="modal-sponsor" />
+          </div>
+
           {/* Action Buttons */}
-          <div className="pt-2 space-y-2">
+          <div className="pt-1 space-y-2">
             <button
               type="button"
               id="confirm-download-format-btn"

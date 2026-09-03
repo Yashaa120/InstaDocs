@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calculator, ShieldCheck, CheckCircle2, AlertCircle, ArrowRight, IndianRupee } from 'lucide-react';
 import { ActivePage } from '../types';
 import { formatIndianCurrency } from '../utils/numberToWords';
+import { AdSlot } from '../components/AdSlot';
 
 interface HraGuidePageProps {
   setActivePage: (page: ActivePage) => void;
@@ -145,6 +146,11 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
           </div>
         </div>
 
+        {/* Mid-Guide Ad Slot (Hidden on mobile for smooth long-form reading) */}
+        <div className="py-2">
+          <AdSlot type="banner" hideOnMobile={true} />
+        </div>
+
         {/* Detailed Comprehensive Editorial Content (800+ words) */}
         <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-6 text-base">
           <h2 className="text-xl font-bold text-slate-900">
@@ -181,6 +187,11 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
               <p className="text-rose-800">Under tax laws, a husband and wife live together as joint partners. Rent paid to a spouse is not permissible for HRA exemption.</p>
             </div>
           </div>
+        </div>
+
+        {/* Bottom Ad Slot */}
+        <div className="pt-2">
+          <AdSlot type="pre-footer" />
         </div>
 
         <div className="pt-6 border-t border-slate-100 flex items-center justify-between">

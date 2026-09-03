@@ -49,8 +49,7 @@ Landlord PAN: ${data.landlordPan || 'Exempt / Not Provided'}
 Property: ${data.propertyAddress || 'N/A'}
 Rent Amount: INR ₹${formattedAmount}/- (${amountWords})
 Payment Mode: ${data.paymentMode}
-Txn / Bank Ref: ${data.transactionRef || 'N/A'}
-Legal References: Rule 2A Income Tax Rules 1962, Sec 10(13A) IT Act 1961`;
+Txn / Bank Ref: ${data.transactionRef || 'N/A'}`;
 
     navigator.clipboard.writeText(reportText);
     setCopied(true);
@@ -75,7 +74,7 @@ Legal References: Rule 2A Income Tax Rules 1962, Sec 10(13A) IT Act 1961`;
                 Rent Receipt Details
               </h3>
               <p className="text-xs text-slate-300">
-                Summary for HRA documentation &bull; Rule 2A Income Tax Rules 1962
+                Summary for HRA documentation
               </p>
             </div>
           </div>
@@ -185,10 +184,10 @@ Legal References: Rule 2A Income Tax Rules 1962, Sec 10(13A) IT Act 1961`;
             </div>
           </div>
 
-          {/* Legal Notes */}
+          {/* Documentation Notes */}
           <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500 space-y-1">
             <p>
-              <strong>Issued under:</strong> Rule 2A Income Tax Rules 1962, Sec 10(13A) IT Act 1961 for HRA tax exemption claims.
+              <strong>Purpose:</strong> Documentation for House Rent Allowance (HRA) tax exemption claim.
             </p>
             <p>
               <strong>Revenue Stamp:</strong> For cash rent exceeding ₹5,000, a ₹1 revenue stamp should be affixed and signed across.
@@ -199,7 +198,7 @@ Legal References: Rule 2A Income Tax Rules 1962, Sec 10(13A) IT Act 1961`;
         {/* Footer Actions */}
         <div className="bg-slate-50 p-4 rounded-b-2xl border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
           <div className="text-[11px] text-slate-500">
-            Receipt #{period.receiptNumber} &bull; Tenancy Record
+            Receipt #{period.receiptNumber} &bull; Rent Receipt
           </div>
 
           <div className="flex items-center gap-2">

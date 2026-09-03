@@ -165,51 +165,31 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
 
         {/* Content Container */}
         <div className="relative z-10 p-5 sm:p-8 md:p-10 space-y-5 text-left">
-          {/* Top Document Header Row */}
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-xs p-1.5 rounded-lg border border-slate-200 shadow-2xs">
-              <div className="w-9 h-9 border border-slate-300 rounded-lg flex items-center justify-center p-1 bg-amber-50">
-                <HouseLogo className="w-6 h-6" />
-              </div>
-              <div className="flex flex-col pr-1 min-w-0">
-                <span className="text-xs font-bold text-slate-900 tracking-wider uppercase">
-                  Tenancy Voucher
-                </span>
-                <span className="text-[10px] text-slate-500 font-mono">
-                  Residential Tenancy Record
-                </span>
-              </div>
-            </div>
-
-            <div className="text-right">
-              <span className="text-[10px] text-slate-400 font-mono block">Receipt No</span>
-              <span className="text-xs sm:text-sm font-bold font-mono text-slate-800">{period.receiptNumber}</span>
-            </div>
-          </div>
-
           {/* Centered Document Title */}
-          <div className="text-center pt-1 pb-0.5">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight uppercase">
-              House Rent Receipt
-            </h2>
-            <div className="w-14 h-1 bg-[#ea580c] mx-auto mt-1.5 rounded-full" />
-            <div className="text-[10px] text-slate-500 font-mono mt-1">
-              Issued under Rule 2A Income Tax Rules 1962 &bull; Sec 10(13A) IT Act 1961
+          <div className="text-center pt-1 pb-1">
+            <div className="flex items-center justify-center gap-2.5 mb-1.5">
+              <div className="w-8 h-8 border border-slate-300 rounded-lg flex items-center justify-center p-1 bg-amber-50 shadow-2xs">
+                <HouseLogo className="w-5 h-5" />
+              </div>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight uppercase">
+                House Rent Receipt
+              </h2>
             </div>
+            <div className="w-16 h-1 bg-[#ea580c] mx-auto rounded-full" />
           </div>
 
           {/* Date and Receipt No */}
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm text-[#475569] pb-2 border-b border-[#e2e8f0]">
             <div>
-              <span className="text-[#64748b]">Date of Issue: </span>
-              <strong className="text-[#0f172a] font-bold">
-                {data.customDate || period.receiptDate}
-              </strong>
-            </div>
-            <div>
               <span className="text-[#64748b]">Receipt No: </span>
               <strong className="text-[#0f172a] font-bold font-mono">
                 {period.receiptNumber}
+              </strong>
+            </div>
+            <div>
+              <span className="text-[#64748b]">Date of Issue: </span>
+              <strong className="text-[#0f172a] font-bold">
+                {data.customDate || period.receiptDate}
               </strong>
             </div>
           </div>
@@ -350,9 +330,9 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
             </div>
           </div>
 
-          {/* Honest Disclaimer */}
+          {/* Footer Note */}
           <div className="text-center pt-2 text-[9.5px] sm:text-[10px] text-slate-500 leading-tight border-t border-slate-200">
-            This receipt is a formatting tool only and does not constitute legal certification. For tax filing or legal proceedings, ensure payments are made via traceable bank transfer and retain your rental agreement as supporting evidence.
+            For tax filing or employer records, retain your rental agreement and digital payment proof as supporting evidence.
           </div>
         </div>
       </div>
@@ -398,22 +378,13 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
 
           {/* Traditional Legal Header */}
           <div className="text-center pb-3 mb-3 border-b-2 border-[#1e3a8a]">
-            <div className="flex items-center justify-center gap-3 mb-1.5">
+            <div className="flex items-center justify-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-full border-2 border-[#1e3a8a] bg-blue-50 flex items-center justify-center p-1 shadow-xs">
                 <HouseLogo className="w-7 h-7" />
               </div>
-              <div className="text-left">
-                <div className="text-[10px] uppercase font-serif tracking-[2px] text-[#1e3a8a] font-bold">
-                  Statutory Tenancy Consideration Form
-                </div>
-                <h3 className="text-lg sm:text-2xl font-serif font-black uppercase tracking-[2px] text-[#0f172a]">
-                  HOUSE RENT RECEIPT
-                </h3>
-              </div>
-            </div>
-
-            <div className="inline-block bg-[#1e3a8a] text-[#ffffff] text-[10px] sm:text-xs font-serif uppercase tracking-widest px-3 py-0.5 rounded-xs mb-2">
-              Income Tax Act Section 10(13A) & Rule 2A Compliance
+              <h3 className="text-lg sm:text-2xl font-serif font-black uppercase tracking-[2px] text-[#0f172a]">
+                HOUSE RENT RECEIPT
+              </h3>
             </div>
 
             {/* Metadata Bar */}
@@ -525,7 +496,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
             ) : (
               <div className="flex items-center gap-1.5 text-xs text-emerald-800 bg-emerald-50 px-2 py-1 rounded border border-emerald-200 font-sans">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Standard Tenancy Record</span>
+                <span>Standard Rent Receipt</span>
               </div>
             )}
 
@@ -544,8 +515,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
           </div>
 
           <div className="text-center mt-3 pt-2 border-t border-slate-200 text-[9.5px] sm:text-[10px] text-slate-500 font-sans leading-tight">
-            Issued under Rule 2A of Income Tax Rules 1962 &bull; Sec 10(13A) IT Act 1961.<br />
-            This receipt is a formatting tool only and does not constitute legal certification. For tax filing or legal proceedings, ensure payments are made via traceable bank transfer and retain your rental agreement as supporting evidence.
+            For tax filing or employer records, retain your rental agreement and digital payment proof as supporting evidence.
           </div>
         </div>
       </div>
@@ -580,16 +550,11 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
         {/* Minimalist Top Header */}
         <div className="flex flex-wrap items-start justify-between gap-4 pb-4 border-b border-slate-900 text-left">
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900">
-                Rent Receipt
-              </h2>
-              <span className="text-[10px] font-mono font-bold bg-slate-900 text-white px-2 py-0.5 rounded">
-                SEC 10(13A)
-              </span>
-            </div>
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900">
+              House Rent Receipt
+            </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Statutory Tenancy Payment Voucher & Proof
+              Official Rent Payment Acknowledgment
             </p>
           </div>
 
@@ -721,8 +686,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
         </div>
 
         <div className="text-center mt-3 pt-2 border-t border-slate-200 text-[9.5px] sm:text-[10px] text-slate-500 font-sans leading-tight">
-          Rule 2A Income Tax Rules 1962 &bull; Sec 10(13A) IT Act 1961.<br />
-          This receipt is a formatting tool only and does not constitute legal certification. For tax filing or legal proceedings, ensure payments are made via traceable bank transfer and retain your rental agreement as supporting evidence.
+          For tax filing or employer records, retain your rental agreement and digital payment proof as supporting evidence.
         </div>
       </div>
     );
@@ -759,9 +723,6 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
           <h2 className="text-lg sm:text-xl font-bold uppercase tracking-wider font-serif">
             HOUSE RENT PAYMENT RECEIPT
           </h2>
-          <div className="text-xs font-mono mt-0.5">
-            [ Under Section 10(13A) of Income Tax Act, 1961 & Rule 2A of IT Rules, 1962 ]
-          </div>
         </div>
 
         {/* Metadata Strip */}
@@ -863,7 +824,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
         </div>
 
         <div className="text-center mt-3 pt-2 border-t border-black text-[9.5px] sm:text-[10px] text-black font-sans leading-tight">
-          This receipt is a formatting tool only and does not constitute legal certification. For tax filing or legal proceedings, ensure payments are made via traceable bank transfer and retain your rental agreement as supporting evidence.
+          For tax filing or employer records, retain your rental agreement and digital payment proof as supporting evidence.
         </div>
       </div>
     );

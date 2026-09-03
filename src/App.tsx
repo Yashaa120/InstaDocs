@@ -23,11 +23,18 @@ import {
   DecodedReceiptVerification,
 } from './utils/verificationUtils';
 import { formatIndianCurrency } from './utils/numberToWords';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { updateDocumentSeo } from './utils/seoMetadata';
 
 function AppContent() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [verifiedData, setVerifiedData] = useState<DecodedReceiptVerification | null>(null);
+  const { language } = useLanguage();
+
+  // Dynamic Global SEO synchronization: title, meta description, OpenGraph, canonical, Twitter, and Schema.org
+  useEffect(() => {
+    updateDocumentSeo(activePage, language);
+  }, [activePage, language]);
 
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
@@ -75,9 +82,17 @@ function AppContent() {
         setActivePage('salary-slip');
       } else if (hash === 'affidavit' || hash === 'affidavit-generator' || hash === 'affidavit-generator.html') {
         setActivePage('affidavit');
+      } else if (hash === 'terms' || hash === 'terms.html') {
+        setActivePage('terms');
+      } else if (hash === 'privacy' || hash === 'privacy.html') {
+        setActivePage('privacy');
+      } else if (hash === 'about' || hash === 'about.html') {
+        setActivePage('about');
+      } else if (hash === 'contact' || hash === 'contact.html') {
+        setActivePage('contact');
       } else if (hash === 'home' || hash === 'index.html' || hash === '') {
         setActivePage('home');
-      } else if (['about', 'privacy', 'terms', 'contact', 'guide', 'verify', 'faq'].includes(hash)) {
+      } else if (['guide', 'verify', 'faq'].includes(hash)) {
         setActivePage(hash as ActivePage);
       } else if (!window.location.search.includes('verify')) {
         if (activePage === 'verify' && !verifiedData) {

@@ -30,11 +30,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       badge: 'Section 10(13A) Compliant',
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       iconBg: 'bg-blue-50 border-blue-200 text-blue-600',
-      icon: <Receipt className="w-8 h-8 text-blue-600" />,
-      description: t('tool_rent_receipt_desc') || 'Generate authentic monthly or annual rent receipts with revenue stamp & QR verification for HRA tax exemption.',
+      icon: <Receipt className="w-7 h-7 text-blue-600" />,
+      description: t('tool_rent_receipt_desc') || 'Monthly or annual rent receipts with revenue stamp for HRA claims.',
       actionText: t('tool_rent_receipt_btn') || 'Generate Rent Receipt',
       urlHash: '#rent-receipt',
-      bulletPoints: ['Revenue Stamp & QR Code', 'Multi-Month Batch PDF Export', 'CBDT Rule Compliant'],
+      bulletPoints: ['Revenue Stamp & Sign', 'Multi-Month PDF Export', 'HRA IT-Rule Compliant'],
     },
     {
       id: 'salary-slip' as ActivePage,
@@ -42,11 +42,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       badge: 'Indian Payroll Standard',
       tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
       iconBg: 'bg-emerald-50 border-emerald-200 text-emerald-600',
-      icon: <FileText className="w-8 h-8 text-emerald-600" />,
-      description: t('tool_salary_slip_desc') || 'Create professional monthly employee payslips with automatic earnings, deductions, and net salary calculations.',
+      icon: <FileText className="w-7 h-7 text-emerald-600" />,
+      description: t('tool_salary_slip_desc') || 'Monthly payslips with automatic earnings, PF deductions & net pay.',
       actionText: t('tool_salary_slip_btn') || 'Create Salary Slip',
       urlHash: '#salary-slip',
-      bulletPoints: ['Live Gross & Net Auto-Calc', 'EPF, PT & TDS Breakdown', 'Digital Employer Signature'],
+      bulletPoints: ['Auto Gross & Net Calc', 'EPF, PT & TDS Deductions', 'Company Seal & Sign'],
     },
     {
       id: 'affidavit' as ActivePage,
@@ -54,11 +54,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       badge: 'Legal Self-Declaration',
       tagColor: 'bg-amber-50 text-amber-800 border-amber-200',
       iconBg: 'bg-amber-50 border-amber-200 text-amber-700',
-      icon: <Scale className="w-8 h-8 text-amber-700" />,
-      description: t('tool_affidavit_desc') || 'Draft legal self-declaration affidavits for address proof, name change, or gap certificates with e-stamp margin support.',
+      icon: <Scale className="w-7 h-7 text-amber-700" />,
+      description: t('tool_affidavit_desc') || 'Self-declaration affidavits for address, name change, or gap proof.',
       actionText: t('tool_affidavit_btn') || 'Draft Affidavit',
       urlHash: '#affidavit',
-      bulletPoints: ['Pre-drafted Legal Clauses', 'e-Stamp Paper Margins', 'Notary Attestation Ready'],
+      bulletPoints: ['Standard Legal Formats', 'e-Stamp Paper Margins', 'Notary Ready Layout'],
     },
   ];
 
@@ -82,12 +82,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-      
-      {/* Top Banner Ad Slot */}
-      <div className="mb-6 sm:mb-8">
-        <AdSlot type="banner" />
-      </div>
-
       {/* Hero Section */}
       <section className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 pt-1" aria-label="Hero Introduction">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 shadow-2xs mb-3">
@@ -141,24 +135,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
                 </h2>
 
                 {/* Description */}
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="mt-2 text-xs sm:text-[13px] text-slate-500 leading-relaxed font-normal min-h-[36px]">
                   {tool.description}
                 </p>
 
                 {/* Key Features Bullet List */}
-                <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
+                <div className="mt-3 pt-2.5 border-t border-slate-100 space-y-1.5">
                   {tool.bulletPoints.map((bullet, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 font-normal">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{bullet}</span>
+                    <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <span className="truncate">{bullet}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Action Link Button Inside Card - min-h-[44px] for mobile accessibility */}
-              <div className="mt-5 pt-1">
-                <div className="w-full min-h-[44px] inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-blue-600 text-slate-800 group-hover:text-white border border-slate-200 group-hover:border-blue-600 transition-all font-semibold text-sm shadow-2xs">
+              <div className="mt-4 pt-0.5">
+                <div className="w-full min-h-[42px] inline-flex items-center justify-between py-2 px-3.5 rounded-xl bg-slate-50 group-hover:bg-blue-600 text-slate-800 group-hover:text-white border border-slate-200 group-hover:border-blue-600 transition-all font-semibold text-xs sm:text-sm shadow-2xs">
                   <span>{tool.actionText}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

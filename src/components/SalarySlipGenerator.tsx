@@ -904,6 +904,11 @@ export const SalarySlipGenerator: React.FC<SalarySlipGeneratorProps> = ({ onNavi
                   100% Free &amp; Client-Side
                 </span>
               </div>
+
+              {/* High-CTR Sponsored Ad (Financial / Payslip Audience) */}
+              <div className="pt-2">
+                <AdSlot type="high-ctr" />
+              </div>
             </div>
           </div>
         </div>

@@ -20,8 +20,8 @@ export const ToolsOverviewSection: React.FC<ToolsOverviewSectionProps> = ({
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       icon: <Receipt className="w-6 h-6 text-blue-600" />,
       description:
-        'Generate instant single or multi-month rent receipts with auto-spelled Indian Rupees, revenue stamps, Landlord PAN, and scannable QR verification for your employer or ITR.',
-      highlights: ['CBDT Compliant Format', 'Revenue Stamp & QR Code', 'Multi-Page A4 PDF Export'],
+        'Instant monthly or annual rent receipts with revenue stamp for HRA tax exemption claims.',
+      highlights: ['Revenue Stamp & Sign', 'Multi-Month PDF Export', 'HRA IT-Rule Compliant'],
       buttonText: 'Generate Rent Receipts',
     },
     {
@@ -32,8 +32,8 @@ export const ToolsOverviewSection: React.FC<ToolsOverviewSectionProps> = ({
       tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
       icon: <FileText className="w-6 h-6 text-emerald-600" />,
       description:
-        'Create professional monthly payslips for small businesses, contractors, and startups. Live breakdown of Basic, HRA, Conveyance, PF, Professional Tax, TDS, and Net Salary.',
-      highlights: ['Live Gross/Net Auto-Calculation', 'Custom Allowances & Deductions', 'Employer Signature Block'],
+        'Professional payslips with auto-calculated earnings, PF/PT/TDS deductions, and net salary.',
+      highlights: ['Auto Gross & Net Calc', 'EPF, PT & TDS Breakdown', 'Company Seal & Sign'],
       buttonText: 'Create Salary Slip',
     },
     {
@@ -43,8 +43,8 @@ export const ToolsOverviewSection: React.FC<ToolsOverviewSectionProps> = ({
       badge: 'Legal Reference Template',
       tagColor: 'bg-amber-50 text-amber-800 border-amber-200',
       description:
-        'Draft structured self-declaration affidavits for residence/address proof, name change, gap in education, or income verification ready for print or notarization.',
-      highlights: ['Pre-drafted Legal Clauses', 'e-Stamp Paper Margins', 'Deponent Verification Block'],
+        'Self-declaration affidavits for address proof, name change, or gap certificates ready to print.',
+      highlights: ['Standard Legal Clauses', 'e-Stamp Paper Margins', 'Notary Ready Format'],
       buttonText: 'Draft Affidavit',
     },
   ];

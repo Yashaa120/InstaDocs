@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, FileText, CheckCircle2, Calculator, ShieldCheck, ArrowRight } from 'lucide-react';
 import { ActivePage } from '../types';
+import { AdSlot } from '../components/AdSlot';
 
 interface FaqPageProps {
   setActivePage: (page: ActivePage) => void;
@@ -96,33 +97,41 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
           {faqs.map((faq, index) => {
             const isOpen = openFaqIndex === index;
             return (
-              <div
-                key={faq.question}
-                id={`faq-item-${index}`}
-                className="border border-slate-200 rounded-xl overflow-hidden transition-colors"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 bg-slate-50/60 hover:bg-slate-100/70 transition-colors cursor-pointer"
-                  aria-expanded={isOpen}
+              <React.Fragment key={faq.question}>
+                <div
+                  id={`faq-item-${index}`}
+                  className="border border-slate-200 rounded-xl overflow-hidden transition-colors"
                 >
-                  <span className="text-base font-semibold text-slate-900">
-                    {faq.question}
-                  </span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-blue-600 shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
-                  )}
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 bg-slate-50/60 hover:bg-slate-100/70 transition-colors cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-base font-semibold text-slate-900">
+                      {faq.question}
+                    </span>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-blue-600 shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
+                    )}
+                  </button>
 
-                {isOpen && (
-                  <div className="px-5 py-4 text-base text-slate-600 leading-relaxed bg-white border-t border-slate-100 font-normal">
-                    {faq.answer}
+                  {isOpen && (
+                    <div className="px-5 py-4 text-base text-slate-600 leading-relaxed bg-white border-t border-slate-100 font-normal">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mid-FAQ Content Ad Space - Hidden on mobile to maintain smooth reading */}
+                {index === 4 && (
+                  <div className="py-2">
+                    <AdSlot type="banner" hideOnMobile={true} />
                   </div>
                 )}
-              </div>
+              </React.Fragment>
             );
           })}
         </div>
@@ -147,6 +156,11 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
             <span>Start Generating</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+        </div>
+
+        {/* Bottom Ad Slot */}
+        <div className="pt-2">
+          <AdSlot type="pre-footer" />
         </div>
       </div>
     </div>

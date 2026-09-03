@@ -6,6 +6,7 @@ import { downloadReceiptsPdf } from '../utils/pdfGenerator';
 import { SignatureInput } from './SignatureInput';
 import { HouseLogo } from './HouseLogo';
 import { DownloadFormatModal } from './DownloadFormatModal';
+import { AdSlot } from './AdSlot';
 import { useLanguage } from '../context/LanguageContext';
 import {
   Download,
@@ -764,6 +765,11 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
             <span className="text-[11px] text-slate-400">
               Instant Client-Side Export (No Server / No API Key Needed)
             </span>
+          </div>
+
+          {/* High-Visibility Sponsored Ad Slot (High Click-Through Opportunity) */}
+          <div className="pt-2">
+            <AdSlot type="high-ctr" />
           </div>
         </div>
       </div>

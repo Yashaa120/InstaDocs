@@ -1,63 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 1. Homepage (Tool Selector & Suite Overview) -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://rentreceipt.app/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.app/" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentreceipt.app/" />
+    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rentreceipt.app/?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="bn-in" href="https://rentreceipt.app/?lang=bn" />
+    <xhtml:link rel="alternate" hreflang="te-in" href="https://rentreceipt.app/?lang=te" />
+    <xhtml:link rel="alternate" hreflang="mr-in" href="https://rentreceipt.app/?lang=mr" />
+    <xhtml:link rel="alternate" hreflang="ta-in" href="https://rentreceipt.app/?lang=ta" />
+    <xhtml:link rel="alternate" hreflang="gu-in" href="https://rentreceipt.app/?lang=gu" />
+    <xhtml:link rel="alternate" hreflang="kn-in" href="https://rentreceipt.app/?lang=kn" />
+    <xhtml:link rel="alternate" hreflang="ml-in" href="https://rentreceipt.app/?lang=ml" />
+    <xhtml:link rel="alternate" hreflang="pa-in" href="https://rentreceipt.app/?lang=pa" />
   </url>
+
+  <!-- 2. Rent Receipt Generator (Primary HRA Exemption Tool) -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#rent-receipt</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#rent-receipt</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.98</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.app/#rent-receipt" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.app/#rent-receipt" />
+    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rentreceipt.app/?lang=hi#rent-receipt" />
   </url>
+
+  <!-- 3. Salary Slip Generator (Payslip Format & Calculations) -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#salary-slip</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#salary-slip</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.app/#salary-slip" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.app/#salary-slip" />
+    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rentreceipt.app/?lang=hi#salary-slip" />
   </url>
+
+  <!-- 4. Rent Affidavit & Address Proof Generator -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#affidavit</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#affidavit</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.app/#affidavit" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.app/#affidavit" />
   </url>
+
+  <!-- 5. HRA Tax Exemption Guide & Section 10(13A) Rules -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#guide</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#guide</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- 6. QR Code Receipt Validation Portal -->
+  <url>
+    <loc>https://rentreceipt.app/#verify</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <!-- 7. Frequently Asked Questions (FAQ) -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#verify</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#faq</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- 8. About Us -->
+  <url>
+    <loc>https://rentreceipt.app/#about</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- 9. Privacy Policy -->
+  <url>
+    <loc>https://rentreceipt.app/#privacy</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- 10. Terms and Conditions -->
+  <url>
+    <loc>https://rentreceipt.app/#terms</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#about</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/terms.html</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.70</priority>
   </url>
+
+  <!-- 11. Contact Us -->
   <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#privacy</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://rentreceipt.app/#contact</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
-  <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#terms</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-zyxu7w4rft24jvht5i55vv-376426211502.asia-east1.run.app/#contact</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
 </urlset>

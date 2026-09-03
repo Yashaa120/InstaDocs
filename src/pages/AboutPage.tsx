@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, Sparkles, Shield, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import { ActivePage } from '../types';
+import { AdSlot } from '../components/AdSlot';
 
 interface AboutPageProps {
   setActivePage: (page: ActivePage) => void;
@@ -85,6 +86,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             We believe the modern web should be fast, uncluttered, and respect user privacy. We don’t track your personal identity, we don’t sell your information, and we don’t force you through unnecessary verification flows.
           </p>
 
+          {/* Mid-Content Ad Slot - Clean on desktop, hidden on mobile for seamless reading */}
+          <div className="my-6">
+            <AdSlot type="banner" hideOnMobile={true} />
+          </div>
+
           <h2 className="text-xl font-bold text-slate-900">
             How This Site Stays Free
           </h2>
@@ -94,6 +100,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           <p>
             If you find this tool helpful, the greatest way to support us is by sharing the link with your colleagues, friends, or roommates who might also be rushing to submit their HRA proofs this tax season!
           </p>
+        </div>
+
+        {/* Bottom Ad Slot */}
+        <div className="pt-2">
+          <AdSlot type="pre-footer" />
         </div>
 
         {/* Call to action */}
