@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { RentReceiptView } from './components/RentReceiptView';
@@ -158,6 +159,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A]">
+      <Analytics />
       {/* 1. Minimal Header with Logo, Home, About, Contact & Share */}
       <Header activePage={activePage} setActivePage={handlePageChange} />
 
