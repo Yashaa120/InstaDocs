@@ -92,14 +92,17 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
       <div className="w-full max-w-4xl space-y-6">
         {/* Navigation Bar */}
         <div className="flex items-center justify-between">
-          <button
-            type="button"
-            onClick={onNavigateHome}
+          <a
+            href="#rent-receipt"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavigate('rent-receipt');
+            }}
             className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl border border-slate-700 transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Receipt Generator</span>
-          </button>
+          </a>
 
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-400/40">
@@ -328,12 +331,16 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Always pair monthly rent receipts with a valid registered or notarized lease agreement. If you do not have a formal agreement, generate a signed{' '}
-                <button
-                  onClick={() => handleNavigate('affidavit')}
+                <a
+                  href="#affidavit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigate('affidavit');
+                  }}
                   className="text-blue-400 font-bold hover:underline cursor-pointer"
                 >
                   Rent Affidavit
-                </button>{' '}
+                </a>{' '}
                 as supplemental evidence.
               </p>
             </div>
@@ -348,43 +355,63 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
             </p>
 
             <div className="flex flex-wrap gap-2 text-xs">
-              <button
-                onClick={() => handleNavigate('rent-receipt')}
+              <a
+                href="#rent-receipt"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate('rent-receipt');
+                }}
                 className="px-3 py-1.5 rounded-lg bg-blue-600/30 text-blue-300 hover:bg-blue-600/50 border border-blue-500/40 font-semibold transition-colors cursor-pointer"
               >
                 🏠 Rent Receipt Generator
-              </button>
-              <button
-                onClick={() => handleNavigate('salary-slip')}
+              </a>
+              <a
+                href="#salary-slip"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate('salary-slip');
+                }}
                 className="px-3 py-1.5 rounded-lg bg-emerald-600/30 text-emerald-300 hover:bg-emerald-600/50 border border-emerald-500/40 font-semibold transition-colors cursor-pointer"
               >
                 💼 Salary Slip Generator
-              </button>
-              <button
-                onClick={() => handleNavigate('affidavit')}
+              </a>
+              <a
+                href="#affidavit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate('affidavit');
+                }}
                 className="px-3 py-1.5 rounded-lg bg-purple-600/30 text-purple-300 hover:bg-purple-600/50 border border-purple-500/40 font-semibold transition-colors cursor-pointer"
               >
                 📜 Rent Affidavit Generator
-              </button>
-              <button
-                onClick={() => handleNavigate('guide')}
+              </a>
+              <a
+                href="#guide"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate('guide');
+                }}
                 className="px-3 py-1.5 rounded-lg bg-amber-600/30 text-amber-300 hover:bg-amber-600/50 border border-amber-500/40 font-semibold transition-colors cursor-pointer"
               >
                 📖 HRA Tax Exemption Guide
-              </button>
-              <button
-                onClick={() => handleNavigate('faq')}
+              </a>
+              <a
+                href="#faq"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate('faq');
+                }}
                 className="px-3 py-1.5 rounded-lg bg-slate-700 text-slate-200 hover:bg-slate-600 font-semibold transition-colors cursor-pointer"
               >
                 ❓ Frequently Asked Questions
-              </button>
+              </a>
             </div>
           </div>
         </div>
 
         {/* High-Visibility Ad Banner for Verification Viewers */}
         <div className="pt-4">
-          <AdSlot type="banner" />
+          <AdSlot type="high-ctr" />
         </div>
       </div>
     </div>

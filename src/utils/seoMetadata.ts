@@ -15,7 +15,7 @@ export interface PageSeoConfig {
   schema: Record<string, unknown>[];
 }
 
-const BASE_URL = 'https://rentreceipt.app';
+const BASE_URL = 'https://rentreceipt.online';
 
 // Localized Page Titles & Descriptions (English default with Hindi & regional mappings)
 const LOCALIZED_SEO: Record<
@@ -31,9 +31,9 @@ const LOCALIZED_SEO: Record<
 > = {
   home: {
     en: {
-      title: 'Rent Receipt & Salary Slip Generator | Free HRA Tools',
+      title: 'Free Rent Receipt & Salary Slip Generator for HRA Tax Exemption',
       description:
-        'Free online Rent Receipt & Salary Slip Generator for HRA tax exemption under Section 10(13A) and Income Tax filing. Download authentic monthly salary slips, payslip formats, and rent receipts with revenue stamps instantly.',
+        'Free online rent receipt and salary slip generator for HRA tax exemption. Download professional, print-ready PDFs instantly — no login required.',
     },
     hi: {
       title: 'किराया रसीद और सैलरी स्लिप जनरेटर | मुफ्त HRA छूट',
@@ -200,7 +200,7 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
     '@id': `${BASE_URL}/#website`,
     name: 'RentReceipt - Document & Tax Proof Suite',
     alternateName: [
-      'RentReceipt.app',
+      'RentReceipt.online',
       'Rent Receipt Generator',
       'Salary Slip Generator',
       'HRA Tax Calculator',

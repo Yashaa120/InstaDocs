@@ -157,11 +157,11 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A]">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A] w-full overflow-x-hidden">
       {/* 1. Minimal Header with Logo, Home, About, Contact & Share */}
       <Header activePage={activePage} setActivePage={handlePageChange} />
 
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         {/* VIEW 1: Homepage Tool Selector Landing Page */}
         {activePage === 'home' && (
           <HomePage onSelectTool={handlePageChange} />

@@ -26,12 +26,13 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
       
-      {/* Top Navigation: Back to Home button */}
+      {/* Top Navigation: Back to Home link */}
       <div className="mb-4">
-        <button
-          type="button"
+        <a
+          href="/"
           id="back-to-home-rent-receipt"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             onNavigate('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
@@ -39,7 +40,7 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
-        </button>
+        </a>
       </div>
 
       {/* Hero / Tool Header */}
@@ -49,10 +50,10 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
           <span>CBDT Section 10(13A) Compliant • 100% Client-Side Privacy</span>
         </div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Free Rent Receipt Generator
+          Free Rent Receipt Generator for HRA Tax Exemption
         </h1>
         <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Generate, preview, and download authentic monthly or annual rent receipts as PDF for your HRA tax exemption claims. Free forever with instant multi-page export.
+          Generate, preview, and download professional monthly or annual rent receipts as PDF for your HRA tax exemption claims. Free forever with instant multi-page export.
         </p>
       </div>
 

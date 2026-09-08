@@ -265,12 +265,13 @@ export const AffidavitGenerator: React.FC<AffidavitGeneratorProps> = ({ onNaviga
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-      {/* Top Navigation: Back to Home button */}
+      {/* Top Navigation: Back to Home link */}
       <div className="mb-4">
-        <button
-          type="button"
+        <a
+          href="/"
           id="back-to-home-affidavit"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             onNavigate('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
@@ -278,7 +279,7 @@ export const AffidavitGenerator: React.FC<AffidavitGeneratorProps> = ({ onNaviga
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
-        </button>
+        </a>
       </div>
 
       {/* Hero Intro */}

@@ -32,7 +32,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
     const mailtoBody = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    window.location.href = `mailto:support@rentreceipt.app?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:support@rentreceipt.online?subject=${mailtoSubject}&body=${mailtoBody}`;
     setIsSubmitted(true);
   };
 
@@ -40,12 +40,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumbs with internal navigation */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors cursor-pointer"
         >
           Home
-        </button>
+        </a>
         <span>/</span>
         <span className="text-slate-900">Contact Us</span>
       </nav>
@@ -61,19 +66,27 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
         </h1>
         <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-3xl leading-relaxed">
           Need assistance with our free document tools, want to suggest new features for our{' '}
-          <button
-            onClick={() => setActivePage('rent-receipt')}
+          <a
+            href="#rent-receipt"
+            onClick={(e) => {
+              e.preventDefault();
+              setActivePage('rent-receipt');
+            }}
             className="text-blue-600 font-semibold hover:underline cursor-pointer"
           >
             Rent Receipt Generator
-          </button>{' '}
+          </a>{' '}
           or{' '}
-          <button
-            onClick={() => setActivePage('salary-slip')}
+          <a
+            href="#salary-slip"
+            onClick={(e) => {
+              e.preventDefault();
+              setActivePage('salary-slip');
+            }}
             className="text-blue-600 font-semibold hover:underline cursor-pointer"
           >
             Salary Slip Generator
-          </button>
+          </a>
           , or have feedback? Reach out directly to our engineering and support team.
         </p>
       </div>
@@ -95,10 +108,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
                   Direct Email Desk
                 </span>
                 <a
-                  href="mailto:support@rentreceipt.app"
+                  href="mailto:support@rentreceipt.online"
                   className="text-sm font-bold text-blue-600 hover:underline break-all"
                 >
-                  support@rentreceipt.app
+                  support@rentreceipt.online
                 </a>
               </div>
             </div>
@@ -127,12 +140,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
                 </span>
                 <span className="text-xs text-slate-600 leading-relaxed block">
                   We never store personal financial records or share email addresses. See our{' '}
-                  <button
-                    onClick={() => setActivePage('privacy')}
+                  <a
+                    href="#privacy"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActivePage('privacy');
+                    }}
                     className="text-blue-600 font-semibold hover:underline cursor-pointer"
                   >
                     Privacy Policy
-                  </button>
+                  </a>
                   .
                 </span>
               </div>
@@ -148,13 +165,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
             <p className="text-slate-600 leading-relaxed">
               Check our comprehensive knowledge base before emailing. 90% of user queries regarding revenue stamps, landlord PAN rules, and employer submission deadlines are already covered.
             </p>
-            <button
-              onClick={() => setActivePage('faq')}
+            <a
+              href="#faq"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('faq');
+              }}
               className="inline-flex items-center gap-1.5 font-bold text-blue-700 hover:text-blue-800 underline cursor-pointer"
             >
               <span>Browse All Frequently Asked Questions</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           {/* Left Column Ad Slot */}
@@ -180,7 +201,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </h3>
               <p className="text-xs text-emerald-700 max-w-sm mx-auto leading-relaxed">
                 Your email client was opened with your message parameters. If your mail software didn&apos;t open automatically, please send your email manually to{' '}
-                <strong className="underline">support@rentreceipt.app</strong>.
+                <strong className="underline">support@rentreceipt.online</strong>.
               </p>
               <button
                 type="button"
@@ -293,12 +314,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Under the Indian Stamp Act, a ₹1 revenue stamp is only mandatory if rent exceeds ₹5,000 per month and is paid in <strong>cash</strong>. If you pay rent via UPI, NEFT, IMPS, or bank cheque, our digital transaction UTR reference format provides full legal audit validity. Check our{' '}
-                <button
-                  onClick={() => setActivePage('guide')}
+                <a
+                  href="#guide"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActivePage('guide');
+                  }}
                   className="text-blue-600 font-semibold hover:underline cursor-pointer"
                 >
                   HRA Tax Rules Guide
-                </button>{' '}
+                </a>{' '}
                 for complete citations.
               </p>
             </div>
@@ -310,12 +335,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 <strong>Zero storage guarantee:</strong> Our architecture does not possess backend customer databases. When you close or refresh your browser tab, all entered tenant names, landlord PAN numbers, and salary slip figures are purged from memory. Read our comprehensive{' '}
-                <button
-                  onClick={() => setActivePage('privacy')}
+                <a
+                  href="#privacy"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActivePage('privacy');
+                  }}
                   className="text-blue-600 font-semibold hover:underline cursor-pointer"
                 >
                   Privacy Policy
-                </button>
+                </a>
                 .
               </p>
             </div>
@@ -327,12 +356,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 If your annual rent exceeds ₹1,00,000 (approx. ₹8,334/month) and your landlord lacks a PAN card, you must submit a signed <strong>Form 60</strong> declaration from the landlord along with your receipts, or generate a formal{' '}
-                <button
-                  onClick={() => setActivePage('affidavit')}
+                <a
+                  href="#affidavit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActivePage('affidavit');
+                  }}
                   className="text-blue-600 font-semibold hover:underline cursor-pointer"
                 >
                   Rent Affidavit &amp; Self-Declaration
-                </button>
+                </a>
                 .
               </p>
             </div>
@@ -348,36 +381,56 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
           </p>
 
           <div className="flex flex-wrap gap-2 text-xs">
-            <button
-              onClick={() => setActivePage('rent-receipt')}
+            <a
+              href="#rent-receipt"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('rent-receipt');
+              }}
               className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 font-semibold transition-colors cursor-pointer"
             >
               🏠 Rent Receipt Generator
-            </button>
-            <button
-              onClick={() => setActivePage('salary-slip')}
+            </a>
+            <a
+              href="#salary-slip"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('salary-slip');
+              }}
               className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold transition-colors cursor-pointer"
             >
               💼 Salary Slip Generator
-            </button>
-            <button
-              onClick={() => setActivePage('affidavit')}
+            </a>
+            <a
+              href="#affidavit"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('affidavit');
+              }}
               className="px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 font-semibold transition-colors cursor-pointer"
             >
               📜 Rent Affidavit Generator
-            </button>
-            <button
-              onClick={() => setActivePage('guide')}
+            </a>
+            <a
+              href="#guide"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('guide');
+              }}
               className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 hover:bg-amber-100 font-semibold transition-colors cursor-pointer"
             >
               📖 HRA Tax Exemption Guide
-            </button>
-            <button
-              onClick={() => setActivePage('faq')}
+            </a>
+            <a
+              href="#faq"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('faq');
+              }}
               className="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold transition-colors cursor-pointer"
             >
               ❓ All FAQs &amp; Help
-            </button>
+            </a>
           </div>
         </div>
       </div>

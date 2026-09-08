@@ -12,25 +12,30 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumb / Back Navigation */}
       <div className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors"
         >
           Home
-        </button>
+        </a>
         <span>/</span>
         <span className="text-slate-900">About Us</span>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-8">
-        {/* Header */}
+        {/* Header with exactly ONE H1 */}
         <div className="border-b border-slate-100 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 mb-3">
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>Our Story & Mission</span>
+            <span>Our Story &amp; Mission</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            About RentReceipt
+            About RentReceipt — Free Tax &amp; Payroll Document Suite
           </h1>
           <p className="text-base text-slate-600 mt-2">
             Why we built an open, 100% client-side, zero-database financial and legal document suite for Indian taxpayers and salaried professionals.
@@ -53,26 +58,38 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           </p>
           <p>
             In response, we built <strong>RentReceipt</strong> as a lightweight, clean, fast, and completely free web utility. What started as a focused{' '}
-            <button
-              onClick={() => setActivePage('rent-receipt')}
+            <a
+              href="#rent-receipt"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('rent-receipt');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Rent Receipt Generator
-            </button>{' '}
+            </a>{' '}
             has now expanded into a comprehensive suite including an online{' '}
-            <button
-              onClick={() => setActivePage('salary-slip')}
+            <a
+              href="#salary-slip"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('salary-slip');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Salary Slip Generator
-            </button>{' '}
+            </a>{' '}
             and a legal{' '}
-            <button
-              onClick={() => setActivePage('affidavit')}
+            <a
+              href="#affidavit"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('affidavit');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Rent Affidavit &amp; Address Proof Generator
-            </button>
+            </a>
             .
           </p>
 
@@ -93,12 +110,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span><strong>Accurate Legal Formatting:</strong> Built strictly according to Indian Income Tax rules, including ₹1 revenue stamp placeholders, landlord PAN compliance thresholds, and formal Section 10(13A) audit standards. Read our full{' '}
-                <button
-                  onClick={() => setActivePage('guide')}
+                <a
+                  href="#guide"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActivePage('guide');
+                  }}
                   className="text-blue-600 font-semibold hover:underline cursor-pointer"
                 >
                   HRA Tax Rules Guide
-                </button>
+                </a>
                 .</span>
               </li>
             </ul>
@@ -112,12 +133,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           </p>
           <p>
             RentReceipt uses modern web technologies (HTML5 Canvas, Web Cryptography, and in-memory PDF generation) to ensure that <strong>zero bytes of your input data leave your device</strong>. Once you close your browser tab or click refresh, all input values vanish entirely. You can inspect our security commitments in our{' '}
-            <button
-              onClick={() => setActivePage('privacy')}
+            <a
+              href="#privacy"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('privacy');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Privacy Policy
-            </button>
+            </a>
             .
           </p>
 
@@ -129,23 +154,31 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           </p>
           <p>
             If you have ideas for new document templates, feature improvements, or bug reports, we welcome you to reach out via our{' '}
-            <button
-              onClick={() => setActivePage('contact')}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('contact');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Contact &amp; Support Desk
-            </button>
+            </a>
             . For quick answers to common questions about rent receipts, salary slips, and HRA rules, check our{' '}
-            <button
-              onClick={() => setActivePage('faq')}
+            <a
+              href="#faq"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('faq');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               FAQ knowledge base
-            </button>
+            </a>
             .
           </p>
 
-          {/* Mid-Content Ad Slot - Clean on desktop, hidden on mobile for seamless reading */}
+          {/* Mid-Content Ad Slot */}
           <div className="my-6">
             <AdSlot type="banner" hideOnMobile={true} />
           </div>
@@ -171,8 +204,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           <span className="text-sm font-medium text-slate-700">
             Ready to generate your documents?
           </span>
-          <button
-            onClick={() => {
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
               setActivePage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
@@ -180,7 +215,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           >
             <span>Explore All Free Generators</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

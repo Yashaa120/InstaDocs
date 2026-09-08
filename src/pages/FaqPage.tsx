@@ -67,32 +67,37 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumb Navigation */}
       <div className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors"
         >
           Home
-        </button>
+        </a>
         <span>/</span>
         <span className="text-slate-900">Frequently Asked Questions</span>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-8">
-        {/* Header */}
+        {/* Header with exactly ONE H1 */}
         <div className="border-b border-slate-100 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Help Center &amp; FAQs</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Frequently Asked Questions (FAQ)
+            Rent Receipt &amp; Salary Slip FAQ (HRA Tax Exemption Help)
           </h1>
           <p className="text-base text-slate-600 mt-2">
             Clear answers about rent receipts, HRA tax exemption, PAN rules, revenue stamps, and our free tools.
           </p>
         </div>
 
-        {/* Section Heading with H2 */}
+        {/* Section Heading with H2 #1 */}
         <div>
           <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-4">
             Common Inquiries on HRA Exemption, Receipts &amp; Payroll Rules
@@ -146,7 +151,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
           })}
         </div>
 
-        {/* Quick Links Banner with H2 */}
+        {/* Quick Links Banner with H2 #2 */}
         <div className="p-6 bg-blue-50/60 border border-blue-200 rounded-2xl space-y-4">
           <div>
             <h2 className="text-base sm:text-lg font-bold text-slate-900">
@@ -158,47 +163,53 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-            <button
-              onClick={() => {
+            <a
+              href="#rent-receipt"
+              onClick={(e) => {
+                e.preventDefault();
                 setActivePage('rent-receipt');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group block"
             >
               <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
                 <span>Rent Receipt Generator</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
               <p className="text-[11px] text-slate-500 mt-1">Multi-month HRA receipts with revenue stamp</p>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
+            <a
+              href="#salary-slip"
+              onClick={(e) => {
+                e.preventDefault();
                 setActivePage('salary-slip');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group block"
             >
               <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
                 <span>Salary Slip Generator</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
               <p className="text-[11px] text-slate-500 mt-1">Official employee payslips with PF/PT deductions</p>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
+            <a
+              href="#guide"
+              onClick={(e) => {
+                e.preventDefault();
                 setActivePage('guide');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group block"
             >
               <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
                 <span>HRA Exemption Guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
               <p className="text-[11px] text-slate-500 mt-1">Interactive calculator and CBDT rules</p>
-            </button>
+            </a>
           </div>
         </div>
 

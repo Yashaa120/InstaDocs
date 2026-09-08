@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import {
   Menu,
   X,
-  Home,
-  ShieldCheck,
+  FileText,
+  BookOpen,
+  HelpCircle,
+  Info,
   Mail,
+  ShieldCheck,
+  Scale,
+  Home,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { HouseLogo } from './HouseLogo';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { useLanguage } from '../context/LanguageContext';
 
 interface HeaderProps {
   activePage: ActivePage;
@@ -18,136 +22,152 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
 
-  const navItems: { id: ActivePage; label: string; icon: React.ReactNode; isHome?: boolean }[] = [
-    { id: 'home', label: t('nav_home') || 'Home', icon: <Home className="w-4 h-4" />, isHome: true },
-    { id: 'privacy', label: t('footer_privacy') || 'Privacy Policy', icon: <ShieldCheck className="w-4 h-4" /> },
-    { id: 'contact', label: t('footer_contact') || 'Contact Us', icon: <Mail className="w-4 h-4" /> },
+  // Desktop primary tool links - strictly 2-3 clean headlines (Salary Slip & Affidavit are featured in the tools section below)
+  const desktopNavItems: { id: ActivePage; label: string; href: string }[] = [
+    { id: 'rent-receipt', label: 'Rent Receipt', href: '/' },
+    { id: 'guide', label: 'HRA Guide', href: '#guide' },
+    { id: 'faq', label: 'FAQ', href: '#faq' },
+  ];
+
+  // Full list for mobile drawer including legal and informational pages
+  const mobileNavItems: { id: ActivePage; label: string; href: string; icon: React.ReactNode }[] = [
+    { id: 'home', label: 'Rent Receipt Generator', href: '/', icon: <Home className="w-4 h-4 text-blue-600" /> },
+    { id: 'salary-slip', label: 'Salary Slip Generator', href: '#salary-slip', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
+    { id: 'affidavit', label: 'Affidavit Generator', href: '#affidavit', icon: <FileText className="w-4 h-4 text-purple-600" /> },
+    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '#guide', icon: <BookOpen className="w-4 h-4 text-amber-600" /> },
+    { id: 'faq', label: 'Frequently Asked Questions', href: '#faq', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
+    { id: 'about', label: 'About Us', href: '#about', icon: <Info className="w-4 h-4 text-slate-500" /> },
+    { id: 'contact', label: 'Contact Support', href: '#contact', icon: <Mail className="w-4 h-4 text-slate-500" /> },
+    { id: 'privacy', label: 'Privacy Policy', href: '#privacy', icon: <ShieldCheck className="w-4 h-4 text-slate-500" /> },
+    { id: 'terms', label: 'Terms & Conditions', href: '#terms', icon: <Scale className="w-4 h-4 text-slate-500" /> },
   ];
 
   const handleNavClick = (pageId: ActivePage) => {
-    setActivePage(pageId);
+    // Normalise 'rent-receipt' click from desktop nav to 'home' when at root
+    const target = pageId === 'rent-receipt' ? 'home' : pageId;
+    setActivePage(target);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isNavActive = (item: typeof navItems[0]) => {
-    if (item.isHome) {
-      return activePage === 'home';
+  const isNavActive = (pageId: ActivePage) => {
+    if (pageId === 'rent-receipt' || pageId === 'home') {
+      return activePage === 'home' || activePage === 'rent-receipt' || activePage === 'tool';
     }
-    return activePage === item.id;
+    return activePage === pageId;
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-16 gap-4">
           
-          {/* Logo with House Icon */}
-          <button
-            type="button"
-            id="brand-logo-btn"
-            className="flex items-center gap-2.5 cursor-pointer select-none group text-left bg-transparent border-0 p-0 shrink-0"
-            onClick={() => handleNavClick('home')}
-            aria-label="Go to homepage"
-          >
-            <HouseLogo className="w-8 h-8 sm:w-9 sm:h-9 group-hover:scale-105 transition-transform shadow-2xs rounded-xl" />
-            <span className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-none group-hover:text-blue-600 transition-colors">
-              RentReceipt
-            </span>
-          </button>
+          {/* Left: Brand Logo & Desktop Nav Links */}
+          <div className="flex items-center gap-6 lg:gap-8 min-w-0">
+            <a
+              href="/"
+              id="brand-logo-btn"
+              className="flex items-center gap-2.5 cursor-pointer select-none group text-left shrink-0"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('home');
+              }}
+              aria-label="RentReceipt Home"
+            >
+              <HouseLogo className="w-8 h-8 sm:w-9 sm:h-9 group-hover:scale-105 transition-transform shadow-2xs rounded-xl shrink-0" />
+              <span className="text-xl font-bold text-slate-900 tracking-tight leading-none group-hover:text-blue-600 transition-colors">
+                RentReceipt
+              </span>
+            </a>
 
-          {/* Desktop Navigation - Home, Privacy, Contact & Language Selection */}
-          <div className="hidden md:flex items-center gap-5 lg:gap-6">
-            <nav className="flex items-center gap-1.5 lg:gap-2" aria-label="Main Navigation">
-              {navItems.map((item) => {
-                const active = isNavActive(item);
+            {/* Desktop Navigation - 2-3 clean headlines */}
+            <nav className="hidden md:flex items-center gap-1.5" aria-label="Main Navigation">
+              {desktopNavItems.map((item) => {
+                const active = isNavActive(item.id);
                 return (
-                  <button
+                  <a
                     key={item.id}
                     id={`nav-${item.id}`}
-                    type="button"
-                    onClick={() => handleNavClick(item.id)}
-                    className={`px-3 py-1.5 rounded-lg text-sm transition-all cursor-pointer font-medium flex items-center gap-1.5 ${
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.id);
+                    }}
+                    className={`whitespace-nowrap px-3.5 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
                       active
                         ? 'bg-blue-50 text-blue-600 font-semibold'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
                     }`}
                   >
-                    <span>{item.label}</span>
-                  </button>
+                    {item.label}
+                  </a>
                 );
               })}
             </nav>
-
-            {/* Language Switcher */}
-            <div className="pl-3 border-l border-slate-200">
-              <LanguageSwitcher />
-            </div>
           </div>
 
-          {/* Mobile Header: Home + Language Selection + Menu Toggle */}
-          <div className="flex items-center gap-1.5 md:hidden">
-            {/* Direct Home icon for 1-tap navigation on mobile */}
-            <button
-              id="mobile-quick-home-btn"
-              type="button"
-              onClick={() => handleNavClick('home')}
-              className={`p-2 rounded-lg transition-colors cursor-pointer flex items-center justify-center ${
-                activePage === 'home'
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-slate-600 hover:bg-slate-100'
+          {/* Right: Contact link + Language Switcher (Desktop) & Menu toggle (Mobile) */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            <a
+              href="#contact"
+              id="nav-contact-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('contact');
+              }}
+              className={`hidden md:inline-flex whitespace-nowrap px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
+                activePage === 'contact'
+                  ? 'bg-blue-50 text-blue-600 font-semibold'
+                  : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
               }`}
-              aria-label="Home"
-              title="Home"
             >
-              <Home className="w-4 h-4" />
-            </button>
+              Contact
+            </a>
 
-            {/* Language Switcher Dropdown */}
             <LanguageSwitcher />
 
-            {/* Mobile Menu Toggle for Privacy & Contact */}
+            {/* Mobile Menu Toggle */}
             <button
               id="mobile-menu-toggle"
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="md:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200/70"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-slate-700" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown - Home, Privacy & Contact */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-3 pt-2.5 pb-4 space-y-1 shadow-lg animate-fade-in">
+        <div className="md:hidden border-t border-slate-200/80 bg-white px-4 pt-3 pb-5 space-y-1 shadow-lg animate-fade-in max-h-[calc(100vh-4rem)] overflow-y-auto">
           <nav className="space-y-1" aria-label="Mobile Navigation">
-            {navItems.map((item) => {
-              const active = isNavActive(item);
+            {mobileNavItems.map((item) => {
+              const active = isNavActive(item.id);
               return (
-                <button
+                <a
                   key={item.id}
                   id={`mobile-nav-${item.id}`}
-                  type="button"
-                  onClick={() => handleNavClick(item.id)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-left text-sm font-medium transition-colors cursor-pointer ${
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.id);
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-sm font-medium transition-colors cursor-pointer ${
                     active
                       ? 'bg-blue-50 text-blue-600 font-semibold'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5">
-                    <span className={active ? 'text-blue-600' : 'text-slate-500'}>
-                      {item.icon}
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <span>{item.icon}</span>
                     <span>{item.label}</span>
                   </div>
                   {active && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
-                </button>
+                </a>
               );
             })}
           </nav>

@@ -25,14 +25,21 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center space-x-2.5 text-white">
-              <HouseLogo className="w-8 h-8 rounded-xl shadow-xs" />
-              <span className="text-lg font-bold tracking-tight">
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('home');
+              }}
+              className="inline-flex items-center space-x-2.5 text-white group cursor-pointer"
+            >
+              <HouseLogo className="w-8 h-8 rounded-xl shadow-xs group-hover:scale-105 transition-transform" />
+              <span className="text-lg font-bold tracking-tight group-hover:text-blue-400 transition-colors">
                 RentReceipt
               </span>
-            </div>
+            </a>
             <p className="text-xs text-slate-400 max-w-md leading-relaxed">
-              A free, privacy-first client-side utility built for Indian salaried employees to generate, preview, and download authentic rent receipts for HRA tax exemption claims under Section 10(13A).
+              A free, privacy-first client-side utility built for Indian salaried employees to generate, preview, and download professional, print-ready rent receipts for HRA tax exemption claims under Section 10(13A).
             </p>
             <div className="flex items-center space-x-2 text-xs text-emerald-400 pt-1">
               <ShieldCheck className="w-4 h-4" />
@@ -47,44 +54,64 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={() => handleNav('home')}
-                  className="hover:text-white transition-colors text-left"
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('home');
+                  }}
+                  className="hover:text-white transition-colors block"
                 >
                   ⚡ All Free Generators
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('rent-receipt')}
-                  className="hover:text-white transition-colors text-left"
+                <a
+                  href="#rent-receipt"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('rent-receipt');
+                  }}
+                  className="hover:text-white transition-colors block"
                 >
                   🏠 Rent Receipt Generator
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('salary-slip')}
-                  className="hover:text-white transition-colors text-left"
+                <a
+                  href="#salary-slip"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('salary-slip');
+                  }}
+                  className="hover:text-white transition-colors block"
                 >
                   💼 Salary Slip Generator
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('affidavit')}
-                  className="hover:text-white transition-colors text-left"
+                <a
+                  href="#affidavit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('affidavit');
+                  }}
+                  className="hover:text-white transition-colors block"
                 >
                   📜 Affidavit &amp; Address Proof
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('verify')}
-                  className="hover:text-white transition-colors text-left"
+                <a
+                  href="#verify"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('verify');
+                  }}
+                  className="hover:text-white transition-colors block"
                 >
                   🔍 QR Receipt Verification
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -96,52 +123,76 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={() => handleNav('faq')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#faq"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('faq');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   Frequently Asked Questions (FAQ)
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('guide')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#guide"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('guide');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   HRA Tax Rules &amp; Guide
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('about')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('about');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   {t('footer_about')}
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('contact')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('contact');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   {t('footer_contact')}
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('privacy')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#privacy"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('privacy');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   {t('footer_privacy')}
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('terms')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="#terms"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('terms');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   {t('footer_terms')}
-                </button>
+                </a>
               </li>
             </ul>
           </div>

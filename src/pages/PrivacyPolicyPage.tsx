@@ -11,12 +11,17 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       <div className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors"
         >
           Home
-        </button>
+        </a>
         <span>/</span>
         <span className="text-slate-900">Privacy Policy</span>
       </div>
@@ -28,7 +33,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
             <span>Zero Server Data Retention</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Privacy Policy
+            Privacy Policy — Zero Server Data Retention Guarantee
           </h1>
           <p className="text-xs text-slate-500 mt-2 font-mono">
             Last Updated: September 1, 2026
@@ -126,26 +131,38 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
           </h2>
           <p>
             By using our website, you hereby consent to our Privacy Policy and agree to our{' '}
-            <button
-              onClick={() => setActivePage('terms')}
+            <a
+              href="#terms"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('terms');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Terms &amp; Conditions
-            </button>
+            </a>
             . We may update our Privacy Policy periodically to reflect emerging standards. For any questions regarding our client-side zero-storage architecture or data processing, please contact us via our{' '}
-            <button
-              onClick={() => setActivePage('contact')}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('contact');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Contact Desk
-            </button>{' '}
+            </a>{' '}
             or read more in our{' '}
-            <button
-              onClick={() => setActivePage('about')}
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('about');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               About Page
-            </button>
+            </a>
             .
           </p>
         </div>

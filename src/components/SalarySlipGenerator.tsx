@@ -252,12 +252,13 @@ export const SalarySlipGenerator: React.FC<SalarySlipGeneratorProps> = ({ onNavi
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-      {/* Top Navigation: Back to Home button */}
+      {/* Top Navigation: Back to Home link */}
       <div className="mb-4">
-        <button
-          type="button"
+        <a
+          href="/"
           id="back-to-home-salary-slip"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             onNavigate('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
@@ -265,7 +266,7 @@ export const SalarySlipGenerator: React.FC<SalarySlipGeneratorProps> = ({ onNavi
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
-        </button>
+        </a>
       </div>
 
       {/* Hero Intro */}
@@ -275,7 +276,7 @@ export const SalarySlipGenerator: React.FC<SalarySlipGeneratorProps> = ({ onNavi
           <span>Payment of Wages Act Compliant • 100% Private Client-Side</span>
         </div>
         <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Free Salary Slip Generator
+          Free Salary Slip Generator &amp; Payslip Maker
         </h1>
         <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
           Generate professional, audit-compliant employee payslips with automated Basic, HRA, PF, PT, and TDS calculations. Free instant PDF download with company branding and digital signature.

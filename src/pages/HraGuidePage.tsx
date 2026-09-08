@@ -25,12 +25,17 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       <div className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors"
         >
           Home
-        </button>
+        </a>
         <span>/</span>
         <span className="text-slate-900">HRA Exemption Guide</span>
       </div>
@@ -146,9 +151,9 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
           </div>
         </div>
 
-        {/* Mid-Guide Ad Slot (Hidden on mobile for smooth long-form reading) */}
+        {/* High-Engagement Mid-Guide Ad Slot (Visible across Mobile & Desktop for High Intent Users) */}
         <div className="py-2">
-          <AdSlot type="banner" hideOnMobile={true} />
+          <AdSlot type="high-ctr" />
         </div>
 
         {/* Detailed Comprehensive Editorial Content (800+ words) */}
@@ -198,12 +203,16 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
             <li><strong>Transfer via Banking Channels:</strong> Avoid cash transactions; execute monthly transfers via UPI, NEFT, or cheque to maintain an unassailable financial trail.</li>
             <li><strong>Parent Tax Filing:</strong> The parents must declare this rental income in their annual Income Tax Return (ITR) under &quot;Income from House Property&quot;.</li>
             <li><strong>Execute a Rental Agreement:</strong> Maintain a signed rental contract or an executed{' '}
-              <button
-                onClick={() => setActivePage('affidavit')}
+              <a
+                href="#affidavit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActivePage('affidavit');
+                }}
                 className="text-blue-600 font-semibold hover:underline cursor-pointer"
               >
                 Rent Affidavit &amp; Tenancy Declaration
-              </button>{' '}
+              </a>{' '}
               to establish a legitimate landlord-tenant relationship.
             </li>
           </ul>
@@ -213,26 +222,38 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
           </h2>
           <p>
             Every financial year in January or February, employers require salaried staff to submit statutory investment declarations using <strong>Form 12BB</strong>. Along with Form 12BB, you will submit your rent receipts downloaded from our{' '}
-            <button
-              onClick={() => setActivePage('rent-receipt')}
+            <a
+              href="#rent-receipt"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('rent-receipt');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Free Rent Receipt Generator
-            </button>
+            </a>
             . If your employer also requests verified monthly compensation breakdown sheets, you can compile them using our{' '}
-            <button
-              onClick={() => setActivePage('salary-slip')}
+            <a
+              href="#salary-slip"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('salary-slip');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Salary Slip Generator
-            </button>
+            </a>
             . Have additional questions? Read our full{' '}
-            <button
-              onClick={() => setActivePage('faq')}
+            <a
+              href="#faq"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('faq');
+              }}
               className="text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               HRA &amp; Tax FAQ knowledge base
-            </button>
+            </a>
             .
           </p>
         </div>
@@ -243,16 +264,18 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
         </div>
 
         <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-          <button
-            onClick={() => {
+          <a
+            href="#rent-receipt"
+            onClick={(e) => {
+              e.preventDefault();
               setActivePage('rent-receipt');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+            className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer inline-flex"
           >
             <span>Generate Rent Receipts</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

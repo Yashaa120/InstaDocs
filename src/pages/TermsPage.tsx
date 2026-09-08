@@ -25,12 +25,17 @@ export const TermsPage: React.FC<TermsPageProps> = ({ setActivePage }) => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumb Navigation */}
       <nav className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500" aria-label="Breadcrumb">
-        <button
-          onClick={() => setActivePage('home')}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            setActivePage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="hover:text-blue-600 transition-colors cursor-pointer"
         >
           Home
-        </button>
+        </a>
         <span className="text-slate-300">/</span>
         <span className="text-slate-900 font-semibold">Terms &amp; Conditions</span>
       </nav>
@@ -46,7 +51,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ setActivePage }) => {
           </div>
           
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Terms and Conditions
+            Terms and Conditions of Service
           </h1>
           
           <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-mono pt-1">
@@ -299,13 +304,17 @@ export const TermsPage: React.FC<TermsPageProps> = ({ setActivePage }) => {
                 <div className="font-semibold text-slate-900 text-sm">Have inquiries about these Terms?</div>
                 <div className="text-xs text-slate-500">We typically review user correspondence within 24–48 business hours.</div>
               </div>
-              <button
-                onClick={() => setActivePage('contact')}
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActivePage('contact');
+                }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors cursor-pointer"
               >
                 <Mail className="w-4 h-4" />
                 <span>Contact Support Page</span>
-              </button>
+              </a>
             </div>
           </section>
 
@@ -321,15 +330,17 @@ export const TermsPage: React.FC<TermsPageProps> = ({ setActivePage }) => {
           <div>
             <span>Reference: Section 10(13A) Income Tax Act &amp; Indian Stamp Act, 1899</span>
           </div>
-          <button
-            onClick={() => {
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
               setActivePage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="text-blue-600 font-semibold hover:text-blue-800 transition-colors cursor-pointer"
           >
             ← Back to Free Generators
-          </button>
+          </a>
         </footer>
 
       </article>

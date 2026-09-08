@@ -6,19 +6,19 @@ RentReceipt provides instant, watermark-free document generation utilities desig
 
 ## Free Compliance Tools
 
-- [Free Rent Receipt Generator](https://rentreceipt.app/#rent-receipt): Generate authentic monthly or multi-month (annual FY 2025-26) rent receipts in PDF format with automatic rupee-in-words conversion, landlord PAN compliance (for rent exceeding ₹1 Lakh/year), and ₹1 revenue stamp placeholders for cash payments over ₹5,000.
-- [Online Salary Slip Generator](https://rentreceipt.app/#salary-slip): Create formal employee monthly payslips with comprehensive earnings (Basic, HRA, Conveyance, Special Allowance) and deductions (EPF, ESI, Professional Tax, TDS) alongside net salary calculations and downloadable PDFs for loan/visa/tax filings.
-- [Rent Affidavit & Address Proof Generator](https://rentreceipt.app/#affidavit): Create legally formatted rent self-declaration affidavits, no-rent-agreement declarations, and residential address proof documents compatible with e-stamp paper margins for passport, bank account, and employer submissions.
-- [QR Code Rent Receipt Verification Portal](https://rentreceipt.app/#verify): Cryptographic authenticity verification portal allowing employers and tax auditors to scan the embedded QR code on generated receipts to verify landlord details, rent amounts, and payment references.
+- [Free Rent Receipt Generator](https://rentreceipt.online/#rent-receipt): Generate professional, print-ready monthly or multi-month (annual FY 2025-26) rent receipts in PDF format with automatic rupee-in-words conversion, landlord PAN compliance (for rent exceeding ₹1 Lakh/year), and ₹1 revenue stamp placeholders for cash payments over ₹5,000.
+- [Online Salary Slip Generator](https://rentreceipt.online/#salary-slip): Create formal employee monthly payslips with comprehensive earnings (Basic, HRA, Conveyance, Special Allowance) and deductions (EPF, ESI, Professional Tax, TDS) alongside net salary calculations and downloadable PDFs for loan/visa/tax filings.
+- [Rent Affidavit & Address Proof Generator](https://rentreceipt.online/#affidavit): Create legally formatted rent self-declaration affidavits, no-rent-agreement declarations, and residential address proof documents compatible with e-stamp paper margins for passport, bank account, and employer submissions.
+- [QR Code Rent Receipt Verification Portal](https://rentreceipt.online/#verify): Cryptographic validity check portal allowing employers and tax auditors to scan the embedded QR code on generated receipts to verify landlord details, rent amounts, and payment references.
 
 ## Guides and Resources
 
-- [HRA Tax Exemption Guide (FY 2025-26)](https://rentreceipt.app/#guide): Step-by-step breakdown of Section 10(13A) House Rent Allowance tax calculation rules, metro (50%) vs. non-metro (40%) ceilings, landlord PAN requirements, paying rent to parents, and Form 12BB employer submission deadlines.
-- [Frequently Asked Questions (FAQ)](https://rentreceipt.app/#faq): Comprehensive answers to common questions regarding revenue stamp validity, landlord PAN exemption limits, multiple-month receipt generation, and client-side privacy architecture.
+- [HRA Tax Exemption Guide (FY 2025-26)](https://rentreceipt.online/#guide): Step-by-step breakdown of Section 10(13A) House Rent Allowance tax calculation rules, metro (50%) vs. non-metro (40%) ceilings, landlord PAN requirements, paying rent to parents, and Form 12BB employer submission deadlines.
+- [Frequently Asked Questions (FAQ)](https://rentreceipt.online/#faq): Comprehensive answers to common questions regarding revenue stamp validity, landlord PAN exemption limits, multiple-month receipt generation, and client-side privacy architecture.
 
 ## Organization & Legal
 
-- [About RentReceipt](https://rentreceipt.app/#about): The origin story, mission, and guiding architectural principles behind our zero-server-storage, privacy-first web utility.
-- [Contact Us & Technical Support](https://rentreceipt.app/#contact): Support desk for user questions, bug reports, feature suggestions, and corporate partnership inquiries (support@rentreceipt.app).
-- [Privacy Policy](https://rentreceipt.app/#privacy): Formal explanation of our 100% in-browser processing guarantee, zero server-side storage of personal information, and advertising transparency.
-- [Terms and Conditions](https://rentreceipt.app/#terms): Legal terms of service, acceptable use policies, and compliance disclaimers.
+- [About RentReceipt](https://rentreceipt.online/#about): The origin story, mission, and guiding architectural principles behind our zero-server-storage, privacy-first web utility.
+- [Contact Us & Technical Support](https://rentreceipt.online/#contact): Support desk for user questions, bug reports, feature suggestions, and corporate partnership inquiries (support@rentreceipt.online).
+- [Privacy Policy](https://rentreceipt.online/#privacy): Formal explanation of our 100% in-browser processing guarantee, zero server-side storage of personal information, and advertising transparency.
+- [Terms and Conditions](https://rentreceipt.online/#terms): Legal terms of service, acceptable use policies, and compliance disclaimers.
