@@ -30,10 +30,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             <span>Our Story & Mission</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            About Rent Receipt Generator
+            About RentReceipt
           </h1>
           <p className="text-base text-slate-600 mt-2">
-            Why we built a fast, 100% free, client-side rent receipt generator for Indian taxpayers.
+            Why we built an open, 100% client-side, zero-database financial and legal document suite for Indian taxpayers and salaried professionals.
           </p>
         </div>
 
@@ -52,38 +52,97 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             We thought: <strong>why does generating a standard 1-page or 12-month rent receipt need to be so painful, slow, and privacy-invasive?</strong>
           </p>
           <p>
-            In response, we built <strong>Rent Receipt Generator</strong> as a lightweight, clean, fast, and completely free web utility. Our goal was simple: provide an instant tool that allows anyone to generate authentic, CBDT-compliant rent receipts for single months or an entire financial year in less than 30 seconds—with absolute privacy.
+            In response, we built <strong>RentReceipt</strong> as a lightweight, clean, fast, and completely free web utility. What started as a focused{' '}
+            <button
+              onClick={() => setActivePage('rent-receipt')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Rent Receipt Generator
+            </button>{' '}
+            has now expanded into a comprehensive suite including an online{' '}
+            <button
+              onClick={() => setActivePage('salary-slip')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Salary Slip Generator
+            </button>{' '}
+            and a legal{' '}
+            <button
+              onClick={() => setActivePage('affidavit')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Rent Affidavit &amp; Address Proof Generator
+            </button>
+            .
           </p>
 
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-xl space-y-3 my-6">
             <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
               <Shield className="w-5 h-5 text-emerald-600" />
-              <span>Our Guiding Principles</span>
+              <span>Our Guiding Architectural Principles</span>
             </h3>
             <ul className="space-y-2 text-sm text-slate-700">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                <span><strong>100% Client-Side Privacy:</strong> Your data never touches our servers. Everything is rendered and converted directly in your browser.</span>
+                <span><strong>100% Client-Side Privacy:</strong> Your sensitive PAN numbers, salaries, and addresses never touch a server database. Everything is calculated and rendered directly in your browser.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                <span><strong>No Paywalls &amp; No Forced Signups:</strong> No subscriptions, premium tiers, or registration barriers. Accessible to all salaried workers.</span>
+                <span><strong>No Paywalls &amp; No Forced Signups:</strong> No subscriptions, premium tiers, or registration barriers. All tools are accessible to all salaried workers and small business employers for free.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                <span><strong>Accurate Legal Formatting:</strong> Built strictly according to Indian Income Tax rules, including ₹1 revenue stamp placeholders, landlord PAN compliance, and rupee words conversion.</span>
+                <span><strong>Accurate Legal Formatting:</strong> Built strictly according to Indian Income Tax rules, including ₹1 revenue stamp placeholders, landlord PAN compliance thresholds, and formal Section 10(13A) audit standards. Read our full{' '}
+                <button
+                  onClick={() => setActivePage('guide')}
+                  className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                >
+                  HRA Tax Rules Guide
+                </button>
+                .</span>
               </li>
             </ul>
           </div>
 
           <h2 className="text-xl font-bold text-slate-900">
+            Why Client-Side In-Browser Processing Matters
+          </h2>
+          <p>
+            When claiming House Rent Allowance or generating monthly compensation slips, you handle confidential identifiers: your Permanent Account Number (PAN), your landlord&apos;s PAN, gross earnings, provident fund contributions, and residential addresses. On traditional websites, this information is sent over APIs and stored in backend databases that are vulnerable to data breaches or unsolicited telemarketing.
+          </p>
+          <p>
+            RentReceipt uses modern web technologies (HTML5 Canvas, Web Cryptography, and in-memory PDF generation) to ensure that <strong>zero bytes of your input data leave your device</strong>. Once you close your browser tab or click refresh, all input values vanish entirely. You can inspect our security commitments in our{' '}
+            <button
+              onClick={() => setActivePage('privacy')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            .
+          </p>
+
+          <h2 className="text-xl font-bold text-slate-900">
             Who Are We?
           </h2>
           <p>
-            We are a small, independent team of software developers and finance enthusiasts based in India. We build focused, practical utility web apps that solve everyday headaches for working professionals, freelancers, and small businesses.
+            We are an independent group of software engineers, tax enthusiasts, and product designers based in India. We build focused, lightweight web tools that eliminate administrative friction for salaried employees, tenants, freelancers, and small business owners.
           </p>
           <p>
-            We believe the modern web should be fast, uncluttered, and respect user privacy. We don’t track your personal identity, we don’t sell your information, and we don’t force you through unnecessary verification flows.
+            If you have ideas for new document templates, feature improvements, or bug reports, we welcome you to reach out via our{' '}
+            <button
+              onClick={() => setActivePage('contact')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Contact &amp; Support Desk
+            </button>
+            . For quick answers to common questions about rent receipts, salary slips, and HRA rules, check our{' '}
+            <button
+              onClick={() => setActivePage('faq')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              FAQ knowledge base
+            </button>
+            .
           </p>
 
           {/* Mid-Content Ad Slot - Clean on desktop, hidden on mobile for seamless reading */}
@@ -95,10 +154,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             How This Site Stays Free
           </h2>
           <p>
-            To keep this tool completely free and cover web hosting and domain upkeep costs, we display standard, non-intrusive banner advertisements (such as Google AdSense). We purposefully keep these ad placements cleanly separated from the generator form so that you always enjoy a distraction-free, seamless experience.
+            To keep this tool completely free and cover web hosting, domain maintenance, and ongoing development costs, we display standard, non-intrusive advertisements (such as Google AdSense). We purposefully keep these ad placements cleanly separated from the interactive generator forms so that you always enjoy a distraction-free, seamless experience.
           </p>
           <p>
-            If you find this tool helpful, the greatest way to support us is by sharing the link with your colleagues, friends, or roommates who might also be rushing to submit their HRA proofs this tax season!
+            If you find this suite helpful, the greatest way to support us is by sharing the link with your colleagues, friends, or roommates who might also be rushing to submit their HRA proofs or salary slips this tax season!
           </p>
         </div>
 

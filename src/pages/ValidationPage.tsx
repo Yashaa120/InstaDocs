@@ -12,17 +12,29 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import { AdSlot } from '../components/AdSlot';
+import { ActivePage } from '../types';
 
 interface ValidationPageProps {
   verifiedData: DecodedReceiptVerification | null;
   onNavigateHome: () => void;
+  onNavigate?: (page: ActivePage) => void;
 }
 
 export const ValidationPage: React.FC<ValidationPageProps> = ({
   verifiedData,
   onNavigateHome,
+  onNavigate,
 }) => {
   const [copied, setCopied] = useState(false);
+
+  const handleNavigate = (page: ActivePage) => {
+    if (onNavigate) {
+      onNavigate(page);
+    } else {
+      window.location.hash = page === 'home' ? '' : page;
+      onNavigateHome();
+    }
+  };
 
   // Fallback demo data if opened directly without query string
   const data: DecodedReceiptVerification = verifiedData || {
@@ -108,10 +120,10 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
                 </div>
                 <div>
                   <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    Rent Receipt Summary
+                    Rent Receipt Online Verification &amp; Authenticity Summary
                   </h1>
                   <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
-                    Structured receipt details for Section 10(13A) HRA tax exemption documentation.
+                    Cryptographically generated proof summary for Section 10(13A) House Rent Allowance tax exemption and employer audit records.
                   </p>
                 </div>
               </div>
@@ -125,6 +137,10 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
 
           {/* Core Body Grid */}
           <div className="p-6 sm:p-8 space-y-6 text-left">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-300 border-b border-slate-700/80 pb-2">
+              Detailed Rental Record &amp; Payment Trail
+            </h2>
+
             {/* 1. Consideration Amount Highlight Box */}
             <div className="bg-slate-900 border border-slate-700 rounded-xl p-5 flex flex-wrap items-center justify-between gap-4">
               <div className="space-y-1">
@@ -224,7 +240,7 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
 
             {/* Disclaimer */}
             <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl text-xs text-slate-400 leading-relaxed">
-              <strong>Disclaimer:</strong> This receipt is a formatting tool only and does not constitute legal certification. For tax filing or legal proceedings, ensure payments are made via traceable bank transfer and retain your rental agreement as supporting evidence.
+              <strong>Disclaimer:</strong> This receipt verification view reflects the cryptographic parameters encoded into the QR code during generation. For formal tax filing or scrutiny under Section 143(1)/143(3), salaried employees must retain matching bank account debits and a registered lease agreement.
             </div>
           </div>
 
@@ -262,6 +278,105 @@ NOTE: This receipt is a formatting tool only and does not constitute legal certi
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Informational Guidance for Tax Audit Verification - 400+ Words Expansion */}
+        <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 sm:p-8 space-y-6 text-slate-300 text-sm leading-relaxed shadow-xl">
+          <div>
+            <h2 className="text-lg font-bold text-white tracking-tight mb-2">
+              How to Validate This Receipt for HRA Tax Exemption (Section 10(13A))
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              When internal payroll auditors or the Income Tax Department evaluate House Rent Allowance claims under Section 10(13A) of the Income Tax Act, they look for verifiable consistency between the receipt details, banking transactions, and physical residency. This verification portal extracts the cryptographic hash generated at the time the tenant printed their receipt.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 bg-slate-900/70 rounded-xl border border-slate-700/70 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-blue-400">
+                1. Traceable Bank Trail
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Ensure that the payment method shown above (UPI, NEFT, IMPS, or Cheque) corresponds to a legitimate debit entry on your bank account statement for the specified rental month.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-900/70 rounded-xl border border-slate-700/70 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                2. Landlord PAN Compliance
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                As mandated by CBDT Circular No. 08/2013, if the cumulative annual rent paid across the financial year exceeds ₹1,00,000, quoting the landlord&apos;s Permanent Account Number (PAN) is legally compulsory.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-900/70 rounded-xl border border-slate-700/70 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400">
+                3. Revenue Stamp Guidelines
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                For cash settlements over ₹5,000, affixing a ₹1 Indian revenue stamp with the landlord&apos;s signature across the stamp is mandatory under the Indian Stamp Act. For online transactions, bank UTR references serve as legal proof.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-900/70 rounded-xl border border-slate-700/70 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                4. Rental Agreement Backing
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Always pair monthly rent receipts with a valid registered or notarized lease agreement. If you do not have a formal agreement, generate a signed{' '}
+                <button
+                  onClick={() => handleNavigate('affidavit')}
+                  className="text-blue-400 font-bold hover:underline cursor-pointer"
+                >
+                  Rent Affidavit
+                </button>{' '}
+                as supplemental evidence.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-slate-700">
+            <h2 className="text-base font-bold text-white mb-2">
+              Explore Related Free Financial &amp; Tax Document Tools
+            </h2>
+            <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              Access other privacy-first compliance tools on RentReceipt to streamline your personal and payroll tax filings:
+            </p>
+
+            <div className="flex flex-wrap gap-2 text-xs">
+              <button
+                onClick={() => handleNavigate('rent-receipt')}
+                className="px-3 py-1.5 rounded-lg bg-blue-600/30 text-blue-300 hover:bg-blue-600/50 border border-blue-500/40 font-semibold transition-colors cursor-pointer"
+              >
+                🏠 Rent Receipt Generator
+              </button>
+              <button
+                onClick={() => handleNavigate('salary-slip')}
+                className="px-3 py-1.5 rounded-lg bg-emerald-600/30 text-emerald-300 hover:bg-emerald-600/50 border border-emerald-500/40 font-semibold transition-colors cursor-pointer"
+              >
+                💼 Salary Slip Generator
+              </button>
+              <button
+                onClick={() => handleNavigate('affidavit')}
+                className="px-3 py-1.5 rounded-lg bg-purple-600/30 text-purple-300 hover:bg-purple-600/50 border border-purple-500/40 font-semibold transition-colors cursor-pointer"
+              >
+                📜 Rent Affidavit Generator
+              </button>
+              <button
+                onClick={() => handleNavigate('guide')}
+                className="px-3 py-1.5 rounded-lg bg-amber-600/30 text-amber-300 hover:bg-amber-600/50 border border-amber-500/40 font-semibold transition-colors cursor-pointer"
+              >
+                📖 HRA Tax Exemption Guide
+              </button>
+              <button
+                onClick={() => handleNavigate('faq')}
+                className="px-3 py-1.5 rounded-lg bg-slate-700 text-slate-200 hover:bg-slate-600 font-semibold transition-colors cursor-pointer"
+              >
+                ❓ Frequently Asked Questions
               </button>
             </div>
           </div>

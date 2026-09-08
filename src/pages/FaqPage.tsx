@@ -85,10 +85,20 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
             <span>Help Center &amp; FAQs</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Frequently Asked Questions
+            Frequently Asked Questions (FAQ)
           </h1>
           <p className="text-base text-slate-600 mt-2">
             Clear answers about rent receipts, HRA tax exemption, PAN rules, revenue stamps, and our free tools.
+          </p>
+        </div>
+
+        {/* Section Heading with H2 */}
+        <div>
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-4">
+            Common Inquiries on HRA Exemption, Receipts &amp; Payroll Rules
+          </h2>
+          <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+            Find immediate clarity on statutory compliance rules governed by the Central Board of Direct Taxes (CBDT), Section 10(13A) of the Income Tax Act, and payroll audit requirements across Indian employers:
           </p>
         </div>
 
@@ -136,26 +146,60 @@ export const FaqPage: React.FC<FaqPageProps> = ({ setActivePage }) => {
           })}
         </div>
 
-        {/* Quick Links Banner */}
-        <div className="p-6 bg-blue-50/60 border border-blue-200 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Quick Links Banner with H2 */}
+        <div className="p-6 bg-blue-50/60 border border-blue-200 rounded-2xl space-y-4">
           <div>
-            <h3 className="text-base font-bold text-slate-900">
-              Need to generate a document right now?
-            </h3>
-            <p className="text-sm text-slate-600 mt-0.5">
-              Choose from rent receipts, salary slips, or legal affidavits.
+            <h2 className="text-base sm:text-lg font-bold text-slate-900">
+              Ready to Generate Your Documents or Calculate Exemptions?
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Select any of our free, privacy-first compliance tools designed for Indian taxpayers and salaried professionals:
             </p>
           </div>
-          <button
-            onClick={() => {
-              setActivePage('rent-receipt');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer whitespace-nowrap"
-          >
-            <span>Start Generating</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <button
+              onClick={() => {
+                setActivePage('rent-receipt');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+            >
+              <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
+                <span>Rent Receipt Generator</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">Multi-month HRA receipts with revenue stamp</p>
+            </button>
+
+            <button
+              onClick={() => {
+                setActivePage('salary-slip');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+            >
+              <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
+                <span>Salary Slip Generator</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">Official employee payslips with PF/PT deductions</p>
+            </button>
+
+            <button
+              onClick={() => {
+                setActivePage('guide');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="p-3 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-left transition-all shadow-2xs hover:shadow-xs cursor-pointer group"
+            >
+              <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 flex items-center justify-between">
+                <span>HRA Exemption Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">Interactive calculator and CBDT rules</p>
+            </button>
+          </div>
         </div>
 
         {/* Bottom Ad Slot */}

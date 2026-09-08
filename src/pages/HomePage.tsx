@@ -162,6 +162,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
       </section>
 
+      {/* High-Engagement Mid-Page Ad Slot */}
+      <div className="my-6">
+        <AdSlot type="banner" hideOnMobile={false} />
+      </div>
+
       {/* Trust & Privacy Section */}
       <section className="mb-8 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs" aria-label="Trust and Privacy Highlights">
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
@@ -197,19 +202,63 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
       </section>
 
-      {/* Tax & Payroll SEO Knowledge Section (50-150 Words with Trending Keywords) */}
-      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-2xs" aria-label="Tax and Payroll Compliance Overview">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-600 inline-block" />
+      {/* Tax & Payroll SEO Knowledge Section (Expanded to 450+ Words with Internal Links) */}
+      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs space-y-4" aria-label="Tax and Payroll Compliance Overview">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block" />
             <span>Income Tax, HRA Proofs &amp; Payroll Documentation Guide</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Need an authentic <strong>salary slip format</strong> or verified <strong>salary slip generator</strong> for your <strong>income tax</strong> declaration before the <strong>ITR filing last date</strong>? Whether you manage employee payroll records on <strong>Salary Box</strong> / <strong>Salarybox</strong>, claim <strong>HRA tax exemption</strong> under <strong>Section 10(13A)</strong>, or prepare tax returns on <strong>ClearTax</strong>, <strong>Tax2Win</strong>, or the official <strong>Income Tax login (ITR login)</strong> portal, submitting accurate <strong>salary slips</strong> and signed rent receipts with valid landlord PAN is essential.
+            Need an authentic <strong>salary slip format</strong> or verified <strong>salary slip generator</strong> for your <strong>income tax</strong> declaration before the annual <strong>ITR filing last date</strong>? Whether you manage employee payroll records on <strong>Salary Box</strong> / <strong>Salarybox</strong>, claim <strong>HRA tax exemption</strong> under <strong>Section 10(13A)</strong>, or prepare tax returns on <strong>ClearTax</strong>, <strong>Tax2Win</strong>, or the official <strong>Income Tax login (ITR login)</strong> portal, submitting accurate <strong>salary slips</strong> and signed rent receipts with valid landlord PAN is essential.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
             Our platform provides instant, free document generators for compliant <strong>salary slip formats</strong>, batch rent receipts with revenue stamp formatting, and legal self-declarations for official verification, bank loans, and welfare portals like <strong>Annapurna Bhandar portal</strong> (for <strong>Annapurna Bhandar status check</strong> documentation). All documents are generated locally in your browser with zero server storage.
           </p>
+
+          <div className="pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-3 bg-white rounded-xl border border-slate-200">
+              <h3 className="text-xs font-bold text-slate-900 mb-1">
+                <button
+                  onClick={() => onSelectTool('rent-receipt')}
+                  className="text-blue-600 hover:underline text-left cursor-pointer"
+                >
+                  🏠 Rent Receipts for HRA
+                </button>
+              </h3>
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                Generate single-month or full-year receipts with automatic rupee words, landlord PAN fields, and ₹1 revenue stamp placeholders.
+              </p>
+            </div>
+
+            <div className="p-3 bg-white rounded-xl border border-slate-200">
+              <h3 className="text-xs font-bold text-slate-900 mb-1">
+                <button
+                  onClick={() => onSelectTool('salary-slip')}
+                  className="text-blue-600 hover:underline text-left cursor-pointer"
+                >
+                  💼 Salary Slip Generator
+                </button>
+              </h3>
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                Calculate Basic, HRA, EPF (12%), Professional Tax, and TDS deductions with company logo and signature attestation.
+              </p>
+            </div>
+
+            <div className="p-3 bg-white rounded-xl border border-slate-200">
+              <h3 className="text-xs font-bold text-slate-900 mb-1">
+                <button
+                  onClick={() => onSelectTool('affidavit')}
+                  className="text-blue-600 hover:underline text-left cursor-pointer"
+                >
+                  📜 Legal Rent Affidavit
+                </button>
+              </h3>
+              <p className="text-[11px] text-slate-500 mb-0 leading-relaxed">
+                Create self-declaration tenancy agreements and address verification drafts tailored for notarization and e-stamp paper.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

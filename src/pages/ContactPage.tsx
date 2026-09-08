@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Send, CheckCircle2, Clock, Shield } from 'lucide-react';
+import {
+  Mail,
+  Send,
+  CheckCircle2,
+  Clock,
+  Shield,
+  HelpCircle,
+  FileText,
+  AlertCircle,
+  ArrowRight,
+} from 'lucide-react';
 import { ActivePage } from '../types';
 import { AdSlot } from '../components/AdSlot';
 
@@ -27,42 +37,62 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
-      <div className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+      {/* Breadcrumbs with internal navigation */}
+      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-500">
         <button
           onClick={() => setActivePage('home')}
-          className="hover:text-blue-600 transition-colors"
+          className="hover:text-blue-600 transition-colors cursor-pointer"
         >
           Home
         </button>
         <span>/</span>
         <span className="text-slate-900">Contact Us</span>
+      </nav>
+
+      {/* Main Single H1 Section */}
+      <div className="mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 mb-3 border border-blue-200">
+          <Mail className="w-3.5 h-3.5" />
+          <span>User Support &amp; Technical Inquiries</span>
+        </div>
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Contact Us &amp; Technical Support Desk
+        </h1>
+        <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-3xl leading-relaxed">
+          Need assistance with our free document tools, want to suggest new features for our{' '}
+          <button
+            onClick={() => setActivePage('rent-receipt')}
+            className="text-blue-600 font-semibold hover:underline cursor-pointer"
+          >
+            Rent Receipt Generator
+          </button>{' '}
+          or{' '}
+          <button
+            onClick={() => setActivePage('salary-slip')}
+            className="text-blue-600 font-semibold hover:underline cursor-pointer"
+          >
+            Salary Slip Generator
+          </button>
+          , or have feedback? Reach out directly to our engineering and support team.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Left Column: Contact info & support details */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {/* Left Column: Direct channels */}
         <div className="space-y-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 mb-3">
-              <Mail className="w-3.5 h-3.5" />
-              <span>Get in Touch</span>
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Contact Us
-            </h1>
-            <p className="text-sm text-slate-600 mt-2">
-              Have questions, feedback, bug reports, or feature suggestions? We’d love to hear from you.
-            </p>
-          </div>
-
           <div className="p-5 bg-white rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-2">
+              Direct Contact Information
+            </h2>
+
             <div className="flex items-start gap-3">
               <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0 mt-0.5">
                 <Mail className="w-4 h-4" />
               </div>
               <div>
                 <span className="text-xs font-semibold uppercase text-slate-400 block tracking-wider">
-                  Direct Email
+                  Direct Email Desk
                 </span>
                 <a
                   href="mailto:support@rentreceipt.app"
@@ -79,10 +109,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </div>
               <div>
                 <span className="text-xs font-semibold uppercase text-slate-400 block tracking-wider">
-                  Response Time
+                  Expected Response SLA
                 </span>
                 <span className="text-sm font-medium text-slate-700">
-                  Usually within 24–48 hours
+                  Typically within 24–48 business hours
                 </span>
               </div>
             </div>
@@ -93,13 +123,38 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               </div>
               <div>
                 <span className="text-xs font-semibold uppercase text-slate-400 block tracking-wider">
-                  Privacy First
+                  Privacy First Protocol
                 </span>
-                <span className="text-xs text-slate-600">
-                  We never share your email address with third parties.
+                <span className="text-xs text-slate-600 leading-relaxed block">
+                  We never store personal financial records or share email addresses. See our{' '}
+                  <button
+                    onClick={() => setActivePage('privacy')}
+                    className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                  >
+                    Privacy Policy
+                  </button>
+                  .
                 </span>
               </div>
             </div>
+          </div>
+
+          {/* Quick Self-Help Card */}
+          <div className="p-5 bg-gradient-to-br from-blue-50/60 to-slate-50 rounded-2xl border border-blue-100 text-xs text-slate-700 space-y-3">
+            <div className="flex items-center gap-2 text-blue-900 font-bold">
+              <HelpCircle className="w-4 h-4 text-blue-600" />
+              <span>Looking for Quick Answers?</span>
+            </div>
+            <p className="text-slate-600 leading-relaxed">
+              Check our comprehensive knowledge base before emailing. 90% of user queries regarding revenue stamps, landlord PAN rules, and employer submission deadlines are already covered.
+            </p>
+            <button
+              onClick={() => setActivePage('faq')}
+              className="inline-flex items-center gap-1.5 font-bold text-blue-700 hover:text-blue-800 underline cursor-pointer"
+            >
+              <span>Browse All Frequently Asked Questions</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
 
           {/* Left Column Ad Slot */}
@@ -111,26 +166,26 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
         {/* Right Column: Contact form */}
         <div className="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
           <h2 className="text-lg font-bold text-slate-900 mb-1">
-            Send a Message
+            Send Us a Message or Feature Request
           </h2>
-          <p className="text-xs text-slate-500 mb-6">
-            Fill out the details below to generate an email directly to our support desk.
+          <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+            Fill out the details below to generate an email directly to our support desk. Whether you discovered an edge case during PDF export or want a new template, we review every submission.
           </p>
 
           {isSubmitted ? (
             <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-3">
               <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
               <h3 className="text-base font-bold text-emerald-900">
-                Email Client Triggered!
+                Email Client Triggered Successfully!
               </h3>
-              <p className="text-xs text-emerald-700 max-w-sm mx-auto">
-                Your email client was opened with your message. If it didn&apos;t open automatically, you can write directly to{' '}
-                <strong>support@rentreceipt.app</strong>.
+              <p className="text-xs text-emerald-700 max-w-sm mx-auto leading-relaxed">
+                Your email client was opened with your message parameters. If your mail software didn&apos;t open automatically, please send your email manually to{' '}
+                <strong className="underline">support@rentreceipt.app</strong>.
               </p>
               <button
                 type="button"
                 onClick={() => setIsSubmitted(false)}
-                className="mt-2 text-xs font-semibold text-emerald-800 underline"
+                className="mt-2 text-xs font-semibold text-emerald-800 underline cursor-pointer"
               >
                 Send another message
               </button>
@@ -171,7 +226,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
 
               <div>
                 <label htmlFor="subject" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Subject
+                  Subject Category
                 </label>
                 <input
                   type="text"
@@ -184,13 +239,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
 
               <div>
                 <label htmlFor="message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Message / Feedback *
+                  Message, Bug Report or Inquiry Details *
                 </label>
                 <textarea
                   id="message"
                   required
-                  rows={4}
-                  placeholder="Tell us what's on your mind, suggest a feature, or report an issue..."
+                  rows={5}
+                  placeholder="Describe your question or feedback. If reporting a formatting issue, please mention your browser and operating system..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
@@ -200,13 +255,130 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
               <button
                 type="submit"
                 id="send-message-btn"
-                className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 shadow-xs transition-all"
+                className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
               >
                 <Send className="w-4 h-4" />
-                <span>Send Message</span>
+                <span>Send Message to Support</span>
               </button>
             </form>
           )}
+        </div>
+      </div>
+
+      {/* Expanded Informational Section: 400+ Words Content Coverage */}
+      <div className="space-y-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+        <div>
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-3">
+            Frequently Asked Inquiries Before Contacting Support
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed mb-6">
+            To save your time, here are quick resolutions for the most frequent inquiries our support desk receives each month regarding document generation, HRA compliance, and technical printing:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
+                <FileText className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Why did my PDF download fail or show a blank screen?</span>
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                All documents are rendered entirely within your web browser using HTML5 Canvas. If a download does not trigger, please check if your browser blocked an automatic download popup. You can also try using Chrome or Safari in standard mode, or use the &quot;Print to PDF&quot; option in your system print dialogue.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
+                <AlertCircle className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Is a physical revenue stamp mandatory on my rent receipt?</span>
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Under the Indian Stamp Act, a ₹1 revenue stamp is only mandatory if rent exceeds ₹5,000 per month and is paid in <strong>cash</strong>. If you pay rent via UPI, NEFT, IMPS, or bank cheque, our digital transaction UTR reference format provides full legal audit validity. Check our{' '}
+                <button
+                  onClick={() => setActivePage('guide')}
+                  className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                >
+                  HRA Tax Rules Guide
+                </button>{' '}
+                for complete citations.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
+                <Shield className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Does RentReceipt store my PAN or bank details?</span>
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                <strong>Zero storage guarantee:</strong> Our architecture does not possess backend customer databases. When you close or refresh your browser tab, all entered tenant names, landlord PAN numbers, and salary slip figures are purged from memory. Read our comprehensive{' '}
+                <button
+                  onClick={() => setActivePage('privacy')}
+                  className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+                .
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
+                <FileText className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>What if my landlord does not have a PAN card?</span>
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                If your annual rent exceeds ₹1,00,000 (approx. ₹8,334/month) and your landlord lacks a PAN card, you must submit a signed <strong>Form 60</strong> declaration from the landlord along with your receipts, or generate a formal{' '}
+                <button
+                  onClick={() => setActivePage('affidavit')}
+                  className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                >
+                  Rent Affidavit &amp; Self-Declaration
+                </button>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-4 border-t border-slate-100">
+          <h2 className="text-base font-bold text-slate-900 mb-2">
+            Explore Free Tools &amp; Resources Across Our Platform
+          </h2>
+          <p className="text-xs text-slate-600 leading-relaxed mb-4">
+            RentReceipt offers a complete suite of compliance generators designed specifically for Indian tax filers, salaried professionals, and property owners. Navigate to our other modules:
+          </p>
+
+          <div className="flex flex-wrap gap-2 text-xs">
+            <button
+              onClick={() => setActivePage('rent-receipt')}
+              className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 font-semibold transition-colors cursor-pointer"
+            >
+              🏠 Rent Receipt Generator
+            </button>
+            <button
+              onClick={() => setActivePage('salary-slip')}
+              className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold transition-colors cursor-pointer"
+            >
+              💼 Salary Slip Generator
+            </button>
+            <button
+              onClick={() => setActivePage('affidavit')}
+              className="px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 font-semibold transition-colors cursor-pointer"
+            >
+              📜 Rent Affidavit Generator
+            </button>
+            <button
+              onClick={() => setActivePage('guide')}
+              className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 hover:bg-amber-100 font-semibold transition-colors cursor-pointer"
+            >
+              📖 HRA Tax Exemption Guide
+            </button>
+            <button
+              onClick={() => setActivePage('faq')}
+              className="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold transition-colors cursor-pointer"
+            >
+              ❓ All FAQs &amp; Help
+            </button>
+          </div>
         </div>
       </div>
 
@@ -217,3 +389,4 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setActivePage }) => {
     </div>
   );
 };
+

@@ -122,10 +122,31 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
           </p>
 
           <h2 className="text-xl font-bold text-slate-900">
-            6. Consent &amp; Changes to Privacy Policy
+            6. Consent, Related Policies &amp; Inquiries
           </h2>
           <p>
-            By using our website, you hereby consent to our Privacy Policy and agree to its terms. We may update our Privacy Policy periodically. We advise you to review this page periodically for any changes.
+            By using our website, you hereby consent to our Privacy Policy and agree to our{' '}
+            <button
+              onClick={() => setActivePage('terms')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Terms &amp; Conditions
+            </button>
+            . We may update our Privacy Policy periodically to reflect emerging standards. For any questions regarding our client-side zero-storage architecture or data processing, please contact us via our{' '}
+            <button
+              onClick={() => setActivePage('contact')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Contact Desk
+            </button>{' '}
+            or read more in our{' '}
+            <button
+              onClick={() => setActivePage('about')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              About Page
+            </button>
+            .
           </p>
         </div>
 

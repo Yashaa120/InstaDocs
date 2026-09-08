@@ -31,129 +31,129 @@ const LOCALIZED_SEO: Record<
 > = {
   home: {
     en: {
-      title: 'Rent Receipt & Salary Slip Generator | Free HRA Tax Exemption & ITR Filing Proofs',
+      title: 'Rent Receipt & Salary Slip Generator | Free HRA Tools',
       description:
-        'Free online Rent Receipt & Salary Slip Generator for HRA tax exemption under Section 10(13A) and Income Tax filing (ITR Login / ClearTax / Tax2Win). Download authentic monthly salary slips, payslip formats, and rent receipts with revenue stamps instantly.',
+        'Free online Rent Receipt & Salary Slip Generator for HRA tax exemption under Section 10(13A) and Income Tax filing. Download authentic monthly salary slips, payslip formats, and rent receipts with revenue stamps instantly.',
     },
     hi: {
-      title: 'किराया रसीद और सैलरी स्लिप जनरेटर | मुफ्त HRA टैक्स छूट और ITR प्रूफ',
+      title: 'किराया रसीद और सैलरी स्लिप जनरेटर | मुफ्त HRA छूट',
       description:
         'मुफ्त ऑनलाइन रेंट रसीद और वेतन पर्ची (Salary Slip) जनरेटर। धारा 10(13A) के तहत HRA छूट और आयकर रिटर्न दाखिल करने के लिए राजस्व टिकट और लैंडलॉर्ड पैन के साथ पीडीएफ डाउनलोड करें।',
     },
     bn: {
-      title: 'ভাড়া রসিদ ও বেতন স্লিপ জেনারেটর | বিনামূল্যে HRA ট্যাক্স ছাড়',
+      title: 'ভাড়া রসিদ ও বেতন স্লিপ জেনারেটর | বিনামূল্যে HRA ছাড়',
       description:
         'বিনামূল্যে অনলাইন ভাড়া রসিদ এবং বেতন স্লিপ জেনারেটর। আয়কর ধারা 10(13A) এর অধীনে HRA ছাড়ের জন্য অবিলম্বে রাজস্ব স্ট্যাম্প সহ ডাউনলোড করুন।',
     },
     te: {
-      title: 'అద్దె రసీదు & జీతం స్లిప్ జనరేటర్ | ఉచిత HRA పన్ను మినహాయింపు రుజువులు',
+      title: 'అద్దె రసీదు & జీతం స్లిప్ జనరేటర్ | ఉచిత HRA పన్ను మినహాయింపు',
       description:
         'సెక్షన్ 10(13A) కింద HRA పన్ను మినహాయింపు కోసం ఉచిత ఆన్‌లైన్ అద్దె రసీదు మరియు జీతం స్లిప్ మేకర్. తక్షణ పిడిఎఫ్ డౌన్‌లోడ్.',
     },
     mr: {
-      title: 'भाडे पावती व सॅलरी स्लिप जनरेटर | मोफत HRA कर सवलत पुरावा',
+      title: 'भाडे पावती व सॅलरी स्लिप जनरेटर | मोफत HRA कर सवलत',
       description:
         'HRA कर सवलतीसाठी मोफत ऑनलाइन भाडे पावती आणि पगार पावती जनरेटर. कलम 10(13A) अंतर्गत अधिकृत महसूल तिकीट (Revenue Stamp) सह त्वरित डाउनलोड करा.',
     },
     ta: {
-      title: 'வாடகை ரசீது & சம்பள சீட்டு ஜெனரேட்டர் | இலவச HRA வரி விலக்கு',
+      title: 'வாடகை ரசீது & சம்பள சீட்டு ஜெனரேட்டர் | HRA வரி விலக்கு',
       description:
         'பிரிவு 10(13A) கீழ் HRA வரி விலக்கு கோருவதற்கான இலவச ஆன்லைன் வாடகை ரசீது மற்றும் சம்பள சீட்டு ஜெனரேட்டர். உடனடி PDF பதிவிறக்கம்.',
     },
   },
   'rent-receipt': {
     en: {
-      title: 'Free Rent Receipt Generator Online | Multi-Month HRA Receipts with Revenue Stamp',
+      title: 'Free Rent Receipt Generator Online | HRA Tax Exemption',
       description:
         'Generate and download compliant rent receipts for House Rent Allowance (HRA) tax exemption under Section 10(13A). Supports single and multi-month batches, landlord PAN, and physical revenue stamp guidelines.',
     },
     hi: {
-      title: 'मुफ्त रेंट रसीद जनरेटर | HRA टैक्स छूट के लिए मासिक रसीदें',
+      title: 'मुफ्त रेंट रसीद जनरेटर | HRA टैक्स छूट के लिए रसीदें',
       description:
         'मकान किराया भत्ता (HRA) छूट के लिए प्रामाणिक रेंट रसीदें तैयार करें। सिंगल और मल्टी-महीने का बैच समर्थन, लैंडलॉर्ड पैन और राजस्व टिकट सुविधा।',
     },
   },
   tool: {
     en: {
-      title: 'Free Rent Receipt Generator Online | Multi-Month HRA Receipts with Revenue Stamp',
+      title: 'Free Rent Receipt Generator Online | HRA Tax Exemption',
       description:
         'Generate and download compliant rent receipts for House Rent Allowance (HRA) tax exemption under Section 10(13A). Supports single and multi-month batches, landlord PAN, and physical revenue stamp guidelines.',
     },
   },
   'salary-slip': {
     en: {
-      title: 'Online Salary Slip Generator | Free Payslip Format & Compensation Summary Maker',
+      title: 'Online Salary Slip Generator | Free Employee Payslip Maker',
       description:
         'Create professional, company-compliant employee monthly salary slips with earnings, deductions, PF, ESI, professional tax, and net payable calculations. 100% private in-browser generation.',
     },
     hi: {
-      title: 'ऑनलाइन सैलरी स्लिप जनरेटर | मुफ्त वेतन पर्ची फॉर्मेट और पेस्लिप मेकर',
+      title: 'ऑनलाइन सैलरी स्लिप जनरेटर | मुफ्त वेतन पर्ची मेकर',
       description:
         'पीएफ, ईएसआई, टीडीएस और पेशेवर कर कटौती के साथ आधिकारिक सैलरी स्लिप बनाएं। बैंक लोन, वीजा और टैक्स फाइलिंग के लिए तुरंत डाउनलोड करें।',
     },
   },
   affidavit: {
     en: {
-      title: 'Rent Affidavit & Self-Declaration Generator | Address Proof & Tenancy Declaration',
+      title: 'Rent Affidavit Generator | Tenancy & Address Declaration',
       description:
         'Generate legally formatted rent self-declarations, no-rent-agreement affidavits, and residential address proof declarations for bank accounts, passport, employer verification, and welfare portals.',
     },
     hi: {
-      title: 'किराया शपथ पत्र एवं स्व-घोषणा पत्र जनरेटर | रेंट एग्रीमेंट और पता प्रमाण',
+      title: 'किराया शपथ पत्र जनरेटर | पता एवं स्व-घोषणा प्रमाण',
       description:
         'बैंक खाता, पासपोर्ट और नियोक्ता सत्यापन के लिए कानूनी प्रारूप में किराया शपथ पत्र और स्व-घोषणा पत्र तैयार करें।',
     },
   },
   guide: {
     en: {
-      title: 'HRA Exemption Rules & Tax Guide 2025-26 | Section 10(13A) Calculation Explained',
+      title: 'HRA Tax Exemption Guide 2025-26 | Section 10(13A) Rules',
       description:
         'Comprehensive guide on House Rent Allowance (HRA) tax exemption calculation rules, landlord PAN requirement thresholds (₹1 Lakh/year), cash rent limits, and Form 12BB proof submission.',
     },
     hi: {
-      title: 'HRA टैक्स छूट नियम और गाइड 2025-26 | धारा 10(13A) गणना की पूरी जानकारी',
+      title: 'HRA टैक्स छूट नियम 2025-26 | धारा 10(13A) गाइड',
       description:
         'मकान किराया भत्ता (HRA) टैक्स छूट गणना, 1 लाख से अधिक किराये पर मकान मालिक के पैन की अनिवार्यता और 5000 से अधिक नकद पर ₹1 के राजस्व टिकट के नियम।',
     },
   },
   verify: {
     en: {
-      title: 'QR Code Rent Receipt Verification Portal | Authenticity & Integrity Check',
+      title: 'Rent Receipt Verification | Online QR Authenticity Check',
       description:
         'Verify the authenticity, issued date, landlord name, tenant details, and monetary integrity of rent receipts generated on RentReceipt via cryptographic QR code scanning.',
     },
   },
   faq: {
     en: {
-      title: 'Frequently Asked Questions (FAQ) | Rent Receipts, Salary Slips & HRA Tax Exemption',
+      title: 'Rent Receipt & Salary Slip FAQ | HRA Tax Exemption Help',
       description:
         'Find clear answers to common questions regarding rent receipts, revenue stamps, landlord PAN mandates, salary slip calculations, and employer tax submission guidelines.',
     },
   },
   about: {
     en: {
-      title: 'About Us | RentReceipt - Free, Privacy-First Tax & Payroll Document Suite',
+      title: 'About Us | RentReceipt Free Tax & Payroll Document Suite',
       description:
         'Learn about RentReceipt, an open, zero-server-storage financial document utility built to help salaried employees and tenants format compliant HRA and payroll documentation with total privacy.',
     },
   },
   privacy: {
     en: {
-      title: 'Privacy Policy | 100% Client-Side In-Browser Processing Guarantee',
+      title: 'Privacy Policy | 100% Client-Side Private Document Suite',
       description:
         'Our transparent privacy policy: zero personal data stored, no server databases, no cookies tracking private financial information, and 100% browser-only document compilation.',
     },
   },
   terms: {
     en: {
-      title: 'Terms and Conditions | RentReceipt Usage & Legal Disclaimer',
+      title: 'Terms and Conditions | RentReceipt Legal User Agreement',
       description:
         'Official Terms and Conditions for RentReceipt document generation tools, limitation of liability, intellectual property, user responsibilities, and governing law.',
     },
   },
   contact: {
     en: {
-      title: 'Contact Us | Feedback, Inquiries & Support for RentReceipt',
+      title: 'Contact Us | Support & Help for RentReceipt Generators',
       description:
         'Get in touch with the RentReceipt development team for technical inquiries, feature suggestions, partnership requests, or feedback on our free document generators.',
     },

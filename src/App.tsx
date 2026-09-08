@@ -192,6 +192,7 @@ function AppContent() {
           <ValidationPage
             verifiedData={verifiedData}
             onNavigateHome={() => handlePageChange('home')}
+            onNavigate={handlePageChange}
           />
         )}
 

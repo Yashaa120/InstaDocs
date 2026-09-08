@@ -187,6 +187,54 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
               <p className="text-rose-800">Under tax laws, a husband and wife live together as joint partners. Rent paid to a spouse is not permissible for HRA exemption.</p>
             </div>
           </div>
+
+          <h2 className="text-xl font-bold text-slate-900">
+            4. Paying Rent to Parents: Legal Provisions &amp; Precautions
+          </h2>
+          <p>
+            You can legally claim HRA tax exemptions by paying rent to your parents, provided that your parents are the legal owners of the residential property. To ensure total compliance during Income Tax scrutiny under Section 143(1):
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-slate-700">
+            <li><strong>Transfer via Banking Channels:</strong> Avoid cash transactions; execute monthly transfers via UPI, NEFT, or cheque to maintain an unassailable financial trail.</li>
+            <li><strong>Parent Tax Filing:</strong> The parents must declare this rental income in their annual Income Tax Return (ITR) under &quot;Income from House Property&quot;.</li>
+            <li><strong>Execute a Rental Agreement:</strong> Maintain a signed rental contract or an executed{' '}
+              <button
+                onClick={() => setActivePage('affidavit')}
+                className="text-blue-600 font-semibold hover:underline cursor-pointer"
+              >
+                Rent Affidavit &amp; Tenancy Declaration
+              </button>{' '}
+              to establish a legitimate landlord-tenant relationship.
+            </li>
+          </ul>
+
+          <h2 className="text-xl font-bold text-slate-900">
+            5. Submitting Proofs to Your Employer via Form 12BB
+          </h2>
+          <p>
+            Every financial year in January or February, employers require salaried staff to submit statutory investment declarations using <strong>Form 12BB</strong>. Along with Form 12BB, you will submit your rent receipts downloaded from our{' '}
+            <button
+              onClick={() => setActivePage('rent-receipt')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Free Rent Receipt Generator
+            </button>
+            . If your employer also requests verified monthly compensation breakdown sheets, you can compile them using our{' '}
+            <button
+              onClick={() => setActivePage('salary-slip')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              Salary Slip Generator
+            </button>
+            . Have additional questions? Read our full{' '}
+            <button
+              onClick={() => setActivePage('faq')}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              HRA &amp; Tax FAQ knowledge base
+            </button>
+            .
+          </p>
         </div>
 
         {/* Bottom Ad Slot */}
