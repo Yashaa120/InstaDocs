@@ -25,22 +25,22 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
 
   // Desktop primary tool links - strictly 2-3 clean headlines (Salary Slip & Affidavit are featured in the tools section below)
   const desktopNavItems: { id: ActivePage; label: string; href: string }[] = [
-    { id: 'rent-receipt', label: 'Rent Receipt', href: '/' },
-    { id: 'guide', label: 'HRA Guide', href: '#guide' },
-    { id: 'faq', label: 'FAQ', href: '#faq' },
+    { id: 'rent-receipt', label: 'Rent Receipt', href: '/rent-receipt-generator.html' },
+    { id: 'guide', label: 'HRA Guide', href: '/hra-guide.html' },
+    { id: 'faq', label: 'FAQ', href: '/faq.html' },
   ];
 
   // Full list for mobile drawer including legal and informational pages
   const mobileNavItems: { id: ActivePage; label: string; href: string; icon: React.ReactNode }[] = [
-    { id: 'home', label: 'Rent Receipt Generator', href: '/', icon: <Home className="w-4 h-4 text-blue-600" /> },
-    { id: 'salary-slip', label: 'Salary Slip Generator', href: '#salary-slip', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
-    { id: 'affidavit', label: 'Affidavit Generator', href: '#affidavit', icon: <FileText className="w-4 h-4 text-purple-600" /> },
-    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '#guide', icon: <BookOpen className="w-4 h-4 text-amber-600" /> },
-    { id: 'faq', label: 'Frequently Asked Questions', href: '#faq', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
-    { id: 'about', label: 'About Us', href: '#about', icon: <Info className="w-4 h-4 text-slate-500" /> },
-    { id: 'contact', label: 'Contact Support', href: '#contact', icon: <Mail className="w-4 h-4 text-slate-500" /> },
-    { id: 'privacy', label: 'Privacy Policy', href: '#privacy', icon: <ShieldCheck className="w-4 h-4 text-slate-500" /> },
-    { id: 'terms', label: 'Terms & Conditions', href: '#terms', icon: <Scale className="w-4 h-4 text-slate-500" /> },
+    { id: 'home', label: 'Rent Receipt Generator', href: '/rent-receipt-generator.html', icon: <Home className="w-4 h-4 text-blue-600" /> },
+    { id: 'salary-slip', label: 'Salary Slip Generator', href: '/salary-slip-generator.html', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
+    { id: 'affidavit', label: 'Affidavit Generator', href: '/affidavit-generator.html', icon: <FileText className="w-4 h-4 text-purple-600" /> },
+    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '/hra-guide.html', icon: <BookOpen className="w-4 h-4 text-amber-600" /> },
+    { id: 'faq', label: 'Frequently Asked Questions', href: '/faq.html', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
+    { id: 'about', label: 'About Us', href: '/about.html', icon: <Info className="w-4 h-4 text-slate-500" /> },
+    { id: 'contact', label: 'Contact Support', href: '/contact.html', icon: <Mail className="w-4 h-4 text-slate-500" /> },
+    { id: 'privacy', label: 'Privacy Policy', href: '/privacy.html', icon: <ShieldCheck className="w-4 h-4 text-slate-500" /> },
+    { id: 'terms', label: 'Terms & Conditions', href: '/terms.html', icon: <Scale className="w-4 h-4 text-slate-500" /> },
   ];
 
   const handleNavClick = (pageId: ActivePage) => {

@@ -5,7 +5,7 @@
   <!-- 1. Homepage (Tool Selector & Suite Overview) -->
   <url>
     <loc>https://rentreceipt.online/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/" />
@@ -24,94 +24,78 @@
 
   <!-- 2. Rent Receipt Generator (Primary HRA Exemption Tool) -->
   <url>
-    <loc>https://rentreceipt.online/#rent-receipt</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/rent-receipt-generator.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.98</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/#rent-receipt" />
-    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/#rent-receipt" />
-    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rentreceipt.online/?lang=hi#rent-receipt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/rent-receipt-generator.html" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/rent-receipt-generator.html" />
   </url>
 
   <!-- 3. Salary Slip Generator (Payslip Format & Calculations) -->
   <url>
-    <loc>https://rentreceipt.online/#salary-slip</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/salary-slip-generator.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/#salary-slip" />
-    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/#salary-slip" />
-    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rentreceipt.online/?lang=hi#salary-slip" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/salary-slip-generator.html" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/salary-slip-generator.html" />
   </url>
 
   <!-- 4. Rent Affidavit & Address Proof Generator -->
   <url>
-    <loc>https://rentreceipt.online/#affidavit</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/affidavit-generator.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/#affidavit" />
-    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/#affidavit" />
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/affidavit-generator.html" />
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/affidavit-generator.html" />
   </url>
 
   <!-- 5. HRA Tax Exemption Guide & Section 10(13A) Rules -->
   <url>
-    <loc>https://rentreceipt.online/#guide</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
+    <loc>https://rentreceipt.online/hra-guide.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 6. QR Code Receipt Validation Portal -->
+  <!-- 6. Frequently Asked Questions (FAQ) -->
   <url>
-    <loc>https://rentreceipt.online/#verify</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://rentreceipt.online/faq.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 7. Frequently Asked Questions (FAQ) -->
+  <!-- 7. About Us -->
   <url>
-    <loc>https://rentreceipt.online/#faq</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/about.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.75</priority>
   </url>
 
-  <!-- 8. About Us -->
+  <!-- 8. Contact Us -->
   <url>
-    <loc>https://rentreceipt.online/#about</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/contact.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <!-- 9. Privacy Policy -->
   <url>
-    <loc>https://rentreceipt.online/#privacy</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://rentreceipt.online/privacy.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <!-- 10. Terms and Conditions -->
   <url>
-    <loc>https://rentreceipt.online/#terms</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://rentreceipt.online/terms.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- 11. Contact Us -->
-  <url>
-    <loc>https://rentreceipt.online/#contact</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>

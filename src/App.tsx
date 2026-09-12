@@ -76,24 +76,30 @@ function AppContent() {
       }
 
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'rent-receipt' || hash === 'tool' || hash === 'rent-receipt.html') {
+      const path = window.location.pathname.toLowerCase();
+
+      if (hash === 'rent-receipt' || hash === 'tool' || hash === 'rent-receipt.html' || path.includes('rent-receipt')) {
         setActivePage('rent-receipt');
-      } else if (hash === 'salary-slip' || hash === 'salary-slip.html') {
+      } else if (hash === 'salary-slip' || hash === 'salary-slip.html' || path.includes('salary-slip')) {
         setActivePage('salary-slip');
-      } else if (hash === 'affidavit' || hash === 'affidavit-generator' || hash === 'affidavit-generator.html') {
+      } else if (hash === 'affidavit' || hash === 'affidavit-generator' || hash === 'affidavit-generator.html' || path.includes('affidavit')) {
         setActivePage('affidavit');
-      } else if (hash === 'terms' || hash === 'terms.html') {
+      } else if (hash === 'terms' || hash === 'terms.html' || path.includes('terms')) {
         setActivePage('terms');
-      } else if (hash === 'privacy' || hash === 'privacy.html') {
+      } else if (hash === 'privacy' || hash === 'privacy.html' || path.includes('privacy')) {
         setActivePage('privacy');
-      } else if (hash === 'about' || hash === 'about.html') {
+      } else if (hash === 'about' || hash === 'about.html' || path.includes('about')) {
         setActivePage('about');
-      } else if (hash === 'contact' || hash === 'contact.html') {
+      } else if (hash === 'contact' || hash === 'contact.html' || path.includes('contact')) {
         setActivePage('contact');
-      } else if (hash === 'home' || hash === 'index.html' || hash === '') {
+      } else if (hash === 'guide' || hash === 'guide.html' || path.includes('guide')) {
+        setActivePage('guide');
+      } else if (hash === 'faq' || hash === 'faq.html' || path.includes('faq')) {
+        setActivePage('faq');
+      } else if (hash === 'verify' || path.includes('verify')) {
+        setActivePage('verify');
+      } else if (hash === 'home' || hash === 'index.html' || hash === '' || path === '/' || path === '/index.html') {
         setActivePage('home');
-      } else if (['guide', 'verify', 'faq'].includes(hash)) {
-        setActivePage(hash as ActivePage);
       } else if (!window.location.search.includes('verify')) {
         if (activePage === 'verify' && !verifiedData) {
           setActivePage('home');

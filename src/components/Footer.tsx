@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#rent-receipt"
+                  href="/rent-receipt-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('rent-receipt');
@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#salary-slip"
+                  href="/salary-slip-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('salary-slip');
@@ -91,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#affidavit"
+                  href="/affidavit-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('affidavit');
@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#verify"
+                  href="/#verify"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('verify');
@@ -124,7 +124,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="#faq"
+                  href="/faq.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('faq');
@@ -136,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#guide"
+                  href="/hra-guide.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('guide');
@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="/about.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('about');
@@ -160,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/contact.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('contact');
@@ -172,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#privacy"
+                  href="/privacy.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('privacy');
@@ -184,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="#terms"
+                  href="/terms.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('terms');
