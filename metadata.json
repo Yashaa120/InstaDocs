@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Free online rent receipt and salary slip generator for HRA tax exemption in India. Download professional, print-ready PDF receipts instantly — no login or signup required.",
+  "description": "Create rent receipt online with our free rent receipt generator and rent slip generator. Download valid online rent receipt PDFs for HRA exemption in seconds — no login required.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

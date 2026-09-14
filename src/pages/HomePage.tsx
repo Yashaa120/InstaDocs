@@ -30,15 +30,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
   const tools = [
     {
       id: 'rent-receipt' as ActivePage,
-      name: t('tool_rent_receipt_title') || 'Rent Receipt Generator',
+      name: t('tool_rent_receipt_title') || 'Rent Receipt & Slip Generator',
       badge: 'Section 10(13A) Compliant',
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       iconBg: 'bg-blue-50 border-blue-200 text-blue-600',
       icon: <Receipt className="w-7 h-7 text-blue-600" />,
-      description: t('tool_rent_receipt_desc') || 'Monthly or annual rent receipts with revenue stamp for HRA claims.',
-      actionText: t('tool_rent_receipt_btn') || 'Generate Rent Receipt',
+      description: t('tool_rent_receipt_desc') || 'Create rent receipt online with landlord PAN and revenue stamp for HRA claims.',
+      actionText: t('tool_rent_receipt_btn') || 'Create Rent Receipt Online',
       urlHash: '#rent-receipt',
-      bulletPoints: ['Revenue Stamp & Sign', 'Multi-Month PDF Export', 'HRA IT-Rule Compliant'],
+      bulletPoints: ['Create Rent Receipt Online', 'Free Rent Slip Generator', 'HRA Section 10(13A) Proof'],
     },
     {
       id: 'salary-slip' as ActivePage,
@@ -144,11 +144,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
 
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Free Rent Receipt &amp; Salary Slip Generator for HRA Tax Exemption
+          Create Rent Receipt Online &amp; Free Rent Slip Generator for HRA Tax Exemption
         </h1>
 
         <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Create legally formatted rent receipts, professional salary slips, and self-declaration affidavits directly in your browser with zero sign-up and complete data privacy.
+          Create rent receipt online in seconds with India&rsquo;s most trusted free <strong>online rent receipt generator</strong> and <strong>rent slip generator</strong>. Download print-ready PDFs with Landlord PAN, ₹1 revenue stamp markers, and full 12-month batch support.
         </p>
       </section>
 

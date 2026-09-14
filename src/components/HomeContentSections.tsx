@@ -7,6 +7,16 @@ export const HomeContentSections: React.FC = () => {
 
   const faqs = [
     {
+      question: 'How do I create rent receipt online using this free rent slip generator?',
+      answer:
+        'To create rent receipt online, simply open our free online rent receipt generator, enter your tenant name, landlord name, rental address, monthly rent amount, and select your financial year. Our rent slip generator will instantly produce print-ready HRA rent slips with Landlord PAN and revenue stamp placeholders ready to download as PDF.',
+    },
+    {
+      question: 'What is the difference between a rent receipt and a rent slip for HRA?',
+      answer:
+        'In India, salaried employees and corporate payroll departments use the terms "rent receipt" and "rent slip" interchangeably. Both act as statutory documentary proof under Section 10(13A) of the Income Tax Act to claim House Rent Allowance (HRA) tax exemption during annual tax declarations on Form 12BB.',
+    },
+    {
       question: 'Is this rent receipt generator 100% free to use?',
       answer:
         'Yes, completely free. You can generate, customize, preview, and download as many monthly or annual rent receipts as you need without any subscription, watermark, or hidden fees.',
