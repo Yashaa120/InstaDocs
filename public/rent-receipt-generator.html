@@ -125,13 +125,6 @@
     }
     </script>
 
-    <script>
-      // Seamlessly redirect real users to interactive app, crawlers read static content
-      if (!window.location.search.includes('no_redirect') && !window.navigator.userAgent.match(/bot|crawl|spider|slurp|facebookexternalhit/i)) {
-        window.location.replace('/#rent-receipt');
-      }
-    </script>
-
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #334155; max-width: 860px; margin: 0 auto; padding: 30px 20px; }
       h1 { color: #0f172a; font-size: 2.2rem; line-height: 1.25; margin-bottom: 0.5rem; }
