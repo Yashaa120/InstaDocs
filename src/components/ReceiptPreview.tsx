@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { RentReceiptData, MonthPeriod, ReceiptTemplate } from '../types';
-import { numberToIndianWords, formatIndianCurrency } from '../utils/numberToWords';
+import { RentReceiptData, MonthPeriod, ReceiptTemplate, SupportedCurrency, SUPPORTED_CURRENCIES } from '../types';
+import { numberToWords, formatCurrencyAmount } from '../utils/numberToWords';
 import { generateReceiptPeriods } from '../utils/dateUtils';
 import { HouseLogo } from './HouseLogo';
 import {
@@ -57,11 +57,16 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
       ? parseFloat(data.monthlyRent.replace(/,/g, '')) || 0
       : data.monthlyRent || 0;
 
-  const amountInWords = numberToIndianWords(parsedAmount);
-  const formattedAmount = formatIndianCurrency(parsedAmount);
+  const activeCurrency: SupportedCurrency = data.currency || 'USD';
+  const activeCurrencyConfig = SUPPORTED_CURRENCIES[activeCurrency] || SUPPORTED_CURRENCIES.USD;
+  const currencySymbol = data.currencySymbol || activeCurrencyConfig.symbol;
+
+  const amountInWords = numberToWords(parsedAmount, activeCurrency);
+  const formattedAmount = formatCurrencyAmount(parsedAmount, activeCurrency);
 
   const isCashPayment = data.paymentMode === 'Cash';
-  const showRevenueStamp = isCashPayment && parsedAmount > 5000;
+  const isINR = activeCurrency === 'INR';
+  const showRevenueStamp = isINR && isCashPayment && parsedAmount > 5000;
 
   // Render signature from active signature mode
   const renderSignatureContent = (isMonochrome = false) => {
@@ -203,7 +208,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               </strong>{' '}
               the sum of{' '}
               <strong className="text-[#0f172a] font-bold bg-amber-100/70 px-1.5 py-0.5 rounded border border-amber-200">
-                ₹ {formattedAmount}/-
+                {currencySymbol} {formattedAmount}/-
               </strong>{' '}
               (<span className="italic font-medium text-slate-700">{amountInWords}</span>) as payment
               for residential rental premises situated at:{' '}
@@ -232,7 +237,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                 <div className="min-w-0">
                   <span className="text-[#64748b]">Amount:</span>{' '}
                   <strong className="text-[#0f172a] font-mono font-bold break-words">
-                    ₹ {formattedAmount}/-
+                    {currencySymbol} {formattedAmount}/-
                   </strong>
                 </div>
               </div>
@@ -251,7 +256,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                 <div className="flex items-start gap-2 min-w-0 sm:col-span-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] shrink-0 mt-1.5" />
                   <div className="min-w-0">
-                    <span className="text-[#64748b]">Bank Txn / UTR / Cheque Ref:</span>{' '}
+                    <span className="text-[#64748b]">Payment / Ref / Txn ID:</span>{' '}
                     <strong className="text-blue-700 font-mono font-bold break-words">
                       {data.transactionRef.trim()}
                     </strong>
@@ -270,13 +275,13 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               <div className="flex items-start gap-2 min-w-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] shrink-0 mt-1.5" />
                 <div className="min-w-0">
-                  <span className="text-[#64748b]">Landlord PAN:</span>{' '}
+                  <span className="text-[#64748b]">{isINR ? 'Landlord PAN:' : 'Tax ID / PAN:'}</span>{' '}
                   {data.landlordPan ? (
                     <strong className="text-[#0f172a] font-mono uppercase font-bold tracking-wider bg-white px-1.5 py-0.5 rounded border border-slate-200">
                       {data.landlordPan.trim()}
                     </strong>
                   ) : (
-                    <span className="text-slate-400 italic text-xs">Exempt (&le; ₹1 Lakh/yr)</span>
+                    <span className="text-slate-400 italic text-xs">{isINR ? 'Exempt (≤ ₹1 Lakh/yr)' : 'Not Provided'}</span>
                   )}
                 </div>
               </div>
@@ -307,7 +312,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               <div className="text-[11px] text-[#64748b] italic flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>
-                  {isCashPayment ? 'Cash &le; ₹5,000 (Stamp Exempt)' : 'Bank / Digital Audit Trail'}
+                  {isINR ? (isCashPayment ? 'Cash ≤ ₹5,000 (Stamp Exempt)' : 'Bank / Digital Audit Trail') : 'Verified Rent Record / Paid in Full'}
                 </span>
               </div>
             )}
@@ -418,7 +423,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
             </div>
             <div className="text-right">
               <span className="text-xl sm:text-2xl font-black font-mono text-[#1e3a8a]">
-                ₹ {formattedAmount}/-
+                {currencySymbol} {formattedAmount}/-
               </span>
             </div>
           </div>
@@ -430,7 +435,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               <strong className="font-sans font-bold text-[#0f172a] underline underline-offset-4 decoration-[#1e3a8a]">
                 {data.tenantName.trim() || '[TENANT FULL NAME]'}
               </strong>{' '}
-              the sum of <strong className="font-bold text-[#0f172a]">₹ {formattedAmount}/-</strong>{' '}
+              the sum of <strong className="font-bold text-[#0f172a]">{currencySymbol} {formattedAmount}/-</strong>{' '}
               (<span className="italic font-medium text-slate-800">{amountInWords}</span>) in full
               and final satisfaction of the monthly rent due for the residential premises situated at:{' '}
               <strong className="font-sans font-semibold text-[#0f172a] underline underline-offset-4 decoration-slate-400">
@@ -451,20 +456,20 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                   </strong>
                 </div>
                 <div className="min-w-0 sm:text-right">
-                  <span className="text-slate-500 font-serif">Landlord PAN: </span>
+                  <span className="text-slate-500 font-serif">{isINR ? 'Landlord PAN: ' : 'Tax ID / PAN: '}</span>
                   {data.landlordPan ? (
                     <strong className="font-mono font-bold text-[#1e3a8a] bg-blue-100 px-2 py-0.5 rounded uppercase tracking-wider text-[11px]">
                       {data.landlordPan.trim()}
                     </strong>
                   ) : (
                     <span className="text-slate-400 italic text-[11px]">
-                      Not Required (&le; ₹1 Lakh/yr)
+                      {isINR ? 'Not Required (≤ ₹1 Lakh/yr)' : 'Not Provided'}
                     </span>
                   )}
                 </div>
                 {data.transactionRef && (
                   <div className="sm:col-span-2 pt-1 border-t border-slate-200 text-left">
-                    <span className="text-slate-500 font-serif">Banking Txn / UTR / Cheque Ref: </span>
+                    <span className="text-slate-500 font-serif">Transaction / Ref / Check No: </span>
                     <strong className="font-mono font-bold text-[#1e3a8a] break-words">
                       {data.transactionRef.trim()}
                     </strong>
@@ -593,11 +598,11 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               {data.landlordName.trim() || '[LANDLORD FULL NAME]'}
             </div>
             <div className="text-xs font-mono text-slate-700 pt-1">
-              <span>PAN: </span>
+              <span>{isINR ? 'PAN: ' : 'Tax ID: '}</span>
               {data.landlordPan ? (
                 <strong className="text-slate-900 uppercase font-bold">{data.landlordPan.trim()}</strong>
               ) : (
-                <span className="text-slate-400 italic">Exempt (&le; ₹1L/yr)</span>
+                <span className="text-slate-400 italic">{isINR ? 'Exempt (≤ ₹1L/yr)' : 'Not Provided'}</span>
               )}
             </div>
           </div>
@@ -610,7 +615,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               <tr className="border-b border-slate-300 text-slate-500 font-mono text-[11px] uppercase tracking-wider">
                 <th className="py-2 text-left font-semibold">Description / Period</th>
                 <th className="py-2 text-left font-semibold">Payment Trail</th>
-                <th className="py-2 text-right font-semibold">Amount (INR)</th>
+                <th className="py-2 text-right font-semibold">Amount ({activeCurrency})</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -632,7 +637,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                   )}
                 </td>
                 <td className="py-3 text-right font-mono font-bold text-slate-900 text-sm align-top">
-                  ₹ {formattedAmount}/-
+                  {currencySymbol} {formattedAmount}/-
                 </td>
               </tr>
             </tbody>
@@ -642,7 +647,7 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                   Total Amount Received (<span className="font-normal italic">{amountInWords}</span>)
                 </td>
                 <td className="py-2.5 text-right font-mono text-base text-slate-900">
-                  ₹ {formattedAmount}/-
+                  {currencySymbol} {formattedAmount}/-
                 </td>
               </tr>
             </tfoot>
@@ -746,9 +751,9 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
             </strong>{' '}
             a sum of{' '}
             <strong className="font-mono font-bold">
-              Rs. {formattedAmount}/-
+              {currencySymbol} {formattedAmount}/-
             </strong>{' '}
-            (Rupees: <span className="italic font-medium">{amountInWords}</span>) towards rent for the residential premises situated at:
+            ({isINR ? 'Rupees' : 'Amount in words'}: <span className="italic font-medium">{amountInWords}</span>) towards rent for the residential premises situated at:
           </p>
 
           <div className="p-2 border border-black text-xs font-sans">
@@ -774,15 +779,15 @@ export const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
 
           {data.transactionRef && (
             <div className="grid grid-cols-2 border-b border-black p-2">
-              <span className="font-semibold">Txn / UTR / Cheque No:</span>
+              <span className="font-semibold">Txn / Ref / Check No:</span>
               <strong className="break-words">{data.transactionRef.trim()}</strong>
             </div>
           )}
 
           <div className="grid grid-cols-2 p-2">
-            <span className="font-semibold">Landlord PAN:</span>
+            <span className="font-semibold">{isINR ? 'Landlord PAN:' : 'Tax ID / PAN:'}</span>
             <strong className="uppercase break-words">
-              {data.landlordPan ? data.landlordPan.trim() : 'N/A (Exempt under circular)'}
+              {data.landlordPan ? data.landlordPan.trim() : (isINR ? 'N/A (Exempt under circular)' : 'Not Provided')}
             </strong>
           </div>
         </div>

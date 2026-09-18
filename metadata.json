@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Generate free, print-ready rent receipts and salary slips for HRA tax exemption under Section 10(13A). Complete with Landlord PAN, revenue stamp markers, and full 12-month batch downloads.",
+  "description": "Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

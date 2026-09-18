@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { Footer } from './components/Footer';
-import { ToolLoadingFallback } from './components/ToolLoadingFallback';
 import { AboutPage } from './pages/AboutPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
@@ -15,18 +14,18 @@ import { ContactPage } from './pages/ContactPage';
 import { HraGuidePage } from './pages/HraGuidePage';
 import { ValidationPage } from './pages/ValidationPage';
 import { FaqPage } from './pages/FaqPage';
-
-// Code-split main application views using React.lazy to reduce initial bundle size and boost Core Web Vitals
-const RentReceiptView = lazy(() => import('./components/RentReceiptView'));
-const SalarySlipGenerator = lazy(() => import('./components/SalarySlipGenerator'));
-const AffidavitGenerator = lazy(() => import('./components/AffidavitGenerator'));
+import { IndiaPage } from './pages/IndiaPage';
+import { UsPage } from './pages/UsPage';
+import { RentReceiptView } from './components/RentReceiptView';
+import { SalarySlipGenerator } from './components/SalarySlipGenerator';
+import { AffidavitGenerator } from './components/AffidavitGenerator';
 
 import { RentReceiptData, ActivePage, MonthPeriod } from './types';
 import {
   decodeVerificationFromUrl,
   DecodedReceiptVerification,
 } from './utils/verificationUtils';
-import { formatIndianCurrency } from './utils/numberToWords';
+import { formatCurrencyAmount } from './utils/numberToWords';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { updateDocumentSeo } from './utils/seoMetadata';
 
@@ -46,25 +45,27 @@ function AppContent() {
 
   // Primary receipt form state (defaults to single month = 1 page)
   const [receiptData, setReceiptData] = useState<RentReceiptData>({
-    tenantName: 'Rahul Sharma',
-    landlordName: 'Rameshwar Prasad Gupta',
-    monthlyRent: '25000',
-    propertyAddress: 'Flat 402, Sunshine Heights, 100 Feet Road, Indiranagar, Bengaluru, Karnataka - 560038',
-    landlordPan: 'ABCDE1234F',
+    tenantName: 'John Doe',
+    landlordName: 'Jane Smith',
+    monthlyRent: '1850',
+    propertyAddress: 'Apt 4B, 742 Evergreen Terrace, Springfield, OR 97477',
+    currency: 'USD',
+    currencySymbol: '$',
+    landlordPan: '',
     isMultiMonth: false,
     singleMonth: currentMonth,
     singleYear: currentYear,
-    startMonth: 3, // April
-    startYear: 2025,
-    endMonth: 2, // March
+    startMonth: 0,
+    startYear: 2026,
+    endMonth: 11,
     endYear: 2026,
-    paymentMode: 'Bank Transfer / NEFT / IMPS',
-    transactionRef: 'NEFT-AXIS-984210482',
+    paymentMode: 'Bank Transfer / Wire / ACH',
+    transactionRef: 'ACH-784920',
     receiptNoPrefix: 'RR',
     customDate: '',
     templateFormat: 'modern',
     signatureMode: 'type',
-    signatureTypedText: 'Rameshwar Prasad Gupta',
+    signatureTypedText: 'Jane Smith',
     signatureTypedFont: 'Dancing Script',
   });
 
@@ -82,7 +83,11 @@ function AppContent() {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const path = window.location.pathname.toLowerCase();
 
-      if (hash === 'rent-receipt' || hash === 'tool' || hash === 'rent-receipt.html' || path.includes('rent-receipt')) {
+      if (hash === 'in' || hash === 'hra' || path === '/in' || path === '/hra' || path.startsWith('/in/') || path.startsWith('/hra/')) {
+        setActivePage('in');
+      } else if (hash === 'us' || path === '/us' || path.startsWith('/us/')) {
+        setActivePage('us');
+      } else if (hash === 'rent-receipt' || hash === 'tool' || hash === 'rent-receipt.html' || path.includes('rent-receipt')) {
         setActivePage('rent-receipt');
       } else if (hash === 'salary-slip' || hash === 'salary-slip.html' || path.includes('salary-slip')) {
         setActivePage('salary-slip');
@@ -136,12 +141,42 @@ function AppContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLaunchWithCurrency = (currency: 'INR' | 'USD') => {
+    if (currency === 'INR') {
+      setReceiptData((prev) => ({
+        ...prev,
+        currency: 'INR',
+        currencySymbol: '₹',
+        monthlyRent: '25000',
+        tenantName: prev.currency === 'INR' ? prev.tenantName : 'Rahul Sharma',
+        landlordName: prev.currency === 'INR' ? prev.landlordName : 'Rameshwar Prasad Gupta',
+        propertyAddress: prev.currency === 'INR' ? prev.propertyAddress : 'Flat 402, Sunshine Heights, 100 Feet Road, Indiranagar, Bengaluru, Karnataka - 560038',
+        landlordPan: prev.landlordPan || 'ABCDE1234F',
+        paymentMode: 'Bank Transfer / Wire / ACH',
+        signatureTypedText: prev.currency === 'INR' ? prev.signatureTypedText : 'Rameshwar Prasad Gupta',
+      }));
+    } else {
+      setReceiptData((prev) => ({
+        ...prev,
+        currency: 'USD',
+        currencySymbol: '$',
+        monthlyRent: '1850',
+        tenantName: prev.currency === 'USD' ? prev.tenantName : 'John Doe',
+        landlordName: prev.currency === 'USD' ? prev.landlordName : 'Jane Smith',
+        propertyAddress: prev.currency === 'USD' ? prev.propertyAddress : 'Apt 4B, 742 Evergreen Terrace, Springfield, OR 97477',
+        paymentMode: 'Bank Transfer / Wire / ACH',
+        signatureTypedText: prev.currency === 'USD' ? prev.signatureTypedText : 'Jane Smith',
+      }));
+    }
+    handlePageChange('rent-receipt');
+  };
+
   const handleOpenLiveValidation = (period: MonthPeriod) => {
     const parsedAmount =
       typeof receiptData.monthlyRent === 'string'
         ? parseFloat(receiptData.monthlyRent.replace(/,/g, '')) || 0
         : receiptData.monthlyRent || 0;
-    const formattedAmount = formatIndianCurrency(parsedAmount);
+    const formattedAmount = formatCurrencyAmount(parsedAmount, receiptData.currency || 'USD');
 
     const liveData: DecodedReceiptVerification = {
       isValid: true,
@@ -177,51 +212,34 @@ function AppContent() {
           <HomePage onSelectTool={handlePageChange} />
         )}
 
-        {/* VIEW 2: Dedicated Rent Receipt Generator Page (Code-split with Suspense) */}
+        {/* REGIONAL VIEW: India HRA / Section 10(13A) Landing Page */}
+        {activePage === 'in' && (
+          <IndiaPage onSelectTool={handlePageChange} onLaunchWithCurrency={handleLaunchWithCurrency} />
+        )}
+
+        {/* REGIONAL VIEW: US Rental & IRS Schedule C/E Landing Page */}
+        {activePage === 'us' && (
+          <UsPage onSelectTool={handlePageChange} onLaunchWithCurrency={handleLaunchWithCurrency} />
+        )}
+
+        {/* VIEW 2: Dedicated Rent Receipt Generator Page */}
         {(activePage === 'rent-receipt' || activePage === 'tool') && (
-          <Suspense
-            fallback={
-              <ToolLoadingFallback
-                toolName="Rent Receipt Generator"
-                description="Preparing rent receipt templates, landlord PAN thresholds & revenue stamps..."
-              />
-            }
-          >
-            <RentReceiptView
-              receiptData={receiptData}
-              setReceiptData={setReceiptData}
-              onOpenLiveValidation={handleOpenLiveValidation}
-              onNavigate={handlePageChange}
-            />
-          </Suspense>
+          <RentReceiptView
+            receiptData={receiptData}
+            setReceiptData={setReceiptData}
+            onOpenLiveValidation={handleOpenLiveValidation}
+            onNavigate={handlePageChange}
+          />
         )}
 
-        {/* VIEW 3: Dedicated Salary Slip Generator Page (Code-split with Suspense) */}
+        {/* VIEW 3: Dedicated Salary Slip Generator Page */}
         {activePage === 'salary-slip' && (
-          <Suspense
-            fallback={
-              <ToolLoadingFallback
-                toolName="Salary Slip Generator"
-                description="Loading payroll deduction calculators, payslip formats & signature engine..."
-              />
-            }
-          >
-            <SalarySlipGenerator onNavigate={handlePageChange} />
-          </Suspense>
+          <SalarySlipGenerator onNavigate={handlePageChange} />
         )}
 
-        {/* VIEW 4: Dedicated Affidavit & Address Proof Generator Page (Code-split with Suspense) */}
+        {/* VIEW 4: Dedicated Affidavit & Address Proof Generator Page */}
         {activePage === 'affidavit' && (
-          <Suspense
-            fallback={
-              <ToolLoadingFallback
-                toolName="Legal Affidavit Generator"
-                description="Loading affidavit declaration formats, legal notary margins & verification clauses..."
-              />
-            }
-          >
-            <AffidavitGenerator onNavigate={handlePageChange} />
-          </Suspense>
+          <AffidavitGenerator onNavigate={handlePageChange} />
         )}
 
         {/* Dedicated Receipt Validation Portal View */}

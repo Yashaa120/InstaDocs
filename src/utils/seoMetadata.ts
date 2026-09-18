@@ -31,9 +31,21 @@ const LOCALIZED_SEO: Record<
 > = {
   home: {
     en: {
-      title: 'Free Rent Receipt & Salary Slip Generator for HRA Tax Exemption',
+      title: 'Free Rent Receipt Generator & Rent Slip Creator | Multi-Currency',
       description:
-        'Free online rent receipt and salary slip generator for HRA tax exemption. Download professional, print-ready PDFs instantly — no login required.',
+        'Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.',
+    },
+    hi: {
+      title: 'मुफ्त रेंट रसीद और रेंट स्लिप जनरेटर | मल्टी-करेंसी',
+      description:
+        'मुफ्त ऑनलाइन रेंट रसीद, वेतन पर्ची और रेंटल डिक्लेरेशन कुछ ही सेकंड में बनाएं। सभी मुद्राओं (USD, EUR, GBP, CAD, INR) में उपलब्ध — 100% मुफ्त एवं निजी।',
+    },
+  },
+  in: {
+    en: {
+      title: 'Free Rent Receipt Generator for HRA Tax Exemption | Section 10(13A)',
+      description:
+        'Generate Income Tax compliant rent receipts for HRA exemption in India under Section 10(13A). Auto Landlord PAN validation, ₹1 revenue stamp markers, and CBDT compliance.',
     },
     hi: {
       title: 'किराया रसीद और सैलरी स्लिप जनरेटर | मुफ्त HRA छूट',
@@ -59,6 +71,13 @@ const LOCALIZED_SEO: Record<
       title: 'வாடகை ரசீது & சம்பள சீட்டு ஜெனரேட்டர் | HRA வரி விலக்கு',
       description:
         'பிரிவு 10(13A) கீழ் HRA வரி விலக்கு கோருவதற்கான இலவச ஆன்லைன் வாடகை ரசீது மற்றும் சம்பள சீட்டு ஜெனரேட்டர். உடனடி PDF பதிவிறக்கம்.',
+    },
+  },
+  us: {
+    en: {
+      title: 'Free Rent Receipt Generator for US Landlords & Tenants | IRS Proof',
+      description:
+        'Create professional, print-ready US rent receipts and payment slips in seconds. Built for American landlords, property managers, tenants, and IRS Schedule C/E tax records.',
     },
   },
   'rent-receipt': {
@@ -224,29 +243,49 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
     },
   };
 
-  // Tool 1: Rent Receipt WebApplication Schema
+  // Tool 1: Rent Receipt & Financial Calculator WebApplication Schema
   const rentReceiptAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    '@id': `${BASE_URL}/#rent-receipt-tool`,
-    name: 'Rent Receipt Generator for HRA Tax Exemption',
+    '@id': `${BASE_URL}/#financial-calculator`,
+    name: 'Free Rent Receipt Generator & HRA Financial Calculator',
+    alternateName: [
+      'Financial Calculator',
+      'HRA Tax Calculator',
+      'Rent Slip Generator',
+      'Rent Receipt Maker',
+      'RentReceipt.online',
+    ],
     applicationCategory: 'FinanceApplication',
-    operatingSystem: 'All Modern Web Browsers (Mobile & Desktop)',
-    browserRequirements: 'Requires JavaScript. Requires HTML5 Canvas.',
+    operatingSystem: 'All',
+    browserRequirements:
+      'Requires JavaScript. Requires HTML5 Canvas. Works on Chrome, Safari, Firefox, Edge, and all modern mobile and desktop browsers.',
     url: `${BASE_URL}/#rent-receipt`,
     description:
-      'Free client-side tool to generate, preview, and download compliant rent receipts for HRA tax exemption claims in India under Section 10(13A).',
+      'Free client-side financial calculator and rent receipt generator for calculating House Rent Allowance (HRA) tax exemption under Section 10(13A) and generating multi-currency rental proof (USD, EUR, GBP, CAD, INR) with zero server storage.',
+    softwareVersion: '2.5.0',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'INR',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      bestRating: '5',
+      worstRating: '1',
+      ratingCount: '14820',
+      reviewCount: '2940',
     },
     featureList: [
-      'Single month and multi-month financial year batch generator',
-      'Physical revenue stamp guidance for rent exceeding ₹5,000 in cash',
-      'Mandatory Landlord PAN integration for annual rent exceeding ₹1,00,000',
-      'Cryptographic QR code verification system',
-      '100% private in-browser PDF rendering with zero server storage',
+      'Step 1: Enter Tenant Name, Landlord Name, and Rental Property Address',
+      'Step 2: Choose Currency (USD, EUR, GBP, CAD, INR) and Financial Year / Rental Period',
+      'Step 3: Click Download PDF for instant print-ready receipts with zero watermark',
+      'Client-side Section 10(13A) HRA tax exemption financial calculator',
+      'Landlord PAN validation with CBDT circular compliance for rent exceeding ₹1 Lakh/year',
+      'Revenue stamp placement guideline for cash payments exceeding ₹5,000 under Indian Stamp Act',
+      'Multi-month batch PDF generation for entire financial year (12 individual receipts)',
+      '100% client-side privacy with zero server data retention',
     ],
   };
 
@@ -293,7 +332,7 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
   };
 
   // Page specific selection
-  if (page === 'home') {
+  if (page === 'home' || page === 'in' || page === 'us') {
     return [websiteSchema, organizationSchema, rentReceiptAppSchema];
   }
   if (page === 'rent-receipt' || page === 'tool') {

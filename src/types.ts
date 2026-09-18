@@ -1,11 +1,103 @@
 export type SignatureMode = 'upload' | 'type' | 'draw' | 'none';
 export type ReceiptTemplate = 'modern' | 'classic' | 'minimalist' | 'simple_paper' | 'corporate';
 
+export type SupportedCurrency = 'USD' | 'EUR' | 'GBP' | 'CAD' | 'AUD' | 'INR';
+
+export interface CurrencyConfig {
+  code: SupportedCurrency;
+  symbol: string;
+  name: string;
+  country: string;
+  flag: string;
+  formatLocale: string;
+  majorName: string;
+  majorPlural: string;
+  minorName: string;
+  minorPlural: string;
+}
+
+export const SUPPORTED_CURRENCIES: Record<SupportedCurrency, CurrencyConfig> = {
+  USD: {
+    code: 'USD',
+    symbol: '$',
+    name: 'US Dollar',
+    country: 'United States',
+    flag: '🇺🇸',
+    formatLocale: 'en-US',
+    majorName: 'Dollar',
+    majorPlural: 'Dollars',
+    minorName: 'Cent',
+    minorPlural: 'Cents',
+  },
+  EUR: {
+    code: 'EUR',
+    symbol: '€',
+    name: 'Euro',
+    country: 'European Union',
+    flag: '🇪🇺',
+    formatLocale: 'de-DE',
+    majorName: 'Euro',
+    majorPlural: 'Euros',
+    minorName: 'Cent',
+    minorPlural: 'Cents',
+  },
+  GBP: {
+    code: 'GBP',
+    symbol: '£',
+    name: 'British Pound',
+    country: 'United Kingdom',
+    flag: '🇬🇧',
+    formatLocale: 'en-GB',
+    majorName: 'Pound',
+    majorPlural: 'Pounds',
+    minorName: 'Pence',
+    minorPlural: 'Pence',
+  },
+  CAD: {
+    code: 'CAD',
+    symbol: '$',
+    name: 'Canadian Dollar',
+    country: 'Canada',
+    flag: '🇨🇦',
+    formatLocale: 'en-CA',
+    majorName: 'Dollar',
+    majorPlural: 'Dollars',
+    minorName: 'Cent',
+    minorPlural: 'Cents',
+  },
+  AUD: {
+    code: 'AUD',
+    symbol: '$',
+    name: 'Australian Dollar',
+    country: 'Australia',
+    flag: '🇦🇺',
+    formatLocale: 'en-AU',
+    majorName: 'Dollar',
+    majorPlural: 'Dollars',
+    minorName: 'Cent',
+    minorPlural: 'Cents',
+  },
+  INR: {
+    code: 'INR',
+    symbol: '₹',
+    name: 'Indian Rupee',
+    country: 'India',
+    flag: '🇮🇳',
+    formatLocale: 'en-IN',
+    majorName: 'Rupee',
+    majorPlural: 'Rupees',
+    minorName: 'Paise',
+    minorPlural: 'Paise',
+  },
+};
+
 export interface RentReceiptData {
   tenantName: string;
   landlordName: string;
   monthlyRent: number | string;
   propertyAddress: string;
+  currency?: SupportedCurrency;
+  currencySymbol?: string;
   landlordPan: string;
   isMultiMonth: boolean;
   singleMonth: number; // 0 - 11
@@ -14,7 +106,7 @@ export interface RentReceiptData {
   startYear: number;
   endMonth: number; // 0 - 11
   endYear: number;
-  paymentMode: 'Bank Transfer / NEFT / IMPS' | 'UPI' | 'Cheque' | 'Cash';
+  paymentMode: string;
   receiptNoPrefix: string;
   customDate?: string;
   transactionRef?: string; // UTR / UPI Ref / Cheque No / Bank Txn ID for Court & Audit verification
@@ -29,6 +121,8 @@ export interface RentReceiptData {
 
 export type ActivePage =
   | 'home'
+  | 'in' // Indian Landing Page (/in or /hra)
+  | 'us' // US / International Landing Page (/us)
   | 'rent-receipt'
   | 'tool' // alias for rent-receipt
   | 'salary-slip'

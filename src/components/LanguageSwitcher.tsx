@@ -69,7 +69,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           <span className="font-mono uppercase font-bold tracking-wider">
             {activeLanguage.code.split('-')[0]}
           </span>
-          <span className="text-slate-500 font-normal text-[11px] truncate max-w-[80px] hidden sm:inline">
+          <span className="text-slate-500 font-normal text-[11px] truncate max-w-[80px] hidden xl:inline">
             ({activeLanguage.nativeName})
           </span>
         </div>

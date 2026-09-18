@@ -19,6 +19,7 @@ import {
 import { ActivePage } from '../types';
 import { AdSlot } from '../components/AdSlot';
 import { useLanguage } from '../context/LanguageContext';
+import { CountryFlag } from '../components/CountryFlag';
 
 interface HomePageProps {
   onSelectTool: (tool: ActivePage) => void;
@@ -30,39 +31,54 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
   const tools = [
     {
       id: 'rent-receipt' as ActivePage,
-      name: t('tool_rent_receipt_title') || 'Rent Receipt & Slip Generator',
-      badge: 'Section 10(13A) Compliant',
+      name: t('tool_rent_receipt_title') || 'Rent Receipt & Rent Slip Creator',
+      badge: 'Multi-Currency & Instant PDF',
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       iconBg: 'bg-blue-50 border-blue-200 text-blue-600',
       icon: <Receipt className="w-7 h-7 text-blue-600" />,
-      description: t('tool_rent_receipt_desc') || 'Generate print-ready rent receipts with Landlord PAN and revenue stamp block for HRA claims.',
+      description: 'Generate official, print-ready landlord rent receipts and rental payment records in any currency (USD, EUR, GBP, CAD, AUD, INR).',
       actionText: t('tool_rent_receipt_btn') || 'Generate Rent Receipts',
       urlHash: '#rent-receipt',
-      bulletPoints: ['Instant PDF Download', 'Landlord PAN & Revenue Stamp', 'Section 10(13A) HRA Proof'],
+      bulletPoints: ['Instant PDF Download', 'Multi-Currency (USD, EUR, GBP, INR)', 'Landlord & Tenant Proof'],
+      steps: [
+        'Step 1: Enter Tenant & Landlord Name, Address & Rent Amount.',
+        'Step 2: Choose Currency ($ USD, € EUR, £ GBP, ₹ INR) & Rental Period.',
+        'Step 3: Click Download Print-Ready PDF with Digital Signature & QR Code.',
+      ],
     },
     {
       id: 'salary-slip' as ActivePage,
-      name: t('tool_salary_slip_title') || 'Salary Slip Generator',
-      badge: 'Indian Payroll Standard',
+      name: t('tool_salary_slip_title') || 'Salary Slip & Payslip Generator',
+      badge: 'Universal Payroll Standard',
       tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
       iconBg: 'bg-emerald-50 border-emerald-200 text-emerald-600',
       icon: <FileText className="w-7 h-7 text-emerald-600" />,
-      description: t('tool_salary_slip_desc') || 'Monthly payslips with automatic earnings, PF deductions & net pay.',
+      description: 'Create monthly payslips with custom earnings, tax deductions, company stamps, and net pay calculations.',
       actionText: t('tool_salary_slip_btn') || 'Create Salary Slip',
       urlHash: '#salary-slip',
-      bulletPoints: ['Auto Gross & Net Calc', 'EPF, PT & TDS Deductions', 'Company Seal & Sign'],
+      bulletPoints: ['Custom Earnings & Deductions', 'Company Seal & Signature', 'Official PDF Format'],
+      steps: [
+        'Step 1: Enter Employee Details, Designation & Company Name.',
+        'Step 2: Fill Monthly Basic Salary, Allowances & Statutory Deductions.',
+        'Step 3: Click Download Official Monthly Payslip PDF with Company Seal.',
+      ],
     },
     {
       id: 'affidavit' as ActivePage,
-      name: t('tool_affidavit_title') || 'Affidavit Generator',
+      name: t('tool_affidavit_title') || 'Tenancy & Address Affidavit Generator',
       badge: 'Legal Self-Declaration',
       tagColor: 'bg-amber-50 text-amber-800 border-amber-200',
       iconBg: 'bg-amber-50 border-amber-200 text-amber-700',
       icon: <Scale className="w-7 h-7 text-amber-700" />,
-      description: t('tool_affidavit_desc') || 'Self-declaration affidavits for address, tenancy proof, or name verification.',
+      description: 'Formal self-declaration affidavits for tenancy confirmation, address verification, or no-lease scenarios.',
       actionText: t('tool_affidavit_btn') || 'Draft Affidavit',
       urlHash: '#affidavit',
       bulletPoints: ['Standard Legal Formats', 'e-Stamp Paper Margins', 'Notary Ready Layout'],
+      steps: [
+        'Step 1: Enter Declarant Name & Rented Property Details.',
+        'Step 2: Select Declaration Purpose (Address Proof, No-Agreement, or HRA).',
+        'Step 3: Click Download Notary-Ready Legal Declaration on e-Stamp Paper.',
+      ],
     },
   ];
 
@@ -99,58 +115,83 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
     },
     {
       number: '3',
-      title: 'Verify PAN & Stamp Guidelines',
-      desc: 'Check automatic rupee-in-words conversion, landlord PAN (if rent > ₹1 Lakh/yr), and ₹1 revenue stamp markers.',
+      title: 'Choose Currency & Security Features',
+      desc: 'Select USD, EUR, GBP, CAD, or INR. Includes automatic numbers-to-words conversion, signature options, and QR verification.',
       icon: <ShieldCheck className="w-5 h-5 text-purple-600" />,
     },
     {
       number: '4',
       title: 'Download Print-Ready PDF',
-      desc: 'Export high-resolution PDFs formatted for standard A4 paper or print directly for physical submission.',
+      desc: 'Export high-resolution PDFs formatted for standard A4 or Letter paper with zero watermarks.',
       icon: <Download className="w-5 h-5 text-blue-600" />,
     },
   ];
 
   const homeFaqs = [
     {
-      question: 'Is a revenue stamp compulsory on rent receipts in India?',
+      question: 'Which currencies are supported by the rent receipt generator?',
       answer:
-        'Under the Indian Stamp Act, a ₹1 revenue stamp is mandatory across India when payment exceeds ₹5,000 in cash. For direct bank transfers, UPI, or NEFT/RTGS, a revenue stamp is generally not strictly required by law, though employers often prefer it for internal tax audit compliance.',
+        'Our generator natively supports major world currencies including US Dollar ($ USD), Euro (€ EUR), British Pound (£ GBP), Canadian Dollar ($ CAD), Australian Dollar ($ AUD), and Indian Rupee (₹ INR), complete with proper localized number-to-words formatting.',
     },
     {
-      question: 'When is the landlord’s PAN mandatory for HRA exemption?',
+      question: 'Are these rent receipts legally valid for landlords and tenants?',
       answer:
-        'According to Central Board of Direct Taxes (CBDT) circulars, if your annual rent exceeds ₹1,00,000 (i.e. more than ₹8,333 per month), quoting your landlord’s PAN on your rent receipt is mandatory to claim HRA exemption under Section 10(13A).',
+        'Yes. The receipts include all standard statutory elements required by tax authorities, property managers, and employers: landlord and tenant names, rental property address, monthly period, payment method, numeric and verbal rent amounts, and signature placeholders.',
     },
     {
-      question: 'Can I generate salary slips for previous months?',
+      question: 'Can I generate multi-month or annual batch receipts at once?',
       answer:
-        'Yes! Our Salary Slip Generator allows you to customize the month, year, salary structure, employee designations, and statutory deductions (PF, PT, TDS) for any past or current payroll period.',
+        'Yes! You can toggle between single-month generation and multi-month financial batches (up to 12 consecutive months) to download all receipts in a single combined PDF document.',
     },
     {
       question: 'Is my personal financial data stored on your servers?',
       answer:
-        'No. Our tools run 100% client-side inside your browser. No tenant names, landlord PANs, salary figures, or bank details are ever transmitted to or stored on any server.',
+        'No. All our tools run 100% client-side inside your browser. No tenant names, landlord information, salary figures, or addresses are ever transmitted to or stored on any server.',
     },
   ];
 
   return (
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-      {/* Hero Section with EXACTLY ONE H1 */}
-      <section className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 pt-1" aria-label="Hero Introduction">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 shadow-2xs mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-          <span>RentReceipt — Fast, Free &amp; Private Document Suite</span>
-        </div>
-
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Generate Free Rent Receipts &amp; Salary Slips for HRA Tax Exemption
+      {/* Exact Global Hero Section Requested for Worldwide SEO */}
+      <section id="global-hero" style={{ maxWidth: '900px', margin: '0 auto', padding: '30px 20px', textAlign: 'center', fontFamily: 'sans-serif' }}>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+          Free Rent Receipt Generator &amp; Rent Slip Creator
         </h1>
-
-        <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Create print-ready rent receipts, monthly salary slips, and rental affidavits in seconds. Designed for Indian salaried employees claiming HRA under Section 10(13A) — 100% free and processed privately in your browser.
+        <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.6' }} className="max-w-2xl mx-auto">
+          Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.
         </p>
+
+        {/* Dedicated Regional Hub Badges */}
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+          <span className="text-xs font-semibold text-slate-500 mr-0.5">Country Specific Guides:</span>
+          <a
+            href="#in"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('in');
+            }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 shadow-2xs transition-colors cursor-pointer"
+          >
+            <CountryFlag country="in" className="w-4 h-3 shrink-0" />
+            <span>India (HRA Section 10(13A))</span>
+          </a>
+          <a
+            href="#us"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('us');
+            }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 shadow-2xs transition-colors cursor-pointer"
+          >
+            <CountryFlag country="us" className="w-4 h-3 shrink-0" />
+            <span>United States (IRS Proof)</span>
+          </a>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200">
+            <CountryFlag country="global" className="w-3.5 h-3.5 shrink-0" />
+            <span>Currencies: $ USD, € EUR, £ GBP, $ CAD, $ AUD, ₹ INR</span>
+          </span>
+        </div>
       </section>
 
       {/* Section 1: Tool Selector with H2 Heading & Crawlable <a> Links */}
@@ -209,6 +250,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
                       <span className="truncate">{bullet}</span>
                     </div>
                   ))}
+                </div>
+                {/* 3-Step Action Guide for Crawlers and Users (Prevent Bot Bounce) */}
+                <div className="mt-3.5 pt-3 border-t border-slate-100 bg-slate-50/80 rounded-xl p-2.5 text-[11px] text-slate-700">
+                  <div className="font-bold text-slate-900 mb-1.5 flex items-center justify-between text-[11px]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block"></span>
+                      <span>How it works in 3 steps:</span>
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-normal uppercase tracking-wider">No Login</span>
+                  </div>
+                  <ol className="space-y-1 text-slate-600 font-medium">
+                    {tool.steps.map((stepText, sIdx) => (
+                      <li key={sIdx} className="flex items-start gap-1.5 leading-snug">
+                        <span className="font-bold text-blue-700 shrink-0">{sIdx + 1}.</span>
+                        <span>{stepText}</span>
+                      </li>
+                    ))}
+                  </ol>
                 </div>
               </div>
 
@@ -446,6 +505,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
             className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
           >
             📜 Tenancy Affidavit
+          </a>
+          <a
+            href="#in"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('in');
+            }}
+            className="px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-lg text-amber-900 hover:text-amber-700 hover:border-amber-300 font-medium transition-colors"
+          >
+            🇮🇳 India (HRA Section 10(13A))
+          </a>
+          <a
+            href="#us"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('us');
+            }}
+            className="px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 font-medium transition-colors"
+          >
+            🇺🇸 United States (IRS Proof)
           </a>
           <a
             href="#guide"

@@ -10,10 +10,13 @@ import {
   ShieldCheck,
   Scale,
   Home,
+  Receipt,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { HouseLogo } from './HouseLogo';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { RegionSwitcher } from './RegionSwitcher';
+import { CountryFlag } from './CountryFlag';
 
 interface HeaderProps {
   activePage: ActivePage;
@@ -23,37 +26,49 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Desktop primary tool links - strictly 2-3 clean headlines (Salary Slip & Affidavit are featured in the tools section below)
+  // Desktop primary tool links - focused, clean, and guaranteed zero overlap
   const desktopNavItems: { id: ActivePage; label: string; href: string }[] = [
-    { id: 'rent-receipt', label: 'Rent Receipt', href: '/rent-receipt-generator.html' },
-    { id: 'guide', label: 'HRA Guide', href: '/hra-guide.html' },
-    { id: 'faq', label: 'FAQ', href: '/faq.html' },
+    { id: 'rent-receipt', label: 'Generator', href: '#rent-receipt' },
+    { id: 'guide', label: 'HRA Guide', href: '#guide' },
+    { id: 'faq', label: 'FAQ', href: '#faq' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
   // Full list for mobile drawer including legal and informational pages
   const mobileNavItems: { id: ActivePage; label: string; href: string; icon: React.ReactNode }[] = [
-    { id: 'home', label: 'Rent Receipt Generator', href: '/rent-receipt-generator.html', icon: <Home className="w-4 h-4 text-blue-600" /> },
-    { id: 'salary-slip', label: 'Salary Slip Generator', href: '/salary-slip-generator.html', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
-    { id: 'affidavit', label: 'Affidavit Generator', href: '/affidavit-generator.html', icon: <FileText className="w-4 h-4 text-purple-600" /> },
-    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '/hra-guide.html', icon: <BookOpen className="w-4 h-4 text-amber-600" /> },
-    { id: 'faq', label: 'Frequently Asked Questions', href: '/faq.html', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
-    { id: 'about', label: 'About Us', href: '/about.html', icon: <Info className="w-4 h-4 text-slate-500" /> },
-    { id: 'contact', label: 'Contact Support', href: '/contact.html', icon: <Mail className="w-4 h-4 text-slate-500" /> },
-    { id: 'privacy', label: 'Privacy Policy', href: '/privacy.html', icon: <ShieldCheck className="w-4 h-4 text-slate-500" /> },
-    { id: 'terms', label: 'Terms & Conditions', href: '/terms.html', icon: <Scale className="w-4 h-4 text-slate-500" /> },
+    { id: 'home', label: 'Global Generator', href: '/', icon: <Home className="w-4 h-4 text-blue-600" /> },
+    {
+      id: 'in',
+      label: 'India (HRA Section 10(13A))',
+      href: '#in',
+      icon: <CountryFlag country="in" className="w-4 h-3 shrink-0" />,
+    },
+    {
+      id: 'us',
+      label: 'US Receipts (IRS Records)',
+      href: '#us',
+      icon: <CountryFlag country="us" className="w-4 h-3 shrink-0" />,
+    },
+    { id: 'rent-receipt', label: 'Rent Receipt Creator', href: '#rent-receipt', icon: <Receipt className="w-4 h-4 text-blue-600" /> },
+    { id: 'salary-slip', label: 'Salary Slip Generator', href: '#salary-slip', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
+    { id: 'affidavit', label: 'Affidavit Generator', href: '#affidavit', icon: <Scale className="w-4 h-4 text-amber-600" /> },
+    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '#guide', icon: <BookOpen className="w-4 h-4 text-indigo-600" /> },
+    { id: 'faq', label: 'Frequently Asked Questions', href: '#faq', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
+    { id: 'about', label: 'About Us', href: '#about', icon: <Info className="w-4 h-4 text-slate-500" /> },
+    { id: 'contact', label: 'Contact Support', href: '#contact', icon: <Mail className="w-4 h-4 text-slate-500" /> },
+    { id: 'privacy', label: 'Privacy Policy', href: '#privacy', icon: <ShieldCheck className="w-4 h-4 text-slate-500" /> },
+    { id: 'terms', label: 'Terms & Conditions', href: '#terms', icon: <Scale className="w-4 h-4 text-slate-500" /> },
   ];
 
   const handleNavClick = (pageId: ActivePage) => {
-    // Normalise 'rent-receipt' click from desktop nav to 'home' when at root
-    const target = pageId === 'rent-receipt' ? 'home' : pageId;
-    setActivePage(target);
+    setActivePage(pageId);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const isNavActive = (pageId: ActivePage) => {
-    if (pageId === 'rent-receipt' || pageId === 'home') {
-      return activePage === 'home' || activePage === 'rent-receipt' || activePage === 'tool';
+    if (pageId === 'rent-receipt') {
+      return activePage === 'rent-receipt' || activePage === 'tool';
     }
     return activePage === pageId;
   };
@@ -61,10 +76,10 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center justify-between h-16 gap-2 sm:gap-4">
           
           {/* Left: Brand Logo & Desktop Nav Links */}
-          <div className="flex items-center gap-6 lg:gap-8 min-w-0">
+          <div className="flex items-center gap-4 lg:gap-7 shrink-0">
             <a
               href="/"
               id="brand-logo-btn"
@@ -81,8 +96,8 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
               </span>
             </a>
 
-            {/* Desktop Navigation - 2-3 clean headlines */}
-            <nav className="hidden md:flex items-center gap-1.5" aria-label="Main Navigation">
+            {/* Desktop Navigation - clean, non-wrapping, and properly spaced */}
+            <nav className="hidden md:flex items-center gap-1 shrink-0" aria-label="Main Navigation">
               {desktopNavItems.map((item) => {
                 const active = isNavActive(item.id);
                 return (
@@ -94,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
                       e.preventDefault();
                       handleNavClick(item.id);
                     }}
-                    className={`whitespace-nowrap px-3.5 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
+                    className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer shrink-0 ${
                       active
                         ? 'bg-blue-50 text-blue-600 font-semibold'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
@@ -107,24 +122,12 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
             </nav>
           </div>
 
-          {/* Right: Contact link + Language Switcher (Desktop) & Menu toggle (Mobile) */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            <a
-              href="#contact"
-              id="nav-contact-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('contact');
-              }}
-              className={`hidden md:inline-flex whitespace-nowrap px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
-                activePage === 'contact'
-                  ? 'bg-blue-50 text-blue-600 font-semibold'
-                  : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
-              }`}
-            >
-              Contact
-            </a>
+          {/* Right: Region Switcher + Language Switcher + Mobile menu toggle */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Quick Regional Dropdown */}
+            <RegionSwitcher activePage={activePage} onSelectRegion={handleNavClick} />
 
+            {/* Language Switcher */}
             <LanguageSwitcher />
 
             {/* Mobile Menu Toggle */}
@@ -132,7 +135,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
               id="mobile-menu-toggle"
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200/70"
+              className="md:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200/70 shrink-0"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-slate-700" />}
@@ -143,8 +146,21 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200/80 bg-white px-4 pt-3 pb-5 space-y-1 shadow-lg animate-fade-in max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="md:hidden border-t border-slate-200/80 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl animate-fade-in max-h-[calc(100vh-4rem)] overflow-y-auto">
+          {/* Mobile Region Switcher Selector */}
+          <div className="bg-slate-50/80 rounded-xl p-2 border border-slate-200/70">
+            <RegionSwitcher
+              activePage={activePage}
+              onSelectRegion={handleNavClick}
+              isMobileCompact={true}
+            />
+          </div>
+
+          {/* Navigation Links */}
           <nav className="space-y-1" aria-label="Mobile Navigation">
+            <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-1">
+              Tools &amp; Resources
+            </div>
             {mobileNavItems.map((item) => {
               const active = isNavActive(item.id);
               return (
@@ -163,10 +179,10 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span>{item.icon}</span>
-                    <span>{item.label}</span>
+                    <span className="shrink-0">{item.icon}</span>
+                    <span className="truncate">{item.label}</span>
                   </div>
-                  {active && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
+                  {active && <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />}
                 </a>
               );
             })}
@@ -176,3 +192,4 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
     </header>
   );
 };
+

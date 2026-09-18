@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { RentReceiptData, ReceiptTemplate } from '../types';
+import { RentReceiptData, ReceiptTemplate, SupportedCurrency, SUPPORTED_CURRENCIES } from '../types';
 import { MONTH_NAMES } from '../utils/dateUtils';
-import { numberToIndianWords, formatIndianCurrency } from '../utils/numberToWords';
+import { numberToWords, formatCurrencyAmount } from '../utils/numberToWords';
 import { downloadReceiptsPdf } from '../utils/pdfGenerator';
 import { SignatureInput } from './SignatureInput';
 import { HouseLogo } from './HouseLogo';
@@ -23,7 +23,9 @@ import {
   CheckCircle,
   AlertCircle,
   Palette,
-  Check
+  Check,
+  Globe,
+  ChevronDown
 } from 'lucide-react';
 
 interface ReceiptFormProps {
@@ -48,13 +50,28 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
   const annualRent = parsedAmount * 12;
   const isPanRequired = annualRent > 100000;
 
+  const activeCurrency: SupportedCurrency = data.currency || 'USD';
+  const activeCurrencyConfig = SUPPORTED_CURRENCIES[activeCurrency] || SUPPORTED_CURRENCIES.USD;
+  const activeCurrencySymbol = data.currencySymbol || activeCurrencyConfig.symbol;
+
   const handleInputChange = (field: keyof RentReceiptData, value: any) => {
     setData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const handleCurrencyChange = (currencyCode: SupportedCurrency) => {
+    const config = SUPPORTED_CURRENCIES[currencyCode] || SUPPORTED_CURRENCIES.USD;
+    setData((prev) => ({
+      ...prev,
+      currency: currencyCode,
+      currencySymbol: config.symbol,
+    }));
+  };
+
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawVal = e.target.value.replace(/[^0-9]/g, '');
-    setData((prev) => ({ ...prev, monthlyRent: rawVal }));
+    const rawVal = e.target.value.replace(/[^0-9.]/g, '');
+    const parts = rawVal.split('.');
+    const cleanVal = parts.length > 2 ? `${parts[0]}.${parts.slice(1).join('')}` : rawVal;
+    setData((prev) => ({ ...prev, monthlyRent: cleanVal }));
   };
 
   // Quick Preset Handlers
@@ -382,55 +399,97 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
           </div>
         </div>
 
-        {/* 2. Monthly Rent Amount */}
-        <div>
-          <label htmlFor="monthlyRent" className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-            <IndianRupee className="w-3.5 h-3.5 text-blue-600" />
-            <span>{t('lbl_monthly_rent')} *</span>
-          </label>
-          <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 font-bold">
-              ₹
-            </span>
-            <input
-              type="text"
-              id="monthlyRent"
-              name="monthlyRent"
-              placeholder="e.g. 25000"
-              value={data.monthlyRent ? formatIndianCurrency(data.monthlyRent) : ''}
-              onChange={handleAmountChange}
-              className="w-full pl-8 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-              required
-            />
+        {/* 2. Currency & Monthly Rent Row */}
+        <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
+            {/* Currency Dropdown (5 cols on sm) */}
+            <div className="sm:col-span-5">
+              <label htmlFor="currency" className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                <span className="flex items-center gap-1">
+                  <Globe className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Currency *</span>
+                </span>
+                <span className="text-[10px] text-blue-600 font-medium bg-blue-50 px-1.5 py-0.5 rounded">
+                  Global
+                </span>
+              </label>
+              <div className="relative">
+                <select
+                  id="currency"
+                  name="currency"
+                  value={activeCurrency}
+                  onChange={(e) => handleCurrencyChange(e.target.value as SupportedCurrency)}
+                  className="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all cursor-pointer appearance-none pr-8"
+                >
+                  <option value="USD">🇺🇸 USD ($) - US Dollar</option>
+                  <option value="EUR">🇪🇺 EUR (€) - Euro</option>
+                  <option value="GBP">🇬🇧 GBP (£) - British Pound</option>
+                  <option value="CAD">🇨🇦 CAD ($) - Canadian Dollar</option>
+                  <option value="AUD">🇦🇺 AUD ($) - Australian Dollar</option>
+                  <option value="INR">🇮🇳 INR (₹) - Indian Rupee</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-slate-500">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            {/* Monthly Rent Amount (7 cols on sm) */}
+            <div className="sm:col-span-7">
+              <label htmlFor="monthlyRent" className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                <CreditCard className="w-3.5 h-3.5 text-blue-600" />
+                <span>{t('lbl_monthly_rent')} *</span>
+              </label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700 font-bold text-base">
+                  {activeCurrencySymbol}
+                </span>
+                <input
+                  type="text"
+                  id="monthlyRent"
+                  name="monthlyRent"
+                  placeholder={activeCurrency === 'INR' ? 'e.g. 25000' : 'e.g. 1800'}
+                  value={data.monthlyRent ? formatCurrencyAmount(data.monthlyRent, activeCurrency) : ''}
+                  onChange={handleAmountChange}
+                  className="w-full pl-8 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  required
+                />
+              </div>
+            </div>
           </div>
 
           {/* Amount in words helper & Annual Rent Alert */}
-          <div className="mt-1.5 space-y-1">
-            {parsedAmount > 0 && (
+          {parsedAmount > 0 && (
+            <div className="space-y-1.5">
               <p className="text-xs text-slate-600 italic">
-                {t('lbl_rent_in_words')}: <strong className="font-semibold text-slate-800 font-serif">{numberToIndianWords(parsedAmount)}</strong>
+                {t('lbl_rent_in_words')}: <strong className="font-semibold text-slate-800 font-serif">{numberToWords(parsedAmount, activeCurrency)}</strong>
               </p>
-            )}
 
-            {parsedAmount > 0 && (
-              <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-0.5">
+              <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 bg-slate-50 p-2.5 rounded-lg border border-slate-200 gap-1.5">
                 <span>
-                  Annual Equivalent: <strong className="font-semibold text-slate-700">₹ {formatIndianCurrency(annualRent)}</strong> / year
+                  Annual Equivalent: <strong className="font-semibold text-slate-700">{activeCurrencySymbol} {formatCurrencyAmount(annualRent, activeCurrency)}</strong> / year
                 </span>
-                {isPanRequired ? (
-                  <span className="inline-flex items-center text-amber-700 bg-amber-50 px-2 py-0.5 rounded font-medium">
-                    <AlertCircle className="w-3 h-3 mr-1" />
-                    PAN Required (&gt; ₹1 Lakh/yr)
-                  </span>
+                {activeCurrency === 'INR' ? (
+                  isPanRequired ? (
+                    <span className="inline-flex items-center text-amber-700 bg-amber-50 px-2 py-0.5 rounded font-medium border border-amber-200">
+                      <AlertCircle className="w-3 h-3 mr-1" />
+                      PAN Required (&gt; ₹1 Lakh/yr)
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium border border-emerald-200">
+                      <CheckCircle className="w-3 h-3 mr-1" />
+                      PAN Optional (≤ ₹1 Lakh/yr)
+                    </span>
+                  )
                 ) : (
-                  <span className="inline-flex items-center text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">
+                  <span className="inline-flex items-center text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium border border-emerald-200">
                     <CheckCircle className="w-3 h-3 mr-1" />
-                    PAN Optional (≤ ₹1 Lakh/yr)
+                    Standard Rent Slip Record
                   </span>
                 )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* 3. Property Address */}
@@ -632,15 +691,15 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
           </div>
         </div>
 
-        {/* 5. Landlord PAN Number (Optional with Note) */}
+        {/* 5. Landlord PAN / Tax ID (Adaptive to Currency) */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <label htmlFor="landlordPan" className="block text-xs font-semibold text-slate-800 uppercase tracking-wider flex items-center gap-1">
               <CreditCard className="w-3.5 h-3.5 text-blue-600" />
-              <span>Landlord PAN Number (Optional)</span>
+              <span>{activeCurrency === 'INR' ? 'Landlord PAN Number (Optional)' : 'Landlord Tax ID / SSN / EIN / Reg (Optional)'}</span>
             </label>
             <span className="text-[11px] text-slate-500">
-              10-character alphanumeric
+              {activeCurrency === 'INR' ? '10-character alphanumeric' : 'Optional for tax filing'}
             </span>
           </div>
 
@@ -648,21 +707,27 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
             type="text"
             id="landlordPan"
             name="landlordPan"
-            maxLength={10}
-            placeholder="e.g. ABCDE1234F"
+            maxLength={activeCurrency === 'INR' ? 10 : 25}
+            placeholder={activeCurrency === 'INR' ? 'e.g. ABCDE1234F' : 'e.g. XX-XXXXXXX or Tax ID'}
             value={data.landlordPan}
             onChange={(e) => handleInputChange('landlordPan', e.target.value.toUpperCase())}
             className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm uppercase font-mono text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
           />
 
           {/* Statutory Note as required */}
-          <div className="mt-1.5 flex items-start gap-1.5 text-xs text-[#b45309] bg-[#fffbeb] p-2.5 rounded-md border border-amber-200/80">
-            <Info className="w-4 h-4 text-[#b45309] shrink-0 mt-0.5" />
-            <p>
-              <strong className="text-amber-950 font-semibold">Income Tax Rule:</strong> Landlord PAN is{' '}
-              <span className="font-semibold text-amber-900">required only if annual rent exceeds ₹1,00,000</span> (₹8,333/month) under CBDT circular guidelines for HRA exemption.
+          {activeCurrency === 'INR' ? (
+            <div className="mt-1.5 flex items-start gap-1.5 text-xs text-[#b45309] bg-[#fffbeb] p-2.5 rounded-md border border-amber-200/80">
+              <Info className="w-4 h-4 text-[#b45309] shrink-0 mt-0.5" />
+              <p>
+                <strong className="text-amber-950 font-semibold">Income Tax Rule:</strong> Landlord PAN is{' '}
+                <span className="font-semibold text-amber-900">required only if annual rent exceeds ₹1,00,000</span> (₹8,333/month) under CBDT circular guidelines for HRA exemption.
+              </p>
+            </div>
+          ) : (
+            <p className="text-[11px] text-slate-500 mt-1">
+              Helps establish legal proof for IRS Schedule E / Schedule C deductions, rental allowances, and corporate relocations.
             </p>
-          </div>
+          )}
         </div>
 
         {/* 6. Payment Mode & Bank Reference */}
@@ -677,29 +742,30 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
               name="paymentMode"
               value={data.paymentMode}
               onChange={(e) => handleInputChange('paymentMode', e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
             >
-              <option value="Bank Transfer / NEFT / IMPS">Direct Bank Transfer / NEFT / IMPS</option>
-              <option value="UPI">UPI (GPay / PhonePe / Paytm / BHIM)</option>
-              <option value="Cheque">Bank Cheque</option>
+              <option value="Bank Transfer / Wire / ACH">Direct Bank Transfer / Wire / ACH / NEFT</option>
+              <option value="Credit / Debit Card">Credit / Debit Card</option>
+              <option value="Check / Cheque">Bank Check / Cheque</option>
               <option value="Cash">Cash Payment</option>
+              <option value="Online / Zelle / Venmo / UPI">Online Transfer (Zelle / Venmo / UPI / PayPal)</option>
             </select>
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <label htmlFor="transactionRef" className="block text-xs font-semibold text-slate-800 uppercase tracking-wider">
-                Bank UTR / UPI Ref / Cheque No (Optional)
+                Transaction / Reference / Check No (Optional)
               </label>
               <span className="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-medium">
-                Payment Reference
+                Audit Trail
               </span>
             </div>
             <input
               type="text"
               id="transactionRef"
               name="transactionRef"
-              placeholder="e.g. UTR1938472910, UPI Ref 4109283719, or Cheque #492810"
+              placeholder="e.g. ACH-98124, Check #402, or Wire Ref"
               value={data.transactionRef || ''}
               onChange={(e) => handleInputChange('transactionRef', e.target.value)}
               className="w-full px-3.5 py-2 bg-white border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
