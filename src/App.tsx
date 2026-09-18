@@ -3,13 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
-import { RentReceiptView } from './components/RentReceiptView';
-import { SalarySlipGenerator } from './components/SalarySlipGenerator';
-import { AffidavitGenerator } from './components/AffidavitGenerator';
 import { Footer } from './components/Footer';
+import { ToolLoadingFallback } from './components/ToolLoadingFallback';
 import { AboutPage } from './pages/AboutPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
@@ -17,6 +15,12 @@ import { ContactPage } from './pages/ContactPage';
 import { HraGuidePage } from './pages/HraGuidePage';
 import { ValidationPage } from './pages/ValidationPage';
 import { FaqPage } from './pages/FaqPage';
+
+// Code-split main application views using React.lazy to reduce initial bundle size and boost Core Web Vitals
+const RentReceiptView = lazy(() => import('./components/RentReceiptView'));
+const SalarySlipGenerator = lazy(() => import('./components/SalarySlipGenerator'));
+const AffidavitGenerator = lazy(() => import('./components/AffidavitGenerator'));
+
 import { RentReceiptData, ActivePage, MonthPeriod } from './types';
 import {
   decodeVerificationFromUrl,
@@ -173,24 +177,51 @@ function AppContent() {
           <HomePage onSelectTool={handlePageChange} />
         )}
 
-        {/* VIEW 2: Dedicated Rent Receipt Generator Page */}
+        {/* VIEW 2: Dedicated Rent Receipt Generator Page (Code-split with Suspense) */}
         {(activePage === 'rent-receipt' || activePage === 'tool') && (
-          <RentReceiptView
-            receiptData={receiptData}
-            setReceiptData={setReceiptData}
-            onOpenLiveValidation={handleOpenLiveValidation}
-            onNavigate={handlePageChange}
-          />
+          <Suspense
+            fallback={
+              <ToolLoadingFallback
+                toolName="Rent Receipt Generator"
+                description="Preparing rent receipt templates, landlord PAN thresholds & revenue stamps..."
+              />
+            }
+          >
+            <RentReceiptView
+              receiptData={receiptData}
+              setReceiptData={setReceiptData}
+              onOpenLiveValidation={handleOpenLiveValidation}
+              onNavigate={handlePageChange}
+            />
+          </Suspense>
         )}
 
-        {/* VIEW 3: Dedicated Salary Slip Generator Page */}
+        {/* VIEW 3: Dedicated Salary Slip Generator Page (Code-split with Suspense) */}
         {activePage === 'salary-slip' && (
-          <SalarySlipGenerator onNavigate={handlePageChange} />
+          <Suspense
+            fallback={
+              <ToolLoadingFallback
+                toolName="Salary Slip Generator"
+                description="Loading payroll deduction calculators, payslip formats & signature engine..."
+              />
+            }
+          >
+            <SalarySlipGenerator onNavigate={handlePageChange} />
+          </Suspense>
         )}
 
-        {/* VIEW 4: Dedicated Affidavit & Address Proof Generator Page */}
+        {/* VIEW 4: Dedicated Affidavit & Address Proof Generator Page (Code-split with Suspense) */}
         {activePage === 'affidavit' && (
-          <AffidavitGenerator onNavigate={handlePageChange} />
+          <Suspense
+            fallback={
+              <ToolLoadingFallback
+                toolName="Legal Affidavit Generator"
+                description="Loading affidavit declaration formats, legal notary margins & verification clauses..."
+              />
+            }
+          >
+            <AffidavitGenerator onNavigate={handlePageChange} />
+          </Suspense>
         )}
 
         {/* Dedicated Receipt Validation Portal View */}

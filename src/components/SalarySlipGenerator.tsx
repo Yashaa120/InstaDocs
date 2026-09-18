@@ -1212,3 +1212,6 @@ export const SalarySlipGenerator: React.FC<SalarySlipGeneratorProps> = ({ onNavi
     </div>
   );
 };
+
+export default SalarySlipGenerator;
+

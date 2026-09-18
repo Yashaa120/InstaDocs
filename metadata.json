@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Create rent receipt online with our free rent receipt generator and rent slip generator. Download valid online rent receipt PDFs for HRA exemption in seconds — no login required.",
+  "description": "Generate free, print-ready rent receipts and salary slips for HRA tax exemption under Section 10(13A). Complete with Landlord PAN, revenue stamp markers, and full 12-month batch downloads.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

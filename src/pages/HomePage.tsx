@@ -35,10 +35,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       iconBg: 'bg-blue-50 border-blue-200 text-blue-600',
       icon: <Receipt className="w-7 h-7 text-blue-600" />,
-      description: t('tool_rent_receipt_desc') || 'Create rent receipt online with landlord PAN and revenue stamp for HRA claims.',
-      actionText: t('tool_rent_receipt_btn') || 'Create Rent Receipt Online',
+      description: t('tool_rent_receipt_desc') || 'Generate print-ready rent receipts with Landlord PAN and revenue stamp block for HRA claims.',
+      actionText: t('tool_rent_receipt_btn') || 'Generate Rent Receipts',
       urlHash: '#rent-receipt',
-      bulletPoints: ['Create Rent Receipt Online', 'Free Rent Slip Generator', 'HRA Section 10(13A) Proof'],
+      bulletPoints: ['Instant PDF Download', 'Landlord PAN & Revenue Stamp', 'Section 10(13A) HRA Proof'],
     },
     {
       id: 'salary-slip' as ActivePage,
@@ -59,7 +59,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       tagColor: 'bg-amber-50 text-amber-800 border-amber-200',
       iconBg: 'bg-amber-50 border-amber-200 text-amber-700',
       icon: <Scale className="w-7 h-7 text-amber-700" />,
-      description: t('tool_affidavit_desc') || 'Self-declaration affidavits for address, name change, or gap proof.',
+      description: t('tool_affidavit_desc') || 'Self-declaration affidavits for address, tenancy proof, or name verification.',
       actionText: t('tool_affidavit_btn') || 'Draft Affidavit',
       urlHash: '#affidavit',
       bulletPoints: ['Standard Legal Formats', 'e-Stamp Paper Margins', 'Notary Ready Layout'],
@@ -135,6 +135,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
   ];
 
   return (
+
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
       {/* Hero Section with EXACTLY ONE H1 */}
       <section className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 pt-1" aria-label="Hero Introduction">
@@ -144,11 +145,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
 
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Create Rent Receipt Online &amp; Free Rent Slip Generator for HRA Tax Exemption
+          Generate Free Rent Receipts &amp; Salary Slips for HRA Tax Exemption
         </h1>
 
         <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Create rent receipt online in seconds with India&rsquo;s most trusted free <strong>online rent receipt generator</strong> and <strong>rent slip generator</strong>. Download print-ready PDFs with Landlord PAN, ₹1 revenue stamp markers, and full 12-month batch support.
+          Create print-ready rent receipts, monthly salary slips, and rental affidavits in seconds. Designed for Indian salaried employees claiming HRA under Section 10(13A) — 100% free and processed privately in your browser.
         </p>
       </section>
 
@@ -304,10 +305,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
             <span>Income Tax, HRA Proofs &amp; Payroll Documentation Guide</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Need a professional <strong>salary slip format</strong> or verified <strong>salary slip generator</strong> for your <strong>income tax</strong> declaration before the annual <strong>ITR filing last date</strong>? Whether you manage employee payroll records on <strong>Salary Box</strong> / <strong>Salarybox</strong>, claim <strong>HRA tax exemption</strong> under <strong>Section 10(13A)</strong>, or prepare tax returns on <strong>ClearTax</strong>, <strong>Tax2Win</strong>, or the official <strong>Income Tax login (ITR login)</strong> portal, submitting accurate <strong>salary slips</strong> and signed rent receipts with valid landlord PAN is essential.
+            Preparing your year-end tax proofs and submitting Form 12BB to your employer requires accurate, standardized documentation. Whether you are claiming House Rent Allowance under Section 10(13A), submitting proof of rent paid to payroll, or preparing records for your annual Income Tax Return (ITR), having error-free receipts with proper Landlord PAN disclosure ensures seamless approval without tax assessment queries.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Our platform provides instant, free document generators for compliant <strong>salary slip formats</strong>, batch rent receipts with revenue stamp formatting, and legal self-declarations for official verification, bank loans, and welfare portals like <strong>Annapurna Bhandar portal</strong> (for <strong>Annapurna Bhandar status check</strong> documentation). All documents are generated locally in your browser with zero server storage.
+            RentReceipt.online offers free, dedicated utilities tailored for Indian employees and landlords. Easily create individual or 12-month batch rent receipts with statutory revenue stamp markings, itemized payslips with EPF and professional tax breakdown, or legally drafted tenancy affidavits — all processed 100% locally in your browser for absolute data confidentiality.
           </p>
 
           <div className="pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3">

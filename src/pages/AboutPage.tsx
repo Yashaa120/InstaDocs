@@ -147,13 +147,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
           </p>
 
           <h2 className="text-xl font-bold text-slate-900">
-            Who Are We?
+            Who Builds and Maintains RentReceipt?
           </h2>
           <p>
-            We are an independent group of software engineers, tax enthusiasts, and product designers based in India. We build focused, lightweight web tools that eliminate administrative friction for salaried employees, tenants, freelancers, and small business owners.
+            RentReceipt.online is founded and maintained by an independent team of Indian software engineers and financial technology professionals with deep domain background in enterprise payroll processing, tax software architecture, and statutory compliance under the Income Tax Act, 1961.
           </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+              <h3 className="font-bold text-slate-900 text-sm mb-1">Payroll &amp; Tax Research</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Our templates and calculations are strictly aligned with annual Central Board of Direct Taxes (CBDT) circulars, Section 10(13A) rules, and Form 12BB employer submission standards used across major HRMS platforms (Darwinbox, GreytHR, Keka, ZingHR).
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+              <h3 className="font-bold text-slate-900 text-sm mb-1">Privacy-First Engineering</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Developed using client-side Web Cryptography and in-memory canvas document rendering. We maintain a strict zero-database, zero-tracking policy for user-entered PAN numbers, salaries, and residential addresses.
+              </p>
+            </div>
+          </div>
           <p>
-            If you have ideas for new document templates, feature improvements, or bug reports, we welcome you to reach out via our{' '}
+            If you have questions, corrections, or suggestions for our payroll tools, you can reach out directly via our{' '}
             <a
               href="#contact"
               onClick={(e) => {
@@ -164,7 +178,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             >
               Contact &amp; Support Desk
             </a>
-            . For quick answers to common questions about rent receipts, salary slips, and HRA rules, check our{' '}
+            {' '}at <strong>support@rentreceipt.online</strong>. We reply to all inquiries within 24 to 48 business hours. For common tax queries, read our comprehensive{' '}
             <a
               href="#faq"
               onClick={(e) => {
@@ -175,8 +189,29 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
             >
               FAQ knowledge base
             </a>
+            {' '}and{' '}
+            <a
+              href="#guide"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage('guide');
+              }}
+              className="text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              HRA Exemption Guide
+            </a>
             .
           </p>
+
+          <div className="p-4 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-amber-900 leading-relaxed my-6 not-prose">
+            <p className="font-bold mb-1">Statutory Tax Disclaimer &amp; Editorial Notice:</p>
+            <p className="text-amber-800">
+              RentReceipt.online provides automated document drafting tools and informational resources for general educational and payroll submission purposes. While all formulas and receipt layouts are regularly audited against CBDT guidelines and Section 10(13A), this website does not provide formal legal, tax, or accounting advice. For individual tax assessment disputes, dual-city rent claims, or complex business rental structures, please consult a qualified Chartered Accountant (CA) or certified tax advisor.
+            </p>
+            <p className="text-amber-700 mt-2 font-medium">
+              Last audited &amp; updated: March 2026 (Applicable for FY 2025-26 / AY 2026-27).
+            </p>
+          </div>
 
           {/* Mid-Content Ad Slot */}
           <div className="my-6">

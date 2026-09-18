@@ -144,3 +144,5 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
     </div>
   );
 };
+
+export default RentReceiptView;

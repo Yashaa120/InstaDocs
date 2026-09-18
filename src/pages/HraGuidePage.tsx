@@ -256,6 +256,21 @@ export const HraGuidePage: React.FC<HraGuidePageProps> = ({ setActivePage }) => 
             </a>
             .
           </p>
+
+          {/* Author / Editorial E-E-A-T & Last Updated Box */}
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 space-y-2 my-6 not-prose">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/80 pb-2">
+              <span className="font-semibold text-slate-900">
+                Tax Editorial Desk &bull; Researched &amp; Fact-Checked
+              </span>
+              <span className="text-slate-500 font-medium">
+                Last updated: March 15, 2026 (Applicable for FY 2025-26 / AY 2026-27)
+              </span>
+            </div>
+            <p className="text-slate-600 leading-relaxed">
+              <strong>Statutory Tax Disclaimer:</strong> This guide and our HRA calculator provide general informational guidance aligned with Section 10(13A) and Rule 2A of the Income Tax Rules. They do not constitute certified legal or financial advice. For specific tax situations, multi-city rent splitting, or complex tax assessments, please consult a certified Chartered Accountant (CA).
+            </p>
+          </div>
         </div>
 
         {/* Bottom Ad Slot */}

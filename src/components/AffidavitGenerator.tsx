@@ -994,3 +994,6 @@ export const AffidavitGenerator: React.FC<AffidavitGeneratorProps> = ({ onNaviga
     </div>
   );
 };
+
+export default AffidavitGenerator;
+
