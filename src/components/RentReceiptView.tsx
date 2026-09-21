@@ -43,17 +43,25 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
         </a>
       </div>
 
-      {/* Hero / Tool Header */}
-      <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 mb-3 border border-blue-200/80 shadow-2xs">
-          <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-          <span>CBDT Section 10(13A) Compliant • 100% Client-Side Privacy</span>
-        </div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Free Rent Receipt Generator for HRA Tax Exemption
-        </h1>
-        <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Generate, preview, and download professional monthly or annual rent receipts as PDF for your HRA tax exemption claims. Free forever with instant multi-page export.
+      {/* Globally Optimized Multi-Currency Header (US, UK, Canada, Australia & India) */}
+      <div
+        id="global-receipt-header"
+        style={{
+          maxWidth: '850px',
+          margin: '20px auto',
+          padding: '15px',
+          fontFamily: 'sans-serif',
+          textAlign: 'center',
+        }}
+      >
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+          Universal Multi-Currency Rent Receipt Generator
+        </h2>
+        <p style={{ fontSize: '1.1rem', color: '#444', lineHeight: '1.6' }} className="mt-2">
+          Create official, landlord-approved rent receipts and proof-of-payment slips instantly. Our browser-based suite supports multiple currency symbols ($, €, £, C$, ₹) and matches local compliance standards worldwide—including IRS landlord disclosures for the US, tenancy proof for the UK, and Section 10(13A) HRA tax exemption rules for India. 
+        </p>
+        <p style={{ fontSize: '0.95rem', color: '#666', fontStyle: 'italic' }} className="mt-3">
+          🌍 <strong>Global Data Compliance Notice:</strong> To ensure absolute user security, this system utilizes zero-backend data streaming. All structural PDF compilation happens locally within your web browser canvas.
         </p>
       </div>
 
@@ -88,7 +96,7 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
       </div>
 
       {/* Generator Form and Live Preview Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+      <div id="rent-receipt" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
         {/* Left Column: Input Form */}
         <div
           id="receipt-form-container"

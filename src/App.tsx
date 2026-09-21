@@ -141,7 +141,7 @@ function AppContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleLaunchWithCurrency = (currency: 'INR' | 'USD') => {
+  const handleLaunchWithCurrency = (currency: 'INR' | 'USD' | 'EUR' | 'GBP' | 'CAD') => {
     if (currency === 'INR') {
       setReceiptData((prev) => ({
         ...prev,
@@ -152,8 +152,44 @@ function AppContent() {
         landlordName: prev.currency === 'INR' ? prev.landlordName : 'Rameshwar Prasad Gupta',
         propertyAddress: prev.currency === 'INR' ? prev.propertyAddress : 'Flat 402, Sunshine Heights, 100 Feet Road, Indiranagar, Bengaluru, Karnataka - 560038',
         landlordPan: prev.landlordPan || 'ABCDE1234F',
-        paymentMode: 'Bank Transfer / Wire / ACH',
+        paymentMode: 'UPI / NetBanking / GPay',
         signatureTypedText: prev.currency === 'INR' ? prev.signatureTypedText : 'Rameshwar Prasad Gupta',
+      }));
+    } else if (currency === 'EUR') {
+      setReceiptData((prev) => ({
+        ...prev,
+        currency: 'EUR',
+        currencySymbol: '€',
+        monthlyRent: '1250',
+        tenantName: prev.currency === 'EUR' ? prev.tenantName : 'Lucas Dubois',
+        landlordName: prev.currency === 'EUR' ? prev.landlordName : 'Marc Laurent',
+        propertyAddress: prev.currency === 'EUR' ? prev.propertyAddress : '14 Rue de la Paix, 75002 Paris, France',
+        paymentMode: 'SEPA Direct Debit / Wire',
+        signatureTypedText: prev.currency === 'EUR' ? prev.signatureTypedText : 'Marc Laurent',
+      }));
+    } else if (currency === 'GBP') {
+      setReceiptData((prev) => ({
+        ...prev,
+        currency: 'GBP',
+        currencySymbol: '£',
+        monthlyRent: '1450',
+        tenantName: prev.currency === 'GBP' ? prev.tenantName : 'Oliver Smith',
+        landlordName: prev.currency === 'GBP' ? prev.landlordName : 'William Evans',
+        propertyAddress: prev.currency === 'GBP' ? prev.propertyAddress : '24 Baker Street, Marylebone, London, NW1 6XE, UK',
+        paymentMode: 'Standing Order / BACS',
+        signatureTypedText: prev.currency === 'GBP' ? prev.signatureTypedText : 'William Evans',
+      }));
+    } else if (currency === 'CAD') {
+      setReceiptData((prev) => ({
+        ...prev,
+        currency: 'CAD',
+        currencySymbol: '$',
+        monthlyRent: '1950',
+        tenantName: prev.currency === 'CAD' ? prev.tenantName : 'Liam Tremblay',
+        landlordName: prev.currency === 'CAD' ? prev.landlordName : 'Robert Chen',
+        propertyAddress: prev.currency === 'CAD' ? prev.propertyAddress : 'Suite 1804, 350 Bay Street, Toronto, ON M5H 2S6, Canada',
+        paymentMode: 'Interac e-Transfer',
+        signatureTypedText: prev.currency === 'CAD' ? prev.signatureTypedText : 'Robert Chen',
       }));
     } else {
       setReceiptData((prev) => ({
@@ -209,7 +245,10 @@ function AppContent() {
       <main className="flex-grow w-full overflow-x-hidden">
         {/* VIEW 1: Homepage Tool Selector Landing Page */}
         {activePage === 'home' && (
-          <HomePage onSelectTool={handlePageChange} />
+          <HomePage
+            onSelectTool={handlePageChange}
+            onLaunchWithCurrency={handleLaunchWithCurrency}
+          />
         )}
 
         {/* REGIONAL VIEW: India HRA / Section 10(13A) Landing Page */}

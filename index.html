@@ -7,14 +7,6 @@
     <link rel="alternate icon" href="/favicon.svg" />
     <link rel="canonical" href="https://rentreceipt.online/" />
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-    <!-- End Google Tag Manager -->
-
     <title>Free Rent Receipt Generator &amp; Rent Slip Creator | Multi-Currency</title>
     <meta name="description" content="Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser." />
 
@@ -60,9 +52,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap" rel="stylesheet" crossorigin="anonymous">
-    <!-- html2pdf.js CDN (deferred for Core Web Vitals optimization) -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap"></noscript>
 
     <!-- Comprehensive Schema.org JSON-LD (WebSite, Organization, WebApplication, FAQPage, HowTo, Breadcrumbs) -->
     <script type="application/ld+json">
@@ -277,36 +269,44 @@
     </script>
   </head>
   <body class="bg-[#F8FAFC] text-[#0F172A] antialiased min-h-screen">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <!-- Pre-rendered Crawlable Content for Search Engine Crawlers (Googlebot, Bingbot)
-         When React boots, ReactDOM replaces this with the interactive web application -->
     <div id="root">
-      <header style="background:#ffffff; border-bottom:1px solid #e2e8f0; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between;">
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <span style="font-size:1.5rem; font-weight:bold; color:#0f172a;">RentReceipt.online</span>
-        </div>
-        <nav style="display:flex; gap:1.25rem;">
-          <a href="/rent-receipt-generator.html" style="color:#2563eb; text-decoration:none; font-weight:600;">Rent Receipt</a>
-          <a href="/salary-slip-generator.html" style="color:#475569; text-decoration:none; font-weight:500;">Salary Slip</a>
-          <a href="/affidavit-generator.html" style="color:#475569; text-decoration:none; font-weight:500;">Affidavit</a>
-          <a href="/hra-guide.html" style="color:#475569; text-decoration:none; font-weight:500;">HRA Guide</a>
-          <a href="/faq.html" style="color:#475569; text-decoration:none; font-weight:500;">FAQ</a>
-        </nav>
-      </header>
+      <div style="min-height:100vh; background:#F8FAFC; font-family:Inter,system-ui,-apple-system,sans-serif; color:#0F172A;">
+        <!-- Instant Top Bar -->
+        <header style="background:rgba(255,255,255,0.96); border-bottom:1px solid #E2E8F0; padding:0.875rem 1.5rem; display:flex; align-items:center; justify-content:space-between; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+          <div style="display:flex; align-items:center; gap:0.625rem;">
+            <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+              <rect width="64" height="64" rx="14" fill="#2563eb"/>
+              <path d="M12 28L32 12L52 28V50C52 51.1 51.1 52 50 52H14C12.9 52 12 51.1 12 50V28Z" fill="#ffffff" fill-opacity="0.95"/>
+              <path d="M26 52V34H38V52H26Z" fill="#1d4ed8"/>
+            </svg>
+            <span style="font-size:1.25rem; font-weight:800; color:#0F172A; letter-spacing:-0.02em;">RentReceipt</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <span style="font-size:0.75rem; font-weight:700; color:#166534; background:#DCFCE7; border:1px solid #BBF7D0; padding:0.25rem 0.625rem; border-radius:9999px; display:inline-flex; align-items:center; gap:0.375rem;">
+              <span style="width:6px; height:6px; border-radius:50%; background:#22c55e; display:inline-block;"></span>
+              100% Free &bull; In-Browser
+            </span>
+          </div>
+        </header>
 
-      <main style="max-width:1100px; margin:0 auto; padding:2rem 1.5rem; font-family:Inter,system-ui,-apple-system,sans-serif; color:#1e293b; line-height:1.65;">
-        <section style="text-align:center; margin-bottom:2.5rem;">
-          <h1 style="font-size:2.25rem; font-weight:800; color:#0f172a; margin-bottom:0.75rem; letter-spacing:-0.025em;">
-            Free Rent Receipt &amp; Salary Slip Generator for HRA Tax Exemption
-          </h1>
-          <p style="font-size:1.15rem; color:#475569; max-width:850px; margin:0 auto;">
-            Generate valid, print-ready rent receipts, itemized salary slips, and rental affidavits in seconds. Fully compliant with Section 10(13A), Landlord PAN reporting thresholds, and revenue stamp standards — 100% free and processed privately in your browser.
-          </p>
-        </section>
+        <!-- Instant Hero Shell: Zero White Delay -->
+        <main style="max-width:1200px; margin:0 auto; padding:2rem 1.25rem;">
+          <div style="background:linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%); border:1px solid #E2E8F0; border-radius:24px; padding:2rem 1.5rem; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.03); margin-bottom:2rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#EFF6FF; border:1px solid #BFDBFE; color:#1E40AF; padding:0.3rem 0.85rem; border-radius:9999px; font-size:0.75rem; font-weight:700; margin-bottom:1rem;">
+              ⚡ FASTEST IN-BROWSER SUITE &bull; 0.3s INSTANT PDF &bull; MULTI-CURRENCY
+            </div>
+            <h1 style="font-size:2.25rem; font-weight:900; color:#0F172A; margin:0 0 0.75rem 0; letter-spacing:-0.03em;">
+              Free Rent Receipt &amp; Salary Slip Generator
+            </h1>
+            <p style="font-size:1.05rem; color:#475569; max-width:680px; margin:0 auto 1.5rem auto; line-height:1.6;">
+              Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds with real-time preview and instant PDF export.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.625rem;">
+              <span style="background:#2563EB; color:#ffffff; font-weight:700; font-size:0.875rem; padding:0.65rem 1.25rem; border-radius:12px; box-shadow:0 2px 4px rgba(37,99,235,0.2);">
+                ⚡ Instant Document Suite Ready
+              </span>
+            </div>
+          </div>
 
         <!-- Practical Guide & Overview -->
         <article style="background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; padding:2rem; margin-bottom:2.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
@@ -326,12 +326,23 @@
           </div>
         </article>
 
+        <!-- Global Header Above Rent Receipt for International SEO Bots -->
+        <div id="global-receipt-header" style="max-width: 850px; margin: 20px auto; padding: 15px; font-family: sans-serif;">
+          <h2>Universal Multi-Currency Rent Receipt Generator</h2>
+          <p style="font-size: 1.1rem; color: #444; line-height: 1.6;">
+            Create official, landlord-approved rent receipts and proof-of-payment slips instantly. Our browser-based suite supports multiple currency symbols ($, €, £, C$, ₹) and matches local compliance standards worldwide—including IRS landlord disclosures for the US, tenancy proof for the UK, and Section 10(13A) HRA tax exemption rules for India. 
+          </p>
+          <p style="font-size: 0.95rem; color: #666; font-style: italic;">
+            🌍 <strong>Global Data Compliance Notice:</strong> To ensure absolute user security, this system utilizes zero-backend data streaming. All structural PDF compilation happens locally within your web browser canvas.
+          </p>
+        </div>
+
         <!-- Tools Suite Grid -->
         <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:3rem;">
-          <article style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <h2 style="font-size:1.35rem; font-weight:700; color:#1d4ed8; margin-top:0;">1. Rent Receipt Generator for HRA</h2>
+          <article id="rent-receipt" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <h2 style="font-size:1.35rem; font-weight:700; color:#1d4ed8; margin-top:0;">1. Universal Rent Receipt Generator (Global &amp; India)</h2>
             <p style="color:#64748b; font-size:0.95rem;">
-              Create monthly, quarterly, or full financial year (12 months) rent receipts for Income Tax HRA claim under Section 10(13A). Includes Landlord PAN verification and Revenue stamp support.
+              Create monthly, quarterly, or full financial year (12 months) rent receipts in USD ($), EUR (€), GBP (£), CAD (C$), and INR (₹). Complies with IRS tenancy disclosures, UK tenancy proof, and Income Tax HRA claim Section 10(13A).
             </p>
             <a href="/rent-receipt-generator.html" style="display:inline-block; margin-top:0.75rem; color:#2563eb; font-weight:600; text-decoration:underline;">Open Rent Receipt Generator &rarr;</a>
           </article>
@@ -419,19 +430,19 @@
 
           <div style="margin-bottom:1.5rem; border-bottom:1px solid #f1f5f9; padding-bottom:1.25rem;">
             <h3 style="font-size:1.15rem; font-weight:600; color:#1d4ed8; margin-bottom:0.35rem;">
-              Q3: HRA ke liye rent receipt kaise banaye?
+              Q3: How do I generate an official rent receipt online for taxes or landlord verification?
             </h3>
             <p style="color:#334155; margin:0;">
-              RentReceipt.online par aakar apna naam (Tenant Name), Landlord ka naam, complete rental address, monthly rent amount aur financial year select karein. 'Generate PDF' par click karte hi aapke sabhi mahino ki print-ready rent receipts download ho jayengi.
+              Simply enter the tenant name, landlord name, rental property address, monthly rent amount, and rental period. Select your currency ($, €, £, C$, ₹). Click 'Generate PDF' to instantly preview and download print-ready, landlord-compliant rent receipts on standard Letter/A4 format.
             </p>
           </div>
 
           <div style="margin-bottom:1.5rem; border-bottom:1px solid #f1f5f9; padding-bottom:1.25rem;">
             <h3 style="font-size:1.15rem; font-weight:600; color:#1d4ed8; margin-bottom:0.35rem;">
-              Q4: Kitne rent par landlord ka PAN card number lagta hai?
+              Q4: When is landlord tax identification (PAN / SSN / EIN) mandatory?
             </h3>
             <p style="color:#334155; margin:0;">
-              Agar aapka annual rent ₹1,00,000 (yani ₹8,333 prati mahina) se zyada hai, toh Income Tax niyam ke anusar rent receipt par landlord ka PAN number dena anivarya (mandatory) hai. ₹1 Lakh se kam rent par landlord PAN zaroori nahi hota.
+              In the United States, property owners report rental earnings via IRS Schedule E or 1099-MISC. In India, under Section 206AA and CBDT regulations, quoting the landlord's PAN is strictly mandatory if annual rent exceeds ₹1,00,000 (approx. ₹8,333/month). Our generator provides optional tax ID fields to meet both global and local compliance.
             </p>
           </div>
 
@@ -446,10 +457,10 @@
 
           <div style="margin-bottom:1.5rem; border-bottom:1px solid #f1f5f9; padding-bottom:1.25rem;">
             <h3 style="font-size:1.15rem; font-weight:600; color:#1d4ed8; margin-bottom:0.35rem;">
-              Q6: Cash rent payment me revenue stamp kab lagana zaroori hai?
+              Q6: When is a revenue stamp or physical signature required on a rent receipt?
             </h3>
             <p style="color:#334155; margin:0;">
-              Agar aap rent ka payment Cash me karte hain aur amount ₹5,000 se adhik hai, toh Indian Stamp Act ke mutabiq receipt par ₹1 ka blue revenue stamp lagana aur uspe landlord ka sign lena zaroori hai. Online transfers (UPI, NEFT) par revenue stamp anivarya nahi hai.
+              For international tenancies (US, UK, Europe, Australia), digital signatures or landlord sign-offs are standard. In India, cash rent payments exceeding ₹5,000 require a ₹1 revenue stamp signed across by the landlord under the Indian Stamp Act. For bank transfers, wire payments, and UPI, revenue stamps are not mandatory.
             </p>
           </div>
 
@@ -481,6 +492,7 @@
           </div>
         </footer>
       </main>
+      </div>
     </div>
 
     <!-- Hidden Google Translate Element -->

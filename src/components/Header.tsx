@@ -11,6 +11,7 @@ import {
   Scale,
   Home,
   Receipt,
+  Zap,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { HouseLogo } from './HouseLogo';
@@ -129,6 +130,17 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
 
             {/* Language Switcher */}
             <LanguageSwitcher />
+
+            {/* Quick Action CTA Button */}
+            <button
+              type="button"
+              id="header-create-receipt-btn"
+              onClick={() => handleNavClick('rent-receipt')}
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold text-xs sm:text-sm shadow-xs transition-all cursor-pointer shrink-0"
+            >
+              <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+              <span>Create Receipt</span>
+            </button>
 
             {/* Mobile Menu Toggle */}
             <button
