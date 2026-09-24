@@ -6,14 +6,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
     <!-- Force Strict Canonical Tag Integration: Consolidates 100% SEO Weight to Clean Root Domain -->
-    <link id="canonical-tag" rel="canonical" href="https://rentreceipt.online" />
+    <link id="canonical-tag" rel="canonical" href="https://rentreceipt.online/" />
     <script>
       (function() {
         try {
           var host = (window.location && window.location.hostname) ? window.location.hostname.toLowerCase() : '';
           var canonicalHref = host.indexOf('hidemymessages.site') !== -1 
-            ? 'https://hidemymessages.site' 
-            : 'https://rentreceipt.online';
+            ? 'https://hidemymessages.site/' 
+            : 'https://rentreceipt.online/';
           var link = document.getElementById('canonical-tag') || document.querySelector('link[rel="canonical"]');
           if (link) {
             link.setAttribute('href', canonicalHref);

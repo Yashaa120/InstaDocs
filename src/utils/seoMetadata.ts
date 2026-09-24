@@ -375,10 +375,10 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
     if (typeof window !== 'undefined' && window.location && window.location.hostname) {
       const hostname = window.location.hostname.toLowerCase();
       if (hostname.includes('hidemymessages.site')) {
-        return 'https://hidemymessages.site';
+        return 'https://hidemymessages.site/';
       }
     }
-    return 'https://rentreceipt.online';
+    return 'https://rentreceipt.online/';
   };
 
   const canonicalUrl = getPrimaryCleanDomain();

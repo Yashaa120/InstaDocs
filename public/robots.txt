@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /*?*
-Disallow: /*#*
 
 Sitemap: https://rentreceipt.online/sitemap.xml
