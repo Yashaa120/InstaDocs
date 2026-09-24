@@ -6,9 +6,10 @@ import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
   setActivePage: (page: ActivePage) => void;
+  onOpenModal?: (type: 'privacy' | 'terms' | 'about') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
+export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) => {
   const { t } = useLanguage();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,6 +18,15 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
   const handleNav = (page: ActivePage) => {
     setActivePage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLegalClick = (e: React.MouseEvent, type: 'privacy' | 'terms' | 'about') => {
+    e.preventDefault();
+    if (onOpenModal) {
+      onOpenModal(type);
+    } else {
+      handleNav(type);
+    }
   };
 
   return (
@@ -67,48 +77,52 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="/rent-receipt-generator.html"
+                  href="#rent-receipt"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('rent-receipt');
                   }}
-                  className="hover:text-white transition-colors block"
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   🏠 Rent Receipt Generator
                 </a>
               </li>
               <li>
                 <a
-                  href="/salary-slip-generator.html"
+                  href="#salary-slip"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('salary-slip');
                   }}
-                  className="hover:text-white transition-colors block"
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   💼 Salary Slip Generator
                 </a>
               </li>
               <li>
                 <a
-                  href="/affidavit-generator.html"
+                  href="#affidavit"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('affidavit');
                   }}
-                  className="hover:text-white transition-colors block"
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   📜 Affidavit &amp; Address Proof
                 </a>
               </li>
               <li>
                 <a
-                  href="/#verify"
+                  href="#verify"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('verify');
                   }}
-                  className="hover:text-white transition-colors block"
+                  className="hover:text-white transition-colors block cursor-pointer"
                 >
                   🔍 QR Receipt Verification
                 </a>
@@ -124,7 +138,8 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="/faq.html"
+                  href="#faq"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('faq');
@@ -136,7 +151,8 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               </li>
               <li>
                 <a
-                  href="/hra-guide.html"
+                  href="#guide"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('guide');
@@ -147,20 +163,18 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/about.html"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('about');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
+                <button
+                  type="button"
+                  onClick={(e) => handleLegalClick(e, 'about')}
+                  className="hover:text-white transition-colors block text-left cursor-pointer"
                 >
                   {t('footer_about')}
-                </a>
+                </button>
               </li>
               <li>
                 <a
-                  href="/contact.html"
+                  href="#contact"
+                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('contact');
@@ -171,28 +185,22 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/privacy.html"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('privacy');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
+                <button
+                  type="button"
+                  onClick={(e) => handleLegalClick(e, 'privacy')}
+                  className="hover:text-white transition-colors block text-left cursor-pointer"
                 >
                   {t('footer_privacy')}
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="/terms.html"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('terms');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
+                <button
+                  type="button"
+                  onClick={(e) => handleLegalClick(e, 'terms')}
+                  className="hover:text-white transition-colors block text-left cursor-pointer"
                 >
                   {t('footer_terms')}
-                </a>
+                </button>
               </li>
             </ul>
           </div>

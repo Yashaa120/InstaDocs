@@ -19,6 +19,7 @@ import { UsPage } from './pages/UsPage';
 import { RentReceiptView } from './components/RentReceiptView';
 import { SalarySlipGenerator } from './components/SalarySlipGenerator';
 import { AffidavitGenerator } from './components/AffidavitGenerator';
+import { LegalModal, LegalModalType } from './components/LegalModal';
 
 import { RentReceiptData, ActivePage, MonthPeriod } from './types';
 import {
@@ -32,6 +33,7 @@ import { updateDocumentSeo } from './utils/seoMetadata';
 function AppContent() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [verifiedData, setVerifiedData] = useState<DecodedReceiptVerification | null>(null);
+  const [legalModal, setLegalModal] = useState<LegalModalType>(null);
   const { language } = useLanguage();
 
   // Dynamic Global SEO synchronization: title, meta description, OpenGraph, canonical, Twitter, and Schema.org
@@ -107,12 +109,15 @@ function AppContent() {
         setActivePage('faq');
       } else if (hash === 'verify' || path.includes('verify')) {
         setActivePage('verify');
-      } else if (hash === 'home' || hash === 'index.html' || hash === '' || path === '/' || path === '/index.html') {
+      } else {
         setActivePage('home');
-      } else if (!window.location.search.includes('verify')) {
-        if (activePage === 'verify' && !verifiedData) {
-          setActivePage('home');
-        }
+      }
+
+      // Clean dynamic query parameters (?lang=, etc.) from history to avoid unindexed crawl strings
+      if (window.location.search && !window.location.search.includes('verify')) {
+        try {
+          window.history.replaceState(null, '', window.location.pathname || '/');
+        } catch {}
       }
     };
 
@@ -130,13 +135,13 @@ function AppContent() {
     const targetPage = page === 'tool' ? 'rent-receipt' : page;
     setActivePage(targetPage);
 
-    if (targetPage === 'home') {
-      // Remove hash or set to clean state
-      if (window.location.hash) {
-        window.history.pushState({}, '', window.location.pathname);
+    // Keep URL strictly clean and prevent search spiders from indexing dynamic parameters or infinite crawl variations
+    try {
+      if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname || '/');
       }
-    } else {
-      window.location.hash = targetPage;
+    } catch {
+      // Safe fallback
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -248,6 +253,7 @@ function AppContent() {
           <HomePage
             onSelectTool={handlePageChange}
             onLaunchWithCurrency={handleLaunchWithCurrency}
+            onOpenModal={setLegalModal}
           />
         )}
 
@@ -317,7 +323,14 @@ function AppContent() {
       </main>
 
       {/* Footer */}
-      <Footer setActivePage={handlePageChange} />
+      <Footer setActivePage={handlePageChange} onOpenModal={setLegalModal} />
+
+      {/* Immediate Informational Legal Overlay / Modal */}
+      <LegalModal
+        type={legalModal}
+        onClose={() => setLegalModal(null)}
+        onNavigateFullPage={handlePageChange}
+      />
     </div>
   );
 }

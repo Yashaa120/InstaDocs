@@ -31,9 +31,9 @@ const LOCALIZED_SEO: Record<
 > = {
   home: {
     en: {
-      title: 'Free Rent Receipt Generator & Rent Slip Creator | Multi-Currency',
+      title: 'Free Rent Receipt Generator | Global Multi-Currency PDF Tool',
       description:
-        'Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.',
+        'Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.',
     },
     hi: {
       title: 'मुफ्त रेंट रसीद और रेंट स्लिप जनरेटर | मल्टी-करेंसी',
@@ -82,9 +82,9 @@ const LOCALIZED_SEO: Record<
   },
   'rent-receipt': {
     en: {
-      title: 'Free Rent Receipt Generator Online | HRA Tax Exemption',
+      title: 'Free Rent Receipt Generator | Global Multi-Currency PDF Tool',
       description:
-        'Generate and download compliant rent receipts for House Rent Allowance (HRA) tax exemption under Section 10(13A). Supports single and multi-month batches, landlord PAN, and physical revenue stamp guidelines.',
+        'Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.',
     },
     hi: {
       title: 'मुफ्त रेंट रसीद जनरेटर | HRA टैक्स छूट के लिए रसीदें',
@@ -94,9 +94,9 @@ const LOCALIZED_SEO: Record<
   },
   tool: {
     en: {
-      title: 'Free Rent Receipt Generator Online | HRA Tax Exemption',
+      title: 'Free Rent Receipt Generator | Global Multi-Currency PDF Tool',
       description:
-        'Generate and download compliant rent receipts for House Rent Allowance (HRA) tax exemption under Section 10(13A). Supports single and multi-month batches, landlord PAN, and physical revenue stamp guidelines.',
+        'Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.',
     },
   },
   'salary-slip': {
@@ -248,22 +248,23 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     '@id': `${BASE_URL}/#financial-calculator`,
-    name: 'Free Rent Receipt Generator & HRA Financial Calculator',
+    name: 'Free Rent Receipt Generator | Global Multi-Currency PDF Tool',
     alternateName: [
-      'Financial Calculator',
-      'HRA Tax Calculator',
-      'Rent Slip Generator',
-      'Rent Receipt Maker',
+      'Financial Calculator Utility',
+      'Universal Multi-Currency Rent Receipt Generator',
+      'Multi-Currency Rent Slip Generator',
+      'Automatic HRA Tax Calculator',
       'RentReceipt.online',
     ],
     applicationCategory: 'FinanceApplication',
+    applicationSubCategory: 'Financial Calculator Utility',
     operatingSystem: 'All',
     browserRequirements:
-      'Requires JavaScript. Requires HTML5 Canvas. Works on Chrome, Safari, Firefox, Edge, and all modern mobile and desktop browsers.',
+      'Requires JavaScript. Runs 100% client-side with zero backend storage. Works on Chrome, Safari, Firefox, Edge, and all modern mobile and desktop browsers.',
     url: `${BASE_URL}/#rent-receipt`,
     description:
-      'Free client-side financial calculator and rent receipt generator for calculating House Rent Allowance (HRA) tax exemption under Section 10(13A) and generating multi-currency rental proof (USD, EUR, GBP, CAD, INR) with zero server storage.',
-    softwareVersion: '2.5.0',
+      'Free Financial Calculator Utility running 100% client-side. Generates official multi-currency property management receipts in USD, EUR, GBP, CAD, and INR, automatic HRA tax calculator Section 10(13A) compliance, and instant browser-to-PDF compilation with zero server data storage.',
+    softwareVersion: '3.0.0',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -278,6 +279,9 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
       reviewCount: '2940',
     },
     featureList: [
+      'automatic HRA tax calculator',
+      'multi-currency property management receipts',
+      'instant browser-to-PDF compilation',
       'Step 1: Enter Tenant Name, Landlord Name, and Rental Property Address',
       'Step 2: Choose Currency (USD, EUR, GBP, CAD, INR) and Financial Year / Rental Period',
       'Step 3: Click Download PDF for instant print-ready receipts with zero watermark',
@@ -365,7 +369,19 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
     LOCALIZED_SEO[pageKey]?.en ||
     LOCALIZED_SEO.home.en;
 
-  const canonicalUrl = `${BASE_URL}/${pageKey === 'home' ? '' : `#${pageKey}`}`;
+  // Strict, absolute canonical link pointing ONLY to the primary clean root domain
+  // Consolidates 100% of SEO ranking weight to root URL and eliminates Search Console parameter splitting
+  const getPrimaryCleanDomain = (): string => {
+    if (typeof window !== 'undefined' && window.location && window.location.hostname) {
+      const hostname = window.location.hostname.toLowerCase();
+      if (hostname.includes('hidemymessages.site')) {
+        return 'https://hidemymessages.site';
+      }
+    }
+    return 'https://rentreceipt.online';
+  };
+
+  const canonicalUrl = getPrimaryCleanDomain();
 
   // 1. Title
   document.title = localized.title;

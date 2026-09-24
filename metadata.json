@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.",
+  "description": "Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

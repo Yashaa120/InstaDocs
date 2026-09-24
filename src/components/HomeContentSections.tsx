@@ -86,17 +86,17 @@ export const HomeContentSections: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Why is it needed for HRA Exemption? (Detailed Tax Rules) */}
+      {/* 2. Regional Compliance Addendums (India HRA) */}
       <section id="hra-exemption-rules" className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs">
-        <div className="flex items-center space-x-3 text-blue-600 mb-4">
-          <div className="p-2.5 bg-blue-50 rounded-xl">
+        <div className="flex items-center space-x-3 text-amber-600 mb-4">
+          <div className="p-2.5 bg-amber-50 rounded-xl">
             <Calculator className="w-6 h-6" />
           </div>
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-700">Income Tax Compliance</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Regional Statutory Tax Addendum</span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
-          Why Rent Receipts are Required for HRA Exemption (Income Tax Rules)
+          Regional Compliance Addendums (India HRA)
         </h2>
 
         <div className="space-y-6 text-slate-600 leading-relaxed text-base">

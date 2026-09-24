@@ -95,6 +95,18 @@ export const RentReceiptView: React.FC<RentReceiptViewProps> = ({
         </div>
       </div>
 
+      {/* International Formatting Framework Segment */}
+      <div className="mb-6 bg-gradient-to-r from-blue-50/90 via-indigo-50/70 to-slate-50 border border-blue-200/80 rounded-xl p-3.5 sm:p-4 shadow-2xs flex items-center justify-between flex-wrap gap-2 text-xs sm:text-sm text-slate-800 font-medium">
+        <span className="flex items-center gap-2">
+          <span className="text-base">🌍</span>
+          <strong className="text-slate-900 font-bold">International Formatting Framework:</strong>
+          <span className="text-slate-700">Supports USD ($), EUR (€), GBP (£), CAD (C$), and INR (₹).</span>
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-xs text-blue-700 bg-white/90 border border-blue-200 px-2.5 py-1 rounded-full font-semibold shadow-2xs">
+          ⚡ 100% Free Browser Execution
+        </span>
+      </div>
+
       {/* Generator Form and Live Preview Grid */}
       <div id="rent-receipt" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
         {/* Left Column: Input Form */}

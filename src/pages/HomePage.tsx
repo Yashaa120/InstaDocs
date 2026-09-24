@@ -23,9 +23,11 @@ import { CountryFlag } from '../components/CountryFlag';
 
 interface HomePageProps {
   onSelectTool: (tool: ActivePage) => void;
+  onLaunchWithCurrency?: (currency: 'USD' | 'EUR' | 'GBP' | 'CAD' | 'AUD' | 'INR') => void;
+  onOpenModal?: (type: 'privacy' | 'terms' | 'about') => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal }) => {
   const { t } = useLanguage();
 
   const tools = [
@@ -156,14 +158,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
       {/* Exact Global Hero Section Requested for Worldwide SEO */}
       <section id="global-hero" style={{ maxWidth: '900px', margin: '0 auto', padding: '30px 20px', textAlign: 'center', fontFamily: 'sans-serif' }}>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-          Free Rent Receipt Generator &amp; Rent Slip Creator
+          Universal Multi-Currency Rent Receipt &amp; Salary Slip Generator
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.6' }} className="max-w-2xl mx-auto">
-          Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser.
+          Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.
         </p>
 
+        {/* Global Currency Formatting Framework Banner */}
+        <div className="mt-4 max-w-2xl mx-auto bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-700 flex items-center justify-between flex-wrap gap-2 shadow-2xs font-medium">
+          <span>🌍 <strong>International Formatting Framework:</strong> Supports USD ($), EUR (€), GBP (£), CAD (C$), and INR (₹).</span>
+          <span className="text-[11px] bg-white text-blue-700 font-semibold px-2 py-0.5 rounded-full border border-blue-200">100% Client-Side</span>
+        </div>
+
         {/* Dedicated Regional Hub Badges */}
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
           <span className="text-xs font-semibold text-slate-500 mr-0.5">Country Specific Guides:</span>
           <a
             href="#in"
@@ -356,18 +364,30 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
         </div>
       </section>
 
-      {/* Section 4: Tax & Payroll SEO Knowledge Guide with H2 and Real Internal Links */}
-      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs space-y-4" aria-label="Tax and Payroll Compliance Overview">
+      {/* Section 4: Regional Compliance Addendums (India HRA) */}
+      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs space-y-4" aria-label="Regional Compliance Addendums (India HRA)">
         <div className="max-w-4xl mx-auto space-y-4">
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block" />
-            <span>Income Tax, HRA Proofs &amp; Payroll Documentation Guide</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+            <span>Regional Tax Compliance</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <span>Regional Compliance Addendums (India HRA)</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Preparing your year-end tax proofs and submitting Form 12BB to your employer requires accurate, standardized documentation. Whether you are claiming House Rent Allowance under Section 10(13A), submitting proof of rent paid to payroll, or preparing records for your annual Income Tax Return (ITR), having error-free receipts with proper Landlord PAN disclosure ensures seamless approval without tax assessment queries.
+            For salaried employees filing under the Indian Income Tax Act, 1961, submitting proof of rent paid under Section 10(13A) via Form 12BB requires meeting specific Central Board of Direct Taxes (CBDT) parameters:
           </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
+            <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+              <span className="font-bold text-slate-900">📌 Mandatory Landlord PAN:</span>
+              <p className="text-slate-600">Required whenever total annual rent exceeds ₹1,00,000 (approx. ₹8,333/month) under CBDT Circular No. 08/2013.</p>
+            </div>
+            <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+              <span className="font-bold text-slate-900">📌 Revenue Stamp &amp; Signature:</span>
+              <p className="text-slate-600">Affix ₹1 revenue stamp signed across by landlord for monthly cash rental payments exceeding ₹5,000.</p>
+            </div>
+          </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            RentReceipt.online offers free, dedicated utilities tailored for Indian employees and landlords. Easily create individual or 12-month batch rent receipts with statutory revenue stamp markings, itemized payslips with EPF and professional tax breakdown, or legally drafted tenancy affidavits — all processed 100% locally in your browser for absolute data confidentiality.
+            HRA exemption is calculated as the lowest of: (1) Actual HRA received, (2) 50% of Basic Salary for metro cities or 40% for non-metro cities, or (3) Rent paid minus 10% of Basic Salary. Our generator automatically applies these parameters with zero watermarks.
           </p>
 
           <div className="pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -560,7 +580,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
             href="#about"
             onClick={(e) => {
               e.preventDefault();
-              onSelectTool('about');
+              if (onOpenModal) onOpenModal('about');
+              else onSelectTool('about');
             }}
             className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
           >
@@ -580,7 +601,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
             href="#privacy"
             onClick={(e) => {
               e.preventDefault();
-              onSelectTool('privacy');
+              if (onOpenModal) onOpenModal('privacy');
+              else onSelectTool('privacy');
             }}
             className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
           >
@@ -590,7 +612,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool }) => {
             href="#terms"
             onClick={(e) => {
               e.preventDefault();
-              onSelectTool('terms');
+              if (onOpenModal) onOpenModal('terms');
+              else onSelectTool('terms');
             }}
             className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
           >

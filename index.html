@@ -5,56 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
-    <link rel="canonical" href="https://rentreceipt.online/" />
+    <!-- Force Strict Canonical Tag Integration: Consolidates 100% SEO Weight to Clean Root Domain -->
+    <link id="canonical-tag" rel="canonical" href="https://rentreceipt.online" />
+    <script>
+      (function() {
+        try {
+          var host = (window.location && window.location.hostname) ? window.location.hostname.toLowerCase() : '';
+          var canonicalHref = host.indexOf('hidemymessages.site') !== -1 
+            ? 'https://hidemymessages.site' 
+            : 'https://rentreceipt.online';
+          var link = document.getElementById('canonical-tag') || document.querySelector('link[rel="canonical"]');
+          if (link) {
+            link.setAttribute('href', canonicalHref);
+          }
+        } catch (e) {}
+      })();
+    </script>
 
-    <title>Free Rent Receipt Generator &amp; Rent Slip Creator | Multi-Currency</title>
-    <meta name="description" content="Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser." />
+    <title>Free Rent Receipt Generator | Global Multi-Currency PDF Tool</title>
+    <meta name="description" content="Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution." />
 
     <!-- Open Graph (Social Sharing & International Link Previews) -->
     <meta property="og:site_name" content="Rent Receipt Generator" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rentreceipt.online/" />
-    <meta property="og:title" content="Free Rent Receipt Generator &amp; Rent Slip Creator | Multi-Currency" />
-    <meta property="og:description" content="Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser." />
+    <meta property="og:url" content="https://rentreceipt.online" />
+    <meta property="og:title" content="Free Rent Receipt Generator | Global Multi-Currency PDF Tool" />
+    <meta property="og:description" content="Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution." />
     <meta property="og:image" content="https://rentreceipt.online/og-image.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Free Rent Receipt &amp; Salary Slip Generator Preview" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="en_IN" />
-    <meta property="og:locale:alternate" content="hi_IN" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://rentreceipt.online/" />
-    <meta name="twitter:title" content="Free Rent Receipt Generator &amp; Rent Slip Creator | Multi-Currency" />
-    <meta name="twitter:description" content="Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds. Fully customizable for multiple currencies (USD, EUR, GBP, CAD, INR) — 100% free and processed securely in your browser." />
+    <meta name="twitter:url" content="https://rentreceipt.online" />
+    <meta name="twitter:title" content="Free Rent Receipt Generator | Global Multi-Currency PDF Tool" />
+    <meta name="twitter:description" content="Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution." />
     <meta name="twitter:image" content="https://rentreceipt.online/og-image.svg" />
     <meta name="twitter:image:alt" content="Free Rent Receipt &amp; Salary Slip Generator Preview" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- Hreflang Tags: Primary Target India (en-in) & Multi-Language Regional Reach -->
-    <link rel="alternate" hreflang="x-default" href="https://rentreceipt.online/" />
-    <link rel="alternate" hreflang="en-in" href="https://rentreceipt.online/" />
-    <link rel="alternate" hreflang="en" href="https://rentreceipt.online/" />
-    <link rel="alternate" hreflang="hi-in" href="https://rentreceipt.online/?lang=hi" />
-    <link rel="alternate" hreflang="bn-in" href="https://rentreceipt.online/?lang=bn" />
-    <link rel="alternate" hreflang="te-in" href="https://rentreceipt.online/?lang=te" />
-    <link rel="alternate" hreflang="mr-in" href="https://rentreceipt.online/?lang=mr" />
-    <link rel="alternate" hreflang="ta-in" href="https://rentreceipt.online/?lang=ta" />
-    <link rel="alternate" hreflang="gu-in" href="https://rentreceipt.online/?lang=gu" />
-    <link rel="alternate" hreflang="kn-in" href="https://rentreceipt.online/?lang=kn" />
-    <link rel="alternate" hreflang="ml-in" href="https://rentreceipt.online/?lang=ml" />
-    <link rel="alternate" hreflang="pa-in" href="https://rentreceipt.online/?lang=pa" />
+    <!-- Hreflang Tags: Consolidated Clean Root Targets (No Unindexed Dynamic Hashes) -->
+    <link rel="alternate" hreflang="x-default" href="https://rentreceipt.online" />
+    <link rel="alternate" hreflang="en" href="https://rentreceipt.online" />
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2925211835110136" crossorigin="anonymous"></script>
-
+    <!-- Speed Optimization: Non-blocking asynchronous font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Sacramento&display=swap">
+    </noscript>
+
+    <!-- Speed Optimization: Deferred non-blocking AdSense execution post-FCP -->
+    <script>
+      window.addEventListener('load', function() {
+        var loadAds = function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2925211835110136';
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadAds, { timeout: 2000 });
+        } else {
+          setTimeout(loadAds, 1200);
+        }
+      });
+    </script>
 
     <!-- Comprehensive Schema.org JSON-LD (WebSite, Organization, WebApplication, FAQPage, HowTo, Breadcrumbs) -->
     <script type="application/ld+json">
@@ -65,9 +86,9 @@
           "@type": "WebSite",
           "@id": "https://rentreceipt.online/#website",
           "name": "Rent Receipt & Document Suite",
-          "alternateName": ["RentReceipt", "RentReceipt.online", "Rent Receipt Generator India", "Salary Slip Generator"],
+          "alternateName": ["RentReceipt", "RentReceipt.online", "Universal Rent Receipt Generator", "Salary Slip Generator"],
           "url": "https://rentreceipt.online/",
-          "inLanguage": ["en-IN", "hi-IN", "bn-IN", "te-IN", "mr-IN", "ta-IN", "gu-IN", "kn-IN", "ml-IN", "pa-IN", "en"],
+          "inLanguage": ["en", "en-US", "en-IN"],
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
@@ -84,7 +105,7 @@
           "url": "https://rentreceipt.online/",
           "logo": "https://rentreceipt.online/favicon.svg",
           "image": "https://rentreceipt.online/og-image.svg",
-          "description": "Free Indian payroll and tax documentation utilities for salaried employees, tenants, and property owners.",
+          "description": "Free client-side multi-currency rent receipt and payroll documentation utilities for landlords, tenants, and salaried employees worldwide.",
           "email": "support@rentreceipt.online",
           "foundingDate": "2024",
           "contactPoint": {
@@ -92,27 +113,28 @@
             "contactType": "Customer Support",
             "url": "https://rentreceipt.online/contact.html",
             "email": "support@rentreceipt.online",
-            "areaServed": ["IN", "Global"],
-            "availableLanguage": ["English", "Hindi"]
+            "areaServed": ["US", "GB", "CA", "AU", "IN", "Global"],
+            "availableLanguage": ["English"]
           }
         },
         {
           "@type": "WebApplication",
           "@id": "https://rentreceipt.online/#financial-calculator",
-          "name": "Free Rent Receipt Generator & HRA Financial Calculator",
+          "name": "Free Rent Receipt Generator | Global Multi-Currency PDF Tool",
           "alternateName": [
-            "Financial Calculator",
-            "HRA Tax Calculator",
-            "Rent Slip Generator",
-            "Rent Receipt Maker",
+            "Financial Calculator Utility",
+            "Universal Rent Receipt Generator",
+            "Multi-Currency Rent Slip Generator",
+            "Automatic HRA Tax Calculator",
             "RentReceipt.online"
           ],
           "applicationCategory": "FinanceApplication",
+          "applicationSubCategory": "Financial Calculator Utility",
           "operatingSystem": "All",
-          "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas. Works on Google Chrome, Apple Safari, Mozilla Firefox, Microsoft Edge, and all modern mobile and desktop browsers.",
+          "browserRequirements": "Requires JavaScript. Runs 100% client-side with zero backend storage. Works on Google Chrome, Apple Safari, Mozilla Firefox, Microsoft Edge, and modern mobile/desktop browsers.",
           "url": "https://rentreceipt.online/",
-          "description": "Free client-side financial calculator and rent receipt generator for calculating House Rent Allowance (HRA) tax exemption under Section 10(13A) and generating international rent payment receipts in USD, EUR, GBP, CAD, and INR. 100% private in-browser computation with zero server data storage.",
-          "softwareVersion": "2.5.0",
+          "description": "Free Financial Calculator Utility running 100% client-side in your web browser. Features automatic HRA tax calculator, multi-currency property management receipts in USD, EUR, GBP, CAD, and INR, and instant browser-to-PDF compilation with zero server data storage.",
+          "softwareVersion": "3.0.0",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -127,12 +149,12 @@
             "reviewCount": "2940"
           },
           "featureList": [
-            "Step 1: Enter Tenant Name, Landlord Name, and Rental Property Address",
-            "Step 2: Choose Currency (USD, EUR, GBP, CAD, INR) and Financial Year / Rental Period",
-            "Step 3: Click Download PDF for instant print-ready receipts with zero watermark",
-            "Client-side Section 10(13A) HRA tax exemption financial calculator",
-            "Landlord PAN validation with CBDT circular compliance for rent exceeding ₹1 Lakh/year",
-            "Revenue stamp placement guideline for cash payments exceeding ₹5,000 under Indian Stamp Act",
+            "automatic HRA tax calculator",
+            "multi-currency property management receipts",
+            "instant browser-to-PDF compilation",
+            "Zero-backend client-side data streaming",
+            "Landlord PAN validation with CBDT Section 10(13A) compliance",
+            "US IRS Schedule E and Schedule C rental payment records",
             "Multi-month batch PDF generation for entire financial year (12 individual receipts)",
             "Multi-currency support for USD ($), EUR (€), GBP (£), CAD ($), AUD ($), and INR (₹)",
             "100% client-side privacy with zero server data retention"
@@ -144,10 +166,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How to create rent receipt online using this rent slip generator?",
+              "name": "How to create rent receipt online using this multi-currency rent slip generator?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "To create rent receipt online, simply open our free online rent receipt generator, enter your tenant name, landlord name, rental property address, monthly rent amount, and select your financial year. Our rent slip generator will instantly create print-ready HRA rent slips with landlord PAN and revenue stamp spaces for download as PDF."
+                "text": "To create rent receipt online, simply open our free online rent receipt generator, enter your tenant name, landlord name, rental property address, monthly rent amount, and select your rental period and currency (USD, EUR, GBP, CAD, INR). Click 'Generate PDF' for instant print-ready receipts ready for download."
               }
             },
             {
@@ -155,31 +177,23 @@
               "name": "What is the difference between a rent receipt and a rent slip?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "In India, the terms 'rent receipt' and 'rent slip' are used interchangeably by salaried employees and HR payroll departments. Both serve as official documentary proof under Section 10(13A) of the Income Tax Act to claim House Rent Allowance (HRA) tax deductions."
+                "text": "The terms 'rent receipt' and 'rent slip' are used interchangeably by tenants, landlords, and payroll departments. Both serve as official documentary proof of payment for property tenancy records, landlord disclosures, and tax deductions such as IRS proof or Indian Section 10(13A) HRA."
               }
             },
             {
               "@type": "Question",
-              "name": "HRA claim karne ke liye Rent Receipt kaise banaye?",
+              "name": "When is landlord tax identification (PAN / SSN / EIN) mandatory?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Rent receipt banane ke liye RentReceipt.online par apna naam (Tenant Name), landlord ka naam, property ka address, monthly rent amount aur rent period select karein. Iske baad 'Generate PDF' par click karke instant print-ready receipts download karein aur employer ko submit karein."
+                "text": "In the United States, landlords declare rental income under IRS Schedule E or 1099 disclosures. In India, under Section 206AA and CBDT rules, quoting the landlord's PAN is mandatory when annual rent exceeds ₹1,00,000 (approx. ₹8,333/month). Our generator provides optional tax identification fields for global and local compliance."
               }
             },
             {
               "@type": "Question",
-              "name": "Rent receipt par Landlord ka PAN kab zaroori hota hai?",
+              "name": "When is a revenue stamp or physical signature required on a rent receipt?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Income Tax Department ke niyam anusar, agar aapka annual rent ₹1,00,000 (ya ₹8,333 per month) se zyada hai, toh HRA tax exemption claim karne ke liye landlord ka PAN card number dena anivarya (mandatory) hai."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Rent receipt par Revenue Stamp kab lagana chahiye?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Agar aap rent ka payment Cash me kar rahe hain aur monthly amount ₹5,000 se zyada hai, toh Indian Stamp Act ke mutabiq ₹1 ka Revenue Stamp lagana aur uspe landlord ka signature lena zaroori hai. Cheque, NEFT, RTGS ya UPI se payment par revenue stamp zaroori nahi hota."
+                "text": "For international tenancies (US, UK, Europe, Australia), digital signatures or landlord sign-offs are standard. In India, cash rent payments exceeding ₹5,000 require a ₹1 revenue stamp signed across by the landlord under the Indian Stamp Act. For bank transfers, wire payments, and UPI, revenue stamps are not mandatory."
               }
             },
             {
@@ -203,7 +217,7 @@
               "name": "Do I need rent receipts for every month or only one annual receipt?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most employers and IT department policies require monthly or quarterly rent receipts for the financial year (April to March). RentReceipt.online lets you generate all 12 monthly receipts in a single multi-page PDF."
+                "text": "Most property managers, corporate employers, and tax authorities require monthly or quarterly rent receipts. RentReceipt.online lets you generate all 12 monthly receipts in a single multi-page PDF."
               }
             }
           ]
@@ -296,10 +310,10 @@
               ⚡ FASTEST IN-BROWSER SUITE &bull; 0.3s INSTANT PDF &bull; MULTI-CURRENCY
             </div>
             <h1 style="font-size:2.25rem; font-weight:900; color:#0F172A; margin:0 0 0.75rem 0; letter-spacing:-0.03em;">
-              Free Rent Receipt &amp; Salary Slip Generator
+              Universal Multi-Currency Rent Receipt &amp; Salary Slip Generator
             </h1>
             <p style="font-size:1.05rem; color:#475569; max-width:680px; margin:0 auto 1.5rem auto; line-height:1.6;">
-              Generate official, print-ready rent receipts, salary slips, and rental declarations in seconds with real-time preview and instant PDF export.
+              Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.
             </p>
             <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.625rem;">
               <span style="background:#2563EB; color:#ffffff; font-weight:700; font-size:0.875rem; padding:0.65rem 1.25rem; border-radius:12px; box-shadow:0 2px 4px rgba(37,99,235,0.2);">
@@ -308,23 +322,11 @@
             </div>
           </div>
 
-        <!-- Practical Guide & Overview -->
-        <article style="background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; padding:2rem; margin-bottom:2.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
-          <h2 style="font-size:1.55rem; font-weight:700; color:#0f172a; margin-top:0;">
-            How to Claim House Rent Allowance (HRA) Exemption
-          </h2>
-          <p style="color:#334155; margin-bottom:1rem;">
-            Under Section 10(13A) of the Income Tax Act, 1961, salaried taxpayers paying rent for residential accommodation can claim tax relief under the Old Tax Regime. To submit proof during annual tax declarations on Form 12BB, employers require signed rent receipts for the financial year.
-          </p>
-          <p style="color:#334155; margin-bottom:1.25rem;">
-            If your annual rent paid exceeds ₹1,00,000 (approximately ₹8,334 per month), Central Board of Direct Taxes (CBDT) regulations mandate quoting the landlord&rsquo;s Permanent Account Number (PAN). Additionally, cash rental payments exceeding ₹5,000 require a ₹1 revenue stamp signed across by the property owner. Our generator automatically applies these compliance rules and exports clean, high-resolution PDFs directly on your device.
-          </p>
-          <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
-            <a href="/rent-receipt-generator.html" style="background:#2563eb; color:#ffffff; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; text-decoration:none; display:inline-block;">Generate Rent Receipts &rarr;</a>
-            <a href="/salary-slip-generator.html" style="background:#f1f5f9; color:#1e293b; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; text-decoration:none; display:inline-block; border:1px solid #cbd5e1;">Generate Salary Slip</a>
-            <a href="/hra-guide.html" style="background:#f8fafc; color:#2563eb; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; text-decoration:none; display:inline-block; border:1px solid #bfdbfe;">Read HRA Exemption Guide</a>
-          </div>
-        </article>
+        <!-- Global Currency Framework Segment -->
+        <div style="max-width: 850px; margin: 0 auto 20px auto; padding: 12px 18px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 0.95rem; color: #334155; font-weight: 500; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <span>🌍 <strong>International Formatting Framework:</strong> Supports USD ($), EUR (€), GBP (£), CAD (C$), and INR (₹).</span>
+          <span style="background: #ffffff; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; border: 1px solid #cbd5e1; font-weight: 600; color: #2563eb;">100% Free Browser Execution</span>
+        </div>
 
         <!-- Global Header Above Rent Receipt for International SEO Bots -->
         <div id="global-receipt-header" style="max-width: 850px; margin: 20px auto; padding: 15px; font-family: sans-serif;">
@@ -340,7 +342,7 @@
         <!-- Tools Suite Grid -->
         <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:3rem;">
           <article id="rent-receipt" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <h2 style="font-size:1.35rem; font-weight:700; color:#1d4ed8; margin-top:0;">1. Universal Rent Receipt Generator (Global &amp; India)</h2>
+            <h2 style="font-size:1.35rem; font-weight:700; color:#1d4ed8; margin-top:0;">1. Universal Rent Receipt Generator (Global &amp; Multi-Currency)</h2>
             <p style="color:#64748b; font-size:0.95rem;">
               Create monthly, quarterly, or full financial year (12 months) rent receipts in USD ($), EUR (€), GBP (£), CAD (C$), and INR (₹). Complies with IRS tenancy disclosures, UK tenancy proof, and Income Tax HRA claim Section 10(13A).
             </p>
@@ -348,7 +350,7 @@
           </article>
 
           <article style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <h2 style="font-size:1.35rem; font-weight:700; color:#059669; margin-top:0;">2. Salary Slip Generator (India)</h2>
+            <h2 style="font-size:1.35rem; font-weight:700; color:#059669; margin-top:0;">2. Salary Slip Generator</h2>
             <p style="color:#64748b; font-size:0.95rem;">
               Generate professional company payslips with automatic Basic, HRA, DA, Special Allowance, PF, and Professional Tax calculations. Download PDF format with company logo and signature.
             </p>
@@ -364,17 +366,20 @@
           </article>
         </section>
 
-        <!-- In-Depth SEO Content & Authority Guides -->
+        <!-- Regional Compliance Addendums (India HRA) -->
         <article style="background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; padding:2rem; margin-bottom:3rem;">
+          <div style="display:inline-block; background:#eff6ff; color:#1e40af; font-size:0.75rem; font-weight:700; padding:0.25rem 0.75rem; border-radius:9999px; margin-bottom:0.75rem; border:1px solid #bfdbfe;">
+            STATUTORY TAX COMPLIANCE
+          </div>
           <h2 style="font-size:1.75rem; font-weight:700; color:#0f172a; margin-top:0;">
-            Complete Guide to HRA Tax Exemption &amp; Rent Receipts in India (Section 10(13A))
+            Regional Compliance Addendums (India HRA)
           </h2>
-          <p>
-            House Rent Allowance (HRA) is one of the most effective tax-saving components provided to salaried employees under the Indian Income Tax Act. To legally claim exemption on HRA under Section 10(13A) of the Income Tax Act, 1961, salaried individuals must submit valid rent receipts as proof of rental payment to their employers during the year-end tax declaration (Form 12BB).
+          <p style="color:#475569; font-size:1rem; line-height:1.6; margin-bottom:1.5rem;">
+            For salaried taxpayers in India claiming House Rent Allowance under Section 10(13A) of the Income Tax Act, 1961, our generator automatically applies Indian statutory rules including CBDT Landlord PAN reporting, ₹1 revenue stamp placements, and the 3-parameter HRA exemption formula.
           </p>
 
           <h3 style="font-size:1.3rem; font-weight:600; color:#1e293b; margin-top:1.5rem;">
-            When is Landlord's PAN Mandatory for Rent Receipts?
+            Section 10(13A) Rules &amp; When Landlord's PAN is Mandatory
           </h3>
           <p>
             Under Central Board of Direct Taxes (CBDT) circulars and Section 206AA of the Income Tax Act, <strong>if the total annual rent paid by an employee exceeds ₹1,00,000 (Rupees One Lakh) or ₹8,333 per month</strong>, it is strictly mandatory to provide the Permanent Account Number (PAN) of the landlord. If the landlord does not have a PAN card, a signed declaration along with Form 60 must be collected and submitted to your employer.
@@ -392,16 +397,21 @@
           </ul>
 
           <h3 style="font-size:1.3rem; font-weight:600; color:#1e293b; margin-top:1.5rem;">
-            How to Calculate HRA Tax Exemption
+            HRA Exemption Calculation Parameters (Rule 2A)
           </h3>
           <p>
-            Your exempt HRA amount is calculated as the <em>minimum</em> of the following three statutory limits:
+            Under Rule 2A of the Income Tax Rules, the exempt HRA amount is calculated as the <em>lowest</em> of the following three parameters:
           </p>
-          <ol style="padding-left:1.5rem; margin-bottom:1rem;">
+          <ol style="padding-left:1.5rem; margin-bottom:1.5rem;">
             <li>Actual House Rent Allowance (HRA) received from your employer.</li>
             <li>50% of Basic Salary + Dearness Allowance (DA) for employees residing in metro cities (Mumbai, Delhi, Kolkata, Chennai), or 40% for non-metro cities (Bengaluru, Hyderabad, Pune, Gurgaon, Noida, etc.).</li>
             <li>Actual rent paid minus 10% of (Basic Salary + DA).</li>
           </ol>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+            <a href="/rent-receipt-generator.html" style="background:#2563eb; color:#ffffff; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; text-decoration:none; display:inline-block;">Generate Compliant Rent Receipts &rarr;</a>
+            <a href="/hra-guide.html" style="background:#f8fafc; color:#2563eb; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; text-decoration:none; display:inline-block; border:1px solid #bfdbfe;">Read Full HRA Exemption Guide</a>
+          </div>
         </article>
 
         <!-- Detailed Frequently Asked Questions (FAQ) Section -->
