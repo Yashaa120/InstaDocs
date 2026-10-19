@@ -15,6 +15,9 @@ import {
   Download,
   FileCheck,
   ChevronRight,
+  Calculator,
+  BookOpen,
+  ExternalLink,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { AdSlot } from '../components/AdSlot';
@@ -63,6 +66,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
         'Step 1: Enter Employee Details, Designation & Company Name.',
         'Step 2: Fill Monthly Basic Salary, Allowances & Statutory Deductions.',
         'Step 3: Click Download Official Monthly Payslip PDF with Company Seal.',
+      ],
+    },
+    {
+      id: 'hra-calculator' as ActivePage,
+      name: 'HRA Exemption Calculator & Tax Engine',
+      badge: 'Section 10(13A) & Rule 2A',
+      tagColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      iconBg: 'bg-indigo-50 border-indigo-200 text-indigo-600',
+      icon: <Calculator className="w-7 h-7 text-indigo-600" />,
+      description: 'Calculate statutory 3-condition HRA exemptions, compare Old vs New Tax Regimes, and project annual tax savings.',
+      actionText: 'Calculate HRA Exemption',
+      urlHash: '#hra-calculator',
+      bulletPoints: ['3 Rule 2A Conditions', 'Old vs New Regime Comparison', 'Instant Receipt Pre-fill'],
+      steps: [
+        'Step 1: Enter Basic Salary, DA, and HRA Received.',
+        'Step 2: Enter Actual Rent Paid & Metro City Status.',
+        'Step 3: View Tax-Exempt HRA & Pre-Fill Rent Receipts.',
       ],
     },
     {
@@ -215,7 +235,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 items-stretch">
           {tools.map((tool) => (
             <a
               key={tool.id}
@@ -490,6 +510,173 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
         </div>
       </section>
 
+      {/* Section 5.5: Editorial Tax & Legal Insights Blog */}
+      <section className="mb-10 sm:mb-12" aria-label="Editorial Insights & Tax Guides">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-2">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200 mb-2">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Taxpayer Knowledge &amp; Precedents</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Featured Tax &amp; Tenancy Insights
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+              Citation-backed tax guides with ITAT rulings and open-in-new-window document tools.
+            </p>
+          </div>
+          <a
+            href="#blog"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog');
+            }}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer self-start sm:self-auto"
+          >
+            <span>View All Articles</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                Family Planning
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-2 leading-snug">
+                Paying Rent to Parents to Save Tax
+              </h3>
+              <p className="text-xs text-slate-600 mt-1.5 line-clamp-3 leading-relaxed">
+                Ahmedabad ITAT Bajrang Prasad judgment, Section 24(a) 30% deductions, and mandatory bank trail checklists.
+              </p>
+            </div>
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-1 text-xs">
+              <a
+                href="#blog-rent-to-parents"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectTool('blog-rent-to-parents');
+                }}
+                className="font-bold text-blue-600 hover:text-blue-800"
+              >
+                Read Guide →
+              </a>
+              <button
+                type="button"
+                onClick={() => window.open(`${window.location.origin}/#rent-receipt`, '_blank', 'noopener,noreferrer')}
+                className="text-[11px] text-slate-500 hover:text-blue-600 font-medium inline-flex items-center gap-0.5 cursor-pointer"
+                title="Opens in new window"
+              >
+                <span>Tool ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">
+                Audit Defense
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-2 leading-snug">
+                Fake Rent Receipts &amp; AIS Scrutiny
+              </h3>
+              <p className="text-xs text-slate-600 mt-1.5 line-clamp-3 leading-relaxed">
+                How CBDT Project Insight cross-checks Form 16 against landlord ITRs, and Section 270A 200% penalties.
+              </p>
+            </div>
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-1 text-xs">
+              <a
+                href="#blog-fake-rent-receipts"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectTool('blog-fake-rent-receipts');
+                }}
+                className="font-bold text-blue-600 hover:text-blue-800"
+              >
+                Read Guide →
+              </a>
+              <button
+                type="button"
+                onClick={() => window.open(`${window.location.origin}/#form-12bb`, '_blank', 'noopener,noreferrer')}
+                className="text-[11px] text-slate-500 hover:text-blue-600 font-medium inline-flex items-center gap-0.5 cursor-pointer"
+                title="Opens in new window"
+              >
+                <span>Proof ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                Non-HRA
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-2 leading-snug">
+                Section 80GG Rent Deduction
+              </h3>
+              <p className="text-xs text-slate-600 mt-1.5 line-clamp-3 leading-relaxed">
+                How freelancers and non-HRA salaried employees deduct up to ₹60,000 rent + Form 10BA online tutorial.
+              </p>
+            </div>
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-1 text-xs">
+              <a
+                href="#blog-section-80gg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectTool('blog-section-80gg');
+                }}
+                className="font-bold text-blue-600 hover:text-blue-800"
+              >
+                Read Guide →
+              </a>
+              <button
+                type="button"
+                onClick={() => window.open(`${window.location.origin}/#hra-calculator`, '_blank', 'noopener,noreferrer')}
+                className="text-[11px] text-slate-500 hover:text-blue-600 font-medium inline-flex items-center gap-0.5 cursor-pointer"
+                title="Opens in new window"
+              >
+                <span>Calc ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">
+                Legal Tenancy
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-2 leading-snug">
+                Rent Agreement vs Rent Receipt
+              </h3>
+              <p className="text-xs text-slate-600 mt-1.5 line-clamp-3 leading-relaxed">
+                State stamp duty rules, ₹1 revenue stamp mandate, and what HR payroll audits require under Rule 26C.
+              </p>
+            </div>
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-1 text-xs">
+              <a
+                href="#blog-rent-agreement-vs-receipt"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectTool('blog-rent-agreement-vs-receipt');
+                }}
+                className="font-bold text-blue-600 hover:text-blue-800"
+              >
+                Read Guide →
+              </a>
+              <button
+                type="button"
+                onClick={() => window.open(`${window.location.origin}/#rent-receipt`, '_blank', 'noopener,noreferrer')}
+                className="text-[11px] text-slate-500 hover:text-blue-600 font-medium inline-flex items-center gap-0.5 cursor-pointer"
+                title="Opens in new window"
+              >
+                <span>Tool ↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 6: Comprehensive Internal Link Hub */}
       <section className="mb-8 p-5 bg-slate-50 rounded-2xl border border-slate-200" aria-label="Website Exploration Links">
         <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
@@ -545,6 +732,96 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
             className="px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 font-medium transition-colors"
           >
             🇺🇸 United States (IRS Proof)
+          </a>
+          <a
+            href="#hra-calculator"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('hra-calculator');
+            }}
+            className="px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-lg text-indigo-900 hover:text-indigo-700 hover:border-indigo-300 font-medium transition-colors"
+          >
+            🧮 HRA Exemption Calculator
+          </a>
+          <a
+            href="#resources"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('resources');
+            }}
+            className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-900 hover:text-blue-700 hover:border-blue-300 font-medium transition-colors"
+          >
+            📚 Tax &amp; Legal Resource Hub
+          </a>
+          <a
+            href="#form-12bb"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('form-12bb');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            📋 Form 12BB Guide
+          </a>
+          <a
+            href="#landlord-pan"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('landlord-pan');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            🛡️ Landlord PAN &amp; Tenant Rights
+          </a>
+          <a
+            href="#blog"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog');
+            }}
+            className="px-3 py-1.5 bg-purple-50 border border-purple-200 rounded-lg text-purple-900 hover:text-purple-700 hover:border-purple-300 font-medium transition-colors"
+          >
+            📰 Editorial Tax Blog
+          </a>
+          <a
+            href="#blog-rent-to-parents"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog-rent-to-parents');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            👨‍👩‍👦 Paying Rent to Parents
+          </a>
+          <a
+            href="#blog-fake-rent-receipts"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog-fake-rent-receipts');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            ⚠️ Fake Rent Receipts &amp; AIS
+          </a>
+          <a
+            href="#blog-section-80gg"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog-section-80gg');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            💼 Section 80GG Rent Deduction
+          </a>
+          <a
+            href="#blog-rent-agreement-vs-receipt"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectTool('blog-rent-agreement-vs-receipt');
+            }}
+            className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-700 hover:text-blue-600 hover:border-blue-300 font-medium transition-colors"
+          >
+            ⚖️ Rent Agreement vs Receipt
           </a>
           <a
             href="#guide"

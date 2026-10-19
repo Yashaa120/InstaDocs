@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Brand Col */}
-          <div className="md:col-span-2 space-y-3">
+          <div className="space-y-3">
             <a
               href="/"
               onClick={(e) => {
@@ -48,16 +48,16 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
                 RentReceipt
               </span>
             </a>
-            <p className="text-xs text-slate-400 max-w-md leading-relaxed">
-              A free, privacy-first client-side utility built for Indian salaried employees to generate, preview, and download professional, print-ready rent receipts for HRA tax exemption claims under Section 10(13A).
+            <p className="text-xs text-slate-400 leading-relaxed">
+              A free, privacy-first client-side utility built for salaried employees and self-employed professionals to generate compliant rent receipts and tax documentation under Section 10(13A) and Section 80GG.
             </p>
             <div className="flex items-center space-x-2 text-xs text-emerald-400 pt-1">
-              <ShieldCheck className="w-4 h-4" />
-              <span>100% Client-Side • Zero Data Stored • No Login Needed</span>
+              <ShieldCheck className="w-4 h-4 shrink-0" />
+              <span>100% Client-Side • Zero Data Stored</span>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Document Tools */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
               Free Document Tools
@@ -130,48 +130,175 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
             </ul>
           </div>
 
-          {/* Legal & Policy */}
+          {/* Tax Guides & Statutory Playbooks */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
-              Resources &amp; Support
+              Tax Guides &amp; Calculators
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="#faq"
-                  rel="nofollow"
+                  href="#hra-calculator"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNav('faq');
+                    handleNav('hra-calculator');
                   }}
                   className="hover:text-white transition-colors block cursor-pointer"
                 >
-                  Frequently Asked Questions (FAQ)
+                  🧮 HRA Exemption Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#resources"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('resources');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  📚 Tax &amp; Legal Resource Hub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#form-12bb"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('form-12bb');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  📋 Form 12BB Filing Playbook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#landlord-pan"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('landlord-pan');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🛡️ Landlord PAN &amp; Tenant Rights
                 </a>
               </li>
               <li>
                 <a
                   href="#guide"
-                  rel="nofollow"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('guide');
                   }}
                   className="hover:text-white transition-colors block cursor-pointer"
                 >
-                  HRA Tax Rules &amp; Guide
+                  📖 Section 10(13A) Master Guide
                 </a>
               </li>
               <li>
+                <a
+                  href="#faq"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('faq');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  ❓ Taxpayer FAQ Knowledge Base
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Editorial Blog Articles */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
+              Tax Insights &amp; Blog
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="#blog"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('blog');
+                  }}
+                  className="hover:text-white text-blue-400 font-semibold transition-colors block cursor-pointer"
+                >
+                  📰 All Editorial Articles &amp; Insights
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#blog-rent-to-parents"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('blog-rent-to-parents');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  👨‍👩‍👦 Paying Rent to Parents Rules
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#blog-fake-rent-receipts"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('blog-fake-rent-receipts');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  ⚠️ Fake Rent Receipts &amp; AIS Notices
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#blog-section-80gg"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('blog-section-80gg');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  💼 Section 80GG Non-HRA Deductions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#blog-rent-agreement-vs-receipt"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('blog-rent-agreement-vs-receipt');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  ⚖️ Rent Agreement vs Rent Receipt
+                </a>
+              </li>
+              <li className="pt-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-500 border-t border-slate-800">
                 <button
                   type="button"
                   onClick={(e) => handleLegalClick(e, 'about')}
-                  className="hover:text-white transition-colors block text-left cursor-pointer"
+                  className="hover:text-white transition-colors text-left cursor-pointer"
                 >
                   {t('footer_about')}
                 </button>
-              </li>
-              <li>
+                <button
+                  type="button"
+                  onClick={(e) => handleLegalClick(e, 'privacy')}
+                  className="hover:text-white transition-colors text-left cursor-pointer"
+                >
+                  {t('footer_privacy')}
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => handleLegalClick(e, 'terms')}
+                  className="hover:text-white transition-colors text-left cursor-pointer"
+                >
+                  {t('footer_terms')}
+                </button>
                 <a
                   href="#contact"
                   rel="nofollow"
@@ -179,28 +306,10 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
                     e.preventDefault();
                     handleNav('contact');
                   }}
-                  className="hover:text-white transition-colors block cursor-pointer"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   {t('footer_contact')}
                 </a>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={(e) => handleLegalClick(e, 'privacy')}
-                  className="hover:text-white transition-colors block text-left cursor-pointer"
-                >
-                  {t('footer_privacy')}
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={(e) => handleLegalClick(e, 'terms')}
-                  className="hover:text-white transition-colors block text-left cursor-pointer"
-                >
-                  {t('footer_terms')}
-                </button>
               </li>
             </ul>
           </div>

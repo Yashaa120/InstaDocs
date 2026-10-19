@@ -30,7 +30,9 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
   // Desktop primary tool links - focused, clean, and guaranteed zero overlap
   const desktopNavItems: { id: ActivePage; label: string; href: string }[] = [
     { id: 'rent-receipt', label: 'Generator', href: '#rent-receipt' },
-    { id: 'guide', label: 'HRA Guide', href: '#guide' },
+    { id: 'hra-calculator', label: 'HRA Calculator', href: '#hra-calculator' },
+    { id: 'blog', label: 'Blog & Articles', href: '#blog' },
+    { id: 'resources', label: 'Tax Guides', href: '#resources' },
     { id: 'faq', label: 'FAQ', href: '#faq' },
     { id: 'contact', label: 'Contact', href: '#contact' },
   ];
@@ -51,9 +53,13 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
       icon: <CountryFlag country="us" className="w-4 h-3 shrink-0" />,
     },
     { id: 'rent-receipt', label: 'Rent Receipt Creator', href: '#rent-receipt', icon: <Receipt className="w-4 h-4 text-blue-600" /> },
+    { id: 'hra-calculator', label: 'HRA Exemption Calculator', href: '#hra-calculator', icon: <BookOpen className="w-4 h-4 text-emerald-600" /> },
+    { id: 'blog', label: 'Tax & Legal Blog Articles', href: '#blog', icon: <BookOpen className="w-4 h-4 text-purple-600" /> },
+    { id: 'resources', label: 'Tax Guides & Resource Hub', href: '#resources', icon: <BookOpen className="w-4 h-4 text-blue-600" /> },
+    { id: 'form-12bb', label: 'Form 12BB Statutory Guide', href: '#form-12bb', icon: <FileText className="w-4 h-4 text-blue-600" /> },
+    { id: 'landlord-pan', label: 'Landlord PAN & Tenant Rights', href: '#landlord-pan', icon: <ShieldCheck className="w-4 h-4 text-indigo-600" /> },
     { id: 'salary-slip', label: 'Salary Slip Generator', href: '#salary-slip', icon: <FileText className="w-4 h-4 text-emerald-600" /> },
     { id: 'affidavit', label: 'Affidavit Generator', href: '#affidavit', icon: <Scale className="w-4 h-4 text-amber-600" /> },
-    { id: 'guide', label: 'HRA Tax Guide & Calculator', href: '#guide', icon: <BookOpen className="w-4 h-4 text-indigo-600" /> },
     { id: 'faq', label: 'Frequently Asked Questions', href: '#faq', icon: <HelpCircle className="w-4 h-4 text-blue-500" /> },
     { id: 'about', label: 'About Us', href: '#about', icon: <Info className="w-4 h-4 text-slate-500" /> },
     { id: 'contact', label: 'Contact Support', href: '#contact', icon: <Mail className="w-4 h-4 text-slate-500" /> },

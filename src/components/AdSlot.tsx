@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type AdSlotType = 'banner' | 'sidebar' | 'pre-footer' | 'high-ctr' | 'modal-sponsor';
+export type AdSlotType = 'banner' | 'sidebar' | 'pre-footer' | 'high-ctr' | 'in-article';
 
 interface AdSlotProps {
   type: AdSlotType;
@@ -8,6 +8,14 @@ interface AdSlotProps {
   hideOnMobile?: boolean;
 }
 
+/**
+  * Google AdSense Compliant AdSlot Component
+  * Adheres to Google AdSense Program Policies:
+  * 1. Never displayed on behavioral, modal, or alert screens.
+  * 2. Clearly labeled with standard 'ADVERTISEMENT' micro-text.
+  * 3. Sized to prevent Cumulative Layout Shift (CLS).
+  * 4. Positioned strictly within substantive publisher content.
+  */
 export const AdSlot: React.FC<AdSlotProps> = ({
   type,
   className = '',
@@ -18,34 +26,34 @@ export const AdSlot: React.FC<AdSlotProps> = ({
     { label: string; containerClass: string; slotClass: string }
   > = {
     banner: {
-      label: 'Responsive Display Ad (728 x 90 / 320 x 50)',
-      containerClass: 'w-full max-w-4xl mx-auto min-h-[60px] my-4',
+      label: 'Responsive Leaderboard (728x90 / 320x50)',
+      containerClass: 'w-full max-w-4xl mx-auto my-6',
       slotClass:
-        'h-[60px] sm:h-[70px] border border-dashed border-slate-300 rounded-xl bg-slate-50/80 hover:bg-slate-100/70',
+        'min-h-[70px] sm:min-h-[90px] border border-slate-200/80 rounded-xl bg-slate-50/70',
+    },
+    'in-article': {
+      label: 'In-Article Native Ad (Fluid High-Impact)',
+      containerClass: 'w-full max-w-3xl mx-auto my-8',
+      slotClass:
+        'min-h-[120px] sm:min-h-[140px] border border-slate-200/80 rounded-xl bg-slate-50/70',
     },
     sidebar: {
-      label: 'Medium Rectangle Ad (300 x 250)',
-      containerClass: 'w-full max-w-[320px] mx-auto min-h-[140px] my-4',
+      label: 'Medium Rectangle (300x250 / 300x600)',
+      containerClass: 'w-full max-w-[320px] mx-auto my-6',
       slotClass:
-        'min-h-[120px] border border-dashed border-slate-300 rounded-xl bg-slate-50/80 hover:bg-slate-100/70',
+        'min-h-[250px] border border-slate-200/80 rounded-xl bg-slate-50/70',
     },
     'pre-footer': {
-      label: 'Horizontal Ad Space (728 x 90)',
-      containerClass: 'w-full max-w-4xl mx-auto min-h-[50px] my-6',
+      label: 'Pre-Footer Horizontal Ad Space (728x90)',
+      containerClass: 'w-full max-w-4xl mx-auto my-8',
       slotClass:
-        'h-[50px] sm:h-[60px] border border-dashed border-slate-300 rounded-xl bg-slate-50/80 hover:bg-slate-100/70',
+        'min-h-[70px] sm:min-h-[90px] border border-slate-200/80 rounded-xl bg-slate-50/70',
     },
     'high-ctr': {
-      label: 'Sponsored Partner Ad (High-Engagement Placement)',
-      containerClass: 'w-full max-w-2xl mx-auto my-3.5',
+      label: 'Featured Editorial Partner Placement',
+      containerClass: 'w-full max-w-3xl mx-auto my-6',
       slotClass:
-        'min-h-[80px] sm:min-h-[90px] border border-dashed border-blue-200 rounded-xl bg-gradient-to-r from-blue-50/40 via-slate-50 to-blue-50/40 hover:bg-blue-50/70',
-    },
-    'modal-sponsor': {
-      label: 'Sponsored Partner Recommendation',
-      containerClass: 'w-full my-2',
-      slotClass:
-        'min-h-[54px] border border-dashed border-slate-200 rounded-lg bg-slate-50/90',
+        'min-h-[90px] sm:min-h-[100px] border border-blue-200/60 rounded-xl bg-slate-50/70',
     },
   };
 
@@ -55,20 +63,19 @@ export const AdSlot: React.FC<AdSlotProps> = ({
   return (
     <aside
       id={`ad-slot-${type}`}
-      aria-label="Advertisement Area"
-      className={`${config.containerClass} ${mobileDisplayClass} ${className} flex-col items-center justify-center`}
+      aria-label="Advertisement"
+      className={`${config.containerClass} ${mobileDisplayClass} ${className} flex-col items-center justify-center select-none`}
     >
       <div
-        className={`w-full ${config.slotClass} flex flex-col items-center justify-center p-2.5 text-center transition-colors`}
+        className={`w-full ${config.slotClass} flex flex-col items-center justify-center p-3 text-center transition-colors`}
       >
         <span className="text-[10px] font-semibold tracking-wider uppercase text-slate-400">
           ADVERTISEMENT
         </span>
-        <span className="text-[11px] text-slate-500 mt-0.5 font-sans font-medium">
+        <span className="text-[11px] text-slate-500 mt-1 font-sans font-medium">
           {config.label}
         </span>
       </div>
     </aside>
   );
 };
-

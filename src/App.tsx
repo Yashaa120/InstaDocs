@@ -12,6 +12,15 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
 import { ContactPage } from './pages/ContactPage';
 import { HraGuidePage } from './pages/HraGuidePage';
+import { HraCalculatorPage } from './pages/HraCalculatorPage';
+import { Form12BbGuidePage } from './pages/Form12BbGuidePage';
+import { LandlordPanGuidePage } from './pages/LandlordPanGuidePage';
+import { ResourceHubPage } from './pages/ResourceHubPage';
+import { BlogIndexPage } from './pages/BlogIndexPage';
+import { BlogRentToParentsPage } from './pages/BlogRentToParentsPage';
+import { BlogFakeRentReceiptsPage } from './pages/BlogFakeRentReceiptsPage';
+import { BlogSection80ggPage } from './pages/BlogSection80ggPage';
+import { BlogRentAgreementVsReceiptPage } from './pages/BlogRentAgreementVsReceiptPage';
 import { ValidationPage } from './pages/ValidationPage';
 import { FaqPage } from './pages/FaqPage';
 import { IndiaPage } from './pages/IndiaPage';
@@ -95,6 +104,24 @@ function AppContent() {
         setActivePage('salary-slip');
       } else if (hash === 'affidavit' || hash === 'affidavit-generator' || hash === 'affidavit-generator.html' || path.includes('affidavit')) {
         setActivePage('affidavit');
+      } else if (hash === 'hra-calculator' || hash === 'calculator' || path.includes('hra-calculator')) {
+        setActivePage('hra-calculator');
+      } else if (hash === 'form-12bb' || path.includes('form-12bb')) {
+        setActivePage('form-12bb');
+      } else if (hash === 'landlord-pan' || path.includes('landlord-pan')) {
+        setActivePage('landlord-pan');
+      } else if (hash === 'resources' || hash === 'hub' || path.includes('resources')) {
+        setActivePage('resources');
+      } else if (hash === 'blog-rent-to-parents' || path.includes('rent-to-parents')) {
+        setActivePage('blog-rent-to-parents');
+      } else if (hash === 'blog-fake-rent-receipts' || path.includes('fake-rent-receipts')) {
+        setActivePage('blog-fake-rent-receipts');
+      } else if (hash === 'blog-section-80gg' || path.includes('section-80gg')) {
+        setActivePage('blog-section-80gg');
+      } else if (hash === 'blog-rent-agreement-vs-receipt' || path.includes('rent-agreement-vs-receipt')) {
+        setActivePage('blog-rent-agreement-vs-receipt');
+      } else if (hash === 'blog' || path.includes('/blog')) {
+        setActivePage('blog');
       } else if (hash === 'terms' || hash === 'terms.html' || path.includes('terms')) {
         setActivePage('terms');
       } else if (hash === 'privacy' || hash === 'privacy.html' || path.includes('privacy')) {
@@ -311,6 +338,52 @@ function AppContent() {
 
         {activePage === 'contact' && (
           <ContactPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'hra-calculator' && (
+          <HraCalculatorPage
+            setActivePage={handlePageChange}
+            onPreFillRent={(amt) => {
+              setReceiptData((prev) => ({
+                ...prev,
+                monthlyRent: String(amt),
+                currency: 'INR',
+                currencySymbol: '₹',
+              }));
+            }}
+          />
+        )}
+
+        {activePage === 'form-12bb' && (
+          <Form12BbGuidePage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'landlord-pan' && (
+          <LandlordPanGuidePage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'resources' && (
+          <ResourceHubPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'blog' && (
+          <BlogIndexPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'blog-rent-to-parents' && (
+          <BlogRentToParentsPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'blog-fake-rent-receipts' && (
+          <BlogFakeRentReceiptsPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'blog-section-80gg' && (
+          <BlogSection80ggPage setActivePage={handlePageChange} />
+        )}
+
+        {activePage === 'blog-rent-agreement-vs-receipt' && (
+          <BlogRentAgreementVsReceiptPage setActivePage={handlePageChange} />
         )}
 
         {activePage === 'guide' && (

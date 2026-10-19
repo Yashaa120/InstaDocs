@@ -135,6 +135,74 @@ const LOCALIZED_SEO: Record<
         'मकान किराया भत्ता (HRA) टैक्स छूट गणना, 1 लाख से अधिक किराये पर मकान मालिक के पैन की अनिवार्यता और 5000 से अधिक नकद पर ₹1 के राजस्व टिकट के नियम।',
     },
   },
+  'hra-calculator': {
+    en: {
+      title: 'HRA Exemption Calculator 2025-26 | Section 10(13A) Tax Engine',
+      description:
+        'Free interactive House Rent Allowance (HRA) tax exemption calculator. Calculate 3 statutory conditions under Rule 2A, compare Old vs New tax regimes, and estimate tax savings.',
+    },
+    hi: {
+      title: 'HRA कैलकुलेटर 2025-26 | धारा 10(13A) टैक्स छूट की गणना',
+      description:
+        'नियम 2A के तहत HRA टैक्स छूट की गणना करें। पुरानी बनाम नई कर व्यवस्था की तुलना करें और देखें कि आपको कितना आयकर लाभ मिलेगा।',
+    },
+  },
+  'form-12bb': {
+    en: {
+      title: 'Form 12BB Statutory Guide | HRA Tax Proof Submission Playbook',
+      description:
+        'Complete guide to Form 12BB employee tax declarations. Learn required documents for HRA exemption, submission deadlines, landlord PAN rules, and ITR reclaim process.',
+    },
+  },
+  'landlord-pan': {
+    en: {
+      title: 'Landlord PAN Compliance Mandate & Tenant Legal Rights Handbook',
+      description:
+        'CBDT rules on mandatory landlord PAN for rent exceeding ₹1 Lakh/year, Form 60 declarations, Section 194-IB TDS deduction on rent > ₹50,000, and tenant rights.',
+    },
+  },
+  resources: {
+    en: {
+      title: 'Tax, Payroll & Tenancy Resource Hub | Free Statutory Guides',
+      description:
+        'Comprehensive knowledge base and statutory guides on HRA exemptions, Form 12BB compliance, landlord PAN rules, salary slip formats, and tenancy affidavits.',
+    },
+  },
+  blog: {
+    en: {
+      title: 'Tax & Rental Insights Blog | Legal Precedents, HRA & Formats',
+      description:
+        'Authoritative editorial articles on paying rent to parents, fake rent receipt IT scrutiny, Section 80GG deductions, state stamp duties, and ITAT judgments.',
+    },
+  },
+  'blog-rent-to-parents': {
+    en: {
+      title: 'Paying Rent to Parents to Save Tax: Complete Legal Rules & ITAT Rulings',
+      description:
+        'Learn how to claim HRA tax exemption legally by paying rent to parents. ITAT Bajrang Prasad judgment, Section 24 standard deduction, and banking trail checklist.',
+    },
+  },
+  'blog-fake-rent-receipts': {
+    en: {
+      title: 'Income Tax Notice for Fake Rent Receipts: AIS Cross-Checks & § 270A Penalties',
+      description:
+        'How CBDT automated data mining cross-checks Form 16 against landlord ITRs, Section 270A 200% misreporting penalties, and step-by-step audit response guide.',
+    },
+  },
+  'blog-section-80gg': {
+    en: {
+      title: 'Section 80GG Rent Deduction: How Self-Employed & Non-HRA Claim Up to ₹60,000',
+      description:
+        'Guide to claiming rent paid deductions under Section 80GG for freelancers and non-HRA salaried employees. Form 10BA online e-filing tutorial.',
+    },
+  },
+  'blog-rent-agreement-vs-receipt': {
+    en: {
+      title: 'Rent Agreement vs Rent Receipt: Key Differences, Stamp Duty & HR Proofs',
+      description:
+        'Understand the legal differences between Tenancy Agreements and Rent Receipts under Indian law, state stamp duty rates, and ₹1 revenue stamp rules.',
+    },
+  },
   verify: {
     en: {
       title: 'Rent Receipt Verification | Online QR Authenticity Check',
@@ -347,6 +415,88 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
   }
   if (page === 'affidavit') {
     return [affidavitAppSchema, organizationSchema];
+  }
+  if (page === 'hra-calculator') {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        '@id': `${BASE_URL}/#hra-calculator`,
+        name: 'House Rent Allowance (HRA) Exemption Calculator',
+        applicationCategory: 'FinancialApplication',
+        operatingSystem: 'All Modern Web Browsers',
+        url: `${BASE_URL}/hra-calculator.html`,
+        description:
+          'Free online HRA exemption calculator implementing Section 10(13A) and Rule 2A three-condition limits.',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'INR',
+        },
+      },
+      organizationSchema,
+    ];
+  }
+  if (page === 'form-12bb') {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'Form 12BB Statutory Guide & HRA Tax Proof Submission Playbook',
+        description:
+          'Comprehensive handbook on how salaried employees submit Form 12BB to employers for claiming HRA tax exemption.',
+        author: {
+          '@type': 'Organization',
+          name: 'RentReceipt Tax Editorial Desk',
+        },
+        publisher: organizationSchema,
+        mainEntityOfPage: `${BASE_URL}/form-12bb-guide.html`,
+      },
+      organizationSchema,
+    ];
+  }
+  if (page === 'landlord-pan') {
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'Landlord PAN Compliance Mandate & Tenant Legal Rights Handbook',
+        description:
+          'CBDT rules on landlord PAN requirements, Form 60 declaration rules, and Section 194-IB TDS deduction on rent > ₹50,000.',
+        author: {
+          '@type': 'Organization',
+          name: 'RentReceipt Legal Desk',
+        },
+        publisher: organizationSchema,
+        mainEntityOfPage: `${BASE_URL}/landlord-pan-handbook.html`,
+      },
+      organizationSchema,
+    ];
+  }
+  if (
+    page === 'blog' ||
+    page === 'blog-rent-to-parents' ||
+    page === 'blog-fake-rent-receipts' ||
+    page === 'blog-section-80gg' ||
+    page === 'blog-rent-agreement-vs-receipt'
+  ) {
+    const blogTitle = LOCALIZED_SEO[page]?.en.title || 'Tax & Rental Insights';
+    const blogDesc = LOCALIZED_SEO[page]?.en.description || '';
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: blogTitle,
+        description: blogDesc,
+        author: {
+          '@type': 'Organization',
+          name: 'RentReceipt Editorial Board',
+        },
+        publisher: organizationSchema,
+        mainEntityOfPage: `${BASE_URL}/#${page}`,
+      },
+      organizationSchema,
+    ];
   }
 
   return [websiteSchema, organizationSchema];
