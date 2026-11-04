@@ -122,7 +122,9 @@ export interface RentReceiptData {
 export type ActivePage =
   | 'home'
   | 'in' // Indian Landing Page (/in or /hra)
-  | 'us' // US / International Landing Page (/us)
+  | 'us' // US / International Landing Page (/us or /us-rent-receipt.html)
+  | 'uk' // UK Landing Page (/uk or /uk-rent-receipt.html)
+  | 'canada' // Canada Landing Page (/canada or /canada-rent-receipt.html)
   | 'rent-receipt'
   | 'tool' // alias for rent-receipt
   | 'salary-slip'

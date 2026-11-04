@@ -49,8 +49,20 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage }) => 
     {
       id: 'us',
       label: 'US Receipts (IRS Records)',
-      href: '#us',
+      href: '/us-rent-receipt.html',
       icon: <CountryFlag country="us" className="w-4 h-3 shrink-0" />,
+    },
+    {
+      id: 'uk',
+      label: 'UK Receipts (DPS / AST)',
+      href: '/uk-rent-receipt.html',
+      icon: <CountryFlag country="uk" className="w-4 h-3 shrink-0" />,
+    },
+    {
+      id: 'canada',
+      label: 'Canada Receipts (CRA / RTA)',
+      href: '/canada-rent-receipt.html',
+      icon: <CountryFlag country="ca" className="w-4 h-3 shrink-0" />,
     },
     { id: 'rent-receipt', label: 'Rent Receipt Creator', href: '#rent-receipt', icon: <Receipt className="w-4 h-4 text-blue-600" /> },
     { id: 'hra-calculator', label: 'HRA Exemption Calculator', href: '#hra-calculator', icon: <BookOpen className="w-4 h-4 text-emerald-600" /> },

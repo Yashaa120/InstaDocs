@@ -11,7 +11,7 @@ interface RegionSwitcherProps {
 
 interface RegionOption {
   id: ActivePage;
-  code: 'global' | 'in' | 'us';
+  code: 'global' | 'in' | 'us' | 'uk' | 'ca';
   label: string;
   subLabel: string;
   badge: string;
@@ -26,18 +26,32 @@ const REGIONS: RegionOption[] = [
     badge: 'Universal',
   },
   {
-    id: 'in',
-    code: 'in',
-    label: 'India (HRA)',
-    subLabel: 'Section 10(13A) • ₹1 Stamp • Landlord PAN',
-    badge: 'CBDT Compliant',
-  },
-  {
     id: 'us',
     code: 'us',
     label: 'United States',
     subLabel: 'IRS Schedule C/E • State Rental Laws',
     badge: 'IRS Records',
+  },
+  {
+    id: 'uk',
+    code: 'uk',
+    label: 'United Kingdom',
+    subLabel: 'Tenant Fees Act • Deposit Protection (DPS/TDS)',
+    badge: 'UK Tenancy',
+  },
+  {
+    id: 'canada',
+    code: 'ca',
+    label: 'Canada',
+    subLabel: 'CRA Proof • Ontario Trillium Benefit (OEHTC)',
+    badge: 'CRA Compliant',
+  },
+  {
+    id: 'in',
+    code: 'in',
+    label: 'India (HRA)',
+    subLabel: 'Section 10(13A) • ₹1 Stamp • Landlord PAN',
+    badge: 'CBDT Compliant',
   },
 ];
 

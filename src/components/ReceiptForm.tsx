@@ -195,7 +195,7 @@ export const ReceiptForm: React.FC<ReceiptFormProps> = ({ data, setData }) => {
   };
 
   const handleShareWhatsApp = () => {
-    const currentUrl = window.location.origin || 'https://rentreceipt.online';
+    const currentUrl = window.location.origin || 'https://www.rentreceipt.online';
     const message = `Generate your free rent receipts for HRA exemption instantly: ${currentUrl}`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };

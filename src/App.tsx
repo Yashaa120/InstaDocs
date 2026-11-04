@@ -25,6 +25,8 @@ import { ValidationPage } from './pages/ValidationPage';
 import { FaqPage } from './pages/FaqPage';
 import { IndiaPage } from './pages/IndiaPage';
 import { UsPage } from './pages/UsPage';
+import { UkPage } from './pages/UkPage';
+import { CanadaPage } from './pages/CanadaPage';
 import { RentReceiptView } from './components/RentReceiptView';
 import { SalarySlipGenerator } from './components/SalarySlipGenerator';
 import { AffidavitGenerator } from './components/AffidavitGenerator';
@@ -96,8 +98,12 @@ function AppContent() {
 
       if (hash === 'in' || hash === 'hra' || path === '/in' || path === '/hra' || path.startsWith('/in/') || path.startsWith('/hra/')) {
         setActivePage('in');
-      } else if (hash === 'us' || path === '/us' || path.startsWith('/us/')) {
+      } else if (hash === 'us' || hash === 'us-rent-receipt' || path.includes('us-rent-receipt') || path === '/us' || path.startsWith('/us/')) {
         setActivePage('us');
+      } else if (hash === 'uk' || hash === 'uk-rent-receipt' || path.includes('uk-rent-receipt') || path === '/uk' || path.startsWith('/uk/')) {
+        setActivePage('uk');
+      } else if (hash === 'canada' || hash === 'ca' || hash === 'canada-rent-receipt' || path.includes('canada-rent-receipt') || path === '/canada' || path.startsWith('/canada/')) {
+        setActivePage('canada');
       } else if (hash === 'rent-receipt' || hash === 'tool' || hash === 'rent-receipt.html' || path.includes('rent-receipt')) {
         setActivePage('rent-receipt');
       } else if (hash === 'salary-slip' || hash === 'salary-slip.html' || path.includes('salary-slip')) {
@@ -292,6 +298,16 @@ function AppContent() {
         {/* REGIONAL VIEW: US Rental & IRS Schedule C/E Landing Page */}
         {activePage === 'us' && (
           <UsPage onSelectTool={handlePageChange} onLaunchWithCurrency={handleLaunchWithCurrency} />
+        )}
+
+        {/* REGIONAL VIEW: UK Tenancy & Universal Credit Proof Landing Page */}
+        {activePage === 'uk' && (
+          <UkPage onSelectTool={handlePageChange} onLaunchWithCurrency={handleLaunchWithCurrency} />
+        )}
+
+        {/* REGIONAL VIEW: Canada Residential Tenancies & CRA Proof Landing Page */}
+        {activePage === 'canada' && (
+          <CanadaPage onSelectTool={handlePageChange} onLaunchWithCurrency={handleLaunchWithCurrency} />
         )}
 
         {/* VIEW 2: Dedicated Rent Receipt Generator Page */}

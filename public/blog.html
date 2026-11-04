@@ -3,81 +3,274 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tax &amp; Rental Insights Blog | Legal Precedents, HRA &amp; Formats | RentReceipt.online</title>
+    <title>Tax &amp; Rental Insights Blog: Legal Precedents, HRA &amp; Formats | RentReceipt.online</title>
     <meta name="description" content="Authoritative editorial articles on paying rent to parents, fake rent receipt IT scrutiny, Section 80GG deductions, state stamp duties, and ITAT judgments." />
-    <link rel="canonical" href="https://rentreceipt.online/blog.html" />
+    <link rel="canonical" href="https://www.rentreceipt.online/blog.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Social Sharing -->
     <meta property="og:title" content="Tax &amp; Rental Insights Blog | RentReceipt.online" />
     <meta property="og:description" content="Expert tax guides, ITAT tribunal precedents, and statutory document walkthroughs for Indian salaried taxpayers and self-employed professionals." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rentreceipt.online/blog.html" />
-    <meta property="og:image" content="https://rentreceipt.online/og-image.svg" />
+    <meta property="og:url" content="https://www.rentreceipt.online/blog.html" />
+    <meta property="og:image" content="https://www.rentreceipt.online/og-image.png" />
+    <meta property="og:site_name" content="RentReceipt.online" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tax &amp; Rental Insights Blog | RentReceipt.online" />
+    <meta name="twitter:description" content="Expert tax guides, ITAT tribunal precedents, and statutory document walkthroughs for Indian salaried taxpayers." />
+    <meta name="twitter:image" content="https://www.rentreceipt.online/og-image.png" />
+
+    <!-- Schema.org CollectionPage / Blog Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://www.rentreceipt.online/blog.html#blog",
+      "name": "RentReceipt.online Tax & Tenancy Editorial Desk",
+      "description": "Statutory guides, tax law interpretations, judicial precedents, and compliance manuals for tenants, landlords, and employers.",
+      "url": "https://www.rentreceipt.online/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "RentReceipt.online",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.rentreceipt.online/favicon.svg"
+        }
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Paying Rent to Parents to Save Tax: Complete Legal Rules, ITAT Judgments & Audit Checklist",
+          "url": "https://www.rentreceipt.online/blog-rent-to-parents.html",
+          "datePublished": "2025-04-10T09:00:00+05:30",
+          "dateModified": "2026-03-20T10:00:00+05:30"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Income Tax Notice for Fake Rent Receipts: AIS Verification, Section 270A Penalties & How to Respond",
+          "url": "https://www.rentreceipt.online/blog-fake-rent-receipts.html",
+          "datePublished": "2025-05-15T09:00:00+05:30",
+          "dateModified": "2026-03-22T11:00:00+05:30"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Section 80GG Rent Deduction: How Self-Employed & Non-HRA Employees Save Up to ₹60,000",
+          "url": "https://www.rentreceipt.online/blog-section-80gg.html",
+          "datePublished": "2025-06-01T09:00:00+05:30",
+          "dateModified": "2026-03-22T12:00:00+05:30"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Rent Agreement vs Rent Receipt: Key Differences, State Stamp Duty & Employer Requirements",
+          "url": "https://www.rentreceipt.online/blog-rent-agreement-vs-receipt.html",
+          "datePublished": "2025-07-10T09:00:00+05:30",
+          "dateModified": "2026-03-22T14:00:00+05:30"
+        }
+      ]
+    }
+    </script>
 
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.75; color: #334155; max-width: 860px; margin: 0 auto; padding: 30px 20px; }
-      h1 { color: #0f172a; font-size: 2.2rem; line-height: 1.25; margin-bottom: 0.5rem; }
-      h2 { color: #1e293b; font-size: 1.45rem; margin-top: 1.5rem; }
-      a { color: #2563eb; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .article-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 22px; border-radius: 14px; margin: 20px 0; transition: box-shadow 0.2s; }
-      .article-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-      .tag { display: inline-block; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 20px; background: #eff6ff; color: #1d4ed8; margin-bottom: 10px; }
-      .meta { font-size: 0.85rem; color: #64748b; margin-top: 8px; }
-      .cta-card { background: #eff6ff; border: 1px solid #bfdbfe; padding: 24px; border-radius: 12px; margin: 25px 0; text-align: center; }
-      .btn { display: inline-block; background: #2563eb; color: #ffffff; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1.05rem; }
-      .btn:hover { background: #1d4ed8; text-decoration: none; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.75;
+        color: #334155;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 30px 20px 60px 20px;
+        background-color: #ffffff;
+      }
+      header {
+        margin-bottom: 24px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 16px;
+      }
+      h1 {
+        color: #0f172a;
+        font-size: 2.2rem;
+        line-height: 1.25;
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        color: #1e293b;
+        font-size: 1.35rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .article-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        padding: 24px;
+        border-radius: 14px;
+        margin: 22px 0;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .article-card:hover {
+        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+        transform: translateY(-1px);
+      }
+      .tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .meta {
+        font-size: 0.88rem;
+        color: #64748b;
+        margin-top: 14px;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .cta-card {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        padding: 24px;
+        border-radius: 12px;
+        margin: 25px 0;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        background: #2563eb;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1rem;
+        margin: 4px;
+      }
+      .btn:hover {
+        background: #1d4ed8;
+        color: #ffffff;
+        text-decoration: none;
+      }
+      footer {
+        margin-top: 50px;
+        padding-top: 24px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 0.88rem;
+        color: #64748b;
+      }
     </style>
   </head>
   <body>
     <header>
-      <p><a href="/">&larr; Back to RentReceipt.online Home</a></p>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <a href="/" style="font-weight: 700; font-size: 1.15rem; color: #0f172a;">&larr; Back to RentReceipt.online</a>
+        <div style="font-size: 0.9rem; color: #64748b;">
+          <a href="/rent-receipt-generator.html" target="_blank" rel="noopener noreferrer">Rent Receipt Maker &nearr;</a> &bull;
+          <a href="/hra-calculator.html" target="_blank" rel="noopener noreferrer">HRA Calculator &nearr;</a>
+        </div>
+      </div>
       <h1>Editorial Tax, HRA &amp; Legal Compliance Blog</h1>
-      <p style="color: #64748b; font-size: 1.1rem;">Researched guides, ITAT tribunal rulings, and compliance walkthroughs for Indian taxpayers.</p>
+      <p style="color: #64748b; font-size: 1.1rem; margin-top: 4px;">
+        In-depth statutory guides, Income Tax Appellate Tribunal (ITAT) rulings, and audit defense playbooks curated by the RentReceipt.online editorial desk.
+      </p>
     </header>
 
     <div class="cta-card">
-      <h3 style="margin-top: 0; color: #1e3a8a;">Free Browser-Side Document Generators</h3>
-      <p style="margin-bottom: 16px; font-size: 0.95rem;">Generate official rent receipts, payslips, and affidavits with zero server tracking. Opens in a separate window so your reading progress stays active.</p>
+      <h3 style="margin-top: 0; color: #1e3a8a; font-size: 1.3rem;">Free Client-Side Document Utilities</h3>
+      <p style="margin-bottom: 16px; font-size: 0.95rem; color: #1e40af;">
+        Generate official rent receipts, monthly payslips, and tenancy affidavits with zero server tracking. Click to open in a new window so your reading progress stays active without interruption.
+      </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a href="/#rent-receipt" target="_blank" rel="noopener noreferrer" class="btn">Rent Receipt Maker &nearr;</a>
-        <a href="/#hra-calculator" target="_blank" rel="noopener noreferrer" class="btn" style="background: #059669;">HRA Calculator &nearr;</a>
+        <a href="/rent-receipt-generator.html" target="_blank" rel="noopener noreferrer" class="btn">Rent Receipt Maker &nearr;</a>
+        <a href="/salary-slip-generator.html" target="_blank" rel="noopener noreferrer" class="btn" style="background: #0f766e;">Salary Slip Generator &nearr;</a>
+        <a href="/hra-calculator.html" target="_blank" rel="noopener noreferrer" class="btn" style="background: #059669;">HRA Calculator &nearr;</a>
       </div>
     </div>
 
     <main>
       <div class="article-card">
-        <span class="tag">Family Tax Strategy</span>
-        <h2 style="margin-top: 0;"><a href="/blog-rent-to-parents.html">Paying Rent to Parents to Save Tax: Complete Legal Rules, ITAT Judgments &amp; Audit Checklist</a></h2>
-        <p>How salaried Indian professionals can legally claim Section 10(13A) House Rent Allowance by renting accommodation owned by their parents, backed by the Ahmedabad ITAT Bajrang Prasad ruling and Section 24 standard deductions.</p>
-        <p class="meta">&bull; 7 min read &bull; Updated FY 2026-27 &bull; <a href="/#rent-receipt" target="_blank" rel="noopener noreferrer">Open Generator in New Window &nearr;</a></p>
+        <span class="tag">Family Tax Strategy &bull; Section 10(13A)</span>
+        <h2><a href="/blog-rent-to-parents.html">Paying Rent to Parents to Save Tax: Complete Legal Rules, ITAT Judgments &amp; Audit Checklist</a></h2>
+        <p>
+          Can salaried Indian professionals legally claim Section 10(13A) House Rent Allowance by paying rent to their mother or father? Dive deep into the statutory provisions, the landmark Ahmedabad ITAT <em>Bajrang Prasad Ramdharani</em> ruling, banking trail requirements, and how parents can claim the 30% standard repair deduction under Section 24(a).
+        </p>
+        <div class="meta">
+          <span>&bull; 8 min read &bull; Updated FY 2025-26 / AY 2026-27</span>
+          <a href="/#rent-receipt" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">Open Generator in New Window &nearr;</a>
+        </div>
       </div>
 
       <div class="article-card">
-        <span class="tag" style="background: #fef2f2; color: #b91c1c;">Audit Defense</span>
-        <h2 style="margin-top: 0;"><a href="/blog-fake-rent-receipts.html">Income Tax Notice for Fake Rent Receipts: AIS Verification, Section 270A Penalties &amp; How to Respond</a></h2>
-        <p>How CBDT automated data-mining algorithms cross-reference HRA claims in Form 16 against landlord ITRs, what red flags trigger computerized scrutiny, and the 200% penalty for misreporting.</p>
-        <p class="meta">&bull; 8 min read &bull; Updated FY 2026-27 &bull; <a href="/#form-12bb" target="_blank" rel="noopener noreferrer">Review Form 12BB Proofs in New Window &nearr;</a></p>
+        <span class="tag" style="background: #fef2f2; color: #b91c1c;">Audit Defense &bull; Tax Notices</span>
+        <h2><a href="/blog-fake-rent-receipts.html">Income Tax Notice for Fake Rent Receipts: AIS Verification, Section 270A Penalties &amp; How to Respond</a></h2>
+        <p>
+          How the Central Board of Direct Taxes (CBDT) automated data-matching engine cross-verifies HRA claims in Form 16 against landlord ITR filings, Annual Information Statements (AIS), and utility records. Understand the 200% underreporting penalty under Section 270A and step-by-step guidance on responding to a Section 143(1) intimation.
+        </p>
+        <div class="meta">
+          <span>&bull; 9 min read &bull; Updated FY 2025-26 / AY 2026-27</span>
+          <a href="/#form-12bb" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">Review Form 12BB Proofs &nearr;</a>
+        </div>
       </div>
 
       <div class="article-card">
         <span class="tag" style="background: #f0fdf4; color: #15803d;">Non-HRA Salaried &amp; Freelancers</span>
-        <h2 style="margin-top: 0;"><a href="/blog-section-80gg.html">Section 80GG Rent Deduction: How Self-Employed &amp; Non-HRA Employees Save Up to ₹60,000</a></h2>
-        <p>The definitive guide to claiming rent paid when your salary lacks an HRA component or when you work as a self-employed professional, consultant, or freelancer in India. Includes Form 10BA tutorial.</p>
-        <p class="meta">&bull; 6 min read &bull; Updated FY 2026-27 &bull; <a href="/#hra-calculator" target="_blank" rel="noopener noreferrer">Calculate Exemption in New Window &nearr;</a></p>
+        <h2><a href="/blog-section-80gg.html">Section 80GG Rent Deduction: How Self-Employed &amp; Non-HRA Employees Save Up to ₹60,000</a></h2>
+        <p>
+          The definitive guide to claiming tax relief on residential rent when your salary lacks an HRA component or when you operate as a self-employed professional, consultant, or freelancer. Complete breakdown of the 3-condition formula, filing Form 10BA on the e-filing portal, and spouse/minor child property disqualifications.
+        </p>
+        <div class="meta">
+          <span>&bull; 7 min read &bull; Updated FY 2025-26 / AY 2026-27</span>
+          <a href="/#hra-calculator" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">Calculate Exemption &nearr;</a>
+        </div>
       </div>
 
       <div class="article-card">
-        <span class="tag" style="background: #fefce8; color: #854d0e;">Legal Documentation</span>
-        <h2 style="margin-top: 0;"><a href="/blog-rent-agreement-vs-receipt.html">Rent Agreement vs Rent Receipt: Key Differences, State Stamp Duty &amp; Employer Requirements</a></h2>
-        <p>Demystifying the legal roles of Tenancy Agreements and Monthly Rent Receipts under the Transfer of Property Act and Section 10(13A). Learn state stamp duty rates and what corporate payroll audits demand.</p>
-        <p class="meta">&bull; 7 min read &bull; Updated FY 2026-27 &bull; <a href="/#rent-receipt" target="_blank" rel="noopener noreferrer">Create Stamped Receipts in New Window &nearr;</a></p>
+        <span class="tag" style="background: #fefce8; color: #854d0e;">Legal Documentation &bull; Tenancy Law</span>
+        <h2><a href="/blog-rent-agreement-vs-receipt.html">Rent Agreement vs Rent Receipt: Key Differences, State Stamp Duty &amp; Employer Requirements</a></h2>
+        <p>
+          Demystifying the dual roles of Tenancy Agreements and Monthly Rent Receipts under the Transfer of Property Act, 1882, the Indian Stamp Act, 1899, and corporate payroll guidelines. Learn mandatory clauses, state-by-state stamp duty rates across Maharashtra, Karnataka, Delhi, and Tamil Nadu, and revenue stamp rules for cash transactions.
+        </p>
+        <div class="meta">
+          <span>&bull; 8 min read &bull; Updated FY 2025-26 / AY 2026-27</span>
+          <a href="/#rent-receipt" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">Create Receipts in New Window &nearr;</a>
+        </div>
       </div>
     </main>
 
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b;">
-      <p>&copy; 2026 RentReceipt.online &bull; Free, 100% Client-Side Financial Document Tools.</p>
+    <footer>
+      <p style="font-weight: 600; color: #0f172a; margin-bottom: 8px;">&copy; 2026 RentReceipt.online. All rights reserved.</p>
+      <p style="margin: 0 0 12px 0;">
+        <a href="/">Home</a> &bull;
+        <a href="/rent-receipt-generator.html">Rent Receipt Generator</a> &bull;
+        <a href="/salary-slip-generator.html">Salary Slip Generator</a> &bull;
+        <a href="/hra-guide.html">HRA Exemption Guide</a> &bull;
+        <a href="/form-12bb-guide.html">Form 12BB Guide</a> &bull;
+        <a href="/landlord-pan-handbook.html">Landlord PAN Handbook</a> &bull;
+        <a href="/us-rent-receipt.html">US Rent Receipt</a> &bull;
+        <a href="/uk-rent-receipt.html">UK Rent Receipt</a> &bull;
+        <a href="/canada-rent-receipt.html">Canada Rent Receipt</a> &bull;
+        <a href="/faq.html">FAQ</a> &bull;
+        <a href="/about.html">About</a> &bull;
+        <a href="/privacy.html">Privacy</a> &bull;
+        <a href="/terms.html">Terms</a> &bull;
+        <a href="/contact.html">Contact</a>
+      </p>
+      <p style="font-size: 0.82rem; color: #94a3b8; margin: 0;">
+        Zero-server data storage. All calculations and PDF document rendering take place directly inside the user's browser memory.
+      </p>
     </footer>
   </body>
 </html>

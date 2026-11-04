@@ -2,7 +2,7 @@ import React from 'react';
 import { Globe } from 'lucide-react';
 
 interface CountryFlagProps {
-  country: 'in' | 'us' | 'global';
+  country: 'in' | 'us' | 'uk' | 'gb' | 'ca' | 'global';
   className?: string;
 }
 
@@ -73,6 +73,46 @@ export const CountryFlag: React.FC<CountryFlagProps> = ({ country, className = '
           <circle cx="165" cy="205" r="8" />
           <circle cx="215" cy="205" r="8" />
         </g>
+      </svg>
+    );
+  }
+
+  if (country === 'uk' || country === 'gb') {
+    return (
+      <svg
+        className={`inline-block shrink-0 rounded-xs border border-slate-300/60 shadow-2xs ${className}`}
+        viewBox="0 0 60 30"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="United Kingdom Flag"
+      >
+        <clipPath id="s">
+          <path d="M0,0 v30 h60 v-30 z"/>
+        </clipPath>
+        <clipPath id="t">
+          <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+        </clipPath>
+        <g clipPath="url(#s)">
+          <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+        </g>
+      </svg>
+    );
+  }
+
+  if (country === 'ca') {
+    return (
+      <svg
+        className={`inline-block shrink-0 rounded-xs border border-slate-300/60 shadow-2xs ${className}`}
+        viewBox="0 0 640 320"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Canada Flag"
+      >
+        <rect width="640" height="320" fill="#f00"/>
+        <rect x="160" width="320" height="320" fill="#fff"/>
+        <path d="M320 60l14 36 28-10-8 30 26 12-22 18 10 26-28-6-20 30v-40h-2v40l-20-30-28 6 10-26-22-18 26-12-8-30 28 10z" fill="#f00"/>
       </svg>
     );
   }

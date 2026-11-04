@@ -15,7 +15,7 @@ export interface PageSeoConfig {
   schema: Record<string, unknown>[];
 }
 
-const BASE_URL = 'https://rentreceipt.online';
+const BASE_URL = 'https://www.rentreceipt.online';
 
 // Localized Page Titles & Descriptions (English default with Hindi & regional mappings)
 const LOCALIZED_SEO: Record<
@@ -31,9 +31,9 @@ const LOCALIZED_SEO: Record<
 > = {
   home: {
     en: {
-      title: 'Free Rent Receipt Generator | Global Multi-Currency PDF Tool',
+      title: 'Free Rent Receipt Generator Online (PDF Download) | RentReceipt.online',
       description:
-        'Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.',
+        'Free online rent receipt generator for HRA tax exemption & tenancy records. Download print-ready PDF receipts with Landlord PAN, 12-month batch, revenue stamps, and multi-currency (USD, EUR, GBP, CAD, INR).',
     },
     hi: {
       title: 'मुफ्त रेंट रसीद और रेंट स्लिप जनरेटर | मल्टी-करेंसी',
@@ -78,6 +78,20 @@ const LOCALIZED_SEO: Record<
       title: 'Free Rent Receipt Generator for US Landlords & Tenants | IRS Proof',
       description:
         'Create professional, print-ready US rent receipts and payment slips in seconds. Built for American landlords, property managers, tenants, and IRS Schedule C/E tax records.',
+    },
+  },
+  uk: {
+    en: {
+      title: 'UK Rent Receipt Generator | Tenancy Deposit & Rent Proof (Tenant Fees Act)',
+      description:
+        'Generate official UK rent receipts and proof of rent payments for private landlords, letting agents, and tenants. Complies with UK Tenant Fees Act and DPS/TDS tenancy deposit standards.',
+    },
+  },
+  canada: {
+    en: {
+      title: 'Canada Rent Receipt Generator | CRA Tax Proof & Provincial Compliance',
+      description:
+        'Official rent receipts for Canadian tenants and landlords. Compliant with CRA tax returns, Ontario Trillium Benefit (OEHTC), and provincial residential tenancy guidelines.',
     },
   },
   'rent-receipt': {
@@ -259,7 +273,7 @@ export const getPageSchemas = (page: ActivePage): Record<string, unknown>[] => {
     name: 'RentReceipt Suite',
     url: BASE_URL,
     logo: `${BASE_URL}/favicon.svg`,
-    image: `${BASE_URL}/og-image.svg`,
+    image: `${BASE_URL}/og-image.png`,
     description:
       'Free, privacy-first client-side documentation suite for salaried employees, tenants, and small businesses.',
     areaServed: [
@@ -519,19 +533,37 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
     LOCALIZED_SEO[pageKey]?.en ||
     LOCALIZED_SEO.home.en;
 
-  // Strict, absolute canonical link pointing ONLY to the primary clean root domain
-  // Consolidates 100% of SEO ranking weight to root URL and eliminates Search Console parameter splitting
-  const getPrimaryCleanDomain = (): string => {
-    if (typeof window !== 'undefined' && window.location && window.location.hostname) {
-      const hostname = window.location.hostname.toLowerCase();
-      if (hostname.includes('hidemymessages.site')) {
-        return 'https://hidemymessages.site/';
-      }
-    }
-    return 'https://rentreceipt.online/';
+  // Map each active page to its specific canonical URL path on www.rentreceipt.online
+  const PAGE_CANONICAL_MAP: Partial<Record<ActivePage, string>> = {
+    home: '',
+    in: 'rent-receipt-generator.html',
+    us: 'us-rent-receipt.html',
+    uk: 'uk-rent-receipt.html',
+    canada: 'canada-rent-receipt.html',
+    'rent-receipt': 'rent-receipt-generator.html',
+    tool: 'rent-receipt-generator.html',
+    'salary-slip': 'salary-slip-generator.html',
+    affidavit: 'affidavit-generator.html',
+    'hra-calculator': 'hra-calculator.html',
+    'form-12bb': 'form-12bb-guide.html',
+    'landlord-pan': 'landlord-pan-handbook.html',
+    resources: 'hra-guide.html',
+    blog: 'blog.html',
+    'blog-rent-to-parents': 'blog-rent-to-parents.html',
+    'blog-fake-rent-receipts': 'blog-fake-rent-receipts.html',
+    'blog-section-80gg': 'blog-section-80gg.html',
+    'blog-rent-agreement-vs-receipt': 'blog-rent-agreement-vs-receipt.html',
+    about: 'about.html',
+    privacy: 'privacy.html',
+    terms: 'terms.html',
+    contact: 'contact.html',
+    guide: 'hra-guide.html',
+    verify: 'rent-receipt-generator.html',
+    faq: 'faq.html',
   };
 
-  const canonicalUrl = getPrimaryCleanDomain();
+  const canonicalSubpath = PAGE_CANONICAL_MAP[pageKey] !== undefined ? PAGE_CANONICAL_MAP[pageKey] : '';
+  const canonicalUrl = canonicalSubpath ? `${BASE_URL}/${canonicalSubpath}` : `${BASE_URL}/`;
 
   // 1. Title
   document.title = localized.title;
@@ -545,7 +577,7 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
   }
   metaDesc.setAttribute('content', localized.description);
 
-  // 3. Canonical Tag
+  // 3. Canonical Tag (Strict www URL matching the exact page)
   let canonicalLink = document.querySelector('link[rel="canonical"]');
   if (!canonicalLink) {
     canonicalLink = document.createElement('link');
@@ -570,7 +602,7 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
   setOgMeta('og:url', canonicalUrl);
   setOgMeta('og:site_name', 'RentReceipt');
   setOgMeta('og:type', pageKey === 'terms' || pageKey === 'privacy' ? 'article' : 'website');
-  setOgMeta('og:image', `${BASE_URL}/og-image.svg`);
+  setOgMeta('og:image', `${BASE_URL}/og-image.png`);
   setOgMeta('og:image:width', '1200');
   setOgMeta('og:image:height', '630');
   setOgMeta('og:image:alt', localized.title);
@@ -590,7 +622,7 @@ export const updateDocumentSeo = (page: ActivePage, language: string = 'en') => 
   setTwitterMeta('twitter:card', 'summary_large_image');
   setTwitterMeta('twitter:title', localized.title);
   setTwitterMeta('twitter:description', localized.description);
-  setTwitterMeta('twitter:image', `${BASE_URL}/og-image.svg`);
+  setTwitterMeta('twitter:image', `${BASE_URL}/og-image.png`);
   setTwitterMeta('twitter:image:alt', localized.title);
 
   // 6. Structured Data (Schema.org) JSON-LD Injection

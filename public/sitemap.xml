@@ -3,114 +3,170 @@
 
   <!-- 1. Primary Global Homepage & Document Suite -->
   <url>
-    <loc>https://rentreceipt.online/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- 2. Interactive HRA Exemption Calculator (High Authority Engine) -->
+  <!-- 2. Rent Receipt Generator & Instant PDF Tool -->
   <url>
-    <loc>https://rentreceipt.online/hra-calculator.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/rent-receipt-generator.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- 3. Rent Receipt Generator & Instant PDF Tool -->
+  <!-- 3. Interactive HRA Exemption Calculator (High Authority Engine) -->
   <url>
-    <loc>https://rentreceipt.online/rent-receipt-generator.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/hra-calculator.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- 4. Form 12BB Statutory Playbook & Tax Proof Submission Guide -->
+  <!-- 4. Section 10(13A) Master HRA Guide & Calculation Formulas -->
   <url>
-    <loc>https://rentreceipt.online/form-12bb-guide.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/hra-guide.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
-  <!-- 5. Landlord PAN Compliance Mandate & Tenant Rights Handbook -->
+  <!-- 5. Form 12BB Statutory Playbook & Tax Proof Submission Guide -->
   <url>
-    <loc>https://rentreceipt.online/landlord-pan-handbook.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/form-12bb-guide.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 6. Professional Salary Slip & Employee Payslip Creator -->
+  <!-- 6. Landlord PAN Compliance Mandate & Tenant Rights Handbook -->
   <url>
-    <loc>https://rentreceipt.online/salary-slip-generator.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/landlord-pan-handbook.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 7. Tenancy Affidavit & Self-Declaration Generator -->
+  <!-- 7. Professional Salary Slip & Employee Payslip Creator -->
   <url>
-    <loc>https://rentreceipt.online/affidavit-generator.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/salary-slip-generator.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 8. United States Rent Receipt & IRS Tax Proof Generator -->
+  <url>
+    <loc>https://www.rentreceipt.online/us-rent-receipt.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 9. United Kingdom Rent Receipt & Tenancy Compliance Guide -->
+  <url>
+    <loc>https://www.rentreceipt.online/uk-rent-receipt.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 10. Canada Provincial Rent Receipt & CRA Proof Generator -->
+  <url>
+    <loc>https://www.rentreceipt.online/canada-rent-receipt.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 11. Tenancy Affidavit & Self-Declaration Generator -->
+  <url>
+    <loc>https://www.rentreceipt.online/affidavit-generator.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 8. Section 10(13A) Master HRA Guide & Parent Rent Rules -->
+  <!-- 12. Editorial Tax & Tenancy Blog Hub -->
   <url>
-    <loc>https://rentreceipt.online/hra-guide.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/blog.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 9. Frequently Asked Questions (FAQ) & Knowledge Base -->
+  <!-- 13. Blog Article: Paying Rent to Parents to Save Tax -->
   <url>
-    <loc>https://rentreceipt.online/faq.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.rentreceipt.online/blog-rent-to-parents.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 10. Tax & Rental Insights Editorial Blog Hub -->
+  <!-- 14. Blog Article: Income Tax Notice for Fake Rent Receipts -->
   <url>
-    <loc>https://rentreceipt.online/blog.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.rentreceipt.online/blog-fake-rent-receipts.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 11. Paying Rent to Parents: Rules, § 24 Deductions & ITAT Rulings -->
+  <!-- 15. Blog Article: Section 80GG Rent Deduction for Non-HRA -->
   <url>
-    <loc>https://rentreceipt.online/blog-rent-to-parents.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.rentreceipt.online/blog-section-80gg.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 12. Income Tax Notice for Fake Rent Receipts & § 270A Penalties -->
+  <!-- 16. Blog Article: Rent Agreement vs Rent Receipt Differences -->
   <url>
-    <loc>https://rentreceipt.online/blog-fake-rent-receipts.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.rentreceipt.online/blog-rent-agreement-vs-receipt.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 13. Section 80GG Rent Deduction for Non-HRA Individuals -->
+  <!-- 17. Comprehensive Tenancy & HRA FAQ -->
   <url>
-    <loc>https://rentreceipt.online/blog-section-80gg.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.rentreceipt.online/faq.html</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 14. Rent Agreement vs Rent Receipt: Key Legal Differences -->
+  <!-- 18. About Us & Editorial Mission -->
   <url>
-    <loc>https://rentreceipt.online/blog-rent-agreement-vs-receipt.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.rentreceipt.online/about.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 19. Privacy Policy (GDPR, CCPA & AdSense Compliance) -->
+  <url>
+    <loc>https://www.rentreceipt.online/privacy.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 20. Terms of Service & Acceptable Use -->
+  <url>
+    <loc>https://www.rentreceipt.online/terms.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 21. Contact & Support Desk -->
+  <url>
+    <loc>https://www.rentreceipt.online/contact.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 
 </urlset>

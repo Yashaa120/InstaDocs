@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, ArrowUp } from 'lucide-react';
+import { ShieldCheck, ArrowUp, Globe } from 'lucide-react';
 import { ActivePage } from '../types';
 import { HouseLogo } from './HouseLogo';
 import { useLanguage } from '../context/LanguageContext';
@@ -32,9 +32,9 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
   return (
     <footer className="bg-slate-900 text-slate-400 text-sm border-t border-slate-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
           {/* Brand Col */}
-          <div className="space-y-3">
+          <div className="space-y-3 lg:col-span-1">
             <a
               href="/"
               onClick={(e) => {
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </span>
             </a>
             <p className="text-xs text-slate-400 leading-relaxed">
-              A free, privacy-first client-side utility built for salaried employees and self-employed professionals to generate compliant rent receipts and tax documentation under Section 10(13A) and Section 80GG.
+              Global multi-currency rent receipt generator and tenancy compliance platform. 100% private in-browser document compilation for tenants and landlords in the US, UK, Canada, India, and worldwide.
             </p>
             <div className="flex items-center space-x-2 text-xs text-emerald-400 pt-1">
               <ShieldCheck className="w-4 h-4 shrink-0" />
@@ -65,20 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('home');
-                  }}
-                  className="hover:text-white transition-colors block"
-                >
-                  ⚡ All Free Generators
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#rent-receipt"
-                  rel="nofollow"
+                  href="/rent-receipt-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('rent-receipt');
@@ -90,8 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#salary-slip"
-                  rel="nofollow"
+                  href="/salary-slip-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('salary-slip');
@@ -103,8 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#affidavit"
-                  rel="nofollow"
+                  href="/affidavit-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('affidavit');
@@ -116,8 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#verify"
-                  rel="nofollow"
+                  href="/rent-receipt-generator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('verify');
@@ -130,15 +114,73 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
             </ul>
           </div>
 
-          {/* Tax Guides & Statutory Playbooks */}
+          {/* International Country Editions */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
-              Tax Guides &amp; Calculators
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3 flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5 text-blue-400" />
+              <span>Country Editions</span>
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="#hra-calculator"
+                  href="/us-rent-receipt.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('us');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🇺🇸 United States (IRS Proof)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/uk-rent-receipt.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('uk');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🇬🇧 United Kingdom (DPS / TDS)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/canada-rent-receipt.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('canada');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🇨🇦 Canada (CRA &amp; Provincial)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/rent-receipt-generator.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('in');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🇮🇳 India (Section 10(13A) HRA)
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Tax Guides & Statutory Playbooks */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
+              Tax Guides &amp; Engine
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="/hra-calculator.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('hra-calculator');
@@ -150,43 +192,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#resources"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('resources');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
-                >
-                  📚 Tax &amp; Legal Resource Hub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#form-12bb"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('form-12bb');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
-                >
-                  📋 Form 12BB Filing Playbook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#landlord-pan"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('landlord-pan');
-                  }}
-                  className="hover:text-white transition-colors block cursor-pointer"
-                >
-                  🛡️ Landlord PAN &amp; Tenant Rights
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#guide"
+                  href="/hra-guide.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('guide');
@@ -198,7 +204,31 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="/form-12bb-guide.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('form-12bb');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  📋 Form 12BB Filing Playbook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/landlord-pan-handbook.html"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('landlord-pan');
+                  }}
+                  className="hover:text-white transition-colors block cursor-pointer"
+                >
+                  🛡️ Landlord PAN &amp; Tenant Rights
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/faq.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('faq');
@@ -214,24 +244,24 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
           {/* Editorial Blog Articles */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">
-              Tax Insights &amp; Blog
+              Editorial Blog &amp; Insights
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="#blog"
+                  href="/blog.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('blog');
                   }}
                   className="hover:text-white text-blue-400 font-semibold transition-colors block cursor-pointer"
                 >
-                  📰 All Editorial Articles &amp; Insights
+                  📰 All Editorial Articles
                 </a>
               </li>
               <li>
                 <a
-                  href="#blog-rent-to-parents"
+                  href="/blog-rent-to-parents.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('blog-rent-to-parents');
@@ -243,7 +273,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#blog-fake-rent-receipts"
+                  href="/blog-fake-rent-receipts.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('blog-fake-rent-receipts');
@@ -255,7 +285,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#blog-section-80gg"
+                  href="/blog-section-80gg.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('blog-section-80gg');
@@ -267,7 +297,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
               </li>
               <li>
                 <a
-                  href="#blog-rent-agreement-vs-receipt"
+                  href="/blog-rent-agreement-vs-receipt.html"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNav('blog-rent-agreement-vs-receipt');
@@ -277,64 +307,71 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onOpenModal }) =>
                   ⚖️ Rent Agreement vs Rent Receipt
                 </a>
               </li>
-              <li className="pt-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-500 border-t border-slate-800">
-                <button
-                  type="button"
-                  onClick={(e) => handleLegalClick(e, 'about')}
-                  className="hover:text-white transition-colors text-left cursor-pointer"
-                >
-                  {t('footer_about')}
-                </button>
-                <button
-                  type="button"
-                  onClick={(e) => handleLegalClick(e, 'privacy')}
-                  className="hover:text-white transition-colors text-left cursor-pointer"
-                >
-                  {t('footer_privacy')}
-                </button>
-                <button
-                  type="button"
-                  onClick={(e) => handleLegalClick(e, 'terms')}
-                  className="hover:text-white transition-colors text-left cursor-pointer"
-                >
-                  {t('footer_terms')}
-                </button>
-                <a
-                  href="#contact"
-                  rel="nofollow"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav('contact');
-                  }}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  {t('footer_contact')}
-                </a>
-              </li>
             </ul>
           </div>
         </div>
 
+        {/* Legal & Policy Navigation Strip */}
+        <div className="pt-6 pb-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-6">
+            <a
+              href="/about.html"
+              onClick={(e) => handleLegalClick(e, 'about')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              {t('footer_about') || 'About Us'}
+            </a>
+            <a
+              href="/privacy.html"
+              onClick={(e) => handleLegalClick(e, 'privacy')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              {t('footer_privacy') || 'Privacy Policy'}
+            </a>
+            <a
+              href="/terms.html"
+              onClick={(e) => handleLegalClick(e, 'terms')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              {t('footer_terms') || 'Terms & Conditions'}
+            </a>
+            <a
+              href="/contact.html"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('contact');
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              {t('footer_contact') || 'Contact Us'}
+            </a>
+          </div>
+
+          <div className="text-[11px] text-slate-500">
+            Official publisher contact: <a href="mailto:support@rentreceipt.online" className="text-blue-400 hover:underline">support@rentreceipt.online</a>
+          </div>
+        </div>
+
         {/* Disclaimer Bar */}
-        <div className="pt-8 border-t border-slate-800 text-[11px] text-slate-500 leading-relaxed">
+        <div className="pt-4 border-t border-slate-800/60 text-[11px] text-slate-500 leading-relaxed">
           <p>
-            <strong>Disclaimer:</strong> Rent Receipt Generator is an independent document formatting tool created for educational and administrative convenience. It does not provide legal, tax, or financial advisory services. Please verify your tax exemptions with a qualified Chartered Accountant (CA) or tax advisor.
+            <strong>Statutory Disclaimer:</strong> RentReceipt.online is an independent document formatting and tax calculation utility created for administrative, educational, and tenancy record-keeping purposes. We do not provide chartered accountancy, legal advisory, or personal financial advice. For complex corporate tax audits, consult a licensed CPA, Enrolled Agent, or Chartered Accountant.
           </p>
         </div>
 
-        {/* Bottom Bar with Clean Minimalist Trust Badges */}
+        {/* Bottom Bar with Global Copyright */}
         <div className="mt-6 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex flex-wrap items-center gap-4 text-xs">
-            <span className="inline-flex items-center gap-1">✅ 100% Free</span>
-            <span className="inline-flex items-center gap-1">🔒 Private &amp; Secure</span>
-            <span className="inline-flex items-center gap-1">⚡ Instant Download</span>
+            <span className="inline-flex items-center gap-1">✅ 100% Free Service</span>
+            <span className="inline-flex items-center gap-1">🔒 Zero Server Storage</span>
+            <span className="inline-flex items-center gap-1">⚡ Instant In-Browser PDF</span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span>© {new Date().getFullYear()} RentReceipt Generator India. All rights reserved.</span>
+            <span>© 2026 RentReceipt.online. All rights reserved.</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center space-x-1 hover:text-white transition-colors"
+              className="flex items-center space-x-1 hover:text-white transition-colors cursor-pointer"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />

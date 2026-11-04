@@ -1,24 +1,33 @@
-# RentReceipt
+# RentReceipt.online
 
-> Free, privacy-first financial and legal document suite built for Indian salaried employees, tenants, and small business employers. Generate CBDT-compliant rent receipts, professional salary slips, and legal affidavits with 100% client-side in-browser processing.
+> Free, privacy-first multi-currency financial and legal document suite built for tenants, salaried employees, and landlords worldwide (India, United States, United Kingdom, Canada, and global tenancies). Generate CBDT, IRS, and HMRC compliant rent receipts, professional salary slips, and tenancy affidavits with 100% client-side in-browser processing.
 
-RentReceipt provides instant, watermark-free document generation utilities designed to satisfy statutory compliance requirements under the Indian Income Tax Act, 1961 (Section 10(13A), Rule 2A), the Indian Stamp Act, and corporate payroll audits. All data is processed locally in the user's browser memory; zero personal, financial, or tax identifiers are stored or transmitted to server databases.
+RentReceipt.online provides instant, watermark-free document generation utilities designed to satisfy statutory compliance requirements under the Indian Income Tax Act, 1961 (Section 10(13A), Rule 2A), US IRS Schedule E/Form 1040, UK Housing Act 1988/AST regulations, and Canadian CRA provincial property tax credits. All data is processed locally in the user's browser memory; zero personal, financial, or tax identifiers are stored on or transmitted to server databases.
 
 ## Free Compliance Tools
 
-- [Free Rent Receipt Generator](https://rentreceipt.online/#rent-receipt): Generate professional, print-ready monthly or multi-month (annual FY 2025-26) rent receipts in PDF format with automatic rupee-in-words conversion, landlord PAN compliance (for rent exceeding ₹1 Lakh/year), and ₹1 revenue stamp placeholders for cash payments over ₹5,000.
-- [Online Salary Slip Generator](https://rentreceipt.online/#salary-slip): Create formal employee monthly payslips with comprehensive earnings (Basic, HRA, Conveyance, Special Allowance) and deductions (EPF, ESI, Professional Tax, TDS) alongside net salary calculations and downloadable PDFs for loan/visa/tax filings.
-- [Rent Affidavit & Address Proof Generator](https://rentreceipt.online/#affidavit): Create legally formatted rent self-declaration affidavits, no-rent-agreement declarations, and residential address proof documents compatible with e-stamp paper margins for passport, bank account, and employer submissions.
-- [QR Code Rent Receipt Verification Portal](https://rentreceipt.online/#verify): Cryptographic validity check portal allowing employers and tax auditors to scan the embedded QR code on generated receipts to verify landlord details, rent amounts, and payment references.
+- [Free Rent Receipt Generator](https://www.rentreceipt.online/rent-receipt-generator.html): Generate professional, print-ready monthly or multi-month (annual FY 2025-26) rent receipts in PDF format with automatic currency conversion, landlord PAN compliance (for rent exceeding ₹1 Lakh/year), and ₹1 revenue stamp placeholders for cash payments over ₹5,000.
+- [Interactive HRA Exemption Calculator](https://www.rentreceipt.online/hra-calculator.html): Live tax calculation engine computing Section 10(13A) exemptions across Metro (50%) and Non-Metro (40%) rules with instant tax savings comparison against the New Tax Regime (Section 115BAC).
+- [Online Salary Slip Generator](https://www.rentreceipt.online/salary-slip-generator.html): Create formal employee monthly payslips with comprehensive earnings (Basic, HRA, Conveyance, Special Allowance) and statutory deductions (EPF, ESI, Professional Tax, TDS) alongside net salary calculations and downloadable PDFs.
+- [Rent Affidavit & Address Proof Generator](https://www.rentreceipt.online/affidavit-generator.html): Create legally formatted rent self-declaration affidavits, no-rent-agreement declarations, and residential address proof documents compatible with e-stamp paper margins.
+
+## International Tenancy Editions
+
+- [United States Rent Receipt Generator](https://www.rentreceipt.online/us-rent-receipt.html): IRS Schedule E and state tenant tax credit rent receipts supporting USD currency, electronic payment tracing, and landlord tax ID/SSN compliance.
+- [United Kingdom Rent Receipt Generator](https://www.rentreceipt.online/uk-rent-receipt.html): Rent receipts formatted for Assured Shorthold Tenancies (AST), Housing Benefit, and Universal Credit housing element proof under English & Welsh law.
+- [Canada Rent Receipt Generator](https://www.rentreceipt.online/canada-rent-receipt.html): Provincial rent receipts supporting CRA audits, Ontario Trillium Benefit (OEPTC), and Quebec Solidarity Tax Credit compliance.
 
 ## Guides and Resources
 
-- [HRA Tax Exemption Guide (FY 2025-26)](https://rentreceipt.online/#guide): Step-by-step breakdown of Section 10(13A) House Rent Allowance tax calculation rules, metro (50%) vs. non-metro (40%) ceilings, landlord PAN requirements, paying rent to parents, and Form 12BB employer submission deadlines.
-- [Frequently Asked Questions (FAQ)](https://rentreceipt.online/#faq): Comprehensive answers to common questions regarding revenue stamp validity, landlord PAN exemption limits, multiple-month receipt generation, and client-side privacy architecture.
+- [Master HRA Tax Exemption Guide](https://www.rentreceipt.online/hra-guide.html): In-depth statutory breakdown of Section 10(13A) and Rule 2A, salary definitions, metro classifications, Section 194-IB 2% TDS on high rent, and dual HRA/home loan rules.
+- [Form 12BB Statutory Playbook](https://www.rentreceipt.online/form-12bb-guide.html): Comprehensive filing guide for submitting rent receipts, home loan interest, and Chapter VI-A investment proofs to corporate employers.
+- [Landlord PAN Compliance Handbook](https://www.rentreceipt.online/landlord-pan-handbook.html): Legal manual on the ₹1,00,000 annual rent threshold under CBDT Circular 08/2013, Form 60 alternatives, and Section 194-IB withholding rules.
+- [Tax & Tenancy Blog Hub](https://www.rentreceipt.online/blog.html): Editorial desk articles analyzing ITAT tribunal precedents, fake rent receipt scrutiny notices, Section 80GG self-employed deductions, and tenancy agreements vs. receipts.
+- [Frequently Asked Questions (FAQ)](https://www.rentreceipt.online/faq.html): Authoritative answers regarding revenue stamp validity, landlord PAN exemption limits, multiple-month receipt generation, and client-side privacy architecture.
 
 ## Organization & Legal
 
-- [About RentReceipt](https://rentreceipt.online/#about): The origin story, mission, and guiding architectural principles behind our zero-server-storage, privacy-first web utility.
-- [Contact Us & Technical Support](https://rentreceipt.online/#contact): Support desk for user questions, bug reports, feature suggestions, and corporate partnership inquiries (support@rentreceipt.online).
-- [Privacy Policy](https://rentreceipt.online/#privacy): Formal explanation of our 100% in-browser processing guarantee, zero server-side storage of personal information, and advertising transparency.
-- [Terms and Conditions](https://rentreceipt.online/#terms): Legal terms of service, acceptable use policies, and compliance disclaimers.
+- [About Us & Editorial Standards](https://www.rentreceipt.online/about.html): The origin story, mission, and guiding architectural principles behind our zero-server-storage, privacy-first web utility.
+- [Contact Us & Technical Support](https://www.rentreceipt.online/contact.html): Support desk for user questions, bug reports, feature suggestions, and corporate inquiries (support@rentreceipt.online).
+- [Privacy Policy](https://www.rentreceipt.online/privacy.html): Formal explanation of our 100% in-browser processing guarantee, zero server-side storage of personal information, and advertising transparency (GDPR, CCPA, and Google AdSense compliance).
+- [Terms and Conditions](https://www.rentreceipt.online/terms.html): Legal terms of service, acceptable use policies, and compliance disclaimers.

@@ -151,24 +151,44 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
 
   const homeFaqs = [
     {
-      question: 'Which currencies are supported by the rent receipt generator?',
+      question: 'Which currencies and regions are supported by the rent receipt generator?',
       answer:
-        'Our generator natively supports major world currencies including US Dollar ($ USD), Euro (€ EUR), British Pound (£ GBP), Canadian Dollar ($ CAD), Australian Dollar ($ AUD), and Indian Rupee (₹ INR), complete with proper localized number-to-words formatting.',
+        'Our generator natively supports major world currencies including US Dollar ($ USD), Euro (€ EUR), British Pound (£ GBP), Canadian Dollar ($ CAD), Australian Dollar ($ AUD), and Indian Rupee (₹ INR), complete with proper localized number-to-words formatting, revenue stamp placeholders, and landlord tax ID fields.',
     },
     {
-      question: 'Are these rent receipts legally valid for landlords and tenants?',
+      question: 'Are these rent receipts legally valid for HRA tax exemption under Section 10(13A)?',
       answer:
-        'Yes. The receipts include all standard statutory elements required by tax authorities, property managers, and employers: landlord and tenant names, rental property address, monthly period, payment method, numeric and verbal rent amounts, and signature placeholders.',
+        'Yes. The receipts include all statutory elements mandated by the Central Board of Direct Taxes (CBDT) and Indian corporate payroll audits: full tenant and landlord names, property address, rental period, payment mode, numeric and verbal currency values, landlord PAN (for rent exceeding ₹1 Lakh/year), and revenue stamp signature blocks.',
     },
     {
-      question: 'Can I generate multi-month or annual batch receipts at once?',
+      question: 'When is Landlord PAN strictly required on rent receipts?',
       answer:
-        'Yes! You can toggle between single-month generation and multi-month financial batches (up to 12 consecutive months) to download all receipts in a single combined PDF document.',
+        'Under CBDT Circular No. 08/2013 and Section 139A(5) of the Income Tax Act, Landlord PAN is strictly mandatory if your total annual rent paid exceeds ₹1,00,000 (approx. ₹8,333 per month). If the landlord does not possess a PAN card, a signed declaration in Form 60 along with government identification proof must be submitted to your employer.',
     },
     {
-      question: 'Is my personal financial data stored on your servers?',
+      question: 'Is a revenue stamp required if I pay rent online via UPI, Google Pay, or NEFT?',
       answer:
-        'No. All our tools run 100% client-side inside your browser. No tenant names, landlord information, salary figures, or addresses are ever transmitted to or stored on any server.',
+        'Under Section 30 of the Indian Stamp Act, 1899, a ₹1 revenue stamp is only legally mandatory for cash payments exceeding ₹5,000. For digital bank transfers, UPI, credit cards, or cheques, the electronic transaction trail serves as legal proof; however, many corporate HR teams request stamped receipts for standardized physical records.',
+    },
+    {
+      question: 'Can I legally claim HRA by paying rent to my parents?',
+      answer:
+        'Yes! Paying rent to parents is 100% legal under Section 10(13A), as upheld by the Ahmedabad Income Tax Appellate Tribunal (ITAT) in Bajrang Prasad Ramdharani v. ACIT. The residential house must be legally registered in your parents’ name, rent must be transferred through verifiable banking channels, valid receipts issued, and parents must report this rental income in their annual ITR.',
+    },
+    {
+      question: 'Can I generate rent receipts for previous months (backdated)?',
+      answer:
+        'Yes. You can select any previous month or an entire 12-month financial year (April to March) in our generator to create batch receipts for submission during your company’s annual Form 12BB tax proof declaration window, provided the rental tenure and payments were genuine.',
+    },
+    {
+      question: 'What is Section 194-IB and who must deduct 2% TDS on rent?',
+      answer:
+        'Under Section 194-IB of the Income Tax Act, individuals or HUF tenants paying monthly rent exceeding ₹50,000 must deduct 2% Tax Deducted at Source (TDS) from the landlord’s rent. The tenant does not need a TAN; the tax is deposited using their PAN via online Challan Form 26QC, and Form 16C is issued to the landlord.',
+    },
+    {
+      question: 'Can I claim both HRA tax exemption and Home Loan deductions simultaneously?',
+      answer:
+        'Yes, provided legitimate commercial reasons exist. For example, if you own a home in one city (or distant suburb) but live in rented accommodation closer to your workplace, you can claim HRA under Section 10(13A) alongside Home Loan interest deductions up to ₹2 Lakh under Section 24(b) and principal repayments up to ₹1.5 Lakh under Section 80C.',
     },
   ];
 
@@ -384,89 +404,242 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectTool, onOpenModal })
         </div>
       </section>
 
-      {/* Section 4: Regional Compliance Addendums (India HRA) */}
-      <section className="mb-8 bg-slate-50/80 rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs space-y-4" aria-label="Regional Compliance Addendums (India HRA)">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
-            <span>Regional Tax Compliance</span>
+      {/* Section 4: Comprehensive Master HRA & Tenancy Compliance Guide */}
+      <section className="mb-10 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-8" aria-label="Master HRA & Tenancy Compliance Guide">
+        {/* Header & Category Badge */}
+        <div className="border-b border-slate-100 pb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mb-3">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Master Statutory Playbook &bull; FY 2025-26 &bull; AY 2026-27</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <span>Regional Compliance Addendums (India HRA)</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Complete Guide to Rent Receipts, Section 10(13A) HRA Rules &amp; Tenancy Compliance
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            For salaried employees filing under the Indian Income Tax Act, 1961, submitting proof of rent paid under Section 10(13A) via Form 12BB requires meeting specific Central Board of Direct Taxes (CBDT) parameters:
+          <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+            Everything salaried employees, landlords, and self-employed professionals need to know to generate legally valid rent receipts, claim maximum House Rent Allowance (HRA) exemptions, and satisfy corporate payroll and Income Tax Department audits.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
-            <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
-              <span className="font-bold text-slate-900">📌 Mandatory Landlord PAN:</span>
-              <p className="text-slate-600">Required whenever total annual rent exceeds ₹1,00,000 (approx. ₹8,333/month) under CBDT Circular No. 08/2013.</p>
+        </div>
+
+        {/* 1. The Statutory 3-Condition Formula */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+            <Calculator className="w-5 h-5 text-blue-600" />
+            <span>1. The Statutory Rule 2A HRA Exemption Formula</span>
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Under Section 10(13A) of the Income Tax Act, 1961, read with Rule 2A of the Income Tax Rules, 1962, the tax-exempt portion of House Rent Allowance is strictly determined as the <strong>MINIMUM</strong> of three statutory calculations:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl border border-blue-100 bg-blue-50/50">
+              <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-1">Condition 1</span>
+              <h4 className="text-base font-bold text-slate-900 mb-1">Actual HRA Received</h4>
+              <p className="text-xs text-slate-600">
+                The total House Rent Allowance designated in your monthly salary slip and Form 16 issued by your employer.
+              </p>
             </div>
-            <div className="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
-              <span className="font-bold text-slate-900">📌 Revenue Stamp &amp; Signature:</span>
-              <p className="text-slate-600">Affix ₹1 revenue stamp signed across by landlord for monthly cash rental payments exceeding ₹5,000.</p>
+            <div className="p-4 rounded-xl border border-indigo-100 bg-indigo-50/50">
+              <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider block mb-1">Condition 2</span>
+              <h4 className="text-base font-bold text-slate-900 mb-1">50% or 40% of Salary</h4>
+              <p className="text-xs text-slate-600">
+                <strong>50% of Basic Salary + DA</strong> for metro cities (Delhi, Mumbai, Kolkata, Chennai). <strong>40% of Basic Salary + DA</strong> for all other cities (Bengaluru, Hyderabad, Pune, etc.).
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-emerald-100 bg-emerald-50/50">
+              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Condition 3</span>
+              <h4 className="text-base font-bold text-slate-900 mb-1">Rent Paid &minus; 10% Salary</h4>
+              <p className="text-xs text-slate-600">
+                Actual annual residential rent paid minus 10% of your statutory Basic Salary + Dearness Allowance (DA).
+              </p>
             </div>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            HRA exemption is calculated as the lowest of: (1) Actual HRA received, (2) 50% of Basic Salary for metro cities or 40% for non-metro cities, or (3) Rent paid minus 10% of Basic Salary. Our generator automatically applies these parameters with zero watermarks.
+
+          <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 text-xs text-amber-900 leading-relaxed">
+            <strong>Important Statutory Definition of &ldquo;Salary&rdquo;:</strong> For Rule 2A calculations, salary includes strictly <em>Basic Pay + Dearness Allowance (DA entering into retirement benefits) + turnover-based commission</em>. Variable allowances, bonuses, special allowances, and reimbursements are excluded from this base, which lowers your 10% deduction and increases your eligible exemption!
+          </div>
+        </div>
+
+        {/* 2. Comprehensive Compliance & Verification Matrix */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+            2. Statutory Tenancy Verification Matrix
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Different rent ranges and payment channels trigger specific legal requirements under the Income Tax Act, CBDT circulars, and the Indian Stamp Act:
           </p>
 
-          <div className="pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <h3 className="text-xs font-bold text-slate-900 mb-1">
-                <a
-                  href="#rent-receipt"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onSelectTool('rent-receipt');
-                  }}
-                  className="text-blue-600 hover:underline text-left inline-flex items-center gap-1 font-bold"
-                >
-                  <span>🏠 Rent Receipts for HRA</span>
-                  <ChevronRight className="w-3 h-3" />
-                </a>
-              </h3>
-              <p className="text-[11px] text-slate-500 leading-relaxed">
-                Generate single-month or full-year receipts with automatic rupee words, landlord PAN fields, and ₹1 revenue stamp placeholders.
+          <div className="overflow-x-auto rounded-xl border border-slate-200">
+            <table className="min-w-full divide-y divide-slate-200 text-xs sm:text-sm text-left">
+              <thead className="bg-slate-50 text-slate-700 font-bold">
+                <tr>
+                  <th className="py-3 px-4">Tenancy Scenario</th>
+                  <th className="py-3 px-4">Landlord PAN Required?</th>
+                  <th className="py-3 px-4">Revenue Stamp Needed?</th>
+                  <th className="py-3 px-4">Tax Deducted (TDS)?</th>
+                  <th className="py-3 px-4">Required Documents</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-600 bg-white">
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Rent &le; ₹8,333/mo (₹1L/year) via Bank/UPI</td>
+                  <td className="py-3 px-4 text-emerald-700 font-medium">Optional</td>
+                  <td className="py-3 px-4 text-slate-500">Not required for digital transfers</td>
+                  <td className="py-3 px-4 text-slate-500">Nil</td>
+                  <td className="py-3 px-4">Monthly rent receipts</td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Rent &gt; ₹8,333/mo (Exceeds ₹1 Lakh/year)</td>
+                  <td className="py-3 px-4 text-rose-700 font-bold">Mandatory (CBDT 08/2013)</td>
+                  <td className="py-3 px-4 text-slate-500">Only if paid in cash &gt; ₹5,000</td>
+                  <td className="py-3 px-4 text-slate-500">Nil (unless &gt; ₹50k/mo)</td>
+                  <td className="py-3 px-4">Receipts + Landlord PAN / Form 60</td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Cash Payment exceeding ₹5,000/month</td>
+                  <td className="py-3 px-4 font-medium text-slate-700">Mandatory if annual &gt; ₹1L</td>
+                  <td className="py-3 px-4 text-rose-700 font-bold">Mandatory ₹1 Stamp Signed Across</td>
+                  <td className="py-3 px-4 text-slate-500">Nil</td>
+                  <td className="py-3 px-4">Stamped receipts signed by landlord</td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">High Rent &gt; ₹50,000/month</td>
+                  <td className="py-3 px-4 text-rose-700 font-bold">Mandatory</td>
+                  <td className="py-3 px-4 text-slate-500">Optional for digital transfer</td>
+                  <td className="py-3 px-4 text-rose-700 font-bold">2% TDS (Section 194-IB)</td>
+                  <td className="py-3 px-4">Receipts + Form 26QC + Form 16C certificate</td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Paying Rent to Parents</td>
+                  <td className="py-3 px-4 font-medium text-slate-700">Required if &gt; ₹1L/year</td>
+                  <td className="py-3 px-4 text-slate-500">Follows cash/digital rules</td>
+                  <td className="py-3 px-4 text-slate-500">Nil (unless &gt; ₹50k/mo)</td>
+                  <td className="py-3 px-4">Tenancy agreement + Bank debits + Parents ITR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* 3. Metro vs Non-Metro Classification */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+            3. Metro (50%) vs Non-Metro (40%) City Classifications
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Under the Indian Constitution and Income Tax Rules, only four historic cities qualify for the enhanced <strong>50% of Basic Salary</strong> threshold: <strong>New Delhi, Mumbai, Kolkata, and Chennai</strong>.
+          </p>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            All other major metropolitan and IT hubs—including <strong>Bengaluru, Hyderabad, Pune, Gurugram, Noida, Ahmedabad, Kochi, and Chandigarh</strong>—fall strictly under the <strong>40% of Basic Salary</strong> ceiling. When calculating your exemption using our generator, selecting your exact city automatically applies the correct statutory ceiling.
+          </p>
+        </div>
+
+        {/* 4. Family Tenancy: Paying Rent to Parents vs Spouse */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+            4. Paying Rent to Family Members: Legal Rules &amp; Judicial Precedents
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50/40">
+              <h4 className="text-sm font-bold text-emerald-900 mb-1 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Paying Rent to Parents (100% Legal)</span>
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Salaried employees can legally claim Section 10(13A) HRA by paying rent to their parents, affirmed by the Ahmedabad ITAT in <em>Bajrang Prasad Ramdharani v. ACIT</em>. Prerequisites: (1) parents must be legal owners of the house, (2) payments must flow through verifiable banking trails (NEFT/UPI), (3) monthly receipts must be issued, and (4) parents must report this rental income in their annual ITR, where they can claim the 30% statutory repair deduction under Section 24(a).
               </p>
             </div>
 
-            <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <h3 className="text-xs font-bold text-slate-900 mb-1">
-                <a
-                  href="#salary-slip"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onSelectTool('salary-slip');
-                  }}
-                  className="text-blue-600 hover:underline text-left inline-flex items-center gap-1 font-bold"
-                >
-                  <span>💼 Salary Slip Generator</span>
-                  <ChevronRight className="w-3 h-3" />
-                </a>
-              </h3>
-              <p className="text-[11px] text-slate-500 leading-relaxed">
-                Calculate Basic, HRA, EPF (12%), Professional Tax, and TDS deductions with company logo and signature attestation.
+            <div className="p-4 rounded-xl border border-rose-200 bg-rose-50/40">
+              <h4 className="text-sm font-bold text-rose-900 mb-1 flex items-center gap-1.5">
+                <span className="text-rose-600 font-bold">&times;</span>
+                <span>Paying Rent to Spouse (Strictly Disallowed)</span>
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Paying rent to a husband or wife is consistently rejected by tax assessing officers and appellate tribunals. Spouses share a common domestic domicile under marriage law, and income clubbing provisions under Section 64 disallow synthetic rental arrangements between spouses.
               </p>
             </div>
+          </div>
+        </div>
 
-            <div className="p-3 bg-white rounded-xl border border-slate-200">
-              <h3 className="text-xs font-bold text-slate-900 mb-1">
-                <a
-                  href="#affidavit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onSelectTool('affidavit');
-                  }}
-                  className="text-blue-600 hover:underline text-left inline-flex items-center gap-1 font-bold"
-                >
-                  <span>📜 Legal Rent Affidavit</span>
-                  <ChevronRight className="w-3 h-3" />
-                </a>
-              </h3>
-              <p className="text-[11px] text-slate-500 mb-0 leading-relaxed">
-                Create self-declaration tenancy agreements and address verification drafts tailored for notarization and e-stamp paper.
-              </p>
+        {/* 5. Dual Benefits: Simultaneous HRA + Home Loan Claims */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+            5. Dual Tax Benefit: Claiming HRA and Home Loan Simultaneously
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            You can claim both Section 10(13A) HRA and Home Loan tax deductions under Section 24(b) (interest up to ₹2,00,000) and Section 80C (principal repayment up to ₹1,50,000) when legitimate commercial circumstances exist:
+          </p>
+          <ul className="text-xs sm:text-sm text-slate-600 space-y-2 pl-5 list-disc">
+            <li><strong>Employment Relocation:</strong> You own a residential house in your hometown (e.g., Pune or Jaipur) but live in rented accommodation in your workplace city (e.g., Bengaluru or Gurugram).</li>
+            <li><strong>Commute Distance in Same City:</strong> You own a property in a distant suburb (e.g., Greater Noida or Navi Mumbai) but rent a flat near your central office because daily commuting is impractical.</li>
+            <li><strong>Under-Construction Property:</strong> You are servicing a home loan EMI on an under-construction apartment while continuing to live in rented quarters until possession is delivered.</li>
+          </ul>
+        </div>
+
+        {/* 6. Form 12BB Proof Submission Checklist */}
+        <div className="p-5 rounded-xl border border-blue-200 bg-blue-50/40 space-y-3">
+          <h4 className="text-sm font-bold text-blue-900 flex items-center gap-2">
+            <FileCheck className="w-4 h-4 text-blue-700" />
+            <span>Form 12BB Employer Submission Checklist (Payroll Cutoff Dec &ndash; Feb)</span>
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold">&bull;</span>
+              <span>12 printed monthly rent receipts or 1 annual batch PDF document.</span>
             </div>
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold">&bull;</span>
+              <span>Landlord PAN photocopy (mandatory if annual rent exceeds ₹1,00,000).</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold">&bull;</span>
+              <span>₹1 revenue stamp signed across by landlord for cash rent over ₹5,000.</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold">&bull;</span>
+              <span>Bank account debit statements highlighting electronic rent transfers.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 7. Action Button Shortcuts */}
+        <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3 items-center justify-between">
+          <div className="flex flex-wrap gap-2.5">
+            <a
+              href="#rent-receipt"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectTool('rent-receipt');
+              }}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-2xs transition-all"
+            >
+              <span>Generate Rent Receipts</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="#hra-calculator"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectTool('hra-calculator');
+              }}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition-all"
+            >
+              <span>Calculate HRA Exemption</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="/hra-guide.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-all"
+            >
+              <span>Read Full Statutory Guide &nearr;</span>
+            </a>
+          </div>
+
+          {/* E-E-A-T Editorial Badge */}
+          <div className="text-[11px] text-slate-500 font-medium">
+            Fact-Checked &bull; Updated FY 2025-26 &bull; CBDT Aligned
           </div>
         </div>
       </section>

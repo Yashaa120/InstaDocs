@@ -1,19 +1,20 @@
 <!doctype html>
-<html lang="en-in" dir="ltr">
+<html lang="en-IN" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HRA Exemption Calculator Online 2025-26 | Section 10(13A) Tax Engine</title>
-    <meta name="description" content="Free online House Rent Allowance (HRA) exemption calculator. Calculate 3 statutory limits under Rule 2A, compare Old vs New Tax Regime, and project tax savings." />
-    <link rel="canonical" href="https://rentreceipt.online/hra-calculator.html" />
+    <title>HRA Exemption Calculator Online | Section 10(13A) Tax Engine | RentReceipt.online</title>
+    <meta name="description" content="Free online House Rent Allowance (HRA) exemption calculator. Calculate 3 statutory limits under Rule 2A, compare Old vs New Tax Regime, and project tax savings with worked examples." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.rentreceipt.online/hra-calculator.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="HRA Exemption Calculator Online | Section 10(13A)" />
     <meta property="og:description" content="Free online House Rent Allowance calculator. Calculate Section 10(13A) 3-condition limits and tax savings instantly." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rentreceipt.online/hra-calculator.html" />
-    <meta property="og:image" content="https://rentreceipt.online/og-image.svg" />
+    <meta property="og:url" content="https://www.rentreceipt.online/hra-calculator.html" />
+    <meta property="og:image" content="https://www.rentreceipt.online/og-image.png" />
 
     <!-- Schema.org WebApplication -->
     <script type="application/ld+json">
@@ -23,8 +24,9 @@
       "name": "HRA Exemption Calculator Online",
       "applicationCategory": "FinancialApplication",
       "operatingSystem": "All Modern Web Browsers",
-      "url": "https://rentreceipt.online/hra-calculator.html",
+      "url": "https://www.rentreceipt.online/hra-calculator.html",
       "description": "Calculate statutory HRA tax exemption under Section 10(13A) and Rule 2A of the Income Tax Act.",
+      "image": "https://www.rentreceipt.online/og-image.png",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -32,98 +34,151 @@
       },
       "author": {
         "@type": "Organization",
-        "name": "RentReceipt.online Tax Editorial Desk"
+        "name": "RentReceipt.online Tax Editorial Desk",
+        "url": "https://www.rentreceipt.online/about.html"
       }
     }
     </script>
 
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.75; color: #334155; max-width: 860px; margin: 0 auto; padding: 30px 20px; }
-      h1 { color: #0f172a; font-size: 2.2rem; line-height: 1.25; margin-bottom: 0.5rem; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.75; color: #334155; max-width: 880px; margin: 0 auto; padding: 40px 20px; background: #f8fafc; }
+      .container { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 36px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+      h1 { color: #0f172a; font-size: 2.2rem; line-height: 1.25; margin-top: 0; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
       h2 { color: #1e293b; font-size: 1.45rem; margin-top: 2rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
       h3 { color: #1d4ed8; font-size: 1.15rem; margin-top: 1.25rem; }
       a { color: #2563eb; text-decoration: none; }
       a:hover { text-decoration: underline; }
-      .formula-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 10px; margin: 20px 0; }
+      .formula-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 22px; border-radius: 12px; margin: 20px 0; color: #14532d; font-size: 0.95rem; }
       .cta-card { background: #eff6ff; border: 1px solid #bfdbfe; padding: 24px; border-radius: 12px; margin: 25px 0; text-align: center; }
-      .btn { display: inline-block; background: #2563eb; color: #ffffff; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+      .btn { display: inline-block; background: #2563eb; color: #ffffff; padding: 12px 28px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1.05rem; }
       .btn:hover { background: #1d4ed8; text-decoration: none; }
       ul, ol { padding-left: 24px; }
       li { margin-bottom: 8px; }
       .meta { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
-      table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-      th, td { border: 1px solid #cbd5e1; padding: 10px 12px; text-align: left; }
-      th { background-color: #f1f5f9; font-weight: 600; }
+      .table-box { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+      .table-box th, .table-box td { border: 1px solid #cbd5e1; padding: 10px 14px; text-align: left; }
+      .table-box th { background-color: #f1f5f9; font-weight: 700; color: #0f172a; }
+      .badge { display: inline-block; background: #eff6ff; color: #1e40af; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; border: 1px solid #bfdbfe; margin-bottom: 12px; }
     </style>
   </head>
   <body>
-    <header>
-      <p><a href="/">&larr; Return to RentReceipt.online Home</a></p>
-      <h1>House Rent Allowance (HRA) Exemption Calculator</h1>
-      <p class="meta">Statutory Guide &bull; Section 10(13A) &amp; Rule 2A &bull; Income Tax Act, 1961</p>
+    <header style="margin-bottom: 24px;">
+      <a href="/" style="font-weight: 800; font-size: 1.25rem; color: #0f172a; text-decoration: none;">&larr; RentReceipt.online</a>
     </header>
 
-    <main>
-      <div class="cta-card">
-        <h2>Launch Interactive HRA Calculator</h2>
-        <p>Use our real-time interactive calculation engine with monthly/annual toggle, regime selector, and direct receipt pre-fill:</p>
-        <p><a href="/#hra-calculator" class="btn">Open Interactive HRA Calculator &rarr;</a></p>
+    <div class="container">
+      <span class="badge">Rule 2A Mathematical Engine &bull; Section 10(13A)</span>
+      <h1>HRA Exemption Calculator &amp; Section 10(13A) Tax Engine</h1>
+      <div class="meta">
+        Authored by <strong>RentReceipt.online Tax Editorial Team</strong> &bull; Validated for FY 2025-26 &amp; FY 2026-27 &bull; Last Audited: November 4, 2026
       </div>
 
-      <h2>How HRA Tax Exemption is Calculated</h2>
       <p>
-        House Rent Allowance (HRA) received by salaried employees is exempt from income tax under <strong>Section 10(13A)</strong> read with <strong>Rule 2A</strong> of the Income Tax Rules, 1962. The exempt amount is determined by taking the <strong>lowest</strong> of the following three statutory limits:
+        House Rent Allowance (HRA) is one of the most effective tax-saving allowances provided to salaried employees in India. Under <strong>Section 10(13A) of the Income Tax Act, 1961</strong>, read in conjunction with <strong>Rule 2A of the Income Tax Rules, 1962</strong>, the entire HRA component received from an employer is not automatically tax-free.
+      </p>
+      <p>
+        Instead, the exact exempt portion must be mathematically computed by evaluating three statutory criteria. Any HRA received in excess of the calculated exemption is treated as taxable salary income.
+      </p>
+
+      <div class="cta-card">
+        <h3 style="margin-top: 0; color: #1e40af;">Generate Compliant Stamped Rent Receipts</h3>
+        <p style="color: #475569; margin-bottom: 16px;">Once you determine your exempt HRA, generate clean monthly rent receipts with Landlord PAN and revenue stamp.</p>
+        <a href="/rent-receipt-generator.html" target="_blank" rel="noopener noreferrer" class="btn">Launch Rent Receipt Generator in New Window &rarr;</a>
+      </div>
+
+      <h2>The Three Statutory Criteria Under Rule 2A</h2>
+      <p>
+        Under Rule 2A, the amount of HRA exempt from income tax is the <strong>minimum (least)</strong> of the following three parameters:
       </p>
 
       <div class="formula-box">
-        <h3>The Three Rule 2A Conditions:</h3>
-        <ol>
-          <li><strong>Actual HRA Received:</strong> Total House Rent Allowance received from your employer.</li>
-          <li><strong>Rent Paid &minus; 10% of Salary:</strong> Actual rent paid for residential accommodation, minus 10% of statutory salary (Basic + DA).</li>
-          <li><strong>City Percentage Ceiling:</strong> 50% of statutory salary if situated in Delhi, Mumbai, Kolkata, or Chennai; or 40% of statutory salary in any other city across India.</li>
-        </ol>
+        <strong>Statutory Exemption Formula (Rule 2A):</strong><br />
+        Exempt HRA = <em>MIN</em> of:<br />
+        1. <strong>Actual HRA Received:</strong> Total House Rent Allowance disbursed by the employer during the financial year.<br />
+        2. <strong>City Percentage of Salary:</strong><br />
+        &nbsp;&nbsp;&bull; <strong>50% of Basic Salary + DA:</strong> If the rented residence is in a designated Metro City (Delhi, Mumbai, Kolkata, Chennai).<br />
+        &nbsp;&nbsp;&bull; <strong>40% of Basic Salary + DA:</strong> For all other Indian cities (including Bengaluru, Hyderabad, Pune, Gurugram, Noida, Ahmedabad).<br />
+        3. <strong>Excess Rent Over Base:</strong> Actual rent paid <em>minus</em> 10% of (Basic Salary + DA).
       </div>
 
-      <h2>Old vs New Tax Regime for HRA Claims</h2>
-      <table>
+      <h2>What Constitutes "Salary" for HRA Purposes?</h2>
+      <p>
+        In common corporate parlance, employees often confuse Gross CTC with the statutory definition of "Salary" used for income tax calculations. Under Explanation to Rule 2A, "Salary" for HRA computation is strictly defined as:
+      </p>
+      <ul>
+        <li><strong>Basic Salary:</strong> The core contractual basic wage.</li>
+        <li><strong>Dearness Allowance (DA):</strong> Only to the extent it enters into retirement benefits (pension/gratuity) as per terms of employment.</li>
+        <li><strong>Commission:</strong> Fixed percentage commissions achieved on turnover, if contractually stipulated.</li>
+        <li><em>Excluded:</em> Special allowances, conveyance allowance, medical allowances, performance bonuses, and employer PF contributions are strictly excluded from the HRA salary base.</li>
+      </ul>
+
+      <h2>The Metro vs. Non-Metro Classification Nuance</h2>
+      <p>
+        A frequent misconception among tech employees in Bengaluru, Hyderabad, Gurugram, and Pune is assuming these booming IT hubs qualify for the 50% metro tier. Under Indian income tax law:
+      </p>
+      <ul>
+        <li><strong>Only Four Historic Metros Qualify for 50%:</strong> Greater Mumbai, Delhi (NCT), Kolkata, and Chennai.</li>
+        <li><strong>All Other Cities Are 40%:</strong> Bengaluru, Hyderabad, Pune, Ahmedabad, Gurugram, Noida, Kochi, and Chandigarh fall strictly into the <strong>40% tier</strong>, despite high rental prices.</li>
+      </ul>
+
+      <h2>Step-by-Step Worked Numerical Calculation</h2>
+      <p>
+        Consider Ananya, a software engineer residing in Bengaluru (40% non-metro) with the following annual payroll figures:
+      </p>
+      <ul>
+        <li><strong>Annual Basic Salary:</strong> ₹6,00,000 (₹50,000/month)</li>
+        <li><strong>Annual HRA Received from Employer:</strong> ₹2,40,000 (₹20,000/month)</li>
+        <li><strong>Actual Rent Paid to Landlord:</strong> ₹3,00,000 (₹25,000/month)</li>
+      </ul>
+
+      <p><strong>Applying Rule 2A:</strong></p>
+      <ol>
+        <li><strong>Condition 1 (Actual HRA Received):</strong> ₹2,40,000</li>
+        <li><strong>Condition 2 (40% of Basic Salary):</strong> 40% of ₹6,00,000 = ₹2,40,000</li>
+        <li><strong>Condition 3 (Rent Paid minus 10% of Basic Salary):</strong> ₹3,00,000 &minus; (10% of ₹6,00,000) = ₹3,00,000 &minus; ₹60,000 = <strong>₹2,40,000</strong></li>
+      </ol>
+      <p>
+        The minimum of the three amounts is <strong>₹2,40,000</strong>. Consequently, Ananya's <strong>entire HRA is 100% tax-exempt</strong>! At a 30% tax bracket, this statutory exemption saves her <strong>₹74,880</strong> in net annual income tax.
+      </p>
+
+      <h2>Old Tax Regime vs. New Tax Regime Comparison</h2>
+      <table class="table-box">
         <thead>
           <tr>
-            <th>Tax Parameter</th>
-            <th>Old Tax Regime</th>
+            <th>Tax Aspect</th>
+            <th>Old Tax Regime (Section 10(13A))</th>
             <th>New Tax Regime (Section 115BAC)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>HRA Exemption</strong></td>
-            <td>Eligible under Section 10(13A)</td>
-            <td>Not available (Full HRA is taxable)</td>
+            <td><strong>HRA Tax Exemption</strong></td>
+            <td><strong>ALLOWED:</strong> Fully exempt based on Rule 2A minimum formula.</td>
+            <td><strong>DISALLOWED:</strong> HRA is 100% taxable as part of gross income.</td>
           </tr>
           <tr>
-            <td><strong>Standard Deduction</strong></td>
-            <td>₹50,000</td>
-            <td>₹75,000 (FY 2024-25 onwards)</td>
+            <td><strong>Chapter VI-A (80C, 80D)</strong></td>
+            <td><strong>ALLOWED:</strong> Up to ₹1.5 Lakh under 80C + ₹50,000 for health insurance.</td>
+            <td><strong>DISALLOWED:</strong> No personal 80C or 80D deductions.</td>
           </tr>
           <tr>
-            <td><strong>Section 80C &amp; 80D</strong></td>
-            <td>Allowed (up to ₹1.5L + health)</td>
-            <td>Disallowed</td>
+            <td><strong>Tax Slabs</strong></td>
+            <td>Higher tax rates (5%, 20%, 30%).</td>
+            <td>Lower concessional tax slabs (0%, 5%, 10%, 15%, 20%, 30%).</td>
+          </tr>
+          <tr>
+            <td><strong>Best For Renters</strong></td>
+            <td>Ideal if paying rent exceeding ₹15,000/month with 80C/80D investments.</td>
+            <td>Ideal for zero-rent or low-deduction salaried earners.</td>
           </tr>
         </tbody>
       </table>
 
-      <h2>Related Free Document Generators</h2>
-      <ul>
-        <li><a href="/rent-receipt-generator.html">Rent Receipt Generator &amp; PDF Maker</a></li>
-        <li><a href="/salary-slip-generator.html">Salary Slip &amp; Employee Payslip Creator</a></li>
-        <li><a href="/affidavit-generator.html">Tenancy Affidavit &amp; Self-Declaration Maker</a></li>
-        <li><a href="/form-12bb-guide.html">Form 12BB Statutory Guide &amp; Proof Playbook</a></li>
-        <li><a href="/landlord-pan-handbook.html">Landlord PAN Compliance Mandate Handbook</a></li>
-      </ul>
-    </main>
-
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b;">
-      <p>&copy; 2026 RentReceipt.online. All calculations run client-side with zero data logging.</p>
-    </footer>
+      <div class="cta-card">
+        <h3 style="margin-top: 0; color: #1e40af;">Generate Stamped Rent Receipts in Seconds</h3>
+        <p style="color: #475569; margin-bottom: 16px;">100% free, private in-browser generation with digital signature and QR verification.</p>
+        <a href="/rent-receipt-generator.html" target="_blank" rel="noopener noreferrer" class="btn">Launch Rent Receipt Generator in New Window &rarr;</a>
+      </div>
+    </div>
   </body>
 </html>

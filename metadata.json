@@ -1,6 +1,6 @@
 {
   "name": "Rent Receipt Generator",
-  "description": "Generate and download official, print-ready rent receipts and property rental slips instantly. Supports USD, EUR, GBP, CAD, and INR. 100% free browser-based execution.",
+  "description": "Free online rent receipt generator for HRA tax exemption & tenancy records. Download print-ready PDF receipts with Landlord PAN, 12-month batch, revenue stamps, and multi-currency (USD, EUR, GBP, CAD, INR).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

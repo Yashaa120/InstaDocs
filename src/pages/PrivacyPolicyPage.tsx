@@ -1,7 +1,6 @@
 import React from 'react';
-import { ShieldCheck, Lock, EyeOff, Server, Cookie, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Lock, EyeOff, Server, Cookie, ExternalLink, Mail, CheckCircle } from 'lucide-react';
 import { ActivePage } from '../types';
-import { AdSlot } from '../components/AdSlot';
 
 interface PrivacyPolicyPageProps {
   setActivePage: (page: ActivePage) => void;
@@ -23,153 +22,141 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ setActiveP
           Home
         </a>
         <span>/</span>
-        <span className="text-slate-900">Privacy Policy</span>
+        <span className="text-slate-900 font-semibold">Privacy Policy</span>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-8">
         <div className="border-b border-slate-100 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 mb-3">
             <Lock className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Zero Server Data Retention</span>
+            <span>Zero Server Data Retention Guarantee</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Privacy Policy — Zero Server Data Retention Guarantee
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Privacy Policy
           </h1>
           <p className="text-xs text-slate-500 mt-2 font-mono">
-            Last Updated: September 1, 2026
+            Effective Date: November 4, 2026 &bull; Published by RentReceipt.online
           </p>
         </div>
 
-        <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-6 text-base">
+        <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-6 text-sm sm:text-base">
           <p>
-            At <strong>Rent Receipt Generator</strong> (accessible from our web application), your privacy is our foundational commitment. This Privacy Policy document outlines the types of information handled by our tool and explains our strict zero-data-retention architecture.
+            At <strong>RentReceipt.online</strong> (accessible from <a href="https://www.rentreceipt.online" className="text-blue-600 hover:underline">https://www.rentreceipt.online</a>), protecting the privacy and personal autonomy of our worldwide visitors is our highest priority. This comprehensive Privacy Policy document details the strict client-side architecture governing our utility, our zero-server-storage policies, the operational parameters of third-party advertising partners (including Google AdSense), and your explicit data rights under international data protection laws such as GDPR, CCPA/CPRA, and PIPEDA.
           </p>
 
-          <div className="p-5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-950 space-y-2">
-            <h2 className="text-base font-bold flex items-center gap-2">
+          <div className="p-5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-950 space-y-2.5">
+            <h2 className="text-base font-bold flex items-center gap-2 text-emerald-900">
               <ShieldCheck className="w-5 h-5 text-emerald-700" />
-              <span>Core Privacy Summary</span>
+              <span>Core Privacy Guarantee at a Glance</span>
             </h2>
-            <ul className="list-disc list-inside text-sm space-y-1 text-emerald-900">
-              <li><strong>Zero Form Data Transmitted:</strong> All text inputs (tenant name, landlord name, address, rent amount, PAN) are processed solely in your browser memory.</li>
-              <li><strong>No User Accounts:</strong> We do not ask for registration, login, phone number, or email.</li>
-              <li><strong>No Database Storage:</strong> No databases or cloud storage are attached to this tool. When you refresh or close your browser tab, your session is wiped.</li>
+            <ul className="list-disc list-inside text-xs sm:text-sm space-y-1.5 text-emerald-900">
+              <li><strong>Zero Document Data Transmitted:</strong> All document generation, number-to-words conversions, digital signature signing, and PDF exports occur 100% locally within your device's web browser canvas.</li>
+              <li><strong>No Databases or Cloud Storage:</strong> We do not operate databases storing tenant names, landlord identities, rental property addresses, PAN cards, SSNs, or payment amounts.</li>
+              <li><strong>No User Account or Registration:</strong> You are never asked to create an account, register an email address, or provide phone numbers to use any of our free tools.</li>
+              <li><strong>Instant Tab Purge:</strong> When you reload or close your web browser tab, all entered data is immediately purged from volatile device memory.</li>
             </ul>
           </div>
 
-          <h2 className="text-xl font-bold text-slate-900">
-            1. Information Processed by the Generator Tool
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            1. 100% In-Browser Client-Side Processing Architecture
           </h2>
           <p>
-            When you utilize the rent receipt generator, you enter specific personal and financial details into web form fields, including:
+            Conventional web applications transmit user input across public networks to remote server clusters for processing, database storage, and file generation. RentReceipt.online is architected on a modern <em>zero-backend, client-side streaming model</em>.
           </p>
-          <ul className="list-disc list-inside space-y-1.5 text-slate-700 text-sm">
-            <li>Tenant&apos;s Full Legal Name</li>
-            <li>Landlord&apos;s / Property Owner&apos;s Name</li>
-            <li>Monthly Rent Amount and Payment Mode</li>
-            <li>Rental House or Flat Address</li>
-            <li>Landlord&apos;s Permanent Account Number (PAN)</li>
-            <li>Rent Period Dates</li>
+          <p>
+            When you enter rental data (such as tenant full name, landlord full name, rented property address, monthly rent amount, landlord Permanent Account Number / Taxpayer ID, or payment references), that information stays in your local device RAM. The JavaScript code compiling the document runs locally via client-side libraries (jsPDF and HTML-to-Canvas). The compiled PDF binary is streamed directly from your browser memory to your local file download manager without making an API upload request to any server.
+          </p>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            2. Cookies, Local Storage &amp; Web Beacons
+          </h2>
+          <p>
+            RentReceipt.online does not use first-party tracking cookies to build user profiles or monitor private browsing habits. We may utilize standard browser <code>localStorage</code> solely to remember non-sensitive user interface preferences (such as your preferred active currency, e.g. USD, EUR, GBP, CAD, or INR, or your interface language selection). This preference data never leaves your device and can be cleared at any time through your browser settings.
+          </p>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            3. Google AdSense &amp; Third-Party Advertising Policy
+          </h2>
+          <p>
+            To keep our document generator tools, calculators, and tax compliance guides 100% free for users worldwide without requiring paid subscriptions, we partner with third-party advertising networks, including <strong>Google AdSense</strong>.
+          </p>
+          <ul className="list-disc list-inside space-y-2 pl-2">
+            <li>
+              <strong>Google DART Cookies:</strong> Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.
+            </li>
+            <li>
+              <strong>Personalized Advertising Opt-Out:</strong> Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">www.aboutads.info</a>.
+            </li>
+            <li>
+              <strong>Advertising Placement Integrity:</strong> In strict compliance with Google AdSense Program Policies, advertisements are never served on screens lacking content, within interactive modals, or disguised as tool actions. Ad placements are distinctly isolated with standard "ADVERTISEMENT" labels and generous margins to prevent accidental clicks.
+            </li>
           </ul>
-          <p>
-            <strong>Technical Architecture:</strong> This data is held strictly in temporary client-side JavaScript memory (React state). The PDF rendering engine (jsPDF &amp; html2canvas) constructs the downloadable document directly inside your device&apos;s memory and initiates a local browser download. At no point during this operation is any form data sent across the network or stored on any server.
-          </p>
 
-          <h2 className="text-xl font-bold text-slate-900">
-            2. Web Analytics and Log Files
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            4. Server Log Files &amp; Technical Diagnostics
           </h2>
           <p>
-            Like standard websites, we or our web hosting infrastructure may collect standard, non-personally identifiable log information when you access our site. These logs may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamps, and click counts. This data is used exclusively for analyzing technical trends, administering the site, preventing malicious DDoS traffic, and gathering aggregate demographic data. Log files are not linked to any personally identifiable information entered into the generator.
+            Like virtually all web hosts, our hosting servers automatically log standard network requests when visitors access web pages. The information recorded in log files includes Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, referring/exit pages, and number of clicks. These technical data points are not linked to any personally identifiable information (PII) and are utilized strictly for server health monitoring, DDoS mitigation, and aggregate traffic diagnostics.
           </p>
 
-          <h2 className="text-xl font-bold text-slate-900">
-            3. Cookies and Web Beacons (Google AdSense &amp; Advertising Partners)
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            5. European Union General Data Protection Regulation (GDPR) Compliance
           </h2>
           <p>
-            Our website may partner with third-party advertising networks, such as <strong>Google AdSense</strong>, to serve advertisements when you visit our website. These third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons in their respective advertisements and links that appear on Rent Receipt Generator, which are sent directly to users&apos; browsers.
+            For visitors residing in the European Economic Area (EEA) and the United Kingdom, we adhere strictly to the General Data Protection Regulation (GDPR) and the UK Data Protection Act 2018. Under these regulations, you hold the following statutory rights:
           </p>
+          <ul className="list-disc list-inside space-y-1.5 pl-2">
+            <li><strong>Right of Access:</strong> You have the right to request copies of your personal data. Because we store zero personal data on servers, we hold no user files to furnish.</li>
+            <li><strong>Right to Rectification:</strong> You can edit any details directly inside the in-browser form inputs in real time.</li>
+            <li><strong>Right to Erasure:</strong> Refreshing or closing your browser window instantly purges all inputs from device memory.</li>
+            <li><strong>Right to Restrict or Object to Processing:</strong> You have full control over cookie preferences through your browser settings or consent management banners.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            6. California Consumer Privacy Act (CCPA &amp; CPRA) Notice
+          </h2>
           <p>
-            Google, as a third-party vendor, uses cookies (including the DoubleClick DART cookie) to serve ads to our site visitors based upon their visit to this website and other websites across the internet.
+            For residents of California, the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA) provide specific data rights:
           </p>
+          <ul className="list-disc list-inside space-y-1.5 pl-2">
+            <li><strong>No Sale or Sharing of Personal Information:</strong> RentReceipt.online does not sell, rent, or trade user personal information to data brokers or third parties. We do not monetize personal data.</li>
+            <li><strong>Right to Know &amp; Delete:</strong> As stated, our architecture stores zero personal identifiable information on our infrastructure.</li>
+            <li><strong>Non-Discrimination:</strong> We provide identical, high-speed, 100% free document generation tools to all users regardless of privacy rights exercised.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            7. Children's Online Privacy Protection (COPPA)
+          </h2>
           <p>
-            Users may choose to opt out of the use of the DART cookie or personalized advertising by visiting the Google Ad and Content Network Privacy Policy at the following URL:{' '}
-            <a
-              href="https://policies.google.com/technologies/ads"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline inline-flex items-center gap-1 font-medium"
-            >
-              <span>Google Ads Privacy Policy</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            Another essential part of our commitment is adding protection for children while using the internet. RentReceipt.online provides administrative, tenancy, and tax compliance utilities intended for adult tenants, salaried employees, and property owners. We do not knowingly collect any Personal Identifiable Information from children under the age of 13. If you believe your child provided personal information on our website, please contact us immediately, and we will verify that no such data exists on any database.
           </p>
 
-          {/* Ad Slot */}
-          <div className="my-6">
-            <AdSlot type="banner" />
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            8. Third-Party External Links
+          </h2>
+          <p>
+            Our statutory guides and editorial blog articles contain references and hyperlinks to government portals (such as incometax.gov.in, irs.gov, gov.uk, and cra-arc.gc.ca). If you click on a third-party link, you will be directed to that site. We strongly advise you to review the Privacy Policy of every external website you visit, as we have no control over and assume no responsibility for third-party practices.
+          </p>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            9. Changes to This Privacy Policy
+          </h2>
+          <p>
+            We may update our Privacy Policy periodically to reflect technological enhancements, statutory tax updates, or regulatory revisions. We encourage users to review this page periodically for any updates. Changes are effective immediately upon posting to this URL.
+          </p>
+
+          <h2 className="text-xl font-bold text-slate-900 pt-2">
+            10. Contacting Our Data Privacy Team
+          </h2>
+          <p>
+            If you have questions, feedback, or require clarification regarding our privacy architecture, please contact our administrative desk:
+          </p>
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-1 text-slate-700">
+            <p><strong>Website:</strong> <a href="https://www.rentreceipt.online" className="text-blue-600 hover:underline">https://www.rentreceipt.online</a></p>
+            <p><strong>Primary Support Email:</strong> <a href="mailto:support@rentreceipt.online" className="text-blue-600 hover:underline">support@rentreceipt.online</a></p>
+            <p><strong>Official Postal Inquiries:</strong> RentReceipt.online Editorial Desk, Contact Support, Global Document Suite</p>
+            <p><strong>Average Response Window:</strong> 24 to 48 business hours</p>
           </div>
-
-          <h2 className="text-xl font-bold text-slate-900">
-            4. Third-Party Privacy Policies
-          </h2>
-          <p>
-            Rent Receipt Generator&apos;s Privacy Policy does not apply to other advertisers or websites. Thus, we advise you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
-          </p>
-          <p>
-            You can choose to disable cookies through your individual browser options. Detailed information about cookie management with specific web browsers can be found at the browsers&apos; respective official websites.
-          </p>
-
-          <h2 className="text-xl font-bold text-slate-900">
-            5. Children&apos;s Information
-          </h2>
-          <p>
-            Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Rent Receipt Generator does not knowingly collect any Personal Identifiable Information from children under the age of 13.
-          </p>
-
-          <h2 className="text-xl font-bold text-slate-900">
-            6. Consent, Related Policies &amp; Inquiries
-          </h2>
-          <p>
-            By using our website, you hereby consent to our Privacy Policy and agree to our{' '}
-            <a
-              href="#terms"
-              onClick={(e) => {
-                e.preventDefault();
-                setActivePage('terms');
-              }}
-              className="text-blue-600 font-semibold hover:underline cursor-pointer"
-            >
-              Terms &amp; Conditions
-            </a>
-            . We may update our Privacy Policy periodically to reflect emerging standards. For any questions regarding our client-side zero-storage architecture or data processing, please contact us via our{' '}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                setActivePage('contact');
-              }}
-              className="text-blue-600 font-semibold hover:underline cursor-pointer"
-            >
-              Contact Desk
-            </a>{' '}
-            or read more in our{' '}
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                setActivePage('about');
-              }}
-              className="text-blue-600 font-semibold hover:underline cursor-pointer"
-            >
-              About Page
-            </a>
-            .
-          </p>
-        </div>
-
-        {/* Bottom Ad Slot */}
-        <div className="pt-4">
-          <AdSlot type="pre-footer" />
         </div>
       </div>
     </div>
